@@ -225,7 +225,21 @@
     document.body.style.overflow = 'hidden'
   }
   function closeViewer() { viewer.close() }
-  viewer.addEventListener('close', function () { frame.src = 'about:blank'; document.body.style.overflow = '' })
+  viewer.addEventListener('close', function () {
+    frame.src = 'about:blank'; document.body.style.overflow = ''
+    if (/[?&]site=/.test(location.search)) history.replaceState(null, '', location.pathname + location.hash)
+  })
+  // Direct links: portfolio/?site=<id> opens the portfolio with that site already showing in the viewer.
+  // Opening a site from the grid puts the same link in the address bar, so it can be copied and shared.
+  var openViewerBase = openViewer
+  openViewer = function (w) {
+    openViewerBase(w)
+    try { history.replaceState(null, '', location.pathname + '?site=' + w.id + location.hash) } catch (e) {}
+  }
+  function openFromLink() {
+    var m = location.search.match(/[?&]site=([a-z0-9-]+)/i), w = m && WORK.find(function (x) { return x.id === m[1].toLowerCase() })
+    if (w) openViewer(w)
+  }
   $('#viewer-close').addEventListener('click', closeViewer)
   $$('[data-mode]', viewer).forEach(function (b) { b.addEventListener('click', function () { setMode(b.dataset.mode) }) })
   // Inside the viewer the demo's "back to the portfolio" ribbon closes the viewer instead.
@@ -273,4 +287,5 @@
 
   $('#year').textContent = new Date().getFullYear()
   applyLang()
+  openFromLink()
 })()
