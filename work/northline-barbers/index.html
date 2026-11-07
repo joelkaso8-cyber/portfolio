@@ -4,76 +4,82 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Northline Barbers · Manchester (demo)</title>
-  <meta name="description" content="Demo website by Joel Kaso: a Manchester barber shop with live online booking, prices and gallery." />
+  <meta name="description" content="Demo website by Joel Kaso: a Manchester barber shop with a scroll-driven film, live free slots, 4-step booking, WhatsApp booking and English/Albanian." />
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#14171c" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Northline Barbers · Manchester" />
+  <meta property="og:description" content="Skin fades, beard sculpting and hot-towel shaves. Book a chair in thirty seconds." />
+  <meta property="og:image" content="https://joelkaso8-cyber.github.io/portfolio/work/northline-barbers/media/poster.jpg" />
+  <meta property="og:url" content="https://joelkaso8-cyber.github.io/portfolio/work/northline-barbers/" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="media/poster.jpg" />
+  <link rel="stylesheet" href="film.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2314171c'/%3E%3Ctext x='16' y='23' font-family='Arial Black' font-size='16' text-anchor='middle' fill='%23c9a46a'%3EN%3C/text%3E%3C/svg%3E" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BarberShop","name":"Northline Barbers","description":"Demo barber shop website by Joel Kaso.","address":{"@type":"PostalAddress","streetAddress":"Oldham Street","addressLocality":"Manchester","postalCode":"M1","addressCountry":"GB"},"telephone":"+44 161 496 0000","priceRange":"££"}</script>
 </head>
 <body>
-  <a class="demo-ribbon" href="../../index.html#work">Demo website by Joel Kaso · see the portfolio</a>
-  <header class="nav">
-    <a class="brand" href="#top">NORTHLINE<span>Barbers · Est. 2019</span></a>
+  <a class="demo-ribbon" href="../../index.html#work" data-i18n="ribbon">Demo by Joel Kaso ↗</a>
+  <header class="nav" id="top-bar">
+    <a class="brand" href="#top">NORTHLINE<span data-i18n="brand.sub">Barbers · Est. 2019</span></a>
     <nav class="nav__links" aria-label="Main">
-      <a href="#prices">Prices</a><a href="#team">Barbers</a><a href="#work">Work</a><a href="#find">Find us</a>
+      <a href="#prices" data-i18n="nav.prices">Prices</a><a href="#team" data-i18n="nav.team">Barbers</a><a href="#work" data-i18n="nav.work">Work</a><a href="#find" data-i18n="nav.find">Find us</a>
     </nav>
-    <a class="btn btn--small nav__cta" href="#book">Book now</a>
-    <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+    <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="sq" aria-pressed="false">SQ</button></div>
+    <a class="btn btn--small nav__cta" href="#book" data-i18n="cta.book">Book now</a>
   </header>
-  <div class="mobile-menu" id="mobile-menu" hidden>
-    <a href="#prices">Prices</a><a href="#team">Barbers</a><a href="#work">Work</a><a href="#find">Find us</a><a class="btn" href="#book">Book now</a>
-  </div>
 
   <main id="top">
-    <section class="hero">
-      <div class="hero__text">
-        <p class="eyebrow">Northern Quarter · Manchester</p>
-        <h1>Sharp cuts.<br />No waiting.</h1>
-        <p class="lead">Skin fades, beard sculpting and hot-towel shaves. Pick your barber and your time in thirty seconds, day or night.</p>
-        <div class="hero__actions">
-          <a class="btn" href="#book">Book a chair</a>
-          <a class="btn btn--line" href="#prices">See prices</a>
+    <section class="film" data-src="media/hero.mp4" data-poster="media/poster.jpg" aria-label="Barber shop film">
+      <div class="film__stage">
+        <video muted playsinline preload="none" aria-hidden="true"></video>
+        <div class="film__band" data-a="0" data-b="0.24">
+          <p class="eyebrow" data-i18n="film.eyebrow">Northern Quarter · Manchester</p>
+          <h1>Northline<br /><em data-i18n="film.h1b">Barbers</em></h1>
         </div>
-        <ul class="hero__facts">
-          <li><strong>4.9</strong> sample rating</li>
-          <li><strong>3</strong> barbers</li>
-          <li><strong>7</strong> days a week</li>
-        </ul>
+        <div class="film__band" data-a="0.26" data-b="0.5"><p class="big" data-i18n="film.2">Take a <em>seat.</em></p><p class="small" data-i18n="film.2s">Four leather chairs, coffee on the house, and no one rushing you.</p></div>
+        <div class="film__band" data-a="0.52" data-b="0.76"><p class="big" data-i18n="film.3">Sharp <em>lines.</em></p><p class="small" data-i18n="film.3s">Skin fades blended by hand, beards shaped with a straight razor and a hot towel.</p></div>
+        <div class="film__band" data-a="0.78" data-b="1"><p class="big" data-i18n="film.4">Your <em>chair.</em></p><p class="small" data-i18n="film.4s">Pick your barber and your time in thirty seconds, day or night.</p><a class="btn" href="#book" data-i18n="cta.chair">Book a chair</a></div>
+        <p class="film__cue" data-i18n="scroll">Scroll</p>
+        <div class="film__bar"><i></i></div>
       </div>
-      <figure class="hero__photo">
-        <img src="img/hero-1600.webp" srcset="img/hero-800.webp 800w, img/hero-1600.webp 1600w" sizes="(min-width: 900px) 55vw, 100vw" alt="A barber combs and clips the back of a client's hair" fetchpriority="high" />
-      </figure>
     </section>
 
-    <div class="ticker" aria-hidden="true"><div>SKIN FADE · BEARD SCULPT · HOT TOWEL SHAVE · KIDS CUT · LINE UP · SKIN FADE · BEARD SCULPT · HOT TOWEL SHAVE · KIDS CUT · LINE UP ·&nbsp;</div></div>
+    <div class="ticker" aria-hidden="true"><div data-i18n="ticker">SKIN FADE · BEARD SCULPT · HOT TOWEL SHAVE · KIDS CUT · LINE UP · SKIN FADE · BEARD SCULPT · HOT TOWEL SHAVE · KIDS CUT · LINE UP ·&nbsp;</div></div>
+
+    <section class="facts" aria-label="The shop in numbers">
+      <p class="status" id="open-status"></p>
+      <ul><li><strong>4.9</strong> <span data-i18n="facts.rating">sample rating</span></li><li><strong>3</strong> <span data-i18n="facts.barbers">barbers</span></li><li><strong>7</strong> <span data-i18n="facts.days">days a week</span></li></ul>
+    </section>
 
     <section class="section" id="prices">
-      <div class="head reveal"><h2>Prices</h2><p>Card, cash or Apple Pay. Students get 10% off Monday to Thursday.</p></div>
+      <div class="head reveal"><h2 data-i18n="prices.title">Prices</h2><p data-i18n="prices.lead">Card, cash or Apple Pay. Students get 10% off Monday to Thursday.</p></div>
       <ul class="prices" id="price-list"></ul>
     </section>
 
     <section class="section split">
       <figure class="split__photo reveal"><img src="img/shop-1600.webp" srcset="img/shop-800.webp 800w, img/shop-1600.webp 1600w" sizes="(min-width: 900px) 50vw, 100vw" alt="Barber chairs in a black and white shop" loading="lazy" /></figure>
       <div class="split__text reveal">
-        <p class="eyebrow">The shop</p>
-        <h2>Old-school chairs, modern fades</h2>
-        <p>Four leather chairs, a proper hot-towel steamer and coffee on the house. Walk-ins are welcome when a chair is free; the live board below always shows the next free slot.</p>
+        <p class="eyebrow" data-i18n="shop.eyebrow">The shop</p>
+        <h2 data-i18n="shop.title">Old-school chairs, modern fades</h2>
+        <p data-i18n="shop.text">Four leather chairs, a proper hot-towel steamer and coffee on the house. Walk-ins are welcome when a chair is free; the live board below always shows the next free slot.</p>
       </div>
     </section>
 
     <section class="section" id="team">
-      <div class="head reveal"><h2>Barbers</h2><p>Choose who cuts you, or take the first free chair.</p></div>
+      <div class="head reveal"><h2 data-i18n="team.title">Barbers</h2><p data-i18n="team.lead">Choose who cuts you, or take the first free chair.</p></div>
       <div class="team" id="team-list"></div>
     </section>
 
     <section class="section book" id="book">
-      <div class="head reveal"><h2>Book a chair</h2><p>Live demo: choose a service, a barber, a day and a time.</p></div>
+      <div class="head reveal"><h2 data-i18n="book.title">Book a chair</h2><p data-i18n="book.lead">Choose a service, a barber, a day and a time. Or send it all on WhatsApp.</p></div>
       <div class="booker reveal">
         <ol class="steps" aria-label="Booking steps">
-          <li class="is-on">Service</li><li>Barber</li><li>Time</li><li>Details</li>
+          <li class="is-on" data-i18n="step.1">Service</li><li data-i18n="step.2">Barber</li><li data-i18n="step.3">Time</li><li data-i18n="step.4">Details</li>
         </ol>
         <div class="pane" data-pane="0"><div class="options" id="opt-service"></div></div>
         <div class="pane" data-pane="1" hidden><div class="options" id="opt-barber"></div></div>
@@ -84,47 +90,83 @@
         <form class="pane" data-pane="3" id="details" hidden novalidate>
           <p class="summary" id="summary"></p>
           <div class="row">
-            <label>Name<input name="name" autocomplete="name" required maxlength="80" /></label>
-            <label>Mobile<input name="phone" type="tel" autocomplete="tel" required maxlength="25" placeholder="07…" /></label>
+            <label><span data-i18n="f.name">Name</span><input name="name" autocomplete="name" required maxlength="80" /></label>
+            <label><span data-i18n="f.phone">Mobile / WhatsApp</span><input name="phone" type="tel" autocomplete="tel" required maxlength="25" placeholder="07…" /></label>
           </div>
           <div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
-          <button class="btn" type="submit">Confirm booking</button>
+          <div class="btns">
+            <button class="btn" type="submit" id="confirm" data-i18n="f.confirm">Confirm booking</button>
+            <button class="btn btn--wa" type="button" id="wa-book" data-i18n="f.wa">Book via WhatsApp</button>
+          </div>
         </form>
         <div class="booker__foot">
-          <button class="btn btn--line btn--small" type="button" id="back" hidden>Back</button>
-          <p class="form-status" id="status" role="status"></p>
+          <button class="btn btn--line btn--small" type="button" id="back" hidden data-i18n="back">Back</button>
+          <p class="form-status" id="status" role="status" aria-live="polite"></p>
         </div>
       </div>
     </section>
 
     <section class="section" id="work">
-      <div class="head reveal"><h2>Work</h2><p>Tap to see it bigger.</p></div>
+      <div class="head reveal"><h2 data-i18n="work.title">Work</h2><p data-i18n="work.lead">Tap to see it bigger.</p></div>
       <div class="gallery">
+        <button class="g reveal" data-full="img/hero-1600.webp"><img src="img/hero-800.webp" alt="A barber combs and clips the back of a client's hair" loading="lazy" /></button>
         <button class="g reveal" data-full="img/beard-1600.webp"><img src="img/beard-800.webp" alt="A barber trimming a client's beard" loading="lazy" /></button>
         <button class="g reveal" data-full="img/razor-1600.webp"><img src="img/razor-800.webp" alt="A straight razor, bowl and shaving brush" loading="lazy" /></button>
-        <button class="g reveal" data-full="img/vintage-1600.webp"><img src="img/vintage-800.webp" alt="A vintage barber counter with red chairs" loading="lazy" /></button>
         <button class="g reveal" data-full="img/mirror-1600.webp"><img src="img/mirror-800.webp" alt="A barber at work in front of the mirror" loading="lazy" /></button>
-        <button class="g reveal" data-full="img/corner-1600.webp"><img src="img/corner-800.webp" alt="A corner of an old barber shop with hats and photographs" loading="lazy" /></button>
+        <button class="g reveal" data-full="img/vintage-1600.webp"><img src="img/vintage-800.webp" alt="A vintage barber counter with red chairs" loading="lazy" /></button>
       </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="head reveal"><h2 data-i18n="faq.title">Good to know</h2></div>
+      <div class="faq reveal" id="faq-list"></div>
     </section>
 
     <section class="section find" id="find">
       <div class="reveal">
-        <h2>Find us</h2>
-        <p class="addr">Oldham Street, Manchester M1 · 3 min from Piccadilly Gardens</p>
+        <h2 data-i18n="find.title">Find us</h2>
+        <p class="addr" data-i18n="find.addr">Oldham Street, Manchester M1 · 3 min from Piccadilly Gardens</p>
+        <p class="muted" data-i18n="find.park">Parking: Church Street car park, 2 minutes away. Trams: Market Street.</p>
         <ul class="hours" id="hours"></ul>
-        <p class="contact"><a href="tel:+441614960000">0161 496 0000</a> · <a href="https://wa.me/441619460000" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+        <div class="btns">
+          <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Oldham+Street+Manchester+M1" target="_blank" rel="noopener noreferrer" data-i18n="find.maps">Directions in Google Maps</a>
+          <a class="btn btn--line" href="tel:+441614960000">0161 496 0000</a>
+        </div>
       </div>
-      <div class="map reveal"><iframe title="Map of Oldham Street, Manchester" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Oldham+Street,+Manchester&z=16&output=embed"></iframe></div>
+      <div class="map reveal" id="map">
+        <button type="button" class="map__load" id="map-load"><b data-i18n="map.show">Show the map</b><span data-i18n="map.note">Loads Google Maps, which may set cookies.</span></button>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
     <p class="brand">NORTHLINE<span>Barbers</span></p>
-    <p>A demo website with a made-up shop name, designed and built by Joel Kaso. Bookings here are a working demo and are not sent anywhere.</p>
+    <p data-i18n="foot.demo">A demo website with a made-up shop name, designed and built by Joel Kaso. Bookings here are a working demo and are not sent anywhere.</p>
+    <p class="footer__links">
+      <button type="button" class="linklike" data-open="privacy" data-i18n="legal.privacy">Privacy policy</button>
+      <button type="button" class="linklike" data-open="terms" data-i18n="legal.terms">Terms</button>
+      <button type="button" class="linklike" id="cookie-reopen" data-i18n="legal.cookies">Cookie settings</button>
+    </p>
     <p class="credits" id="credits"></p>
   </footer>
+
+  <nav class="actionbar" aria-label="Quick actions">
+    <a href="https://wa.me/441614960000?text=Hi%20Northline%2C%20I%27d%20like%20to%20book%20a%20cut." target="_blank" rel="noopener noreferrer" data-i18n="bar.wa">WhatsApp</a>
+    <a href="tel:+441614960000" data-i18n="bar.call">Call</a>
+    <a href="#book" class="is-main" data-i18n="bar.book">Book a chair</a>
+  </nav>
+
+  <div class="cookie" id="cookie" role="region" aria-label="Cookies" hidden>
+    <p><span data-i18n="cookie.text">This site uses no tracking. The map is from Google and can set cookies, so it loads only if you allow it.</span> <button type="button" class="linklike" data-open="privacy" data-i18n="legal.more">Read more</button></p>
+    <div class="btns"><button class="btn btn--small" type="button" id="cookie-yes" data-i18n="cookie.yes">Accept</button><button class="btn btn--small btn--line" type="button" id="cookie-no" data-i18n="cookie.no">Decline</button></div>
+  </div>
+
+  <dialog class="modal" id="modal" aria-labelledby="modal-title">
+    <div class="modal__head"><h2 id="modal-title"></h2><button type="button" class="x" id="modal-close" aria-label="Close">×</button></div>
+    <div class="modal__body" id="modal-body"></div>
+  </dialog>
   <dialog class="lightbox" id="lightbox"><img alt="" /><form method="dialog"><button aria-label="Close">×</button></form></dialog>
+  <script src="scrub.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
