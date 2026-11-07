@@ -30,6 +30,7 @@
       <a href="#work" data-i18n="nav.work">Work</a>
       <a href="#services" data-i18n="nav.services">Services</a>
       <a href="#process" data-i18n="nav.process">Process</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
@@ -63,7 +64,7 @@
       <a class="btn" href="#contact" data-i18n="offer.cta">Claim a spot</a>
     </section>
 
-    <section class="marquee" aria-hidden="true"><div>Online booking · WhatsApp · Two languages · Google Maps · Fast on phones · SEO · Online booking · WhatsApp · Two languages · Google Maps · Fast on phones · SEO ·&nbsp;</div></section>
+    <section class="marquee" aria-hidden="true"><div>Online booking · WhatsApp · Two languages · Google Maps · Fast on phones · No monthly fees · Direct hotel bookings · SEO · Online booking · WhatsApp · Two languages · Google Maps · Fast on phones · No monthly fees · Direct hotel bookings · SEO ·&nbsp;</div></section>
 
     <section class="section" id="work">
       <div class="head reveal">
@@ -85,21 +86,24 @@
         <article class="plan reveal">
           <h3 data-i18n="plan1.name">One-page site</h3>
           <p data-i18n="plan1.for">For cafés, barbers and trades that need to be found and contacted.</p>
+          <p class="price"><b>€400</b> <s>€800</s> <small data-i18n="plan.launch">launch price</small></p>
           <ul data-list="plan1.items"></ul>
-          <a class="btn btn--line" href="#contact" data-i18n="plan.ask">Ask for a price</a>
+          <a class="btn btn--line" href="#contact" data-quote="trade" data-i18n="plan.ask">Start with this</a>
         </article>
         <article class="plan plan--main reveal">
           <p class="badge" data-i18n="plan.popular">Most asked for</p>
           <h3 data-i18n="plan2.name">Business site with booking</h3>
           <p data-i18n="plan2.for">For restaurants, salons and clinics that take bookings every day.</p>
+          <p class="price"><b>€400</b> <s>€1,000</s> <small data-i18n="plan.launch">launch price</small></p>
           <ul data-list="plan2.items"></ul>
-          <a class="btn" href="#contact" data-i18n="plan.ask">Ask for a price</a>
+          <a class="btn" href="#contact" data-quote="food" data-i18n="plan.ask">Start with this</a>
         </article>
         <article class="plan reveal">
           <h3 data-i18n="plan3.name">Hotel &amp; guesthouse</h3>
           <p data-i18n="plan3.for">For places that want direct bookings instead of paying commission.</p>
+          <p class="price"><b>€400</b> <s>€1,200</s> <small data-i18n="plan.launch">launch price</small></p>
           <ul data-list="plan3.items"></ul>
-          <a class="btn btn--line" href="#contact" data-i18n="plan.ask">Ask for a price</a>
+          <a class="btn btn--line" href="#contact" data-quote="stay" data-i18n="plan.ask">Start with this</a>
         </article>
       </div>
     </section>
@@ -114,10 +118,34 @@
       </ol>
     </section>
 
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="faq__head reveal">
+        <h2 id="faq-title" data-i18n="faq.title">Common questions</h2>
+        <p data-i18n="faq.lead">Everything you need to know before we start.</p>
+      </div>
+      <div class="faq__list reveal">
+        <details><summary data-i18n="faq.q1">Are there any monthly fees after the site goes live?</summary><p data-i18n="faq.a1">No monthly lock-in with me. You pay once for the design and build, and the website is 100% yours. Your only ongoing cost is your annual domain name (around €10–15/year).</p></details>
+        <details><summary data-i18n="faq.q2">How long does it take from start to finish?</summary><p data-i18n="faq.a2">Most websites go live within 1 to 2 weeks. You will see the first working version on your phone within 7 days of our initial call.</p></details>
+        <details><summary data-i18n="faq.q3">Can I change prices, photos, or menus myself later?</summary><p data-i18n="faq.a3">Yes. When we launch, I send you a short video showing you exactly how to update your text, prices, and photos in minutes—no technical skills needed.</p></details>
+        <details><summary data-i18n="faq.q4">How do bookings and orders reach me?</summary><p data-i18n="faq.a4">However is easiest for you. Requests can go straight to your WhatsApp pre-filled with the customer's details, to your email, or into a booking calendar.</p></details>
+        <details><summary data-i18n="faq.q5">How does payment work?</summary><p data-i18n="faq.a5">50% to start the design, and the remaining 50% only when the website is finished, tested, and ready to go live.</p></details>
+      </div>
+    </section>
+
     <section class="section contact" id="contact">
       <div class="contact__text reveal">
         <h2 data-i18n="contact.title">Let's build yours</h2>
         <p data-i18n="contact.lead">Tell me about your business. I reply within a day, in English or Albanian.</p>
+        <div class="quote" id="quote">
+          <p class="quote__t" data-i18n="q.title">Quick quote</p>
+          <p class="quote__label" id="q-type-l" data-i18n="q.type">Your business</p>
+          <div class="pills" id="q-type" role="radiogroup" aria-labelledby="q-type-l"></div>
+          <p class="quote__label" id="q-need-l" data-i18n="q.need">What you need</p>
+          <div class="pills" id="q-need" role="group" aria-labelledby="q-need-l"></div>
+          <p class="quote__price"><span data-i18n="q.price">Launch price</span> <b>€400</b> <s id="q-usual">€800</s></p>
+          <p class="quote__note" data-i18n="q.note">Everything you pick is included. One payment, no monthly fees.</p>
+          <a class="btn btn--wa" id="q-send" href="https://wa.me/355685727406" target="_blank" rel="noopener noreferrer" data-i18n="q.send">Send on WhatsApp</a>
+        </div>
         <p class="mail"><a href="mailto:joelkaso8@gmail.com">joelkaso8@gmail.com</a></p>
         <p class="phone-links">
           <a class="btn btn--wa" href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%27d%20like%20a%20website." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -149,6 +177,7 @@
         <button type="button" data-mode="desk" aria-pressed="true">Desktop</button>
         <button type="button" data-mode="phone" aria-pressed="false">Phone</button>
       </div>
+      <a class="viewer__want" id="viewer-want" href="#contact" data-i18n="viewer.want">I want a site like this</a>
       <a class="viewer__open" id="viewer-open" href="#" target="_blank" rel="noopener noreferrer" data-i18n="viewer.open">Open in new tab ↗</a>
       <button type="button" class="viewer__close" id="viewer-close" aria-label="Close">×</button>
     </div>

@@ -44,16 +44,22 @@
 
   var T = {
     en: {
-      'nav.work': 'Work', 'nav.services': 'Services', 'nav.process': 'Process', 'nav.contact': 'Contact',
+      'nav.work': 'Work', 'nav.services': 'Services', 'nav.process': 'Process', 'nav.faq': 'FAQ', 'nav.contact': 'Contact',
       'hero.eyebrow': 'Web design & development · Albania → UK, EU, USA', 'hero.t1': 'Websites that', 'hero.t2': 'bring customers in.',
-      'hero.lead': 'I design and build fast, good-looking websites for hotels, restaurants and local businesses, with booking, WhatsApp and two languages built in.',
+      'hero.lead': 'I design and build fast, custom websites for hotels, restaurants and local businesses, with direct booking, WhatsApp and two languages built in.',
+      'plan.launch': 'launch price', 'viewer.want': 'I want a site like this', 'want.msg': "Hi Joel, I'd like a website like {name}.",
+      'q.title': 'Quick quote', 'q.type': 'Your business', 'q.need': 'What you need', 'q.price': 'Launch price', 'q.send': 'Send on WhatsApp',
+      'q.note': 'Everything you pick is included. One payment, no monthly fees.',
+      'q.types': { stay: 'Hotel or guesthouse', food: 'Restaurant or café', beauty: 'Salon or barber', clinic: 'Clinic', trade: 'Trade or other' },
+      'q.needs': { booking: 'Online booking', wa: 'WhatsApp button', menu: 'Menu or price list', langs: 'English and Albanian', gallery: 'Photo gallery', vouchers: 'Gift vouchers', google: 'Google Business Profile' },
+      'q.msg': "Hi Joel, I'd like a quote for my {type}. I need: {needs}.",
       'hero.work': 'See the work', 'hero.quote': 'Get a quote',
       'work.title': 'Selected work', 'work.all': 'All', 'work.stay': 'Hotels', 'work.food': 'Food', 'work.local': 'Local services', 'work.film': 'Scroll film', open: 'Open the site →',
       'services.title': 'What you get', 'services.lead': 'Every site is designed for your business, not a template, and it is yours: no monthly lock-in.',
       'plan1.name': 'One-page site', 'plan1.for': 'For cafés, barbers and trades that need to be found and contacted.',
       'plan2.name': 'Business site with booking', 'plan2.for': 'For restaurants, salons and clinics that take bookings every day.',
       'plan3.name': 'Hotel & guesthouse', 'plan3.for': 'For places that want direct bookings instead of paying commission.',
-      'plan.ask': 'Ask for a price', 'plan.popular': 'Most asked for',
+      'plan.ask': 'Start with this', 'plan.popular': 'Most asked for',
       'plan1.items': ['Designed for phones first', 'WhatsApp and call buttons', 'Google Maps and opening hours', 'Ready in about a week'],
       'plan2.items': ['Everything in the one-page site', 'Online booking with a calendar', 'Menu or price list you can edit', 'Two languages', 'Google listing set up'],
       'plan3.items': ['Rooms, prices and photo slides', 'Direct booking requests to WhatsApp or Telegram', 'Blocked dates you control', 'Guest page with Wi-Fi and tips'],
@@ -65,19 +71,31 @@
       err: { name: 'Write your name.', email: 'Write a full email address.' }, ok: 'Your email app is opening with the message ready. Press send there.',
       subject: 'Website enquiry', 'viewer.open': 'Open in new tab ↗',
       'offer.tag': 'Launch offer', 'offer.t1': 'A full website for', 'offer.cta': 'Claim a spot',
-      'offer.text': 'For my first 10 clients only (usually €800–1,200). Phone and desktop design, booking or orders, WhatsApp, map, two languages and Google setup.',
+      'offer.text': 'For my first 10 clients only (usually €800–1,200). Phone and desktop design, direct booking or orders, WhatsApp, map, two languages and Google Business Profile setup.',
+      'faq.title': 'Common questions', 'faq.lead': 'Everything you need to know before we start.',
+      'faq.q1': 'Are there any monthly fees after the site goes live?', 'faq.a1': 'No monthly lock-in with me. You pay once for the design and build, and the website is 100% yours. Your only ongoing cost is your annual domain name (around €10–15/year).',
+      'faq.q2': 'How long does it take from start to finish?', 'faq.a2': 'Most websites go live within 1 to 2 weeks. You will see the first working version on your phone within 7 days of our initial call.',
+      'faq.q3': 'Can I change prices, photos, or menus myself later?', 'faq.a3': 'Yes. When we launch, I send you a short video showing you exactly how to update your text, prices, and photos in minutes—no technical skills needed.',
+      'faq.q4': 'How do bookings and orders reach me?', 'faq.a4': "However is easiest for you. Requests can go straight to your WhatsApp pre-filled with the customer's details, to your email, or into a booking calendar.",
+      'faq.q5': 'How does payment work?', 'faq.a5': '50% to start the design, and the remaining 50% only when the website is finished, tested, and ready to go live.',
     },
     sq: {
-      'nav.work': 'Punët', 'nav.services': 'Shërbimet', 'nav.process': 'Si punoj', 'nav.contact': 'Kontakt',
+      'nav.work': 'Punët', 'nav.services': 'Shërbimet', 'nav.process': 'Si punoj', 'nav.faq': 'Pyetje', 'nav.contact': 'Kontakt',
+      'plan.launch': 'çmim fillimi', 'viewer.want': 'Dua një faqe si kjo', 'want.msg': 'Përshëndetje Joel, dua një faqe si {name}.',
+      'q.title': 'Ofertë e shpejtë', 'q.type': 'Biznesi yt', 'q.need': 'Çfarë të duhet', 'q.price': 'Çmim fillimi', 'q.send': 'Dërgo në WhatsApp',
+      'q.note': 'Gjithçka që zgjedh përfshihet. Një pagesë, pa pagesa mujore.',
+      'q.types': { stay: 'Hotel ose bujtinë', food: 'Restorant ose kafene', beauty: 'Sallon ose berber', clinic: 'Klinikë', trade: 'Zanat ose tjetër' },
+      'q.needs': { booking: 'Rezervim online', wa: 'Buton WhatsApp', menu: 'Menu ose çmime', langs: 'Anglisht dhe shqip', gallery: 'Galeri fotosh', vouchers: 'Kupona dhuratë', google: 'Profili në Google' },
+      'q.msg': 'Përshëndetje Joel, dua një ofertë për biznesin tim ({type}). Më duhet: {needs}.',
       'hero.eyebrow': 'Dizajn dhe ndërtim websitesh · Shqipëri → Angli, BE, SHBA', 'hero.t1': 'Website që', 'hero.t2': 'sjellin klientë.',
-      'hero.lead': 'Projektoj dhe ndërtoj website të shpejta dhe të bukura për hotele, restorante dhe biznese lokale, me rezervim, WhatsApp dhe dy gjuhë.',
+      'hero.lead': 'Projektoj dhe ndërtoj website të shpejta, të bëra posaçërisht, për hotele, restorante dhe biznese lokale, me rezervim direkt, WhatsApp dhe dy gjuhë.',
       'hero.work': 'Shiko punët', 'hero.quote': 'Kërko ofertë',
       'work.title': 'Punë të zgjedhura', 'work.all': 'Të gjitha', 'work.stay': 'Hotele', 'work.food': 'Ushqim', 'work.local': 'Shërbime lokale', 'work.film': 'Film me scroll', open: 'Hap faqen →',
       'services.title': 'Çfarë merr', 'services.lead': 'Çdo faqe bëhet për biznesin tënd, jo nga shablloni, dhe është e jotja: pa pagesa mujore të detyruara.',
       'plan1.name': 'Faqe me një seksion', 'plan1.for': 'Për kafene, berberë dhe mjeshtër që duan të gjenden dhe të kontaktohen.',
       'plan2.name': 'Faqe biznesi me rezervim', 'plan2.for': 'Për restorante, sallone dhe klinika që marrin rezervime çdo ditë.',
       'plan3.name': 'Hotel dhe guesthouse', 'plan3.for': 'Për vende që duan rezervime direkte në vend të komisioneve.',
-      'plan.ask': 'Pyet për çmimin', 'plan.popular': 'Më e kërkuara',
+      'plan.ask': 'Fillo me këtë', 'plan.popular': 'Më e kërkuara',
       'plan1.items': ['E projektuar fillimisht për telefon', 'Butona WhatsApp dhe telefon', 'Google Maps dhe orari', 'Gati për rreth një javë'],
       'plan2.items': ['Gjithçka nga faqja me një seksion', 'Rezervim online me kalendar', 'Menu ose çmime që i ndryshon vetë', 'Dy gjuhë', 'Profili në Google i rregulluar'],
       'plan3.items': ['Dhoma, çmime dhe foto', 'Kërkesa rezervimi direkt në WhatsApp ose Telegram', 'Data të zëna që i kontrollon vetë', 'Faqe për mysafirët me Wi-Fi dhe këshilla'],
@@ -89,7 +107,13 @@
       err: { name: 'Shkruaj emrin.', email: 'Shkruaj një email të plotë.' }, ok: 'Po hapet aplikacioni i emailit me mesazhin gati. Shtyp Dërgo atje.',
       subject: 'Kërkesë për website', 'viewer.open': 'Hap në skedë të re ↗',
       'offer.tag': 'Ofertë fillimi', 'offer.t1': 'Një website i plotë për', 'offer.cta': 'Rezervo një vend',
-      'offer.text': 'Vetëm për 10 klientët e mi të parë (zakonisht 800–1.200 €). Dizajn për telefon dhe kompjuter, rezervim ose porosi, WhatsApp, hartë, dy gjuhë dhe vendosja në Google.',
+      'offer.text': 'Vetëm për 10 klientët e mi të parë (zakonisht 800–1.200 €). Dizajn për telefon dhe kompjuter, rezervim ose porosi, WhatsApp, hartë, dy gjuhë dhe profili i biznesit në Google.',
+      'faq.title': 'Pyetje të shpeshta', 'faq.lead': 'Gjithçka që duhet të dish para se të fillojmë.',
+      'faq.q1': 'A ka pagesa mujore pasi faqja del online?', 'faq.a1': 'Me mua nuk ka pagesa mujore të detyruara. Paguan një herë për dizajnin dhe ndërtimin, dhe faqja është 100% e jotja. E vetmja kosto e vazhdueshme është domain-i çdo vit (rreth 10–15 € në vit).',
+      'faq.q2': 'Sa zgjat nga fillimi deri në fund?', 'faq.a2': 'Shumica e faqeve dalin online brenda 1 deri 2 javësh. Versionin e parë që funksionon e sheh në telefon brenda 7 ditëve nga telefonata e parë.',
+      'faq.q3': 'A mund t\'i ndryshoj vetë çmimet, fotot ose menunë më vonë?', 'faq.a3': 'Po. Kur e nisim, të dërgoj një video të shkurtër që të tregon saktësisht si t\'i ndryshosh tekstet, çmimet dhe fotot për pak minuta, pa njohuri teknike.',
+      'faq.q4': 'Si më vijnë rezervimet dhe porositë?', 'faq.a4': 'Si të të vijë më lehtë. Kërkesat mund të shkojnë direkt në WhatsApp-in tënd me të dhënat e klientit të plotësuara, në email, ose në një kalendar rezervimesh.',
+      'faq.q5': 'Si bëhet pagesa?', 'faq.a5': '50% për të nisur dizajnin, dhe 50% e mbetur vetëm kur faqja është mbaruar, testuar dhe gati për të dalë online.',
     },
   }
 
@@ -207,9 +231,44 @@
   // Inside the viewer the demo's "back to the portfolio" ribbon closes the viewer instead.
   frame.addEventListener('load', function () {
     try {
-      var ribbon = frame.contentDocument && frame.contentDocument.querySelector('.demo-ribbon')
+      var ribbon = frame.contentDocument && frame.contentDocument.querySelector('.demo-ribbon, .demo-tag')
       if (ribbon) ribbon.addEventListener('click', function (e) { e.preventDefault(); closeViewer() })
     } catch (e) {}
+  })
+
+  // Quick quote: pick a business type and features; the message opens in WhatsApp ready to send.
+  var Q = { type: 'food', needs: ['booking', 'wa', 'langs'] }
+  var USUAL = { stay: 1200, food: 1000, beauty: 1000, clinic: 1000, trade: 800 }
+  function renderQuote() {
+    var types = T[lang]['q.types'], needs = T[lang]['q.needs']
+    var tb = $('#q-type'), nb = $('#q-need'); tb.innerHTML = ''; nb.innerHTML = ''
+    Object.keys(types).forEach(function (k) {
+      var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'radio'); b.textContent = types[k]; b.setAttribute('aria-checked', String(k === Q.type))
+      b.addEventListener('click', function () { Q.type = k; renderQuote() }); tb.appendChild(b)
+    })
+    Object.keys(needs).forEach(function (k) {
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = needs[k]; b.setAttribute('aria-pressed', String(Q.needs.indexOf(k) >= 0))
+      b.addEventListener('click', function () { var i = Q.needs.indexOf(k); if (i >= 0) Q.needs.splice(i, 1); else Q.needs.push(k); renderQuote() }); nb.appendChild(b)
+    })
+    var usual = Q.type === 'trade' && Q.needs.indexOf('booking') >= 0 ? 1000 : USUAL[Q.type]
+    $('#q-usual').textContent = '€' + usual.toLocaleString('en-GB')
+    var list = Object.keys(needs).filter(function (k) { return Q.needs.indexOf(k) >= 0 }).map(function (k) { return needs[k] })
+    var msg = T[lang]['q.msg'].replace('{type}', types[Q.type].toLowerCase()).replace('{needs}', list.length ? list.join(', ') : '—')
+    $('#q-send').href = 'https://wa.me/355685727406?text=' + encodeURIComponent(msg)
+  }
+  // "Start with this" on a plan picks that business type in the quick quote.
+  $$('[data-quote]').forEach(function (a) { a.addEventListener('click', function () { Q.type = a.dataset.quote; renderQuote() }) })
+  var baseApply = applyLang
+  applyLang = function () { baseApply(); renderQuote() }
+
+  // "I want a site like this" in the viewer: closes it and starts the message in the contact form.
+  $('#viewer-want').addEventListener('click', function (e) {
+    e.preventDefault()
+    var name = $('#viewer-title').textContent
+    closeViewer()
+    form.elements.msg.value = T[lang]['want.msg'].replace('{name}', name)
+    $('#contact').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
+    setTimeout(function () { form.elements.name.focus({ preventScroll: true }) }, 500)
   })
 
   $('#year').textContent = new Date().getFullYear()

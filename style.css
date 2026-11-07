@@ -89,6 +89,48 @@ a { color: inherit; }
 .steps li { counter-increment: s; display: grid; gap: 8px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); }
 .steps li::before { content: "0" counter(s); font: italic 400 2.6rem/1 var(--serif); color: var(--sand); }
 .steps b { color: var(--ink); font-size: 1.15rem; }
+/* Plan prices */
+.plan { display: flex; flex-direction: column; }
+.plan ul { flex: 1; }
+.plan .badge { align-self: flex-start; }
+.plan .btn { align-self: flex-start; }
+.price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; margin: 4px 0 2px; }
+.price b { font: 400 2.6rem/1 var(--serif); color: var(--ink); }
+.price s { color: var(--muted); font-size: 1rem; }
+.price small { flex-basis: 100%; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--sand); }
+/* Quick quote */
+.quote { display: grid; gap: 12px; padding: clamp(20px, 3vw, 28px); border-radius: var(--r); background: color-mix(in oklab, var(--sand) 7%, var(--ground-2)); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--sand) 35%, var(--line)); }
+.quote__t { font: italic 400 1.7rem/1 var(--serif); color: var(--ink); }
+.quote__label { margin-top: 4px; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pills button { min-height: 44px; padding: 0 16px; border: 0; border-radius: 999px; background: var(--panel); color: var(--ink-2); font: 500 .92rem var(--sans); cursor: pointer; box-shadow: inset 0 0 0 1px var(--line); transition: background .2s, color .2s; }
+.pills button:hover { color: var(--ink); }
+.pills button[aria-checked="true"], .pills button[aria-pressed="true"] { background: var(--sand); color: var(--sand-ink); box-shadow: none; }
+.pills button:focus-visible, .quote .btn:focus-visible { outline: 2px solid var(--sand-hi); outline-offset: 2px; }
+.quote__price { display: flex; align-items: baseline; gap: 10px; margin-top: 6px; color: var(--ink-2); }
+.quote__price b { font: 400 2.4rem/1 var(--serif); color: var(--ink); }
+.quote__price s { color: var(--muted); }
+.quote__note { color: var(--muted); font-size: .92rem; }
+.quote .btn { justify-self: start; }
+.viewer__want { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 999px; background: var(--sand); color: var(--sand-ink); font-weight: 600; font-size: .88rem; text-decoration: none; white-space: nowrap; }
+.viewer__want:hover { background: var(--sand-hi); }
+@media (max-width: 520px) { .viewer__title { display: none; } .viewer__want { margin-right: auto; } .viewer__close { flex: none; } }
+/* FAQ */
+.faq { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: 32px clamp(32px, 6vw, 96px); align-items: start; }
+.faq__head { position: sticky; top: 110px; }
+.faq__head p { color: var(--muted); margin-top: 14px; max-width: 34ch; }
+.faq__list { border-top: 1px solid var(--line); }
+.faq__list details { border-bottom: 1px solid var(--line); }
+.faq__list summary { display: flex; justify-content: space-between; align-items: center; gap: 20px; min-height: 64px; padding: 18px 0; cursor: pointer; list-style: none; font-size: 1.12rem; color: var(--ink); transition: color .3s; }
+.faq__list summary::-webkit-details-marker { display: none; }
+.faq__list summary::after { content: "+"; flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); color: var(--sand); font-size: 1.3rem; font-weight: 300; transition: transform .4s cubic-bezier(.22, 1, .36, 1), background .3s, border-color .3s; }
+.faq__list summary:hover { color: var(--sand-hi); }
+.faq__list details[open] summary::after { transform: rotate(45deg); background: var(--sand); border-color: var(--sand); color: var(--sand-ink); }
+.faq__list details p { padding: 0 52px 24px 0; color: var(--ink-2); max-width: 62ch; }
+.faq__list details[open] p { animation: faq-in .45s cubic-bezier(.22, 1, .36, 1); }
+@keyframes faq-in { from { opacity: 0; transform: translateY(-6px); } }
+@media (max-width: 860px) { .faq { grid-template-columns: 1fr; } .faq__head { position: static; } .faq__list details p { padding-right: 0; } }
+@media (prefers-reduced-motion: reduce) { .faq__list details[open] p { animation: none; } .faq__list summary::after { transition: none; } }
 
 .contact { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(28px, 5vw, 80px); align-items: start; }
 .contact__text { display: grid; gap: 18px; }
