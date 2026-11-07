@@ -62,7 +62,7 @@ a { color: inherit; }
 .wash { position: relative; display: grid; gap: 16px; align-content: start; padding: 28px; border: 0; border-radius: var(--r); background: var(--ground-2); box-shadow: inset 0 0 0 1px var(--line); color: inherit; font: inherit; text-align: left; cursor: pointer; transition: transform .35s, box-shadow .35s, background .35s; }
 .wash:hover { transform: translateY(-5px); }
 .wash[aria-pressed="true"] { background: var(--panel); box-shadow: inset 0 0 0 2px var(--accent); }
-.wash__tag { position: absolute; top: 20px; right: 20px; padding: 4px 10px; border-radius: 999px; background: var(--wax); color: #1d1606; font-size: .75rem; font-weight: 700; }
+.wash__tag { position: absolute; top: -12px; right: 20px; padding: 4px 10px; border-radius: 999px; background: var(--wax); color: #1d1606; font-size: .75rem; font-weight: 700; }
 .wash__name { font: 800 1.7rem/1 var(--display); letter-spacing: -0.02em; color: var(--ink); }
 .wash__price { font: 800 3rem/1 var(--display); color: var(--ink); }
 .wash__price small { font: 500 .95rem var(--sans); color: var(--muted); }
@@ -160,3 +160,7 @@ input:focus { outline: 2px solid var(--accent); outline-offset: 0; }
   .seg span { padding: 0 8px; font-size: .88rem; }
 }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .wash, .btn, .bars i { transition: none; } }
+
+/* Phones: keep the header on one line. */
+.btn { white-space: nowrap; }
+@media (max-width: 430px) { .top .brand span { display: none; } }

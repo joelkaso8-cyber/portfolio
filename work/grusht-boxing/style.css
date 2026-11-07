@@ -163,3 +163,7 @@ input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 0;
   .seg span { font-size: .85rem; }
 }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .sess { animation: none; } .btn, .gym__photos img { transition: none; } }
+
+/* Phones: keep the header on one line. */
+.btn { white-space: nowrap; }
+@media (max-width: 430px) { .top .brand span { display: none; } }
