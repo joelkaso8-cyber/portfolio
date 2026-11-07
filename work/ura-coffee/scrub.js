@@ -62,18 +62,45 @@
   function onScroll() { target = progress(); if (raf === null && onScreen) raf = requestAnimationFrame(tick) }
 
   // Load the whole clip as a blob: seeking a local blob is instant, seeking a streamed file stutters.
+  // Phones held upright get media/hero-m.mp4 (a portrait centre crop, about a third of the size) when it exists.
+  // A thin line on the stage shows how much has arrived; loading gives up only if nothing arrives for 15 s.
+  var loadBar = document.createElement('div'); loadBar.className = 'film__load'; loadBar.innerHTML = '<i></i>'
+  stage.appendChild(loadBar)
+  var loadFill = loadBar.firstChild
+  function grab(url) {
+    var ctrl = new AbortController(), stall
+    var poke = function () { clearTimeout(stall); stall = setTimeout(function () { ctrl.abort() }, 15000) }
+    poke()
+    return fetch(url, { signal: ctrl.signal }).then(function (r) {
+      if (!r.ok) throw new Error(r.status)
+      var total = Number(r.headers.get('content-length')) || 0
+      if (!r.body || !r.body.getReader) return r.blob().then(function (b) { clearTimeout(stall); return b })
+      if (!total) loadBar.classList.add('is-unknown')
+      var reader = r.body.getReader(), parts = [], got = 0
+      function pump() {
+        return reader.read().then(function (x) {
+          if (x.done) { clearTimeout(stall); return new Blob(parts, { type: 'video/mp4' }) }
+          parts.push(x.value); got += x.value.length; poke()
+          if (total) loadFill.style.transform = 'scaleX(' + Math.min(1, got / total).toFixed(3) + ')'
+          return pump()
+        })
+      }
+      return pump()
+    }, function (e) { clearTimeout(stall); throw e })
+  }
   function load() {
-    var ctrl = new AbortController()
-    var watchdog = setTimeout(function () { ctrl.abort() }, 25000)
-    fetch(film.dataset.src, { signal: ctrl.signal })
-      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.blob() })
+    var src = film.dataset.src
+    var phone = window.matchMedia('(max-width: 760px) and (orientation: portrait)').matches
+    var small = film.dataset.srcPhone || src.replace(/\.mp4$/, '-m.mp4')
+    var first = phone && small !== src ? grab(small).catch(function () { return grab(src) }) : grab(src)
+    first
       .then(function (blob) {
-        clearTimeout(watchdog)
+        loadFill.style.transform = 'scaleX(1)'
         video.src = URL.createObjectURL(blob)
         video.load()
-        video.addEventListener('loadeddata', function () { seek(shown * dur()); stage.classList.add('is-ready') }, { once: true })
+        video.addEventListener('loadeddata', function () { seek(shown * dur()); stage.classList.add('is-ready'); loadBar.classList.add('is-done') }, { once: true })
       })
-      .catch(function () { film.classList.add('film--still') })
+      .catch(function () { film.classList.add('film--still'); loadBar.classList.add('is-done') })
   }
 
   measure(); shown = target = progress(); paint(shown)
@@ -83,5 +110,6 @@
     onScreen = e[0].isIntersecting
     if (onScreen) onScroll(); else if (raf !== null) { cancelAnimationFrame(raf); raf = null; last = 0 }
   }).observe(film)
-  if (document.readyState === 'complete') load(); else window.addEventListener('load', load)
+  // Start at once: the film is the first thing on the page, so it should not wait for images further down.
+  load()
 })()
