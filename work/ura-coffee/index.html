@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Ura Coffee Roasters · Glasgow (demo)</title>
+  <meta name="description" content="Demo website by Joel Kaso: a Glasgow coffee roastery with a scroll-driven espresso film, bean shop, subscription builder and café hours." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#18110d" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="media/poster.jpg" />
+  <link rel="stylesheet" href="film.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%2318110d'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='17' text-anchor='middle' fill='%23d49a64'%3EU%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="demo-ribbon" href="../../index.html#work">Demo by Joel Kaso ↗</a>
+  <header class="top" id="top-bar">
+    <a class="brand" href="#">Ura<span>Coffee Roasters</span></a>
+    <nav class="top__links" aria-label="Main"><a href="#beans">Beans</a><a href="#subscribe">Subscribe</a><a href="#cafe">Café</a><a href="#wholesale">Wholesale</a></nav>
+    <button class="bag-btn" type="button" id="bag-open"><span class="sr">Your bag, items:</span> <span id="bag-count">0</span></button>
+  </header>
+
+  <main>
+    <section class="film" data-src="media/hero.mp4" data-poster="media/poster.jpg" aria-label="Espresso film">
+      <div class="film__stage">
+        <video muted playsinline preload="none" aria-hidden="true"></video>
+        <div class="film__band" data-a="0" data-b="0.24">
+          <p class="eyebrow">Roasted in Glasgow every Tuesday</p>
+          <h1>Ura<br /><em>Coffee Roasters</em></h1>
+        </div>
+        <div class="film__band" data-a="0.26" data-b="0.48"><p class="big">Tamp it <em>level.</em></p><p class="small">18 grams, 15 kilos of pressure, no gaps.</p></div>
+        <div class="film__band" data-a="0.5" data-b="0.74"><p class="big">Let it <em>bloom.</em></p><p class="small">The first drops come through dark and slow.</p></div>
+        <div class="film__band" data-a="0.76" data-b="1"><p class="big">Then it <em>pours.</em></p><p class="small">36 grams in 28 seconds. Every bag on this page is roasted for this moment.</p><a class="btn" href="#beans">Shop the beans</a></div>
+        <p class="film__cue">Scroll</p>
+        <div class="film__bar"><i></i></div>
+      </div>
+    </section>
+
+    <section class="section" id="beans">
+      <div class="head reveal"><h2>This week's beans</h2><p>Roasted Tuesday, posted Wednesday. Free UK delivery over £30.</p></div>
+      <div class="beans" id="bean-list"></div>
+    </section>
+
+    <section class="section sub" id="subscribe">
+      <div class="sub__text reveal">
+        <h2>Never run out</h2>
+        <p>Pick a coffee, a grind and how often. Skip or cancel any time; subscribers save 15%.</p>
+      </div>
+      <form class="card reveal" id="sub-form">
+        <fieldset><legend>Coffee</legend><div class="seg" id="sub-coffee"></div></fieldset>
+        <fieldset><legend>Grind</legend><div class="seg" id="sub-grind"></div></fieldset>
+        <fieldset><legend>Bag</legend><div class="seg seg--2" id="sub-size"></div></fieldset>
+        <fieldset><legend>Every</legend><div class="seg" id="sub-every"></div></fieldset>
+        <p class="sub__price"><span>Per delivery</span><strong id="sub-price">£0</strong><small id="sub-note"></small></p>
+        <button class="btn" type="button" id="sub-go">Start my subscription</button>
+        <p class="form-status" id="sub-status" role="status"></p>
+      </form>
+    </section>
+
+    <section class="section cafe" id="cafe">
+      <figure class="cafe__photo reveal"><img src="media/ending.jpg" alt="Espresso pouring from a bottomless portafilter" loading="lazy" /></figure>
+      <div class="reveal">
+        <h2>The café</h2>
+        <p class="status" id="open-status"></p>
+        <p>Trongate, Merchant City, Glasgow G1 · Espresso, filter, pastries from the bakery next door.</p>
+        <ul class="hours" id="hours"></ul>
+      </div>
+    </section>
+
+    <section class="section wholesale" id="wholesale">
+      <div class="reveal"><h2>Wholesale</h2><p>Cafés, offices and restaurants: we roast to order, train your team and service your machine.</p></div>
+      <form class="card reveal" id="ws-form" novalidate>
+        <div class="row"><label>Name<input name="name" autocomplete="name" required maxlength="80" /></label><label>Business<input name="biz" autocomplete="organization" required maxlength="100" /></label></div>
+        <div class="row"><label>Email<input name="email" type="email" autocomplete="email" required maxlength="120" /></label><label>Kilos a week<input name="kg" type="number" min="1" max="500" value="5" /></label></div>
+        <div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <button class="btn" type="submit">Ask for wholesale prices</button>
+        <p class="form-status" id="ws-status" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="brand">Ura<span>Coffee Roasters</span></p>
+    <p>A demo website with a made-up roastery, designed and built by Joel Kaso. The shop and forms are a working demo; nothing is charged or sent.</p>
+    <p class="credits">Film: "Macro Espresso Process" by Scott Schiller, CC BY 2.0, via Wikimedia Commons.</p>
+  </footer>
+
+  <dialog class="bag" id="bag" aria-labelledby="bag-title">
+    <div class="bag__head"><h2 id="bag-title">Your bag</h2><button type="button" class="x" id="bag-close" aria-label="Close">×</button></div>
+    <ul id="bag-items"></ul>
+    <p class="bag__total"><span>Total</span><b id="bag-total">£0.00</b></p>
+    <p class="bag__ship" id="bag-ship"></p>
+    <button class="btn" type="button" id="bag-pay">Checkout</button>
+    <p class="form-status" id="bag-status" role="status"></p>
+  </dialog>
+  <script src="scrub.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

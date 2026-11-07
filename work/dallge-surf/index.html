@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Dallgë Surf School · Newquay (demo)</title>
+  <meta name="description" content="Demo website by Joel Kaso: a Cornwall surf school with a scroll-driven drone film, tide-aware lesson booking, surf report and board hire." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0b1d22" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="media/poster.jpg" />
+  <link rel="stylesheet" href="film.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b1d22'/%3E%3Cpath d='M4 20c4-6 8-6 12 0s8 6 12 0' fill='none' stroke='%23ff8f6b' stroke-width='3'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="demo-ribbon" href="../../index.html#work">Demo by Joel Kaso ↗</a>
+  <header class="top" id="top-bar">
+    <a class="brand" href="#">DALLGË<span>Surf School</span></a>
+    <nav class="top__links" aria-label="Main"><a href="#lessons">Lessons</a><a href="#report">Surf report</a><a href="#hire">Hire</a><a href="#faq">FAQ</a></nav>
+    <a class="btn btn--small" href="#book">Book</a>
+  </header>
+
+  <main>
+    <section class="film" data-src="media/hero.mp4" data-poster="media/poster.jpg" aria-label="Surf film">
+      <div class="film__stage">
+        <video muted playsinline preload="none" aria-hidden="true"></video>
+        <div class="film__band" data-a="0" data-b="0.24"><p class="eyebrow">Fistral Beach · Newquay · Cornwall</p><h1>Dallgë<br />Surf School</h1></div>
+        <div class="film__band" data-a="0.26" data-b="0.5"><p class="big">Paddle out.</p><p class="small">Two hours, one instructor for every six surfers, wetsuit and board included.</p></div>
+        <div class="film__band" data-a="0.52" data-b="0.76"><p class="big">Pop up.</p><p class="small">Most first-timers stand on their third wave. We'll show you how.</p></div>
+        <div class="film__band" data-a="0.78" data-b="1"><p class="big">Ride it.</p><p class="small">Lessons every day the sea allows, timed to the tide.</p><a class="btn" href="#book">Book a lesson</a></div>
+        <p class="film__cue">Scroll</p>
+        <div class="film__bar"><i></i></div>
+      </div>
+    </section>
+
+    <section class="section" id="lessons">
+      <div class="head reveal"><h2>Lessons</h2><p>All gear included. Free hot showers and a warm hut to change in.</p></div>
+      <div class="lessons" id="lesson-list"></div>
+    </section>
+
+    <section class="section report" id="report">
+      <div class="head reveal"><h2>Surf report</h2><p id="report-day">Fistral Beach</p></div>
+      <div class="gauges reveal" id="gauges"></div>
+      <p class="note reveal">Demo values. A live site pulls these from a surf forecast service every hour.</p>
+    </section>
+
+    <section class="section book" id="book">
+      <div class="book__text reveal">
+        <h2>Book a lesson</h2>
+        <p>We surf the two hours around mid-tide, so lesson times move a little every day. Pick a day to see them.</p>
+      </div>
+      <form class="card reveal" id="book-form" novalidate>
+        <label>Lesson<select name="lesson" id="lesson-select"></select></label>
+        <div class="days" id="days" role="listbox" aria-label="Day"></div>
+        <div class="slots" id="slots" aria-live="polite"></div>
+        <div class="row">
+          <label>People<input name="people" type="number" min="1" max="12" value="2" /></label>
+          <label>Name<input name="name" autocomplete="name" required maxlength="80" /></label>
+        </div>
+        <label>Mobile<input name="phone" type="tel" autocomplete="tel" required maxlength="25" /></label>
+        <p class="total" id="book-total"></p>
+        <div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <button class="btn" type="submit">Book</button>
+        <p class="form-status" id="book-status" role="status"></p>
+      </form>
+    </section>
+
+    <section class="section hire" id="hire">
+      <div class="reveal"><h2>Board &amp; wetsuit hire</h2><p>Already surf? Hire for a few hours or the whole week.</p></div>
+      <form class="card reveal" id="hire-form">
+        <fieldset><legend>Board</legend><div class="seg" id="h-board"></div></fieldset>
+        <fieldset><legend>Wetsuit</legend><div class="seg" id="h-suit"></div></fieldset>
+        <label class="range">Days <output id="h-days-out">1</output><input type="range" name="days" min="1" max="7" value="1" aria-label="Number of days" /></label>
+        <p class="total" id="hire-total"></p>
+      </form>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="head reveal"><h2>Questions</h2></div>
+      <details class="reveal"><summary>Do I need to be a strong swimmer?</summary><p>You need to be comfortable in the sea. Beginner lessons stay in waist-deep water between the lifeguard flags.</p></details>
+      <details class="reveal"><summary>What if the waves are too big or flat?</summary><p>We check at 7 a.m. If it isn't safe or fun, we move you to another day or refund in full.</p></details>
+      <details class="reveal"><summary>From what age?</summary><p>Kids' lessons from 7. Under-16s in adult groups need a parent in the water too.</p></details>
+      <details class="reveal"><summary>Where do we meet?</summary><p>The blue hut at the north end of Fistral Beach, 15 minutes before your lesson. Parking is above the beach.</p></details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="brand">DALLGË<span>Surf School</span></p>
+    <p>A demo website with a made-up surf school, prices and surf data, designed and built by Joel Kaso. Bookings here are a working demo; nothing is sent.</p>
+    <p class="credits">Film: "Christmas Surfing Drone 4K 2015" by eldrone, CC BY 3.0, via Wikimedia Commons.</p>
+  </footer>
+  <script src="scrub.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Vreshta Estate · Paso Robles winery (demo)</title>
+  <meta name="description" content="Demo website by Joel Kaso: a Paso Robles winery with a scroll-driven vineyard flight, tasting bookings, wine shop and wine club." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#1a1510" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Karla:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="media/poster.jpg" />
+  <link rel="stylesheet" href="film.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%231a1510'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-style='italic' font-size='17' text-anchor='middle' fill='%23e0b25c'%3EV%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="demo-ribbon" href="../../index.html#work">Demo by Joel Kaso ↗</a>
+  <header class="top" id="top-bar">
+    <a class="brand" href="#">Vreshta<span>Estate</span></a>
+    <nav class="top__links" aria-label="Main"><a href="#tastings">Tastings</a><a href="#wines">Wines</a><a href="#club">Wine club</a><a href="#visit">Visit</a></nav>
+    <button class="cart-btn" type="button" id="cart-open"><span class="sr">Your cart, bottles:</span> <span id="cart-count">0</span></button>
+  </header>
+
+  <main>
+    <section class="film" data-src="media/hero.mp4" data-poster="media/poster.jpg" aria-label="Vineyard film">
+      <div class="film__stage">
+        <video muted playsinline preload="none" aria-hidden="true"></video>
+        <div class="film__band" data-a="0" data-b="0.24"><p class="eyebrow">Paso Robles · California</p><h1>Vreshta <em>Estate</em></h1></div>
+        <div class="film__band" data-a="0.26" data-b="0.5"><p class="big">Golden <em>hills.</em></p><p class="small">Limestone soil, hot days, cold Pacific nights.</p></div>
+        <div class="film__band" data-a="0.52" data-b="0.76"><p class="big">Old <em>vines.</em></p><p class="small">Forty acres of Grenache, Syrah and Mourvèdre, farmed by one family.</p></div>
+        <div class="film__band" data-a="0.78" data-b="1"><p class="big">One glass <em>at a time.</em></p><p class="small">Taste on the terrace, overlooking the rows you just flew through.</p><a class="btn" href="#tastings">Book a tasting</a></div>
+        <p class="film__cue">Scroll</p>
+        <div class="film__bar"><i></i></div>
+      </div>
+    </section>
+
+    <section class="section" id="tastings">
+      <div class="head reveal"><h2>Tastings</h2><p>Seated, about 75 minutes. Fee waived with a 3-bottle purchase.</p></div>
+      <form class="tasting reveal" id="tasting-form" novalidate>
+        <fieldset class="flights"><legend>Choose a flight</legend><div id="flights"></div></fieldset>
+        <div class="tasting__side">
+          <div class="row"><label>Date<input type="date" name="date" required /></label><label>Guests<input type="number" name="guests" min="1" max="8" value="2" /></label></div>
+          <fieldset><legend>Time</legend><div class="times" id="times"></div></fieldset>
+          <label>Name<input name="name" autocomplete="name" required maxlength="80" /></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required maxlength="120" /></label>
+          <p class="total" id="t-total"></p>
+          <div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+          <button class="btn" type="submit">Reserve</button>
+          <p class="form-status" id="t-status" role="status"></p>
+        </div>
+      </form>
+    </section>
+
+    <section class="section" id="wines">
+      <div class="head reveal"><h2>The wines</h2><p>10% off any 6 bottles. Shipping to most US states.</p></div>
+      <div class="wines" id="wine-list"></div>
+    </section>
+
+    <section class="section" id="club">
+      <div class="head reveal"><h2>Wine club</h2><p>Two shipments a year, first pick of new releases, free tastings for you and three guests.</p></div>
+      <div class="tiers" id="tiers"></div>
+      <p class="form-status" id="club-status" role="status"></p>
+    </section>
+
+    <section class="section visit" id="visit">
+      <div class="reveal">
+        <h2>Visit</h2>
+        <p>Vineyard Drive, Paso Robles, CA 93446 · 10 minutes from downtown.</p>
+        <ul class="hours"><li><span>Thursday to Monday</span><span>11:00–17:00</span></li><li><span>Tuesday, Wednesday</span><span>By appointment</span></li></ul>
+        <p>Dogs welcome on the terrace. No picnics, please: our kitchen does local cheese boards.</p>
+      </div>
+      <div class="map reveal"><iframe title="Map of Vineyard Drive, Paso Robles" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Vineyard+Drive,+Paso+Robles,+CA&z=12&output=embed"></iframe></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="brand">Vreshta<span>Estate</span></p>
+    <p>A demo website with a made-up winery, wines and prices, designed and built by Joel Kaso. Please enjoy wine responsibly. Orders and bookings here are a working demo; nothing is charged or sent.</p>
+    <p class="credits">Film: "Paso Robles Vineyards, Deer and Golden Hills in California, USA as viewed from a FPV drone" by Daniel Peckham, CC BY 3.0, via Wikimedia Commons.</p>
+  </footer>
+
+  <dialog class="gate" id="gate" aria-labelledby="gate-title">
+    <p class="brand">Vreshta<span>Estate</span></p>
+    <h2 id="gate-title">Are you 21 or older?</h2>
+    <p>You must be of legal drinking age to visit this site.</p>
+    <div class="gate__btns"><button class="btn" type="button" id="gate-yes">Yes, I am 21+</button><button class="btn btn--line" type="button" id="gate-no">No</button></div>
+    <p class="form-status" id="gate-status" role="status"></p>
+  </dialog>
+  <dialog class="cart" id="cart" aria-labelledby="cart-title">
+    <div class="cart__head"><h2 id="cart-title">Your cart</h2><button type="button" class="x" id="cart-close" aria-label="Close">×</button></div>
+    <ul id="cart-items"></ul>
+    <dl class="sum"><div><dt>Subtotal</dt><dd id="c-sub">$0</dd></div><div><dt>6-bottle discount</dt><dd id="c-disc">$0</dd></div><div class="grand"><dt>Total</dt><dd id="c-total">$0</dd></div></dl>
+    <label>Ship to state<select id="c-state"><option value="">Choose…</option></select></label>
+    <button class="btn" type="button" id="c-pay">Checkout</button>
+    <p class="form-status" id="c-status" role="status"></p>
+  </dialog>
+  <script src="scrub.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
