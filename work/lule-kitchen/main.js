@@ -1,10 +1,24 @@
-// Lule Balkan Kitchen demo: language switch, menu tabs, live opening status, booking form, gallery.
+// Lule Balkan Kitchen demo: scroll film header, EN/SQ, menu tabs, live opening status, booking (+ WhatsApp), gallery,
+// FAQ, cookie choice (the Google map loads only with consent), privacy/terms.
 ;(function () {
   var $ = function (s, r) { return (r || document).querySelector(s) }
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)) }
 
   var T = {
     en: {
+      ribbon: 'Demo by Joel Kaso ↗', scroll: 'Scroll', 'film.h1b': 'Balkan Kitchen',
+      'film.2': 'Fire <em>first.</em>', 'film.2s': 'The clay oven is lit at seven every morning, before the first tray of byrek goes in.',
+      'film.3': 'Then the <em>grill.</em>', 'film.3s': 'Qofte, lamb and peppers over real wood charcoal, the way it is done back home.',
+      'film.4': 'Then your <em>table.</em>', 'book.wa': 'Book via WhatsApp',
+      'wa.msg': 'Hello Lule, I would like to book a table for {g} on {d} at {t}. Name: {n}. {x}',
+      'faq.title': 'Good to know', 'visit.park': 'Street parking after 6:30pm; Finsbury Park car park is 5 minutes away.', 'visit.maps': 'Directions in Google Maps',
+      'map.show': 'Show the map', 'map.note': 'Loads Google Maps, which may set cookies.',
+      'legal.privacy': 'Privacy policy', 'legal.terms': 'Terms', 'legal.cookies': 'Cookie settings', 'legal.more': 'Read more',
+      'cookie.text': 'This site uses no tracking. The map is from Google and can set cookies, so it loads only if you allow it.', 'cookie.yes': 'Accept', 'cookie.no': 'Decline',
+      'bar.wa': 'WhatsApp', 'bar.call': 'Call', film: 'Film: "Grilled entrecote" by Georges Seguin (Okki), CC BY-SA 4.0, and "Oven 01" by Yurii-mr, CC BY-SA 4.0, via Wikimedia Commons; cut and graded.',
+      faq: [['Do you have vegetarian dishes?', 'Yes: everything marked "veg" on the menu, and we can make most meze vegan.'], ['Can I bring a birthday cake?', 'Of course. Tell us in the booking notes and we keep it in the fridge and bring it out with candles.'], ['Do you take walk-ins?', 'Yes, when a table is free. On Friday and Saturday evenings it is best to book.'], ['How do I pay?', 'Card, Apple Pay, Google Pay or cash. We add no service charge; tips go to the kitchen team.']],
+      privacy: '<p>Demo text for a made-up restaurant.</p><h3>What we collect</h3><p>When you book: your name, mobile number, date, time, number of guests and any notes, used only to manage your booking.</p><h3>Where it goes</h3><p>Bookings reach the restaurant on Telegram and are kept in its Google Sheet for up to 12 months. We never sell your data.</p><h3>Cookies</h3><p>This site stores only your language and cookie choice. The Google map loads only after you allow it.</p><h3>Your rights</h3><p>Under UK GDPR you can ask to see, correct or delete your data: write to the restaurant. You can also contact the ICO (ico.org.uk).</p>',
+      terms: '<p>Demo text for a made-up restaurant.</p><h3>Bookings</h3><p>A request is confirmed when we text you back. We hold the table for 15 minutes.</p><h3>Groups</h3><p>Groups of 10 or more may need a deposit, which we tell you about before confirming.</p><h3>Allergies</h3><p>Our kitchen uses nuts, gluten, dairy and sesame. Tell us about allergies when you book.</p>',
       'nav.menu': 'Menu', 'nav.story': 'Our story', 'nav.gallery': 'Gallery', 'nav.visit': 'Visit', 'nav.book': 'Book a table',
       'hero.eyebrow': 'Green Lanes · North London', 'hero.title': "Grandmother's table, in the middle of London",
       'hero.lead': 'Wood-fired byrek, charcoal grill and slow-baked tavë from the Balkans, made fresh every morning.',
@@ -28,6 +42,19 @@
       ok: function (d) { return 'Thank you, ' + d.name + '! Table for ' + d.guests + ' on ' + d.date + ' at ' + d.time + ' requested. (Demo: on a live site this goes straight to the restaurant.)' },
     },
     sq: {
+      ribbon: 'Demo nga Joel Kaso ↗', scroll: 'Rrëshqit', 'film.h1b': 'Balkan Kitchen',
+      'film.2': 'Në fillim <em>zjarri.</em>', 'film.2s': 'Furra prej balte ndizet në shtatë çdo mëngjes, para se të futet tava e parë me byrek.',
+      'film.3': 'Pastaj <em>zgara.</em>', 'film.3s': 'Qofte, mish qengji dhe speca mbi qymyr druri, si në shtëpi.',
+      'film.4': 'Pastaj <em>tryeza.</em>', 'book.wa': 'Rezervo në WhatsApp',
+      'wa.msg': 'Përshëndetje Lule, dua të rezervoj tavolinë për {g} më {d} në {t}. Emri: {n}. {x}',
+      'faq.title': 'Mirë ta dini', 'visit.park': 'Parkim në rrugë pas orës 18:30; parkimi Finsbury Park është 5 minuta larg.', 'visit.maps': 'Rruga në Google Maps',
+      'map.show': 'Shfaq hartën', 'map.note': 'Hap Google Maps, që mund të vendosë cookies.',
+      'legal.privacy': 'Privatësia', 'legal.terms': 'Kushtet', 'legal.cookies': 'Cookies', 'legal.more': 'Lexo më shumë',
+      'cookie.text': 'Kjo faqe nuk ju ndjek. Harta është e Google dhe mund të vendosë cookies, prandaj hapet vetëm me lejen tuaj.', 'cookie.yes': 'Prano', 'cookie.no': 'Refuzo',
+      'bar.wa': 'WhatsApp', 'bar.call': 'Telefono', film: 'Filmi: "Grilled entrecote" nga Georges Seguin (Okki), CC BY-SA 4.0, dhe "Oven 01" nga Yurii-mr, CC BY-SA 4.0, nga Wikimedia Commons; i prerë dhe i ngjyrosur.',
+      faq: [['Keni pjata vegjetariane?', 'Po: gjithçka me shenjën "vegjetarian" në menu, dhe shumicën e mezeve i bëjmë edhe vegane.'], ['Mund të sjell tortë ditëlindjeje?', 'Sigurisht. Shkruajeni te shënimet e rezervimit; e mbajmë në frigorifer dhe e sjellim me qirinj.'], ['Pranoni pa rezervim?', 'Po, kur ka tavolinë të lirë. Të premten dhe të shtunën në mbrëmje është më mirë të rezervoni.'], ['Si paguaj?', 'Me kartë, Apple Pay, Google Pay ose para në dorë. Nuk shtojmë tarifë shërbimi; bakshishi shkon te kuzhina.']],
+      privacy: '<p>Tekst demo për një restorant të shpikur.</p><h3>Çfarë mbledhim</h3><p>Kur rezervoni: emrin, celularin, datën, orën, numrin e personave dhe shënimet, vetëm për rezervimin.</p><h3>Ku shkojnë</h3><p>Rezervimet i vijnë restorantit në Telegram dhe ruhen deri në 12 muaj. Nuk i shesim kurrë të dhënat.</p><h3>Cookies</h3><p>Faqja ruan vetëm gjuhën dhe zgjedhjen për cookies. Harta e Google hapet vetëm me lejen tuaj.</p><h3>Të drejtat</h3><p>Mund të kërkoni t\'i shihni, ndryshoni ose fshini të dhënat tuaja: shkruajini restorantit.</p>',
+      terms: '<p>Tekst demo për një restorant të shpikur.</p><h3>Rezervimet</h3><p>Kërkesa konfirmohet kur ju kthejmë mesazh. Tavolinën e mbajmë 15 minuta.</p><h3>Grupet</h3><p>Për grupe me 10 veta ose më shumë mund të duhet parapagim, që jua themi para konfirmimit.</p><h3>Alergjitë</h3><p>Në kuzhinë përdorim arra, gluten, qumësht dhe susam. Na tregoni për alergjitë kur rezervoni.</p>',
       'nav.menu': 'Menuja', 'nav.story': 'Historia', 'nav.gallery': 'Galeria', 'nav.visit': 'Na gjeni', 'nav.book': 'Rezervo tavolinë',
       'hero.eyebrow': 'Green Lanes · Londra e Veriut', 'hero.title': 'Tryeza e gjyshes, në mes të Londrës',
       'hero.lead': 'Byrek në furrë me dru, zgarë me qymyr dhe tavë e pjekur ngadalë nga Ballkani, gatuar çdo mëngjes.',
@@ -140,9 +167,10 @@
 
   function applyLang() {
     document.documentElement.lang = lang
-    $$('[data-i18n]').forEach(function (el) { var v = t(el.getAttribute('data-i18n')); if (typeof v === 'string') el.textContent = v })
+    $$('[data-i18n]').forEach(function (el) { var v = t(el.getAttribute('data-i18n')); if (typeof v !== 'string') return; if (/<em>/.test(v)) el.innerHTML = v; else el.textContent = v })
     $$('[data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)) })
-    renderMenu(); renderHours()
+    renderMenu(); renderHours(); renderFaq()
+    $('#credits').textContent = 'Photos from Wikimedia Commons: ' + CREDITS.map(function (c) { return c[0] + ' (' + c[1] + ')' }).join(', ') + '. ' + t('film')
   }
 
   // Language
@@ -205,7 +233,7 @@
     })
     chips.appendChild(b)
   }
-  var clean = function (s, max) { return String(s).replace(/[<>\u0000-\u001f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max) }
+  var clean = function (s, max) { return String(s).replace(/<[^>]*>/g, ' ').replace(/[<>\u0000-\u001f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max) }
   var last = 0
   form.addEventListener('submit', function (e) {
     e.preventDefault()
@@ -220,10 +248,54 @@
     if (!/^\+?[\d\s()-]{7,22}$/.test(data.phone)) return fail('phone', t('err').phone)
     last = Date.now()
     if (form.elements.website.value) { status.className = 'form-status is-ok'; status.textContent = t('ok')(data); return }
+    var sb = $('#book-send'); sb.disabled = true; setTimeout(function () { sb.disabled = false }, 4000)
     status.className = 'form-status is-ok'
     status.textContent = t('ok')(data)
     form.reset(); dateInput.value = todayIso(); fillTimes()
   })
+
+  // Book via WhatsApp: the same details, written out as a message.
+  $('#wa-book').addEventListener('click', function () {
+    var f = function (k, v) { return t('wa.msg').split('{' + k + '}').join(v) }
+    var msg = t('wa.msg').replace('{g}', guests === 8 ? '8+' : guests).replace('{d}', dateInput.value || '-').replace('{t}', form.elements.time.value || '-').replace('{n}', clean(form.elements.name.value, 80) || '-').replace('{x}', clean(form.elements.notes.value, 300))
+    window.open('https://wa.me/442079460000?text=' + encodeURIComponent(msg.trim()), '_blank', 'noopener')
+  })
+
+  // FAQ
+  function renderFaq() {
+    var box = $('#faq-list'); box.innerHTML = ''
+    t('faq').forEach(function (q) { var d = document.createElement('details'); d.innerHTML = '<summary></summary><p></p>'; d.firstChild.textContent = q[0]; d.lastChild.textContent = q[1]; box.appendChild(d) })
+  }
+
+  // Header turns solid after the film.
+  var bar = $('#top-bar'), film = $('.film')
+  function headerState() { bar.classList.toggle('is-solid', window.scrollY > (film.offsetTop + film.offsetHeight - window.innerHeight - 40)) }
+  window.addEventListener('scroll', headerState, { passive: true }); headerState()
+
+  // Cookies: nothing is tracked; the Google map loads only with consent.
+  var store = { get: function (k) { try { return localStorage.getItem(k) } catch (e) { return null } }, set: function (k, v) { try { localStorage.setItem(k, v) } catch (e) {} } }
+  var banner = $('#cookie')
+  function loadMap() { var m = $('#map'); if (m.querySelector('iframe')) return; m.innerHTML = '<iframe title="Map of Green Lanes, London" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Green+Lanes,+London+N4&z=15&output=embed"></iframe>' }
+  function choose(v) { store.set('lule-cookies', v); banner.hidden = true; if (v === 'yes') loadMap() }
+  $('#cookie-yes').addEventListener('click', function () { choose('yes') })
+  $('#cookie-no').addEventListener('click', function () { choose('no') })
+  $('#cookie-reopen').addEventListener('click', function () { banner.hidden = false })
+  $('#map-load').addEventListener('click', function () { choose('yes') })
+  var choice = store.get('lule-cookies')
+  if (choice === 'yes') loadMap()
+  else if (!choice) {
+    var shown = false, showB = function () { if (shown || store.get('lule-cookies')) return; shown = true; banner.hidden = false; window.removeEventListener('scroll', onS) }
+    var onS = function () { if (window.scrollY > film.offsetTop + film.offsetHeight - window.innerHeight) showB() }
+    window.addEventListener('scroll', onS, { passive: true }); setTimeout(showB, 20000)
+  }
+
+  // Privacy and terms
+  var modal = $('#modal')
+  $$('[data-open]').forEach(function (b) {
+    b.addEventListener('click', function () { $('#modal-title').textContent = t(b.dataset.open === 'privacy' ? 'legal.privacy' : 'legal.terms'); $('#modal-body').innerHTML = t(b.dataset.open); modal.showModal() })
+  })
+  $('#modal-close').addEventListener('click', function () { modal.close() })
+  modal.addEventListener('click', function (e) { if (e.target === modal) modal.close() })
 
   // Scroll reveals
   if ('IntersectionObserver' in window) {
@@ -233,7 +305,6 @@
     $$('.reveal').forEach(function (el) { io.observe(el) })
   } else $$('.reveal').forEach(function (el) { el.classList.add('is-in') })
 
-  $('#credits').textContent = 'Photos from Wikimedia Commons: ' + CREDITS.map(function (c) { return c[0] + ' (' + c[1] + ')' }).join(', ') + '.'
   applyLang()
   setInterval(renderHours, 60000)
 })()
