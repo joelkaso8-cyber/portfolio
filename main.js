@@ -50,6 +50,8 @@
       'footer.note': 'Demo sites use made-up business names. Photos on demos: Wikimedia Commons, credited on each site.',
       err: { name: 'Write your name.', email: 'Write a full email address.' }, ok: 'Your email app is opening with the message ready. Press send there.',
       subject: 'Website enquiry', 'viewer.open': 'Open in new tab ↗',
+      'offer.tag': 'Launch offer', 'offer.t1': 'A full website for', 'offer.cta': 'Claim a spot',
+      'offer.text': 'For my first 10 clients only (usually €800–1,200). Phone and desktop design, booking or orders, WhatsApp, map, two languages and Google setup.',
     },
     sq: {
       'nav.work': 'Punët', 'nav.services': 'Shërbimet', 'nav.process': 'Si punoj', 'nav.contact': 'Kontakt',
@@ -72,6 +74,8 @@
       'footer.note': 'Faqet demo kanë emra biznesesh të shpikur. Fotot e demove: Wikimedia Commons, të përmendura në secilën faqe.',
       err: { name: 'Shkruaj emrin.', email: 'Shkruaj një email të plotë.' }, ok: 'Po hapet aplikacioni i emailit me mesazhin gati. Shtyp Dërgo atje.',
       subject: 'Kërkesë për website', 'viewer.open': 'Hap në skedë të re ↗',
+      'offer.tag': 'Ofertë fillimi', 'offer.t1': 'Një website i plotë për', 'offer.cta': 'Rezervo një vend',
+      'offer.text': 'Vetëm për 10 klientët e mi të parë (zakonisht 800–1.200 €). Dizajn për telefon dhe kompjuter, rezervim ose porosi, WhatsApp, hartë, dy gjuhë dhe vendosja në Google.',
     },
   }
 
@@ -90,6 +94,8 @@
         '<div class="item__meta"><h3></h3><span class="tag"></span></div><p class="item__where"></p><ul class="chips"></ul><span class="item__open"></span>'
       var imgs = a.querySelectorAll('img')
       imgs[0].src = 'img/' + w.id + '-desk.webp'; imgs[0].alt = w.name + ', desktop'
+      imgs[0].srcset = 'img/' + w.id + '-desk-600.webp 600w, img/' + w.id + '-desk.webp 1200w'
+      imgs[0].sizes = '(min-width: 900px) 45vw, 92vw'
       imgs[1].src = 'img/' + w.id + '-phone.webp'; imgs[1].alt = w.name + ', phone'
       a.querySelector('h3').textContent = w.name
       var tag = a.querySelector('.tag'); tag.textContent = TAGS[w.tag][lang]; tag.classList.add('tag--' + w.tag)
