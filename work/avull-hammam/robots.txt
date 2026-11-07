@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /guest.html
+Disallow: /reply.html
+
+Sitemap: https://joelkaso8-cyber.github.io/portfolio/work/avull-hammam/sitemap.xml

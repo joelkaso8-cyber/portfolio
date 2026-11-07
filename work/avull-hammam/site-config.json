@@ -1,0 +1,156 @@
+{
+  "business": {
+    "name": "Avull",
+    "type": "DaySpa",
+    "tagline": { "en": "A Turkish bath under a Georgian street.", "sq": "Një hammam turk nën një rrugë xhorxhiane." },
+    "description": { "en": "Hammam and spa in Stockbridge, Edinburgh: steam rooms, scrub and foam rituals, massage and facials. Book online in a minute or message us on WhatsApp.", "sq": "Hammam dhe spa në Stockbridge, Edinburgh: dhoma avulli, rituale me fërkim e shkumë, masazh dhe trajtime fytyre. Rezervo online për një minutë ose na shkruaj në WhatsApp." },
+    "url": "https://joelkaso8-cyber.github.io/portfolio/work/avull-hammam/",
+    "phone": "+44 131 496 0427",
+    "whatsapp": "447700900427",
+    "email": "hello@avull.example",
+    "address": { "street": "St Stephen Street", "city": "Edinburgh", "region": "Stockbridge", "postcode": "EH3 5AL", "country": "GB" },
+    "geo": { "lat": 55.9581, "lng": -3.2072 },
+    "mapsUrl": "https://www.google.com/maps/dir/?api=1&destination=St+Stephen+Street+Stockbridge+Edinburgh",
+    "parking": { "en": "Pay-and-display on St Stephen Street and Hamilton Place. Buses 24, 29 and 42 stop two minutes away.", "sq": "Parkim me pagesë në St Stephen Street dhe Hamilton Place. Autobusët 24, 29 dhe 42 ndalojnë dy minuta larg." },
+    "priceRange": "£££",
+    "currency": "GBP",
+    "timezone": "Europe/London",
+    "languages": ["en", "sq"],
+    "instagram": "https://www.instagram.com/",
+    "facebook": "https://www.facebook.com/"
+  },
+
+  "notice": { "en": "Gift vouchers ordered by 18 December arrive before Christmas.", "sq": "Kuponët dhuratë të porositur deri më 18 dhjetor arrijnë para Krishtlindjeve." },
+
+  "hours": {
+    "mon": ["12:00", "21:00"], "tue": ["10:00", "21:00"], "wed": ["10:00", "21:00"], "thu": ["10:00", "21:00"],
+    "fri": ["10:00", "22:00"], "sat": ["09:00", "22:00"], "sun": ["09:00", "19:00"]
+  },
+
+  "categories": [
+    { "id": "hammam", "name": { "en": "Hammam", "sq": "Hammam" } },
+    { "id": "massage", "name": { "en": "Massage", "sq": "Masazh" } },
+    { "id": "face", "name": { "en": "Face", "sq": "Fytyrë" } },
+    { "id": "two", "name": { "en": "For two", "sq": "Për dy" } }
+  ],
+
+  "services": [
+    { "id": "hammam", "cat": "hammam", "name": { "en": "Hammam ritual", "sq": "Rituali i hammamit" }, "desc": { "en": "Warm room, kese scrub on the marble, a cloud of olive-oil foam, cold rinse and mint tea.", "sq": "Dhoma e ngrohtë, fërkim me kese mbi mermer, shkumë me vaj ulliri, shpëlarje e ftohtë dhe çaj nenexhiku." }, "options": [ { "min": 60, "price": 65 }, { "min": 90, "price": 95 } ], "people": 1, "tag": { "en": "Most booked", "sq": "Më i rezervuari" } },
+    { "id": "signature", "cat": "hammam", "name": { "en": "The Avull signature", "sq": "Firma e Avull" }, "desc": { "en": "The full hammam ritual, then an hour of warm-oil massage on a heated stone table.", "sq": "Rituali i plotë i hammamit, pastaj një orë masazh me vaj të ngrohtë mbi tavolinë guri të ngrohtë." }, "options": [ { "min": 120, "price": 140 } ], "people": 1, "tag": { "en": "Our favourite", "sq": "E preferuara jonë" } },
+    { "id": "deep", "cat": "massage", "name": { "en": "Deep tissue massage", "sq": "Masazh i thellë" }, "desc": { "en": "Slow, firm work on the back, neck and shoulders. Good for desk weeks and long runs.", "sq": "Punë e ngadaltë dhe e fortë në shpinë, qafë dhe shpatulla. E mirë pas javëve në tavolinë dhe vrapimeve të gjata." }, "options": [ { "min": 60, "price": 75 }, { "min": 90, "price": 105 } ], "people": 1 },
+    { "id": "stone", "cat": "massage", "name": { "en": "Hot stone massage", "sq": "Masazh me gurë të nxehtë" }, "desc": { "en": "Smooth basalt stones, warmed to 50°, moved along the whole body until the muscles let go.", "sq": "Gurë bazalti të lëmuar, të ngrohur në 50°, që lëvizin në gjithë trupin derisa muskujt lirohen." }, "options": [ { "min": 75, "price": 90 } ], "people": 1 },
+    { "id": "aroma", "cat": "massage", "name": { "en": "Aromatherapy massage", "sq": "Masazh aromaterapie" }, "desc": { "en": "Light, long strokes with a blend you choose: eucalyptus, lavender or bitter orange.", "sq": "Lëvizje të lehta e të gjata me një përzierje që zgjedh vetë: eukalipt, livando ose portokall i hidhur." }, "options": [ { "min": 60, "price": 70 }, { "min": 90, "price": 98 } ], "people": 1 },
+    { "id": "facial", "cat": "face", "name": { "en": "Steam facial", "sq": "Trajtim fytyre me avull" }, "desc": { "en": "Cleanse, steam, gentle extraction, a clay mask and a face and scalp massage.", "sq": "Pastrim, avull, pastrim i butë i poreve, maskë balte dhe masazh fytyre e koke." }, "options": [ { "min": 60, "price": 72 } ], "people": 1 },
+    { "id": "eyes", "cat": "face", "name": { "en": "Eye and face reset", "sq": "Rifreskim sysh e fytyre" }, "desc": { "en": "Thirty quiet minutes: cool stones on the eyes, lymph massage, rose water.", "sq": "Tridhjetë minuta qetësi: gurë të freskët mbi sy, masazh limfatik, ujë trëndafili." }, "options": [ { "min": 30, "price": 40 } ], "people": 1 },
+    { "id": "couple-hammam", "cat": "two", "name": { "en": "Hammam for two", "sq": "Hammam për dy" }, "desc": { "en": "The hammam ritual side by side in the private dome, with a pot of tea after.", "sq": "Rituali i hammamit krah për krah në kupolën private, me një çajnik çaj pas." }, "options": [ { "min": 90, "price": 180 } ], "people": 2 },
+    { "id": "couple-signature", "cat": "two", "name": { "en": "Signature for two", "sq": "Firma për dy" }, "desc": { "en": "Private dome, two therapists, hammam and massage together. Two and a half hours.", "sq": "Kupolë private, dy terapistë, hammam dhe masazh bashkë. Dy orë e gjysmë." }, "options": [ { "min": 150, "price": 290 } ], "people": 2 }
+  ],
+
+  "quiz": {
+    "questions": [
+      { "id": "feel", "q": { "en": "How does your body feel today?", "sq": "Si ndihet trupi yt sot?" }, "a": [
+        { "id": "tense", "t": { "en": "Tight and knotted", "sq": "I tendosur dhe me nyje" } },
+        { "id": "tired", "t": { "en": "Tired and dull", "sq": "I lodhur dhe pa energji" } },
+        { "id": "busy", "t": { "en": "Fine, but my head won't stop", "sq": "Mirë, por mendja s'ndalon" } }
+      ] },
+      { "id": "time", "q": { "en": "How long can you stay?", "sq": "Sa kohë mund të rrish?" }, "a": [
+        { "id": "short", "t": { "en": "An hour", "sq": "Një orë" } },
+        { "id": "mid", "t": { "en": "About two hours", "sq": "Rreth dy orë" } },
+        { "id": "long", "t": { "en": "The whole afternoon", "sq": "Gjithë pasditen" } }
+      ] },
+      { "id": "who", "q": { "en": "Who's coming?", "sq": "Kush vjen?" }, "a": [
+        { "id": "me", "t": { "en": "Just me", "sq": "Vetëm unë" } },
+        { "id": "two", "t": { "en": "Two of us", "sq": "Ne të dy" } }
+      ] }
+    ],
+    "results": [
+      { "if": { "who": "two", "time": "long" }, "service": "couple-signature" },
+      { "if": { "who": "two" }, "service": "couple-hammam" },
+      { "if": { "time": "long" }, "service": "signature" },
+      { "if": { "feel": "tense", "time": "short" }, "service": "deep" },
+      { "if": { "feel": "tense" }, "service": "stone" },
+      { "if": { "feel": "tired", "time": "short" }, "service": "facial" },
+      { "if": { "feel": "tired" }, "service": "hammam" },
+      { "if": { "feel": "busy", "time": "short" }, "service": "aroma" },
+      { "if": {}, "service": "hammam" }
+    ]
+  },
+
+  "therapists": [
+    { "id": "any", "name": { "en": "No preference", "sq": "Pa preferencë" } },
+    { "id": "f", "name": { "en": "A woman", "sq": "Një grua" } },
+    { "id": "m", "name": { "en": "A man", "sq": "Një burrë" } }
+  ],
+
+  "booking": {
+    "kind": "appointment",
+    "maxGuests": 2,
+    "step": 30,
+    "daysAhead": 42,
+    "deposit": 0.2,
+    "blockedDates": ["2026-12-25", "2026-12-26", "2027-01-01"]
+  },
+
+  "busy": {
+    "mon": [0,0,0,20,30,35,40,55,70,65,40,0,0],
+    "tue": [15,20,25,30,30,35,40,60,75,70,45,0,0],
+    "wed": [15,20,25,30,35,35,45,65,80,70,45,0,0],
+    "thu": [20,25,30,35,35,40,50,70,85,75,50,0,0],
+    "fri": [25,30,35,40,45,50,60,80,95,90,75,50,0],
+    "sat": [35,55,70,85,95,100,95,90,85,80,70,55,35],
+    "sun": [30,50,65,80,90,85,75,60,45,30,0,0,0],
+    "from": 9
+  },
+
+  "memberships": [
+    { "id": "steam", "name": { "en": "Steam", "sq": "Avull" }, "month": 49, "year": 490, "perks": { "en": ["Unlimited steam rooms, weekdays", "10% off every treatment", "Bring a friend once a month"], "sq": ["Dhoma avulli pa limit, ditët e javës", "10% ulje në çdo trajtim", "Sill një shok një herë në muaj"] } },
+    { "id": "ritual", "name": { "en": "Ritual", "sq": "Ritual" }, "month": 89, "year": 890, "featured": true, "perks": { "en": ["Unlimited steam rooms, every day", "One hammam ritual a month", "15% off massage and facials", "Book two weeks before everyone else"], "sq": ["Dhoma avulli pa limit, çdo ditë", "Një ritual hammami në muaj", "15% ulje në masazh dhe fytyrë", "Rezervo dy javë para të tjerëve"] } },
+    { "id": "dome", "name": { "en": "Dome", "sq": "Kupola" }, "month": 159, "year": 1590, "perks": { "en": ["Everything in Ritual", "One signature a month", "Private dome for two, twice a year", "A robe and slippers kept in your name"], "sq": ["Gjithçka te Ritual", "Një Firma në muaj", "Kupolë private për dy, dy herë në vit", "Rrobë banje dhe pantofla me emrin tënd"] } }
+  ],
+
+  "vouchers": { "amounts": [50, 100, 150, 250], "min": 25, "max": 1000, "postage": 4 },
+
+  "reviews": [
+    { "name": "Morag C.", "stars": 5, "when": { "en": "2 weeks ago", "sq": "2 javë më parë" }, "text": { "en": "I've been to hammams in Istanbul and this is the real thing. The scrub alone is worth it, and the tea room after is the quietest place in Edinburgh.", "sq": "Kam qenë në hammame në Stamboll dhe ky është i vërteti. Vetëm fërkimi ia vlen, dhe dhoma e çajit pas është vendi më i qetë në Edinburgh." } },
+    { "name": "Daniel R.", "stars": 5, "when": { "en": "1 month ago", "sq": "1 muaj më parë" }, "text": { "en": "Booked the signature for my partner's birthday. Online booking took a minute, they confirmed on WhatsApp straight away and the whole thing ran like clockwork.", "sq": "Rezervova Firmën për ditëlindjen e partneres. Rezervimi online zgjati një minutë, e konfirmuan menjëherë në WhatsApp dhe gjithçka shkoi në rregull." } },
+    { "name": "Aisha K.", "stars": 5, "when": { "en": "3 weeks ago", "sq": "3 javë më parë" }, "text": { "en": "Hot stone massage with Elif. I fell asleep twice. Lovely, unhurried staff and spotless rooms.", "sq": "Masazh me gurë me Elifin. Më zuri gjumi dy herë. Staf i dashur, pa nxitim, dhe dhoma shumë të pastra." } },
+    { "name": "Tom W.", "stars": 4, "when": { "en": "2 months ago", "sq": "2 muaj më parë" }, "text": { "en": "Saturday afternoon was busy, so go on a weekday evening if you can. The 'quiet times' chart on their site is spot on.", "sq": "E shtuna pasdite ishte plot, ndaj shko një mbrëmje jave nëse mundesh. Grafiku i orëve të qeta në faqen e tyre është shumë i saktë." } },
+    { "name": "Fiona M.", "stars": 5, "when": { "en": "5 days ago", "sq": "5 ditë më parë" }, "text": { "en": "Gave my mum a voucher and she's already booked her second visit. Beautiful printed card too.", "sq": "I dhurova mamit një kupon dhe ajo ka rezervuar tashmë vizitën e dytë. Edhe karta e printuar ishte shumë e bukur." } }
+  ],
+  "rating": { "score": 4.9, "count": 1240 },
+
+  "faq": [
+    { "q": { "en": "What do I wear in the hammam?", "sq": "Çfarë vesh në hammam?" }, "a": { "en": "Swimwear, or the disposable set we give you. Robe, towels, slippers and a peştamal wrap are all included.", "sq": "Rroba banje, ose setin njëpërdorimësh që ju japim. Rroba banje, peshqirët, pantoflat dhe peshtamalli përfshihen." } },
+    { "q": { "en": "How early should I arrive?", "sq": "Sa herët duhet të vij?" }, "a": { "en": "Fifteen minutes before your time, so you can change and warm up. If you're late we still finish on time for the next guest.", "sq": "Pesëmbëdhjetë minuta para orës, që të ndërrohesh dhe të ngrohesh. Nëse vonohesh, mbarojmë prapë në kohë për klientin tjetër." } },
+    { "q": { "en": "Can I come if I'm pregnant?", "sq": "A mund të vij nëse jam shtatzënë?" }, "a": { "en": "After 12 weeks, yes, for massage and facials. We skip the hot rooms. Tick the box when you book and we'll plan around it.", "sq": "Pas javës së 12, po, për masazh dhe fytyrë. Dhomat e nxehta i shmangim. Shëno kutinë kur rezervon dhe e planifikojmë." } },
+    { "q": { "en": "What's your cancellation policy?", "sq": "Si funksionon anulimi?" }, "a": { "en": "Free up to 24 hours before. After that we keep the 20% deposit. Vouchers are valid for 12 months.", "sq": "Falas deri 24 orë përpara. Pas kësaj mbajmë parapagimin 20%. Kuponët vlejnë 12 muaj." } },
+    { "q": { "en": "Is it women only?", "sq": "Është vetëm për gra?" }, "a": { "en": "Tuesday and Thursday mornings until 14:00 are women only. Every other time is mixed, and the private dome is always yours alone.", "sq": "E marta dhe e enjtja në mëngjes deri në 14:00 janë vetëm për gra. Në kohët e tjera është e përzier, dhe kupola private është gjithmonë vetëm për ty." } },
+    { "q": { "en": "Do you have step-free access?", "sq": "A keni hyrje pa shkallë?" }, "a": { "en": "Yes, a lift from the street to the baths. Call us and we'll keep the accessible changing room free.", "sq": "Po, ashensor nga rruga deri te banjat. Na telefono dhe e mbajmë të lirë dhomën e përshtatur." } }
+  ],
+
+  "guest": {
+    "wifiName": "Avull-Guest",
+    "wifiPassword": "slowsteam45",
+    "notes": [
+      { "en": "Phones stay in the lockers past the tea room, please.", "sq": "Telefonat lërini në dollapë pas dhomës së çajit, ju lutem." },
+      { "en": "Drink water between rooms. Jugs are by every bench.", "sq": "Pi ujë mes dhomave. Ka kana pranë çdo stoli." }
+    ],
+    "places": [
+      { "name": "Royal Botanic Garden", "url": "https://www.google.com/maps/search/?api=1&query=Royal+Botanic+Garden+Edinburgh", "tip": { "en": "Ten minutes on foot. Free entry to the garden.", "sq": "Dhjetë minuta në këmbë. Hyrja në kopsht falas." } },
+      { "name": "Water of Leith Walkway", "url": "https://www.google.com/maps/search/?api=1&query=Water+of+Leith+Walkway+Stockbridge", "tip": { "en": "A quiet river walk to Dean Village.", "sq": "Një shëtitje e qetë buzë lumit deri në Dean Village." } }
+    ]
+  },
+
+  "legal": {
+    "owner": "Avull Baths Ltd",
+    "companyNumber": "",
+    "privacyEmail": "hello@avull.example",
+    "updated": "2026-11-07"
+  },
+
+  "analytics": { "ga4": "" },
+
+  "theme": { "ground": "#12110c", "accent": "#d7a65f", "accentInk": "#1a1206" },
+
+  "credits": "Film: \"Lighting and blowing of a candle (slow motion)\" by Giles Laurent, CC BY-SA 4.0. Photographs via Wikimedia Commons: Alaaddin Hamamı, Avanos (hot room and dome) by DiliyaKhazigalievaGul, CC BY-SA 4.0; spa rooms at Amantaka by Basile Morin, CC BY-SA 4.0; Turkish bath dome by sailko, CC BY-SA 3.0; hammam interior by Vinat, CC BY-SA 4.0; Saxe-Coburg Place, Stockbridge by Drnoble, CC BY-SA 4.0. Cut, re-graded and re-encoded."
+}

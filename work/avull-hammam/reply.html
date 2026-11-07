@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Opening your email app…</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="center">
+    <h1>Opening email…</h1>
+    <p id="msg">If nothing happens, tap the button.</p>
+    <a class="btn" id="go" href="#">Open email</a>
+  </main>
+  <script>
+    // Used by the Telegram "Reply by email" button (Telegram buttons cannot open mailto: links directly).
+    ;(function () {
+      var p = new URLSearchParams(location.hash.slice(1)), to = p.get('to') || ''
+      if (!/^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]{2,}$/.test(to)) { document.getElementById('msg').textContent = 'This link is incomplete.'; document.getElementById('go').hidden = true; return }
+      var href = 'mailto:' + encodeURIComponent(to) + '?subject=' + encodeURIComponent((p.get('subject') || '').slice(0, 200)) + '&body=' + encodeURIComponent((p.get('body') || '').slice(0, 2000))
+      document.getElementById('go').href = href
+      location.href = href
+    })()
+  </script>
+</body>
+</html>
