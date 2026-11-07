@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Shkumë Car Wash · Sterling Heights, Michigan (demo)</title>
+  <meta name="description" content="Demo website by Joel Kaso: a Michigan car wash with a scroll-driven drive-through film, wash menu priced by vehicle, detail booking and an unlimited-club calculator." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0d1317" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="media/poster.jpg" />
+  <link rel="stylesheet" href="film.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230d1317'/%3E%3Ccircle cx='11' cy='13' r='4' fill='%238db8d6'/%3E%3Ccircle cx='20' cy='19' r='6' fill='none' stroke='%238db8d6' stroke-width='2'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="demo-ribbon" href="../../index.html#work">Demo by Joel Kaso ↗</a>
+  <header class="top" id="top-bar">
+    <a class="brand" href="#">Shkumë<span>Car Wash</span></a>
+    <nav class="top__links" aria-label="Main"><a href="#washes">Washes</a><a href="#club">Unlimited</a><a href="#detail">Detailing</a><a href="#visit">Visit</a></nav>
+    <a class="btn btn--sm" href="#detail">Book a detail</a>
+  </header>
+
+  <main>
+    <section class="film" data-src="media/hero.mp4" data-poster="media/poster.jpg" aria-label="Drive-through wash film">
+      <div class="film__stage">
+        <video muted playsinline preload="none" aria-hidden="true"></video>
+        <div class="film__band" data-a="0" data-b="0.24">
+          <p class="eyebrow">Sterling Heights, Michigan · open 7 days</p>
+          <h1>Shkumë<br /><em>Car Wash</em></h1>
+        </div>
+        <div class="film__band" data-a="0.26" data-b="0.5"><p class="big">Foam <em>first.</em></p><p class="small">A warm pre-soak lifts road salt and grit before anything touches the paint.</p></div>
+        <div class="film__band" data-a="0.52" data-b="0.76"><p class="big">Soft cloth, <em>no grit.</em></p><p class="small">Closed-cell foam brushes, rinsed clean between every car. Then wax, then a spot-free rinse.</p></div>
+        <div class="film__band" data-a="0.78" data-b="1"><p class="big">Drive out <em>spotless.</em></p><p class="small">Three minutes, free vacuums, and a dry car on a Michigan winter day.</p><a class="btn" href="#washes">See the washes</a></div>
+        <p class="film__cue">Scroll</p>
+        <div class="film__bar"><i></i></div>
+      </div>
+    </section>
+
+    <div class="live" aria-live="polite">
+      <p class="status" id="open-status"></p>
+      <p id="wait"></p>
+      <p class="live__hint">Tunnel washes are drive-up. No booking needed.</p>
+    </div>
+
+    <section class="section" id="washes">
+      <div class="head reveal">
+        <h2>Pick your wash</h2>
+        <div class="seg seg--3 size" id="size" role="radiogroup" aria-label="Vehicle size"></div>
+      </div>
+      <div class="washes" id="wash-list"></div>
+      <div class="addons card reveal">
+        <div><h3>Add-ons</h3><p class="muted">Ticked items are added at the pay station.</p></div>
+        <div class="addons__list" id="addons"></div>
+        <p class="total"><span>Your wash</span><strong id="w-total">$0</strong><small id="w-note"></small></p>
+      </div>
+    </section>
+
+    <section class="section split" id="club">
+      <div class="split__text reveal">
+        <h2>Unlimited Club</h2>
+        <p>Wash as often as you like for one monthly price. A tag on your windshield opens the express lane. Cancel any time, online.</p>
+        <figure class="photo"><img src="media/wax.jpg" alt="Inside the wash tunnel, polish and wax arches ahead" loading="lazy" width="1280" height="720" /></figure>
+      </div>
+      <div class="card reveal" id="club-card">
+        <fieldset><legend>Plan</legend><div class="seg seg--3" id="club-plan"></div></fieldset>
+        <label class="slide">Washes a month <output id="club-n">4</output><input type="range" id="club-range" min="1" max="12" value="4" /></label>
+        <div class="compare">
+          <p><span>Pay per wash</span><b id="c-pay">$0</b></p>
+          <p class="is-club"><span>Unlimited Club</span><b id="c-club">$0</b></p>
+        </div>
+        <div class="bars" aria-hidden="true"><i id="bar-pay"></i><i id="bar-club"></i></div>
+        <p class="verdict" id="c-verdict"></p>
+        <label class="check"><input type="checkbox" id="club-family" /> Add a second car <small>−$10 on that car</small></label>
+        <button class="btn" type="button" id="club-go">Join the club</button>
+        <p class="form-status" id="club-status" role="status"></p>
+      </div>
+    </section>
+
+    <section class="section split split--rev" id="detail">
+      <div class="split__text reveal">
+        <h2>Hand detailing</h2>
+        <p>By appointment, inside our heated bay. Pick a service, a day and a time; we text you when it is ready.</p>
+        <figure class="photo"><img src="media/brush.jpg" alt="Soft cloth brushes passing over the windshield" loading="lazy" width="1280" height="720" /></figure>
+      </div>
+      <form class="card reveal" id="book-form" novalidate>
+        <fieldset><legend>Service</legend><div class="services" id="services"></div></fieldset>
+        <fieldset><legend>Day</legend><div class="dates" id="dates"></div></fieldset>
+        <fieldset><legend>Time</legend><div class="slots" id="slots"></div></fieldset>
+        <div class="row"><label>Name<input name="name" autocomplete="name" required maxlength="80" /></label><label>Mobile<input name="phone" type="tel" autocomplete="tel" required maxlength="20" /></label></div>
+        <div class="row"><label>Car<input name="car" placeholder="e.g. 2019 Ford Escape" maxlength="60" /></label><label>Plate<input name="plate" maxlength="10" autocapitalize="characters" /></label></div>
+        <div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <p class="summary" id="b-summary"></p>
+        <button class="btn" type="submit">Book it</button>
+        <p class="form-status" id="book-status" role="status"></p>
+      </form>
+    </section>
+
+    <section class="section visit" id="visit">
+      <figure class="visit__photo reveal"><img src="media/ending.jpg" alt="Driving out of the wash into daylight" loading="lazy" width="1280" height="720" /></figure>
+      <div class="reveal">
+        <h2>Visit</h2>
+        <p>Van Dyke Avenue at 15 Mile Road, Sterling Heights, MI 48312. Free vacuums, mat cleaners and air for your tires.</p>
+        <ul class="hours" id="hours"></ul>
+        <a class="btn btn--ghost" href="https://www.google.com/maps/dir/?api=1&destination=Van+Dyke+Ave+and+15+Mile+Rd+Sterling+Heights+MI" target="_blank" rel="noopener noreferrer">Directions ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="brand">Shkumë<span>Car Wash</span></p>
+    <p>A demo website with a made-up car wash, designed and built by Joel Kaso. Prices, bookings and the club are a working demo; nothing is charged or sent.</p>
+    <p class="credits">Film: "Timelapse-wasstraat van Slingelandtstraat" by Milliped, CC BY-SA 4.0, via Wikimedia Commons. Trimmed and re-encoded.</p>
+  </footer>
+  <script src="scrub.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

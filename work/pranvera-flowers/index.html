@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Pranvera Flowers · Clifton, Bristol (demo)</title>
+  <meta name="description" content="Demo website by Joel Kaso: a Bristol flower studio with a scroll-driven blooming rose film, a bouquet builder with live preview, same-day delivery checker and workshop booking." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0b0c0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="media/poster.jpg" />
+  <link rel="stylesheet" href="film.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%230b0c0a'/%3E%3Ccircle cx='16' cy='14' r='6' fill='%23d9a3bb'/%3E%3Cpath d='M16 20v7M16 24c-3 0-5-2-5-4' stroke='%2393ad7f' stroke-width='2' fill='none'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="demo-ribbon" href="../../index.html#work">Demo by Joel Kaso ↗</a>
+  <header class="top" id="top-bar">
+    <a class="brand" href="#">Pranvera<span>Flowers</span></a>
+    <nav class="top__links" aria-label="Main"><a href="#build">Build a bouquet</a><a href="#shop">Shop</a><a href="#delivery">Delivery</a><a href="#workshops">Workshops</a></nav>
+    <button class="bag-btn" type="button" id="bag-open"><span class="sr">Your basket, items:</span> <span id="bag-count">0</span></button>
+  </header>
+
+  <main>
+    <section class="film" data-src="media/hero.mp4" data-poster="media/poster.jpg" aria-label="Rose opening film">
+      <div class="film__stage">
+        <video muted playsinline preload="none" aria-hidden="true"></video>
+        <div class="film__band" data-a="0" data-b="0.24">
+          <p class="eyebrow">Flower studio · Clifton, Bristol</p>
+          <h1>Pranvera<br /><em>Flowers</em></h1>
+        </div>
+        <div class="film__band" data-a="0.26" data-b="0.5"><p class="big">Cut this <em>morning.</em></p><p class="small">From growers in Somerset and Cornwall, never weeks in a cold store.</p></div>
+        <div class="film__band" data-a="0.52" data-b="0.76"><p class="big">Sent in <em>bud.</em></p><p class="small">So it opens in the vase, on the table, in front of the person you love. Not in the van.</p></div>
+        <div class="film__band" data-a="0.78" data-b="1"><p class="big">Then it <em>opens.</em></p><p class="small">Same-day delivery across Bristol when you order by 1pm.</p><a class="btn" href="#build">Build a bouquet</a></div>
+        <p class="film__cue">Scroll</p>
+        <div class="film__bar"><i></i></div>
+      </div>
+    </section>
+
+    <div class="cutoff" aria-live="polite"><p id="cutoff"></p></div>
+
+    <section class="section build" id="build">
+      <div class="build__preview reveal">
+        <svg id="posy" viewBox="-110 -110 220 220" role="img" aria-label="Preview of your bouquet"></svg>
+        <p class="build__count" id="b-count"></p>
+      </div>
+      <form class="card reveal" id="build-form">
+        <div><h2>Build a bouquet</h2><p class="muted">Pick your stems; we add the greenery and tie it by hand.</p></div>
+        <ul class="stems" id="stems"></ul>
+        <fieldset><legend>Wrap</legend><div class="seg" id="wrap"></div></fieldset>
+        <p class="price"><span>Your bouquet</span><strong id="b-price">£0</strong><small id="b-note"></small></p>
+        <div class="build__btns"><button class="btn" type="button" id="b-add">Add to basket</button><button class="btn btn--ghost" type="button" id="b-clear">Start again</button></div>
+        <p class="form-status" id="b-status" role="status"></p>
+      </form>
+    </section>
+
+    <section class="section" id="shop">
+      <div class="head reveal"><h2>Ready to send</h2><p>Made fresh every morning. Each comes with a handwritten card.</p></div>
+      <div class="shop" id="shop-list"></div>
+    </section>
+
+    <section class="section split" id="delivery">
+      <div class="split__text reveal">
+        <h2>Will it get there <em>today?</em></h2>
+        <p>Type the postcode it is going to.</p>
+        <form class="pc" id="pc-form" novalidate>
+          <label class="sr" for="pc">Postcode</label>
+          <input id="pc" name="pc" placeholder="e.g. BS8 4AA" autocomplete="postal-code" maxlength="9" autocapitalize="characters" />
+          <button class="btn" type="submit">Check</button>
+        </form>
+        <p class="pc__out" id="pc-out" role="status"></p>
+      </div>
+      <ul class="zones reveal">
+        <li><b>Central Bristol</b><span>BS1 to BS16</span><em>Same day by 6pm · £6</em></li>
+        <li><b>Greater Bristol</b><span>BS20 to BS41, BS48, BS49</span><em>Same day by 8pm · £9</em></li>
+        <li><b>Rest of the UK</b><span>Tracked courier, in a gift box</span><em>Next day · £8.95</em></li>
+      </ul>
+    </section>
+
+    <section class="section split split--rev" id="workshops">
+      <div class="split__text reveal">
+        <h2>Workshops</h2>
+        <p>Two hours, a glass of something, and you take home what you make. All flowers and tools included.</p>
+        <figure class="photo"><img src="media/half.jpg" alt="A pink rose half open against black" loading="lazy" width="1280" height="720" /></figure>
+      </div>
+      <ul class="ws reveal" id="ws-list"></ul>
+    </section>
+
+    <section class="section studio" id="studio">
+      <figure class="studio__photo reveal"><img src="media/ending.jpg" alt="A fully open pink rose" loading="lazy" width="1280" height="720" /></figure>
+      <div class="reveal">
+        <h2>The studio</h2>
+        <p class="status" id="open-status"></p>
+        <p>The Mall, Clifton Village, Bristol BS8. Come in, smell everything, leave with an armful.</p>
+        <ul class="hours" id="hours"></ul>
+        <a class="btn btn--ghost" href="https://www.google.com/maps/dir/?api=1&destination=The+Mall+Clifton+Bristol+BS8" target="_blank" rel="noopener noreferrer">Directions ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="brand">Pranvera<span>Flowers</span></p>
+    <p>A demo website with a made-up flower studio, designed and built by Joel Kaso. The shop, delivery check and workshop booking are a working demo; nothing is charged or sent.</p>
+    <p class="credits">Film: "Time-lapse of opening red rose isolated on black background. Blooming red roses flower buds" by Alex Tr, CC BY 3.0, via Wikimedia Commons. Colours softened.</p>
+  </footer>
+
+  <dialog class="bag" id="bag" aria-labelledby="bag-title">
+    <div class="bag__head"><h2 id="bag-title">Your basket</h2><button type="button" class="x" id="bag-close" aria-label="Close">×</button></div>
+    <ul id="bag-items"></ul>
+    <label>Delivery day<input type="date" id="bag-date" /></label>
+    <label>Card message <small id="msg-left">160 left</small><textarea id="bag-msg" maxlength="160" rows="3" placeholder="Happy birthday, Mum. Love, A."></textarea></label>
+    <p class="bag__total"><span>Total</span><b id="bag-total">£0.00</b></p>
+    <button class="btn" type="button" id="bag-pay">Checkout</button>
+    <p class="form-status" id="bag-status" role="status"></p>
+  </dialog>
+  <script src="scrub.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

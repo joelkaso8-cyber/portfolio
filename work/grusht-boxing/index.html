@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Grusht Boxing Club · Hackney, London (demo)</title>
+  <meta name="description" content="Demo website by Joel Kaso: an East London boxing club with a scroll-driven training film, class timetable with booking, a round timer and a membership calculator." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#121110" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="media/poster.jpg" />
+  <link rel="stylesheet" href="film.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23121110'/%3E%3Ctext x='16' y='24' font-family='Impact,Arial' font-size='20' text-anchor='middle' fill='%23c9a35f'%3EG%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="demo-ribbon" href="../../index.html#work">Demo by Joel Kaso ↗</a>
+  <header class="top" id="top-bar">
+    <a class="brand" href="#">Grusht<span>Boxing Club</span></a>
+    <nav class="top__links" aria-label="Main"><a href="#classes">Classes</a><a href="#timer">Round timer</a><a href="#join">Membership</a><a href="#gym">The gym</a></nav>
+    <a class="btn btn--sm" href="#trial">Free class</a>
+  </header>
+
+  <main>
+    <section class="film" data-src="media/hero.mp4" data-poster="media/poster.jpg" aria-label="Training film">
+      <div class="film__stage">
+        <video muted playsinline preload="none" aria-hidden="true"></video>
+        <div class="film__band" data-a="0" data-b="0.24">
+          <p class="eyebrow">Hackney, East London · since 2014</p>
+          <h1>Grusht<br /><em>Boxing Club</em></h1>
+        </div>
+        <div class="film__band" data-a="0.26" data-b="0.5"><p class="big">Hands <em>up.</em></p><p class="small">Chin down, guard high. Every class starts here, whether it is your first or your five-hundredth.</p></div>
+        <div class="film__band" data-a="0.52" data-b="0.76"><p class="big">Find the <em>rhythm.</em></p><p class="small">Three rounds on the speed bag and your hands start to listen.</p></div>
+        <div class="film__band" data-a="0.78" data-b="1"><p class="big">Keep <em>moving.</em></p><p class="small">Rope, footwork, conditioning. Your first class is on us.</p><a class="btn" href="#trial">Book a free class</a></div>
+        <p class="film__cue">Scroll</p>
+        <div class="film__bar"><i></i></div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="The club in numbers">
+      <div class="stat reveal"><b data-count="1200">0</b><span>members</span></div>
+      <div class="stat reveal"><b data-count="38">0</b><span>classes a week</span></div>
+      <div class="stat reveal"><b data-count="4">0</b><span>coaches, all ex-fighters</span></div>
+      <div class="stat reveal"><b data-count="9">0</b><span>London amateur titles</span></div>
+    </section>
+
+    <section class="section" id="classes">
+      <div class="head reveal">
+        <h2>This week's classes</h2>
+        <p>Pick a day, pick a class, book a spot. Gloves and wraps to borrow at the desk.</p>
+      </div>
+      <div class="days reveal" id="days" role="tablist" aria-label="Day of the week"></div>
+      <div class="chips reveal" id="levels" role="group" aria-label="Filter by type"></div>
+      <ul class="sessions" id="sessions" aria-live="polite"></ul>
+      <p class="mine" id="mine"></p>
+    </section>
+
+    <section class="section split" id="timer">
+      <div class="split__text reveal">
+        <h2>Round timer</h2>
+        <p>Train at home between classes. Same bell, same rhythm as the gym: set your rounds and press start.</p>
+        <figure class="photo"><img src="media/speed.jpg" alt="Boxer working the speed bag under a single lamp" loading="lazy" width="1280" height="910" /></figure>
+      </div>
+      <div class="card timer reveal" id="timer-card">
+        <p class="timer__phase" id="t-phase">Ready</p>
+        <p class="timer__clock" id="t-clock" aria-live="off">3:00</p>
+        <p class="timer__round" id="t-round">Round 1 of 6</p>
+        <div class="timer__track"><i id="t-bar"></i></div>
+        <div class="row3">
+          <label>Rounds<select id="t-rounds"><option>3</option><option>4</option><option selected>6</option><option>8</option><option>10</option><option>12</option></select></label>
+          <label>Round<select id="t-work"><option value="120">2 min</option><option value="180" selected>3 min</option><option value="300">5 min</option></select></label>
+          <label>Rest<select id="t-rest"><option value="30">30 s</option><option value="60" selected>1 min</option><option value="90">90 s</option></select></label>
+        </div>
+        <div class="timer__btns">
+          <button class="btn" type="button" id="t-go">Start</button>
+          <button class="btn btn--ghost" type="button" id="t-reset">Reset</button>
+          <label class="check"><input type="checkbox" id="t-sound" checked /> Bell sound</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split split--rev" id="join">
+      <div class="split__text reveal">
+        <h2>Membership</h2>
+        <p>No joining fee, no 12-month trap. Pause any time for injury or holidays.</p>
+        <ul class="ticks"><li>Open gym 6am to 10pm</li><li>Showers, lockers and towels</li><li>Free kit check with a coach every month</li></ul>
+      </div>
+      <form class="card reveal" id="plan-form">
+        <fieldset><legend>Classes a week</legend><div class="seg" id="p-classes"></div></fieldset>
+        <fieldset><legend>Commitment</legend><div class="seg" id="p-term"></div></fieldset>
+        <fieldset><legend>Extras</legend>
+          <label class="check"><input type="checkbox" name="pt" /> 2 personal sessions a month <small>+£70</small></label>
+          <label class="check"><input type="checkbox" name="kit" /> Starter kit: gloves, wraps, rope <small>£45 once</small></label>
+          <label class="check"><input type="checkbox" name="student" /> Student or NHS card <small>−15%</small></label>
+        </fieldset>
+        <p class="price"><span>Per month</span><strong id="p-price">£0</strong><small id="p-note"></small></p>
+        <a class="btn" href="#trial" id="p-go">Try a class first</a>
+      </form>
+    </section>
+
+    <section class="section" id="gym">
+      <div class="gym">
+        <div class="gym__photos reveal">
+          <figure><img src="media/bag.jpg" alt="Boxer throwing a hook in the dark gym" loading="lazy" width="1280" height="910" /></figure>
+          <figure><img src="media/rope.jpg" alt="Boxer skipping rope" loading="lazy" width="1280" height="910" /></figure>
+        </div>
+        <div class="gym__info reveal">
+          <h2>The gym</h2>
+          <p class="status" id="open-status"></p>
+          <p>Arch 214, Mare Street, Hackney, London E8. Two minutes from Hackney Central.</p>
+          <ul class="hours" id="hours"></ul>
+          <a class="btn btn--ghost" href="https://www.google.com/maps/dir/?api=1&destination=Mare+Street+Hackney+London+E8" target="_blank" rel="noopener noreferrer">Directions ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split" id="trial">
+      <div class="split__text reveal">
+        <h2>Your first class is free</h2>
+        <p>Tell us a little about you and we will save you a spot. No experience needed; most members had never thrown a punch.</p>
+      </div>
+      <form class="card reveal" id="trial-form" novalidate>
+        <div class="row"><label>Name<input name="name" autocomplete="name" required maxlength="80" /></label><label>Phone<input name="phone" type="tel" autocomplete="tel" required maxlength="20" /></label></div>
+        <label>Email<input name="email" type="email" autocomplete="email" required maxlength="120" /></label>
+        <div class="row">
+          <label>Class<select name="cls" id="trial-cls"></select></label>
+          <label>Experience<select name="exp"><option>Never boxed</option><option>Some training</option><option>Competed before</option></select></label>
+        </div>
+        <div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <button class="btn" type="submit">Save my spot</button>
+        <p class="form-status" id="trial-status" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="brand">Grusht<span>Boxing Club</span></p>
+    <p>A demo website with a made-up boxing club, designed and built by Joel Kaso. Bookings and forms are a working demo; nothing is sent.</p>
+    <p class="credits">Film: "Boxer Pekka Kokkonen training" by Yle Archives (Elävä arkisto), CC BY 3.0, via Wikimedia Commons. Cut, cropped and sped up.</p>
+  </footer>
+  <script src="scrub.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
