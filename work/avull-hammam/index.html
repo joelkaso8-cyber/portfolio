@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src 'self' https://www.google.com https://www.youtube-nocookie.com https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https: mailto:">
+<meta name="referrer" content="strict-origin-when-cross-origin">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <!-- seo:start (written by setup.mjs from site-config.json) -->
@@ -27,9 +29,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="gfonts/gf-0b770dee.css" rel="stylesheet" />
   <link rel="preload" as="image" href="media/poster.jpg" />
   <link rel="stylesheet" href="film.css" />
   <link rel="stylesheet" href="style.css" />
@@ -366,7 +366,8 @@
       <p class="credits" data-fill="credits"></p>
       <p class="credits"><span data-i18n="madeby">Website by</span> <a href="https://joelkaso8-cyber.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Joel Kaso</a></p>
     </div>
-  </footer>
+  <p class="kit-legal" style="margin:1.25rem 0 0;font-size:.8rem;opacity:.7;text-align:center;width:100%"><a href="privacy.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacy policy</a></p>
+</footer>
 
   <a class="demo-tag" href="https://joelkaso8-cyber.github.io/portfolio/" target="_blank" rel="noopener noreferrer" data-i18n="demo" hidden>Demo by Joel Kaso</a>
 
@@ -398,5 +399,6 @@
   <script src="scrub.js"></script>
   <script src="i18n.js"></script>
   <script src="app.js"></script>
+<script src="form-guard.js" defer></script>
 </body>
 </html>

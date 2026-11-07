@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src 'self' https://www.google.com https://www.youtube-nocookie.com https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https: mailto:">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vjosa Rafting Getaway · Europe's Last Wild River in Përmet, Albania</title>
@@ -17,10 +19,7 @@
 <!-- High Priority Hero Preloads: the exact poster main.js paints for each screen shape -->
 <link rel="preload" as="image" fetchpriority="high" media="(min-aspect-ratio: 1/1) and (pointer: fine) and (prefers-reduced-motion: no-preference), (min-aspect-ratio: 1/1) and (min-height: 561px) and (prefers-reduced-motion: no-preference)" href="assets/hero-poster.jpg">
 <link rel="preload" as="image" fetchpriority="high" media="(max-aspect-ratio: 1/1) and (prefers-reduced-motion: no-preference)" href="assets/hero-poster-m.jpg">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Hanken+Grotesk:wght@400;600&family=Martian+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="gfonts/gf-deb83567.css">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -445,8 +444,10 @@
     </ul>
   </div>
   <p class="disclose">Vjosa Rafting Getaway is based in Përmet, Albania. Tours, guides, and river adventures are 100% real. Pictures and video on this page are AI illustrations.</p>
+<p class="kit-legal" style="margin:1.25rem 0 0;font-size:.8rem;opacity:.7;text-align:center;width:100%"><a href="privacy.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacy policy</a></p>
 </footer>
 
 <script src="assets/main.js" defer></script>
+<script src="form-guard.js" defer></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src 'self' https://www.google.com https://www.youtube-nocookie.com https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https: mailto:">
+<meta name="referrer" content="strict-origin-when-cross-origin">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Lule · Balkan Kitchen, London (demo)</title>
@@ -13,9 +15,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#1f1915" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="gfonts/gf-b12b547c.css" rel="stylesheet" />
   <link rel="preload" as="image" href="media/poster.jpg" />
   <link rel="stylesheet" href="film.css" />
   <link rel="stylesheet" href="style.css" />
@@ -183,7 +183,8 @@
       <button type="button" class="linklike" id="cookie-reopen" data-i18n="legal.cookies">Cookie settings</button>
     </p>
     <p class="credits" id="credits"></p>
-  </footer>
+  <p class="kit-legal" style="margin:1.25rem 0 0;font-size:.8rem;opacity:.7;text-align:center;width:100%"><a href="privacy.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacy policy</a></p>
+</footer>
 
   <nav class="actionbar" aria-label="Quick actions">
     <a href="https://wa.me/442079460000?text=Hello%20Lule%2C%20I%20would%20like%20to%20book%20a%20table." target="_blank" rel="noopener noreferrer" data-i18n="bar.wa">WhatsApp</a>
@@ -204,5 +205,6 @@
   <dialog class="lightbox" id="lightbox"><img alt="" /><form method="dialog"><button aria-label="Close">×</button></form></dialog>
   <script src="scrub.js"></script>
   <script src="main.js"></script>
+<script src="form-guard.js" defer></script>
 </body>
 </html>

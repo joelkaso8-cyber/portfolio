@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src 'self' https://www.google.com https://www.youtube-nocookie.com https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https: mailto:">
+<meta name="referrer" content="strict-origin-when-cross-origin">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Grusht Boxing Club · Hackney, London (demo)</title>
   <meta name="description" content="Demo website by Joel Kaso: an East London boxing club with a scroll-driven training film, class timetable with booking, a round timer and a membership calculator." />
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#121110" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="gfonts/gf-e03d3542.css" rel="stylesheet" />
   <link rel="preload" as="image" href="media/poster.jpg" />
   <link rel="stylesheet" href="film.css" />
   <link rel="stylesheet" href="style.css" />
@@ -139,8 +139,10 @@
     <p class="brand">Grusht<span>Boxing Club</span></p>
     <p>A demo website with a made-up boxing club, designed and built by Joel Kaso. Bookings and forms are a working demo; nothing is sent.</p>
     <p class="credits">Film: "Boxer Pekka Kokkonen training" by Yle Archives (Elävä arkisto), CC BY 3.0, via Wikimedia Commons. Cut, cropped and sped up.</p>
-  </footer>
+  <p class="kit-legal" style="margin:1.25rem 0 0;font-size:.8rem;opacity:.7;text-align:center;width:100%"><a href="privacy.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacy policy</a></p>
+</footer>
   <script src="scrub.js"></script>
   <script src="main.js"></script>
+<script src="form-guard.js" defer></script>
 </body>
 </html>

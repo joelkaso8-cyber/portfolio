@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src 'self' https://www.google.com https://www.youtube-nocookie.com https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https: mailto:">
+<meta name="referrer" content="strict-origin-when-cross-origin">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Vreshta Estate · Paso Robles winery (demo)</title>
   <meta name="description" content="Demo website by Joel Kaso: a Paso Robles winery with a scroll-driven vineyard flight, tasting bookings, wine shop and wine club." />
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#1a1510" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Karla:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="gfonts/gf-2d5d6030.css" rel="stylesheet" />
   <link rel="preload" as="image" href="media/poster.jpg" />
   <link rel="stylesheet" href="film.css" />
   <link rel="stylesheet" href="style.css" />
@@ -79,7 +79,8 @@
     <p class="brand">Vreshta<span>Estate</span></p>
     <p>A demo website with a made-up winery, wines and prices, designed and built by Joel Kaso. Please enjoy wine responsibly. Orders and bookings here are a working demo; nothing is charged or sent.</p>
     <p class="credits">Film: "Paso Robles Vineyards, Deer and Golden Hills in California, USA as viewed from a FPV drone" by Daniel Peckham, CC BY 3.0, via Wikimedia Commons.</p>
-  </footer>
+  <p class="kit-legal" style="margin:1.25rem 0 0;font-size:.8rem;opacity:.7;text-align:center;width:100%"><a href="privacy.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacy policy</a></p>
+</footer>
 
   <dialog class="gate" id="gate" aria-labelledby="gate-title">
     <p class="brand">Vreshta<span>Estate</span></p>
@@ -98,5 +99,6 @@
   </dialog>
   <script src="scrub.js"></script>
   <script src="main.js"></script>
+<script src="form-guard.js" defer></script>
 </body>
 </html>

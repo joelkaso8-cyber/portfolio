@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src 'self' https://www.google.com https://www.youtube-nocookie.com https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https: mailto:">
+<meta name="referrer" content="strict-origin-when-cross-origin">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Pranvera Flowers · Clifton, Bristol (demo)</title>
   <meta name="description" content="Demo website by Joel Kaso: a Bristol flower studio with a scroll-driven blooming rose film, a bouquet builder with live preview, same-day delivery checker and workshop booking." />
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#0b0c0a" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="gfonts/gf-8f3fcf89.css" rel="stylesheet" />
   <link rel="preload" as="image" href="media/poster.jpg" />
   <link rel="stylesheet" href="film.css" />
   <link rel="stylesheet" href="style.css" />
@@ -104,7 +104,8 @@
     <p class="brand">Pranvera<span>Flowers</span></p>
     <p>A demo website with a made-up flower studio, designed and built by Joel Kaso. The shop, delivery check and workshop booking are a working demo; nothing is charged or sent.</p>
     <p class="credits">Film: "Time-lapse of opening red rose isolated on black background. Blooming red roses flower buds" by Alex Tr, CC BY 3.0, via Wikimedia Commons. Colours softened.</p>
-  </footer>
+  <p class="kit-legal" style="margin:1.25rem 0 0;font-size:.8rem;opacity:.7;text-align:center;width:100%"><a href="privacy.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacy policy</a></p>
+</footer>
 
   <dialog class="bag" id="bag" aria-labelledby="bag-title">
     <div class="bag__head"><h2 id="bag-title">Your basket</h2><button type="button" class="x" id="bag-close" aria-label="Close">×</button></div>
@@ -117,5 +118,6 @@
   </dialog>
   <script src="scrub.js"></script>
   <script src="main.js"></script>
+<script src="form-guard.js" defer></script>
 </body>
 </html>

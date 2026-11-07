@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src 'self' https://www.google.com https://www.youtube-nocookie.com https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https: mailto:">
+<meta name="referrer" content="strict-origin-when-cross-origin">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Shkumë Car Wash · Sterling Heights, Michigan (demo)</title>
   <meta name="description" content="Demo website by Joel Kaso: a Michigan car wash with a scroll-driven drive-through film, wash menu priced by vehicle, detail booking and an unlimited-club calculator." />
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#0d1317" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="gfonts/gf-a2059211.css" rel="stylesheet" />
   <link rel="preload" as="image" href="media/poster.jpg" />
   <link rel="stylesheet" href="film.css" />
   <link rel="stylesheet" href="style.css" />
@@ -113,8 +113,10 @@
     <p class="brand">Shkumë<span>Car Wash</span></p>
     <p>A demo website with a made-up car wash, designed and built by Joel Kaso. Prices, bookings and the club are a working demo; nothing is charged or sent.</p>
     <p class="credits">Film: "Timelapse-wasstraat van Slingelandtstraat" by Milliped, CC BY-SA 4.0, via Wikimedia Commons. Trimmed and re-encoded.</p>
-  </footer>
+  <p class="kit-legal" style="margin:1.25rem 0 0;font-size:.8rem;opacity:.7;text-align:center;width:100%"><a href="privacy.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacy policy</a></p>
+</footer>
   <script src="scrub.js"></script>
   <script src="main.js"></script>
+<script src="form-guard.js" defer></script>
 </body>
 </html>
