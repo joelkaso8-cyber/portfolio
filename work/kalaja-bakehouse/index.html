@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Kalaja Bakehouse · Bronx, New York (demo)</title>
+  <meta name="description" content="Demo website by Joel Kaso: an Albanian bakery and café in the Bronx with order-ahead pickup, today's bakes and catering requests." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#241b14" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23241b14'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='18' text-anchor='middle' fill='%23e8b562'%3EK%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="demo-ribbon" href="../../index.html#work">Demo website by Joel Kaso · see the portfolio</a>
+  <header class="nav">
+    <a class="brand" href="#top">Kalaja<span>Bakehouse</span></a>
+    <nav class="nav__links" aria-label="Main"><a href="#order" data-i18n="nav.order">Order ahead</a><a href="#today" data-i18n="nav.today">Today</a><a href="#catering" data-i18n="nav.catering">Catering</a><a href="#visit" data-i18n="nav.visit">Visit</a></nav>
+    <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="sq" aria-pressed="false">SQ</button></div>
+    <button class="cart-btn" type="button" id="cart-open" aria-label="Open your order"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14l-1.5 12h-11Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span id="cart-count">0</span></button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero__text">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Albanian bakery &amp; café · Morris Park, the Bronx</p>
+        <h1 data-i18n="hero.title">Byrek out of the oven every hour.</h1>
+        <p class="lead" data-i18n="hero.lead">Hand-rolled byrek, fresh bread and Balkan pastries, baked here since six in the morning. Order ahead and skip the line.</p>
+        <div class="hero__actions"><a class="btn" href="#order" data-i18n="hero.order">Order for pickup</a><a class="btn btn--line" href="#catering" data-i18n="hero.catering">Catering</a></div>
+        <p class="oven" id="oven"></p>
+      </div>
+      <figure class="hero__photo"><img src="img/hero-1600.webp" srcset="img/hero-800.webp 800w, img/hero-1600.webp 1600w" sizes="(min-width: 900px) 50vw, 100vw" alt="Trays of fresh börek and pastries in a bakery window" fetchpriority="high" /></figure>
+    </section>
+
+    <section class="section" id="today">
+      <div class="head reveal"><h2 data-i18n="today.title">Today's bakes</h2><p id="today-day"></p></div>
+      <div class="board reveal" id="board"></div>
+    </section>
+
+    <section class="section" id="order">
+      <div class="head reveal"><h2 data-i18n="order.title">Order ahead</h2><p data-i18n="order.lead">Pick it up hot. Pay when you collect.</p></div>
+      <div class="products" id="products"></div>
+    </section>
+
+    <section class="section strip" aria-label="The bakery">
+      <img class="reveal" src="img/case-800.webp" alt="Labelled pastries and cookies on a counter" loading="lazy" />
+      <img class="reveal" src="img/latte-800.webp" alt="A latte with a swan drawn in the foam" loading="lazy" />
+      <img class="reveal" src="img/trays-800.webp" alt="Trays of byrek triangles and baked pies" loading="lazy" />
+      <img class="reveal" src="img/room-800.webp" alt="A bright café corner with armchairs and a big window" loading="lazy" />
+    </section>
+
+    <section class="section catering" id="catering">
+      <div class="reveal">
+        <h2 data-i18n="cat.title">Catering</h2>
+        <p data-i18n="cat.lead">Trays of byrek, pite and baklava for offices, weddings and family celebrations. Tell us the date and how many people.</p>
+      </div>
+      <form class="card reveal" id="cat-form" novalidate>
+        <div class="row">
+          <label><span data-i18n="f.name">Name</span><input name="name" autocomplete="name" required maxlength="80" /></label>
+          <label><span data-i18n="f.phone">Phone</span><input name="phone" type="tel" autocomplete="tel" required maxlength="25" /></label>
+        </div>
+        <div class="row">
+          <label><span data-i18n="f.date">Date</span><input name="date" type="date" required /></label>
+          <label><span data-i18n="f.people">People</span><input name="people" type="number" min="10" max="500" value="30" required /></label>
+        </div>
+        <p class="estimate" id="cat-est"></p>
+        <div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <button class="btn" type="submit" data-i18n="f.send">Send request</button>
+        <p class="form-status" id="cat-status" role="status"></p>
+      </form>
+    </section>
+
+    <section class="section visit" id="visit">
+      <div class="reveal">
+        <h2 data-i18n="nav.visit">Visit</h2>
+        <p>Morris Park Avenue, Bronx, NY 10462</p>
+        <ul class="hours" id="hours"></ul>
+        <p><a href="tel:+12125550142">(212) 555-0142</a></p>
+      </div>
+      <div class="map reveal"><iframe title="Map of Morris Park Avenue, Bronx" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Morris+Park+Avenue,+Bronx,+NY&z=15&output=embed"></iframe></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="brand">Kalaja<span>Bakehouse</span></p>
+    <p data-i18n="footer.demo">A demo website with a made-up bakery name and prices, designed and built by Joel Kaso. Orders here are a working demo and are not sent anywhere.</p>
+    <p class="credits" id="credits"></p>
+  </footer>
+
+  <dialog class="cart" id="cart" aria-labelledby="cart-title">
+    <div class="cart__head"><h2 id="cart-title" data-i18n="cart.title">Your order</h2><button type="button" class="x" id="cart-close" aria-label="Close">×</button></div>
+    <ul class="cart__items" id="cart-items"></ul>
+    <dl class="cart__sum"><div><dt data-i18n="cart.sub">Subtotal</dt><dd id="c-sub">$0.00</dd></div><div><dt data-i18n="cart.tax">NY sales tax 8.875%</dt><dd id="c-tax">$0.00</dd></div><div class="grand"><dt data-i18n="cart.total">Total</dt><dd id="c-total">$0.00</dd></div></dl>
+    <label><span data-i18n="cart.pickup">Pickup time</span><select id="c-time"></select></label>
+    <div class="row">
+      <label><span data-i18n="f.name">Name</span><input id="c-name" autocomplete="name" maxlength="80" /></label>
+      <label><span data-i18n="f.phone">Phone</span><input id="c-phone" type="tel" autocomplete="tel" maxlength="25" /></label>
+    </div>
+    <button class="btn" type="button" id="c-place" data-i18n="cart.place">Place order</button>
+    <p class="form-status" id="c-status" role="status"></p>
+  </dialog>
+  <script src="main.js"></script>
+</body>
+</html>

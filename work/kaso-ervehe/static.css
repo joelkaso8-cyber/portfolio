@@ -1,0 +1,58 @@
+/* Shared look for the two plain pages, guest.html and 404.html: the night tone of the main site,
+ * its fonts and its lamp-light accent, without the app. */
+@font-face { font-family: "Funnel Display"; font-weight: 300; font-display: swap; src: url(fonts/funnel-display-latin-300-normal.woff2) format("woff2"); }
+@font-face { font-family: "Funnel Display"; font-weight: 400; font-display: swap; src: url(fonts/funnel-display-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "Funnel Sans"; font-weight: 400; font-display: swap; src: url(fonts/funnel-sans-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "Funnel Sans"; font-weight: 500; font-display: swap; src: url(fonts/funnel-sans-latin-500-normal.woff2) format("woff2"); }
+
+:root {
+  color-scheme: dark;
+  --ground: oklch(18.5% 0.016 255); --ground-2: oklch(23% 0.018 250); --panel: oklch(28.5% 0.018 250);
+  --line: oklch(36% 0.02 248); --ink: oklch(96% 0.012 88); --ink-2: oklch(87% 0.015 90); --muted: oklch(74% 0.02 250);
+  --accent: oklch(79% 0.095 75); --accent-hi: oklch(85% 0.09 78); --accent-ink: oklch(19% 0.03 60); --soft: oklch(31% 0.02 250);
+  --wa: oklch(72% 0.17 150); --wa-hi: oklch(78% 0.16 150); --wa-ink: oklch(18% 0.04 160);
+  --edge: inset 0 1px 0 oklch(100% 0 0 / 0.08), inset 0 0 0 1px oklch(100% 0 0 / 0.06);
+  --shadow: 0 26px 50px -24px oklch(6% 0.02 250 / 0.8);
+  --font-display: "Funnel Display", ui-sans-serif, system-ui, sans-serif; --font-body: "Funnel Sans", ui-sans-serif, system-ui, sans-serif;
+  --radius: 22px; --radius-inner: 12px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; min-height: 100svh; background: radial-gradient(120% 70% at 50% 0%, var(--ground-2), var(--ground) 70%) fixed, var(--ground); color: var(--ink-2); font: 400 1.0625rem/1.6 var(--font-body); }
+h1, h2, p { margin: 0; }
+h1, h2 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.025em; line-height: 1.05; color: var(--ink); }
+h1 { font-size: clamp(2.25rem, 6vw, 3.5rem); font-weight: 300; }
+h2 { font-size: 1.25rem; letter-spacing: -0.015em; }
+a { color: inherit; }
+.page { width: min(40rem, 100%); margin: 0 auto; padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) calc(40px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; margin-bottom: 40px; }
+.wordmark { display: inline-flex; align-items: center; gap: 12px; font: 400 1.125rem/1 var(--font-display); letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+.wordmark::before { content: ""; width: 14px; height: 14px; border-radius: 50%; box-shadow: inset 0 0 0 4px var(--accent); }
+.lang { display: inline-flex; gap: 2px; padding: 2px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); }
+.lang button { min-width: 44px; min-height: 44px; padding: 0 8px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); font: 500 0.8125rem/1 var(--font-body); letter-spacing: 0.06em; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--soft); color: var(--ink); }
+.lead { margin-top: 12px; color: var(--muted); }
+.cards { display: grid; gap: 16px; margin-top: 40px; }
+.card { display: grid; gap: 12px; padding: 24px; border-radius: var(--radius); background: color-mix(in oklab, var(--panel) 84%, transparent); box-shadow: var(--edge), var(--shadow); }
+.rows { display: grid; margin: 0; }
+.rows > div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); }
+.rows dt { color: var(--muted); }
+.rows dd { margin: 0; color: var(--ink); font-weight: 500; text-align: right; overflow-wrap: anywhere; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border: 0; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font: 500 1rem/1 var(--font-body); text-decoration: none; cursor: pointer; }
+.btn:hover { background: var(--accent-hi); }
+.btn--wa { background: var(--wa); color: var(--wa-ink); }
+.btn--wa:hover { background: var(--wa-hi); }
+.btn--clear { background: var(--soft); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.btn--clear:hover { background: var(--panel); }
+.btn:focus-visible, .lang button:focus-visible, .wordmark:focus-visible, .places a:focus-visible { outline: 2px solid var(--accent-hi); outline-offset: 2px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.note { font-size: 0.875rem; color: var(--muted); }
+.places { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.places a { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 8px 12px; border-radius: var(--radius-inner); background: var(--soft); color: var(--ink); font-size: 0.9375rem; text-decoration: none; box-shadow: inset 0 0 0 1px var(--line); }
+.places a:hover { color: var(--accent); }
+.places svg { flex: none; color: var(--accent); }
+.foot { margin-top: 40px; font-size: 0.875rem; color: var(--muted); }
+.foot a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 0.25em; }
+.big { font: 300 clamp(5rem, 22vw, 9rem)/0.9 var(--font-display); letter-spacing: -0.05em; color: var(--accent); }
+[hidden] { display: none !important; }
+@media (max-width: 26rem) { .places { grid-template-columns: minmax(0, 1fr); } }

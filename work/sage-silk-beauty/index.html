@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Sage &amp; Silk · Beauty Studio, Bristol (demo)</title>
+  <meta name="description" content="Demo website by Joel Kaso: a Bristol beauty studio where clients build their treatment, book a time and buy gift vouchers online." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#221a20" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23221a20'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-style='italic' font-size='16' text-anchor='middle' fill='%23c9b38f'%3ES%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="demo-ribbon" href="../../index.html#work">Demo website by Joel Kaso · see the portfolio</a>
+  <header class="nav">
+    <a class="brand" href="#top">Sage <i>&amp;</i> Silk</a>
+    <nav class="nav__links" aria-label="Main"><a href="#menu">Treatments</a><a href="#gift">Gift vouchers</a><a href="#studio">Studio</a><a href="#visit">Visit</a></nav>
+    <a class="btn btn--small nav__cta" href="#menu">Book</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+  </header>
+  <div class="mobile-menu" id="mobile-menu" hidden><a href="#menu">Treatments</a><a href="#gift">Gift vouchers</a><a href="#studio">Studio</a><a href="#visit">Visit</a></div>
+
+  <main id="top">
+    <section class="hero">
+      <img class="hero__img" src="img/hero-1600.webp" srcset="img/hero-800.webp 800w, img/hero-1600.webp 1600w" sizes="100vw" alt="" fetchpriority="high" />
+      <div class="hero__inner">
+        <p class="eyebrow">Beauty studio · Clifton, Bristol</p>
+        <h1>An hour that is <i>only yours.</i></h1>
+        <p class="lead">Nails, brows, facials and massage in a candle-lit studio. Build your visit, see the price and the time, and book in a minute.</p>
+        <a class="btn" href="#menu">Build my visit</a>
+      </div>
+    </section>
+
+    <section class="section menu" id="menu">
+      <div class="head reveal"><h2>Treatments</h2><p>Tick what you'd like. Your time and price add up on the right.</p></div>
+      <div class="menu__grid">
+        <div>
+          <div class="cats reveal" role="tablist" aria-label="Categories" id="cats"></div>
+          <ul class="list" id="list"></ul>
+        </div>
+        <aside class="basket reveal" aria-label="Your visit">
+          <h3>Your visit</h3>
+          <ul id="basket"><li class="empty">Nothing yet. Tick a treatment.</li></ul>
+          <p class="total"><span id="total-time">0 min</span><b id="total-price">£0</b></p>
+          <div class="row">
+            <label>Day<input type="date" id="b-date" /></label>
+            <label>Time<select id="b-time"></select></label>
+          </div>
+          <label>Name<input id="b-name" autocomplete="name" maxlength="80" /></label>
+          <label>Mobile<input id="b-phone" type="tel" autocomplete="tel" maxlength="25" /></label>
+          <button class="btn" type="button" id="b-book">Book this visit</button>
+          <p class="form-status" id="b-status" role="status"></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section gift" id="gift">
+      <div class="gift__form reveal">
+        <h2>Gift vouchers</h2>
+        <p>Choose an amount, write a message, and we email a voucher they can use for any treatment within a year.</p>
+        <fieldset><legend>Amount</legend><div class="amounts" id="amounts"></div></fieldset>
+        <label>To<input id="g-to" maxlength="40" placeholder="Their name" /></label>
+        <label>Message<textarea id="g-msg" rows="2" maxlength="140" placeholder="Happy birthday! Treat yourself."></textarea></label>
+        <button class="btn" type="button" id="g-buy">Buy voucher</button>
+        <p class="form-status" id="g-status" role="status"></p>
+      </div>
+      <div class="voucher reveal" aria-live="polite">
+        <p class="voucher__brand">Sage <i>&amp;</i> Silk</p>
+        <p class="voucher__amount" id="v-amount">£50</p>
+        <p class="voucher__to" id="v-to">For someone special</p>
+        <p class="voucher__msg" id="v-msg">Happy birthday! Treat yourself.</p>
+        <p class="voucher__code">Code <span id="v-code">SAGE-0000</span> · valid 12 months</p>
+      </div>
+    </section>
+
+    <section class="section studio" id="studio">
+      <div class="head reveal"><h2>The studio</h2><p>Tap a photo to see it bigger.</p></div>
+      <div class="mosaic">
+        <button class="m reveal" data-full="img/pool-1600.webp"><img src="img/pool-800.webp" alt="A round spa pool with rose petals and wooden panels" loading="lazy" /></button>
+        <button class="m reveal" data-full="img/nails-1600.webp"><img src="img/nails-800.webp" alt="Navy nails with silver swirl nail art" loading="lazy" /></button>
+        <button class="m reveal" data-full="img/salon-1600.webp"><img src="img/salon-800.webp" alt="Salon chairs and mirrors with striped walls" loading="lazy" /></button>
+        <button class="m reveal" data-full="img/lilac-1600.webp"><img src="img/lilac-800.webp" alt="Lilac and mint painted nails holding a polish bottle" loading="lazy" /></button>
+        <button class="m reveal" data-full="img/white-1600.webp"><img src="img/white-800.webp" alt="Soft white manicure with a star detail" loading="lazy" /></button>
+      </div>
+    </section>
+
+    <section class="section visit" id="visit">
+      <div class="reveal">
+        <h2>Visit</h2>
+        <p>Princess Victoria Street, Clifton Village, Bristol BS8</p>
+        <ul class="hours" id="hours"></ul>
+        <p><a href="tel:+441174960000">0117 496 0000</a> · <a href="https://wa.me/441179460000" target="_blank" rel="noopener noreferrer">WhatsApp</a> · <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+      </div>
+      <div class="map reveal"><iframe title="Map of Clifton Village, Bristol" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Princess+Victoria+Street,+Bristol&z=16&output=embed"></iframe></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="brand">Sage <i>&amp;</i> Silk</p>
+    <p>A demo website with a made-up studio name and prices, designed and built by Joel Kaso. Bookings and vouchers here are a working demo; nothing is charged or sent.</p>
+    <p class="credits" id="credits"></p>
+  </footer>
+  <dialog class="lightbox" id="lightbox"><img alt="" /><form method="dialog"><button aria-label="Close">×</button></form></dialog>
+  <script src="main.js"></script>
+</body>
+</html>

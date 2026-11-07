@@ -1,0 +1,34 @@
+{
+  "_help": [
+    "The hotel's live settings. Edit this file, save, and reload the page: no rebuild is needed for the visible site.",
+    "Run `npm run build` again after changing url, phone or email, so share previews, search results and sitemap.xml pick them up too.",
+    "phone: international format, e.g. +355 69 123 4567. whatsapp: digits only with the country code, e.g. 355691234567.",
+    "prices: starting rate per night in whole euros, or null to show 'Rate on request'.",
+    "blockedDates: nights that are fully booked, as YYYY-MM-DD. Guests cannot arrive on them or stay through them; they can still leave that morning.",
+    "notice: an optional banner at the top, in English and Albanian. Leave both empty to hide it.",
+    "wifi: shown on guest.html. This file is public, so use a guest network whose password you are happy to share.",
+    "bookingEndpoint: where the form sends requests. /.netlify/functions/booking is the Telegram function in netlify/functions/."
+  ],
+  "url": "",
+  "phone": "+355 69 329 5827",
+  "whatsapp": "355693295827",
+  "email": "hotel.ervehe@gmail.com",
+  "mapsUrl": "https://www.google.com/maps/dir/?api=1&destination=40.232966%2C20.350347",
+  "bookingEndpoint": "/.netlify/functions/booking",
+  "wifi": {
+    "network": "",
+    "password": ""
+  },
+  "breakfastHours": "",
+  "notice": {
+    "en": "",
+    "sq": ""
+  },
+  "prices": {
+    "double": null,
+    "twin": null,
+    "triple": null,
+    "family": null
+  },
+  "blockedDates": []
+}

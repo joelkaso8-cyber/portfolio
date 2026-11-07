@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="theme-color" content="#14171d" />
+    <title>Guest information · Hotel Kaso Ervehe</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2314171d'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23e0b36a' stroke-width='4'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./static.css" />
+  </head>
+  <body>
+    <!-- For guests staying at the hotel: print its address as a QR code for the rooms.
+         Wi-Fi, breakfast hours and the reception number come from site-config.json. -->
+    <div class="page">
+      <header class="top">
+        <a class="wordmark" href="./" translate="no">Kaso Ervehe</a>
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="en" title="English" aria-pressed="true">EN</button>
+          <button type="button" data-lang="sq" title="Shqip" aria-pressed="false">SQ</button>
+        </div>
+      </header>
+
+      <main>
+        <h1 data-t="title">Welcome to Kaso Ervehe</h1>
+        <p class="lead" data-t="lead">Everything for your stay, on one page.</p>
+
+        <div class="cards">
+          <section class="card" aria-labelledby="wifi-title">
+            <h2 id="wifi-title">Wi-Fi</h2>
+            <dl class="rows" id="wifi-rows" hidden>
+              <div><dt data-t="network">Network</dt><dd id="wifi-network" translate="no"></dd></div>
+              <div><dt data-t="password">Password</dt><dd id="wifi-password" translate="no"></dd></div>
+            </dl>
+            <div class="actions" id="wifi-actions" hidden>
+              <button type="button" class="btn" id="wifi-copy" data-t="copy">Copy Wi-Fi password</button>
+            </div>
+            <p class="note" id="wifi-status" role="status" data-t="wifiAsk">Ask at reception for the Wi-Fi password.</p>
+          </section>
+
+          <section class="card" aria-labelledby="times-title">
+            <h2 id="times-title" data-t="times">Times</h2>
+            <dl class="rows">
+              <div><dt data-t="breakfast">Breakfast</dt><dd id="breakfast" data-t="askReception">Ask at reception</dd></div>
+              <div><dt data-t="checkout">Check-out</dt><dd data-t="checkoutTime">By 11:00</dd></div>
+            </dl>
+          </section>
+
+          <section class="card" aria-labelledby="dinner-title">
+            <h2 id="dinner-title" data-t="dinner">Dinner at the hotel</h2>
+            <p data-t="dinnerText">Our restaurant cooks traditional dishes from the valley, with local cheese, meat and vegetables. Tell reception earlier in the day if you would like dinner, so the kitchen can prepare.</p>
+          </section>
+
+          <section class="card" aria-labelledby="around-title">
+            <h2 id="around-title" data-t="around">Around Përmet</h2>
+            <ul class="places" id="places"></ul>
+          </section>
+
+          <section class="card" aria-labelledby="help-title">
+            <h2 id="help-title" data-t="help">Need anything?</h2>
+            <p class="note" id="help-none" data-t="helpNone">Reception is in the main building.</p>
+            <div class="actions">
+              <a class="btn btn--wa" id="wa" href="#" target="_blank" rel="noopener noreferrer" hidden>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.6 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z" /></svg>
+                <span data-t="waBtn">Message reception on WhatsApp</span>
+              </a>
+              <a class="btn btn--clear" id="call" href="#" hidden><span data-t="call">Call reception</span></a>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <p class="foot"><a href="./" data-t="back">Hotel Kaso Ervehe website</a></p>
+    </div>
+
+    <script>
+      ;(function () {
+        var T = {
+          en: {
+            title: 'Welcome to Kaso Ervehe',
+            lead: 'Everything for your stay, on one page.',
+            network: 'Network',
+            password: 'Password',
+            copy: 'Copy Wi-Fi password',
+            copied: 'Password copied. Paste it when your phone asks for it.',
+            copyFail: 'Select the password above and copy it.',
+            wifiAsk: 'Ask at reception for the Wi-Fi password.',
+            wifiReady: '',
+            times: 'Times',
+            breakfast: 'Breakfast',
+            askReception: 'Ask at reception',
+            checkout: 'Check-out',
+            checkoutTime: 'By 11:00',
+            dinner: 'Dinner at the hotel',
+            dinnerText: 'Our restaurant cooks traditional dishes from the valley, with local cheese, meat and vegetables. Tell reception earlier in the day if you would like dinner, so the kitchen can prepare.',
+            around: 'Around Përmet',
+            help: 'Need anything?',
+            helpNone: 'Reception is in the main building.',
+            waBtn: 'Message reception on WhatsApp',
+            waText: 'Hello reception, I am a guest at Kaso Ervehe. ',
+            call: 'Call reception',
+            back: 'Hotel Kaso Ervehe website',
+            places: ['Bënja thermal baths', 'Langarica canyon', 'Guri i Qytetit', 'The Vjosa', 'Hotova fir forest', 'Përmet centre'],
+          },
+          sq: {
+            title: 'Mirë se vini te Kaso Ervehe',
+            lead: 'Gjithçka për qëndrimin tuaj, në një faqe.',
+            network: 'Rrjeti',
+            password: 'Fjalëkalimi',
+            copy: 'Kopjoni fjalëkalimin e Wi-Fi',
+            copied: 'Fjalëkalimi u kopjua. Ngjiteni kur telefoni jua kërkon.',
+            copyFail: 'Zgjidhni fjalëkalimin më lart dhe kopjojeni.',
+            wifiAsk: 'Kërkoni fjalëkalimin e Wi-Fi në recepsion.',
+            wifiReady: '',
+            times: 'Oraret',
+            breakfast: 'Mëngjesi',
+            askReception: 'Pyesni në recepsion',
+            checkout: 'Largimi',
+            checkoutTime: 'Deri në 11:00',
+            dinner: 'Darka te hoteli',
+            dinnerText: 'Restoranti ynë gatuan pjata tradicionale të luginës, me djathë, mish dhe perime vendi. Nëse dëshironi darkë, njoftoni recepsionin më herët gjatë ditës, që kuzhina të përgatitet.',
+            around: 'Rreth Përmetit',
+            help: 'Ju duhet diçka?',
+            helpNone: 'Recepsioni është në ndërtesën kryesore.',
+            waBtn: 'Shkruajini recepsionit në WhatsApp',
+            waText: 'Përshëndetje recepsion, jam mysafir te Kaso Ervehe. ',
+            call: 'Telefononi recepsionin',
+            back: 'Faqja e Hotel Kaso Ervehe',
+            places: ['Banjat e Bënjës', 'Kanioni i Langaricës', 'Guri i Qytetit', 'Vjosa', 'Pylli i bredhave të Hotovës', 'Qendra e Përmetit'],
+          },
+        }
+        var MAPS = ['Banjat e Bënjës, Përmet', 'Kanioni i Langaricës, Përmet', 'Guri i Qytetit, Përmet', 'Lumi Vjosa, Përmet', 'Parku Kombëtar Bredhi i Hotovës', 'Përmet, Albania']
+        var PIN = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>'
+        var config = {}
+        var lang = 'en'
+        var $ = function (id) { return document.getElementById(id) }
+        var str = function (v, max) { return typeof v === 'string' ? v.trim().slice(0, max) : '' }
+
+        function render() {
+          var t = T[lang]
+          document.documentElement.lang = lang
+          document.querySelectorAll('[data-t]').forEach(function (el) {
+            var key = el.getAttribute('data-t')
+            if (typeof t[key] === 'string') el.textContent = t[key]
+          })
+          document.querySelectorAll('[data-lang]').forEach(function (b) {
+            b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang))
+          })
+
+          var wifi = config.wifi || {}
+          var network = str(wifi.network, 64)
+          var password = str(wifi.password, 64)
+          $('wifi-rows').hidden = !network && !password
+          $('wifi-network').textContent = network || '—'
+          $('wifi-password').textContent = password || '—'
+          $('wifi-actions').hidden = !password
+          $('wifi-status').textContent = password ? t.wifiReady : t.wifiAsk
+
+          var breakfast = str(config.breakfastHours, 40)
+          $('breakfast').textContent = breakfast || t.askReception
+
+          var list = $('places')
+          list.textContent = ''
+          t.places.forEach(function (name, i) {
+            var li = document.createElement('li')
+            var a = document.createElement('a')
+            a.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(MAPS[i])
+            a.target = '_blank'
+            a.rel = 'noopener noreferrer'
+            a.innerHTML = PIN
+            a.appendChild(document.createTextNode(name))
+            li.appendChild(a)
+            list.appendChild(li)
+          })
+
+          var wa = str(config.whatsapp, 20).replace(/\D/g, '')
+          var phone = str(config.phone, 30)
+          $('wa').hidden = !wa
+          if (wa) $('wa').href = 'https://wa.me/' + wa + '?text=' + encodeURIComponent(t.waText)
+          $('call').hidden = !phone
+          if (phone) $('call').href = 'tel:' + phone.replace(/[^\d+]/g, '')
+          $('help-none').hidden = !!(wa || phone)
+        }
+
+        function setLang(next) {
+          lang = next === 'sq' ? 'sq' : 'en'
+          try { localStorage.setItem('kaso-lang', lang) } catch (e) {}
+          render()
+        }
+
+        try {
+          var stored = localStorage.getItem('kaso-lang')
+          if (stored === 'sq' || stored === 'en') lang = stored
+          else if ((navigator.languages || []).some(function (l) { return /^sq/i.test(l) })) lang = 'sq'
+        } catch (e) {}
+
+        document.querySelectorAll('[data-lang]').forEach(function (b) {
+          b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')) })
+        })
+
+        $('wifi-copy').addEventListener('click', function () {
+          var password = str((config.wifi || {}).password, 64)
+          var done = function () { $('wifi-status').textContent = T[lang].copied }
+          var fail = function () {
+            var range = document.createRange()
+            range.selectNodeContents($('wifi-password'))
+            var sel = window.getSelection()
+            sel.removeAllRanges()
+            sel.addRange(range)
+            $('wifi-status').textContent = T[lang].copyFail
+          }
+          if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(password).then(done, fail)
+          else fail()
+        })
+
+        render()
+        fetch('./site-config.json', { cache: 'no-cache' })
+          .then(function (r) { return r.ok ? r.json() : {} })
+          .then(function (c) { config = c && typeof c === 'object' ? c : {}; render() })
+          .catch(function () {})
+      })()
+    </script>
+  </body>
+</html>

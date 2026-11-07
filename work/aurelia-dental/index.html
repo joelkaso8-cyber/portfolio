@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Aurelia Dental Studio · Leeds (demo)</title>
+  <meta name="description" content="Demo website by Joel Kaso: a private dental clinic in Leeds with treatment prices, a monthly payment calculator and online booking." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#14211f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2314211f'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='18' text-anchor='middle' fill='%239fd3c1'%3EA%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="demo-ribbon" href="../../index.html#work">Demo website by Joel Kaso · see the portfolio</a>
+  <div class="urgent"><span>Toothache or a broken tooth? Same-day emergency appointments.</span> <a href="tel:+441134960000">Call 0113 496 0000</a></div>
+  <header class="nav">
+    <a class="brand" href="#top">Aurelia<span>Dental Studio</span></a>
+    <nav class="nav__links" aria-label="Main"><a href="#treatments">Treatments</a><a href="#finance">Pay monthly</a><a href="#team">Team</a><a href="#faq">FAQ</a></nav>
+    <a class="btn btn--small nav__cta" href="#book">Book online</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+  </header>
+  <div class="mobile-menu" id="mobile-menu" hidden><a href="#treatments">Treatments</a><a href="#finance">Pay monthly</a><a href="#team">Team</a><a href="#faq">FAQ</a><a class="btn" href="#book">Book online</a></div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero__text">
+        <p class="eyebrow">Private dentist · Headingley, Leeds</p>
+        <h1>Calm dentistry, <em>clear prices.</em></h1>
+        <p class="lead">Check-ups, hygiene, whitening and implants in a quiet studio. Every price is on this page, and you can spread larger treatments over 12 months at 0%.</p>
+        <div class="hero__actions"><a class="btn" href="#book">Book a check-up</a><a class="btn btn--line" href="#treatments">See prices</a></div>
+        <p class="next" id="next-slot"></p>
+      </div>
+      <figure class="hero__photo"><img src="img/hero-1600.webp" srcset="img/hero-800.webp 800w, img/hero-1600.webp 1600w" sizes="(min-width: 900px) 50vw, 100vw" alt="A treatment room with a dental chair and warm wooden cabinets" fetchpriority="high" /></figure>
+    </section>
+
+    <section class="trust reveal" aria-label="Why patients choose us">
+      <p><b>GDC</b> registered dentists</p><p><b>4.9★</b> sample rating</p><p><b>0%</b> finance up to 12 months</p><p><b>Same day</b> emergencies</p>
+    </section>
+
+    <section class="section" id="treatments">
+      <div class="head reveal"><h2>Treatments &amp; prices</h2><p>No hidden extras. X-rays are included in every new patient exam.</p></div>
+      <div class="treat" id="treat-list"></div>
+    </section>
+
+    <section class="section finance" id="finance">
+      <div class="finance__text reveal">
+        <h2>Spread the cost</h2>
+        <p>0% interest up to 12 months. Longer plans at 9.9% APR representative. Pick a treatment to see your monthly payment.</p>
+      </div>
+      <form class="calc reveal" id="calc">
+        <label>Treatment<select name="t" id="calc-t"></select></label>
+        <fieldset><legend>Months</legend><div class="seg" id="calc-m"></div></fieldset>
+        <div class="calc__out"><span>Monthly payment</span><strong id="calc-out">£0</strong><small id="calc-note"></small></div>
+      </form>
+    </section>
+
+    <section class="section team" id="team">
+      <figure class="team__photo reveal"><img src="img/team-1600.webp" srcset="img/team-800.webp 800w, img/team-1600.webp 1600w" sizes="(min-width: 900px) 40vw, 100vw" alt="A smiling member of the dental team in scrubs" loading="lazy" /></figure>
+      <div class="team__text reveal">
+        <h2>Small team, long appointments</h2>
+        <p>We book 30 minutes for a check-up, not ten, so there is time to talk. Nervous patients can ask for the first appointment of the day and a quiet room.</p>
+        <ul class="people">
+          <li><b>Dr Elira Hoxha</b><span>Principal dentist · implants</span></li>
+          <li><b>Dr James Whitaker</b><span>Cosmetic dentistry · Invisalign</span></li>
+          <li><b>Megan Price</b><span>Hygienist · nervous patients</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section gallery" aria-label="The studio">
+      <figure class="reveal"><img src="img/kids-800.webp" alt="A dentist talks with a young boy before his check-up" loading="lazy" /><figcaption>Children welcome</figcaption></figure>
+      <figure class="reveal"><img src="img/chair-800.webp" alt="A blue dental chair in a bright room" loading="lazy" /><figcaption>Modern equipment</figcaption></figure>
+      <figure class="reveal"><img src="img/room-800.webp" alt="A treatment room with a green dental chair" loading="lazy" /><figcaption>Quiet rooms</figcaption></figure>
+    </section>
+
+    <section class="section book" id="book">
+      <div class="head reveal"><h2>Book online</h2><p>Live demo. Real clinics get this straight into their diary system.</p></div>
+      <form class="card reveal" id="book-form" novalidate>
+        <fieldset><legend>Are you a new patient?</legend>
+          <div class="seg seg--2"><label><input type="radio" name="new" value="yes" checked /><span>Yes, first visit</span></label><label><input type="radio" name="new" value="no" /><span>No, I've been before</span></label></div>
+        </fieldset>
+        <label>Reason<select name="reason" id="reason"></select></label>
+        <div class="row">
+          <label>Day<input type="date" name="date" required /></label>
+          <label>Time<select name="time" required></select></label>
+        </div>
+        <div class="row">
+          <label>Full name<input name="name" autocomplete="name" required maxlength="80" /></label>
+          <label>Mobile<input name="phone" type="tel" autocomplete="tel" required maxlength="25" /></label>
+        </div>
+        <label>Email<input name="email" type="email" autocomplete="email" required maxlength="120" /></label>
+        <div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <button class="btn" type="submit">Request appointment</button>
+        <p class="form-status" id="book-status" role="status"></p>
+      </form>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="head reveal"><h2>Questions</h2></div>
+      <details class="reveal"><summary>Do you see NHS patients?</summary><p>We are a private practice. Our new patient exam is £65, including X-rays and a written treatment plan.</p></details>
+      <details class="reveal"><summary>I'm very nervous. Can you help?</summary><p>Yes. Tell us when you book. We give you extra time, explain every step, and you can raise a hand to stop at any moment.</p></details>
+      <details class="reveal"><summary>How does 0% finance work?</summary><p>For treatments over £500 you can pay in monthly instalments with no interest over 12 months, subject to a quick credit check.</p></details>
+      <details class="reveal"><summary>Is there parking?</summary><p>Two free spaces behind the studio and pay-and-display on the street. Buses 1, 6 and 28 stop outside.</p></details>
+    </section>
+
+    <section class="section find">
+      <div class="reveal"><h2>Find us</h2><p>Otley Road, Headingley, Leeds LS6</p><ul class="hours" id="hours"></ul></div>
+      <div class="map reveal"><iframe title="Map of Otley Road, Leeds" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Otley+Road,+Headingley,+Leeds&z=15&output=embed"></iframe></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="brand">Aurelia<span>Dental Studio</span></p>
+    <p>A demo website with a made-up clinic, team and prices, designed and built by Joel Kaso. Forms here are a working demo and are not sent anywhere.</p>
+    <p class="credits" id="credits"></p>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

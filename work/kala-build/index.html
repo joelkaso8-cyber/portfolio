@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Kala Build & Renovate · Birmingham (demo)</title>
+  <meta name="description" content="Demo website by Joel Kaso: a Birmingham renovation company with a price estimator, before/after projects and quote requests." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#1a1d1f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a1d1f'/%3E%3Cpath d='M8 22V12l8-5 8 5v10' fill='none' stroke='%23c98a5b' stroke-width='3'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="demo-ribbon" href="../../index.html#work">Demo website by Joel Kaso · see the portfolio</a>
+  <header class="nav">
+    <a class="brand" href="#top"><svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 26V12l11-7 11 7v14" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>Kala<span>Build &amp; Renovate</span></a>
+    <nav class="nav__links" aria-label="Main"><a href="#services">Services</a><a href="#projects">Projects</a><a href="#estimate">Price guide</a><a href="#faq">FAQ</a></nav>
+    <a class="btn btn--small nav__cta" href="#quote">Free quote</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+  </header>
+  <div class="mobile-menu" id="mobile-menu" hidden><a href="#services">Services</a><a href="#projects">Projects</a><a href="#estimate">Price guide</a><a href="#faq">FAQ</a><a class="btn" href="#quote">Free quote</a></div>
+
+  <main id="top">
+    <section class="hero">
+      <img class="hero__img" src="img/hero-1600.webp" srcset="img/hero-800.webp 800w, img/hero-1600.webp 1600w" sizes="100vw" alt="" fetchpriority="high" />
+      <div class="hero__inner">
+        <p class="eyebrow">Kitchens · Bathrooms · Full renovations · Birmingham &amp; Solihull</p>
+        <h1>We rebuild the rooms you live in.</h1>
+        <p class="lead">One team from first sketch to last tile. Fixed-price quotes, a named project manager, and a 10-year workmanship guarantee.</p>
+        <div class="hero__actions"><a class="btn" href="#quote">Get a free quote</a><a class="btn btn--line" href="#estimate">Price guide</a></div>
+      </div>
+      <dl class="hero__stats">
+        <div><dt>Projects finished</dt><dd data-count="214">0</dd></div>
+        <div><dt>Years in business</dt><dd data-count="12">0</dd></div>
+        <div><dt>Guarantee</dt><dd>10 yrs</dd></div>
+      </dl>
+    </section>
+
+    <section class="section" id="services">
+      <div class="head reveal"><h2>What we do</h2><p>Everything under one roof, so you never chase five different trades.</p></div>
+      <div class="services">
+        <article class="svc reveal"><img src="img/kitchen-800.webp" alt="A finished kitchen with marble splashback and glass cabinets" loading="lazy" /><h3>Kitchens</h3><p>Design, removal, plumbing, electrics, fitting and worktops.</p></article>
+        <article class="svc reveal"><img src="img/bath-800.webp" alt="A bathroom with a roll-top bath and warm lighting" loading="lazy" /><h3>Bathrooms</h3><p>Wet rooms, walk-in showers, underfloor heating and tiling.</p></article>
+        <article class="svc reveal"><img src="img/dining-800.webp" alt="An open-plan kitchen and dining room" loading="lazy" /><h3>Full renovations</h3><p>Rewiring, replastering, flooring and knock-throughs, start to finish.</p></article>
+      </div>
+    </section>
+
+    <section class="section ba" aria-labelledby="ba-title">
+      <div class="head reveal"><h2 id="ba-title">Before and after</h2><p>Drag the handle. A Victorian terrace in Moseley, eight weeks of work.</p></div>
+      <div class="compare reveal" id="compare" style="--pos: 50%">
+        <img src="img/after-1600.webp" alt="After: the room finished with new floors, paint and fireplace" loading="lazy" />
+        <div class="compare__before"><img src="img/before-1600.webp" alt="Before: the room stripped back with damaged walls" loading="lazy" /></div>
+        <span class="compare__tag compare__tag--l">Before</span><span class="compare__tag compare__tag--r">After</span>
+        <input type="range" min="0" max="100" value="50" aria-label="Move to compare before and after" />
+        <span class="compare__handle" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="head reveal"><h2>Recent projects</h2>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="kitchen">Kitchens</button><button aria-pressed="false" data-f="bath">Bathrooms</button><button aria-pressed="false" data-f="house">Full house</button>
+        </div>
+      </div>
+      <div class="projects" id="project-grid">
+        <figure class="p" data-cat="kitchen"><img src="img/kitchen-800.webp" alt="Kitchen with marble splashback" loading="lazy" /><figcaption>Harborne · kitchen · 4 weeks</figcaption></figure>
+        <figure class="p" data-cat="bath"><img src="img/bath2-800.webp" alt="White bathroom with a freestanding bath" loading="lazy" /><figcaption>Edgbaston · bathroom · 2 weeks</figcaption></figure>
+        <figure class="p" data-cat="kitchen"><img src="img/wood-800.webp" alt="Kitchen with wooden slat wall and induction hob" loading="lazy" /><figcaption>Solihull · kitchen · 5 weeks</figcaption></figure>
+        <figure class="p" data-cat="house"><img src="img/after-800.webp" alt="Restored living room with fireplace" loading="lazy" /><figcaption>Moseley · full house · 8 weeks</figcaption></figure>
+        <figure class="p" data-cat="bath"><img src="img/bath-800.webp" alt="Bathroom with roll-top bath" loading="lazy" /><figcaption>Sutton Coldfield · bathroom · 3 weeks</figcaption></figure>
+        <figure class="p" data-cat="house"><img src="img/dining-800.webp" alt="Open-plan dining room" loading="lazy" /><figcaption>Kings Heath · knock-through · 6 weeks</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section estimate" id="estimate">
+      <div class="estimate__text reveal">
+        <h2>Price guide</h2>
+        <p>A quick idea of cost before anyone visits. Every real quote is fixed after a free survey.</p>
+      </div>
+      <form class="calc reveal" id="calc">
+        <fieldset><legend>Room</legend>
+          <div class="seg"><label><input type="radio" name="room" value="kitchen" checked /><span>Kitchen</span></label><label><input type="radio" name="room" value="bath" /><span>Bathroom</span></label><label><input type="radio" name="room" value="house" /><span>Whole floor</span></label></div>
+        </fieldset>
+        <label class="range">Size <output id="size-out">12 m²</output><input type="range" name="size" min="4" max="60" value="12" /></label>
+        <fieldset><legend>Finish</legend>
+          <div class="seg"><label><input type="radio" name="finish" value="1" /><span>Standard</span></label><label><input type="radio" name="finish" value="1.35" checked /><span>Premium</span></label><label><input type="radio" name="finish" value="1.8" /><span>Luxury</span></label></div>
+        </fieldset>
+        <p class="calc__result"><span>Typical cost</span><strong id="calc-out">£0</strong><small id="calc-weeks"></small></p>
+        <a class="btn" href="#quote" id="calc-cta">Get a fixed quote for this</a>
+      </form>
+    </section>
+
+    <section class="section process reveal" aria-labelledby="process-title">
+      <h2 id="process-title">How it works</h2>
+      <ol>
+        <li><b>Free survey</b>We visit, measure and listen. 45 minutes.</li>
+        <li><b>Fixed quote</b>Itemised, in writing, within 3 working days.</li>
+        <li><b>One project manager</b>Daily photo updates on WhatsApp.</li>
+        <li><b>Sign-off</b>You walk round with us; we fix anything before the last payment.</li>
+      </ol>
+    </section>
+
+    <section class="section quote" id="quote">
+      <div class="quote__text reveal">
+        <h2>Free quote</h2>
+        <p>Tell us about the job. We reply within one working day.</p>
+        <label class="postcode">Do we cover you?<span class="pc-row"><input id="pc" placeholder="e.g. B13 9RD" maxlength="8" autocomplete="postal-code" /><button class="btn btn--small" type="button" id="pc-check">Check</button></span></label>
+        <p class="pc-out" id="pc-out" role="status"></p>
+      </div>
+      <form class="card reveal" id="quote-form" novalidate>
+        <div class="row"><label>Name<input name="name" autocomplete="name" required maxlength="80" /></label><label>Phone<input name="phone" type="tel" autocomplete="tel" required maxlength="25" /></label></div>
+        <label>Email<input name="email" type="email" autocomplete="email" required maxlength="120" /></label>
+        <label>Job<select name="job"><option>Kitchen</option><option>Bathroom</option><option>Full renovation</option><option>Something else</option></select></label>
+        <label>Tell us a little more<textarea name="msg" rows="3" maxlength="600" placeholder="Size of the room, what you want changed, when you'd like to start…"></textarea></label>
+        <div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <button class="btn" type="submit">Send my request</button>
+        <p class="form-status" id="quote-status" role="status"></p>
+      </form>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="head reveal"><h2>Questions</h2></div>
+      <details class="reveal"><summary>Do I need to move out?</summary><p>For kitchens and bathrooms, almost never. We set up a temporary sink or keep one bathroom working. For whole-floor work we plan it with you.</p></details>
+      <details class="reveal"><summary>Are you insured?</summary><p>Yes: £5m public liability. Gas work is done by Gas Safe engineers and electrics are signed off by a NICEIC electrician.</p></details>
+      <details class="reveal"><summary>How do payments work?</summary><p>A 10% deposit to book, stage payments as work is finished, and the last 10% only after you sign off.</p></details>
+      <details class="reveal"><summary>Can you work with my own designer?</summary><p>Of course. Send us the drawings and we quote to them.</p></details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="brand">Kala<span>Build &amp; Renovate</span></p>
+    <p>A demo website with a made-up company name, figures and project details, designed and built by Joel Kaso. Forms here are a working demo and are not sent anywhere.</p>
+    <p class="credits" id="credits"></p>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

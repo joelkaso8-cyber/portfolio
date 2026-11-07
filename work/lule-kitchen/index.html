@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Lule · Balkan Kitchen, London (demo)</title>
+  <meta name="description" content="Demo website by Joel Kaso: a Balkan kitchen in north London with an online menu, table booking and live opening hours." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#1f1915" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f1915'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='17' text-anchor='middle' fill='%23d79a6b'%3EL%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <a class="demo-ribbon" href="../../index.html#work">Demo website by Joel Kaso · see the portfolio</a>
+
+  <header class="nav" id="top">
+    <a class="brand" href="#top">Lule<span>Balkan Kitchen</span></a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#menu" data-i18n="nav.menu">Menu</a>
+      <a href="#story" data-i18n="nav.story">Our story</a>
+      <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+      <a href="#visit" data-i18n="nav.visit">Visit</a>
+    </nav>
+    <div class="nav__end">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="sq" aria-pressed="false">SQ</button>
+      </div>
+      <a class="btn btn--small" href="#book" data-i18n="nav.book">Book a table</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <a href="#menu" data-i18n="nav.menu">Menu</a>
+    <a href="#story" data-i18n="nav.story">Our story</a>
+    <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+    <a href="#visit" data-i18n="nav.visit">Visit</a>
+    <a class="btn" href="#book" data-i18n="nav.book">Book a table</a>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero__media" aria-hidden="true">
+        <img src="img/hero-1600.webp" srcset="img/hero-800.webp 800w, img/hero-1600.webp 1600w" sizes="100vw" alt="" fetchpriority="high" />
+      </div>
+      <div class="hero__inner">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Green Lanes · North London</p>
+        <h1 data-i18n="hero.title">Grandmother's table, in the middle of London</h1>
+        <p class="lead" data-i18n="hero.lead">Wood-fired byrek, charcoal grill and slow-baked tavë from the Balkans, made fresh every morning.</p>
+        <div class="hero__actions">
+          <a class="btn" href="#book" data-i18n="hero.book">Book a table</a>
+          <a class="btn btn--ghost" href="#menu" data-i18n="hero.menu">See the menu</a>
+        </div>
+        <p class="status" id="open-status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="strip reveal" aria-label="Highlights">
+      <div><strong>4.8</strong><span data-i18n="strip.rating">Google rating (sample)</span></div>
+      <div><strong>40+</strong><span data-i18n="strip.dishes">dishes, made in house</span></div>
+      <div><strong>12:00–23:00</strong><span data-i18n="strip.hours">open every day</span></div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="head reveal">
+        <h2 data-i18n="menu.title">The menu</h2>
+        <p data-i18n="menu.lead">Prices include VAT. Tell us about any allergies when you book.</p>
+      </div>
+      <div class="tabs reveal" role="tablist" aria-label="Menu sections">
+        <button role="tab" aria-selected="true" data-tab="meze" data-i18n="menu.meze">Meze</button>
+        <button role="tab" aria-selected="false" data-tab="grill" data-i18n="menu.grill">Grill</button>
+        <button role="tab" aria-selected="false" data-tab="oven" data-i18n="menu.oven">From the oven</button>
+        <button role="tab" aria-selected="false" data-tab="sweet" data-i18n="menu.sweet">Sweets</button>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-list" id="menu-list" role="tabpanel" aria-live="polite"></div>
+        <figure class="menu-photo reveal">
+          <img id="menu-photo" src="img/meze-800.webp" alt="A table of Balkan meze with peppers, cheese and dips" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="section story" id="story">
+      <figure class="story__photo reveal"><img src="img/room-1600.webp" srcset="img/room-800.webp 800w, img/room-1600.webp 1600w" sizes="(min-width: 900px) 50vw, 100vw" alt="The dining room with wooden tables and a chandelier" loading="lazy" /></figure>
+      <div class="story__text reveal">
+        <p class="eyebrow" data-i18n="story.eyebrow">Since 2016</p>
+        <h2 data-i18n="story.title">A family kitchen that moved to London</h2>
+        <p data-i18n="story.p1">Lule started as Sunday lunch for friends: one long table, one tray of byrek, too many people. Now it is twelve tables on Green Lanes, and the byrek still comes out of the oven every hour.</p>
+        <p data-i18n="story.p2">Everything is cooked from scratch: the filo is rolled by hand, the yoghurt is strained here, and the grill runs on charcoal.</p>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="head reveal"><h2 data-i18n="gallery.title">From our kitchen</h2><p data-i18n="gallery.lead">Tap a photo to see it bigger.</p></div>
+      <div class="gallery">
+        <button class="g reveal" data-full="img/grill-1600.webp"><img src="img/grill-800.webp" alt="Mixed grill with chicken skewers, qofte and chips" loading="lazy" /></button>
+        <button class="g g--tall reveal" data-full="img/byrek-1600.webp"><img src="img/byrek-800.webp" alt="Layered byrek on a plate" loading="lazy" /></button>
+        <button class="g reveal" data-full="img/salad-1600.webp"><img src="img/salad-800.webp" alt="A bowl of village salad with tomato and onion" loading="lazy" /></button>
+        <button class="g reveal" data-full="img/baklava-1600.webp"><img src="img/baklava-800.webp" alt="Baklava with pistachio" loading="lazy" /></button>
+        <button class="g g--wide reveal" data-full="img/pie-1600.webp"><img src="img/pie-800.webp" alt="A slice of baked pie with salad" loading="lazy" /></button>
+      </div>
+    </section>
+
+    <section class="section reviews" aria-labelledby="reviews-title">
+      <div class="head reveal"><h2 id="reviews-title" data-i18n="reviews.title">What guests say</h2><p data-i18n="reviews.lead">Sample reviews for this demo.</p></div>
+      <div class="quotes reveal">
+        <blockquote><p>“The byrek tastes exactly like my grandmother's in Tirana. We come every Sunday now.”</p><cite>Ardit, Wood Green</cite></blockquote>
+        <blockquote><p>“Best mixed grill on Green Lanes, and the staff remember your name.”</p><cite>Sarah, Finsbury Park</cite></blockquote>
+        <blockquote><p>“Booked online in a minute, table ready, baklava on the house for the birthday.”</p><cite>Marco, Islington</cite></blockquote>
+      </div>
+    </section>
+
+    <section class="section book" id="book">
+      <div class="book__intro reveal">
+        <h2 data-i18n="book.title">Book a table</h2>
+        <p data-i18n="book.lead">We confirm every booking by text within the hour. For groups over 10, call us.</p>
+        <ul class="facts">
+          <li><span data-i18n="book.call">Call</span> <a href="tel:+442079460000">020 7946 0000</a></li>
+          <li><span>WhatsApp</span> <a href="https://wa.me/442079460000" target="_blank" rel="noopener noreferrer">+44 20 7946 0000</a></li>
+        </ul>
+      </div>
+      <form class="card reveal" id="book-form" novalidate>
+        <div class="row">
+          <label><span data-i18n="book.date">Date</span><input type="date" name="date" required /></label>
+          <label><span data-i18n="book.time">Time</span>
+            <select name="time" required></select>
+          </label>
+        </div>
+        <fieldset>
+          <legend data-i18n="book.guests">Guests</legend>
+          <div class="chips" id="guest-chips"></div>
+        </fieldset>
+        <div class="row">
+          <label><span data-i18n="book.name">Name</span><input name="name" autocomplete="name" required maxlength="80" /></label>
+          <label><span data-i18n="book.phone">Mobile</span><input name="phone" type="tel" autocomplete="tel" required maxlength="25" placeholder="07…" /></label>
+        </div>
+        <label><span data-i18n="book.notes">Notes (allergies, birthday…)</span><textarea name="notes" rows="2" maxlength="300"></textarea></label>
+        <div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <button class="btn" type="submit" data-i18n="book.send">Request the table</button>
+        <p class="form-status" role="status" id="book-status"></p>
+      </form>
+    </section>
+
+    <section class="section visit" id="visit">
+      <div class="visit__text reveal">
+        <h2 data-i18n="visit.title">Find us</h2>
+        <p>Green Lanes, London N4 · <span data-i18n="visit.tube">5 min from Manor House station</span></p>
+        <table class="hours" aria-label="Opening hours">
+          <tbody id="hours"></tbody>
+        </table>
+      </div>
+      <div class="map reveal">
+        <iframe title="Map of Green Lanes, London" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Green+Lanes,+London+N4&z=15&output=embed"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="brand">Lule<span>Balkan Kitchen</span></p>
+    <p data-i18n="footer.demo">A demo website with a made-up restaurant name, designed and built by Joel Kaso.</p>
+    <p class="credits" id="credits"></p>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox"><img alt="" /><form method="dialog"><button aria-label="Close">×</button></form></dialog>
+  <script src="main.js"></script>
+</body>
+</html>
