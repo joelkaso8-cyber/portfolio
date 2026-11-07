@@ -5,6 +5,12 @@
   var EMAIL = 'joelkaso8@gmail.com'
 
   var WORK = [
+    { id: 'ura-coffee', film: true, name: 'Ura Coffee Roasters', cat: 'food', tag: 'demo', where: { en: 'Coffee roastery · Glasgow, UK', sq: 'Furrë kafeje · Glasgow, Skoci' },
+      chips: { en: ['Espresso film that plays as you scroll', 'Bean shop with bag', 'Subscription builder', 'Live café hours'], sq: ['Film espreso që luan me scroll', 'Dyqan kafeje me shportë', 'Abonim', 'Orari live'] } },
+    { id: 'dallge-surf', film: true, name: 'Dallgë Surf School', cat: 'local', tag: 'demo', where: { en: 'Surf school · Newquay, Cornwall', sq: 'Shkollë surfi · Newquay, Angli' },
+      chips: { en: ['Drone film that flies as you scroll', 'Tide-timed booking', 'Surf report', 'Hire calculator'], sq: ['Film me dron që fluturon me scroll', 'Rezervim sipas baticës', 'Raporti i valëve', 'Llogaritës qiraje'] } },
+    { id: 'vreshta-estate', film: true, name: 'Vreshta Estate', cat: 'food', tag: 'demo', where: { en: 'Winery · Paso Robles, California', sq: 'Kantinë vere · Paso Robles, Kaliforni' },
+      chips: { en: ['Vineyard flight as you scroll', '21+ age check', 'Tasting booking', 'Wine shop and club'], sq: ['Fluturim mbi vreshta me scroll', 'Kontroll moshe 21+', 'Rezervim degustimi', 'Dyqan vere dhe klub'] } },
     { id: 'kaso-ervehe', name: 'Hotel Kaso Ervehe', cat: 'stay', tag: 'client', where: { en: 'Family hotel · Përmet, Albania', sq: 'Hotel familjar · Përmet, Shqipëri' },
       chips: { en: ['Scroll film hero', 'Booking calendar', 'EN / SQ', 'Route on Google Maps', 'Bookings to Telegram'], sq: ['Film me scroll', 'Kalendar rezervimi', 'EN / SQ', 'Rruga në Google Maps', 'Rezervime në Telegram'] } },
     { id: 'lule-kitchen', name: 'Lule Balkan Kitchen', cat: 'food', tag: 'demo', where: { en: 'Restaurant · London, UK', sq: 'Restorant · Londër, Angli' },
@@ -19,17 +25,11 @@
       chips: { en: ['Build your visit', 'Time and price add up', 'Gift voucher designer', 'Photo lightbox'], sq: ['Ndërto vizitën', 'Koha dhe çmimi mblidhen', 'Kupon dhurate', 'Galeri'] } },
     { id: 'kalaja-bakehouse', name: 'Kalaja Bakehouse', cat: 'food', tag: 'demo', where: { en: 'Albanian bakery · Bronx, New York', sq: 'Furrë shqiptare · Bronx, Nju Jork' },
       chips: { en: ['Order ahead with a basket', 'Pickup times', "Today's bake times", 'Catering estimate', 'EN / SQ'], sq: ['Porosi me shportë', 'Ora e marrjes', 'Oraret e furrës sot', 'Llogaritje kateringu', 'EN / SQ'] } },
-    { id: 'ura-coffee', name: 'Ura Coffee Roasters', cat: 'food', tag: 'demo', where: { en: 'Coffee roastery · Glasgow, UK', sq: 'Furrë kafeje · Glasgow, Skoci' },
-      chips: { en: ['Espresso film that plays as you scroll', 'Bean shop with bag', 'Subscription builder', 'Live café hours'], sq: ['Film espreso që luan me scroll', 'Dyqan kafeje me shportë', 'Abonim', 'Orari live'] } },
-    { id: 'dallge-surf', name: 'Dallgë Surf School', cat: 'local', tag: 'demo', where: { en: 'Surf school · Newquay, Cornwall', sq: 'Shkollë surfi · Newquay, Angli' },
-      chips: { en: ['Drone film that flies as you scroll', 'Tide-timed booking', 'Surf report', 'Hire calculator'], sq: ['Film me dron që fluturon me scroll', 'Rezervim sipas baticës', 'Raporti i valëve', 'Llogaritës qiraje'] } },
-    { id: 'vreshta-estate', name: 'Vreshta Estate', cat: 'food', tag: 'demo', where: { en: 'Winery · Paso Robles, California', sq: 'Kantinë vere · Paso Robles, Kaliforni' },
-      chips: { en: ['Vineyard flight as you scroll', '21+ age check', 'Tasting booking', 'Wine shop and club'], sq: ['Fluturim mbi vreshta me scroll', 'Kontroll moshe 21+', 'Rezervim degustimi', 'Dyqan vere dhe klub'] } },
     { id: 'ullishta', name: 'Ullishta', cat: 'stay', tag: 'concept', where: { en: 'Boutique hotel concept', sq: 'Koncept hoteli boutique' },
       chips: { en: ['Photo slideshow', 'Scroll motion', 'Booking calendar'], sq: ['Slideshow fotosh', 'Lëvizje me scroll', 'Kalendar rezervimi'] } },
-    { id: 'vjosa-rafting', name: 'Vjosa Rafting', cat: 'local', tag: 'project', where: { en: 'Rafting trips · Vjosa river, Albania', sq: 'Rafting · lumi Vjosa, Shqipëri' },
+    { id: 'vjosa-rafting', film: true, name: 'Vjosa Rafting', cat: 'local', tag: 'project', where: { en: 'Rafting trips · Vjosa river, Albania', sq: 'Rafting · lumi Vjosa, Shqipëri' },
       chips: { en: ['Video hero', 'River photo backgrounds', 'Built for phones'], sq: ['Video në hyrje', 'Sfonde me lumin', 'E ndërtuar për telefon'] } },
-    { id: 'brolin-tattoo', name: 'Brolin Tattoo', cat: 'local', tag: 'project', where: { en: 'Tattoo studio', sq: 'Studio tatuazhesh' },
+    { id: 'brolin-tattoo', film: true, name: 'Brolin Tattoo', cat: 'local', tag: 'project', where: { en: 'Tattoo studio', sq: 'Studio tatuazhesh' },
       chips: { en: ['Ink film hero', 'Work gallery', 'Dark editorial look'], sq: ['Film me bojë në hyrje', 'Galeri punësh', 'Pamje e errët editoriale'] } },
   ]
   var TAGS = { client: { en: 'Client', sq: 'Klient' }, demo: { en: 'Demo', sq: 'Demo' }, concept: { en: 'Concept', sq: 'Koncept' }, project: { en: 'Project', sq: 'Projekt' } }
@@ -40,7 +40,7 @@
       'hero.eyebrow': 'Web design & development · Albania → UK, EU, USA', 'hero.t1': 'Websites that', 'hero.t2': 'bring customers in.',
       'hero.lead': 'I design and build fast, good-looking websites for hotels, restaurants and local businesses, with booking, WhatsApp and two languages built in.',
       'hero.work': 'See the work', 'hero.quote': 'Get a quote',
-      'work.title': 'Selected work', 'work.all': 'All', 'work.stay': 'Hotels', 'work.food': 'Food', 'work.local': 'Local services', open: 'Open the site →',
+      'work.title': 'Selected work', 'work.all': 'All', 'work.stay': 'Hotels', 'work.food': 'Food', 'work.local': 'Local services', 'work.film': 'Scroll film', open: 'Open the site →',
       'services.title': 'What you get', 'services.lead': 'Every site is designed for your business, not a template, and it is yours: no monthly lock-in.',
       'plan1.name': 'One-page site', 'plan1.for': 'For cafés, barbers and trades that need to be found and contacted.',
       'plan2.name': 'Business site with booking', 'plan2.for': 'For restaurants, salons and clinics that take bookings every day.',
@@ -64,7 +64,7 @@
       'hero.eyebrow': 'Dizajn dhe ndërtim websitesh · Shqipëri → Angli, BE, SHBA', 'hero.t1': 'Website që', 'hero.t2': 'sjellin klientë.',
       'hero.lead': 'Projektoj dhe ndërtoj website të shpejta dhe të bukura për hotele, restorante dhe biznese lokale, me rezervim, WhatsApp dhe dy gjuhë.',
       'hero.work': 'Shiko punët', 'hero.quote': 'Kërko ofertë',
-      'work.title': 'Punë të zgjedhura', 'work.all': 'Të gjitha', 'work.stay': 'Hotele', 'work.food': 'Ushqim', 'work.local': 'Shërbime lokale', open: 'Hap faqen →',
+      'work.title': 'Punë të zgjedhura', 'work.all': 'Të gjitha', 'work.stay': 'Hotele', 'work.food': 'Ushqim', 'work.local': 'Shërbime lokale', 'work.film': 'Film me scroll', open: 'Hap faqen →',
       'services.title': 'Çfarë merr', 'services.lead': 'Çdo faqe bëhet për biznesin tënd, jo nga shablloni, dhe është e jotja: pa pagesa mujore të detyruara.',
       'plan1.name': 'Faqe me një seksion', 'plan1.for': 'Për kafene, berberë dhe mjeshtër që duan të gjenden dhe të kontaktohen.',
       'plan2.name': 'Faqe biznesi me rezervim', 'plan2.for': 'Për restorante, sallone dhe klinika që marrin rezervime çdo ditë.',
@@ -88,12 +88,13 @@
   var lang = 'en'
   try { var st = localStorage.getItem('jk-lang'); if (st === 'sq' || st === 'en') lang = st; else if ((navigator.languages || []).some(function (l) { return /^sq/i.test(l) })) lang = 'sq' } catch (e) {}
   var filter = 'all'
+  var matches = function (w) { return filter === 'all' || (filter === 'film' ? !!w.film : w.cat === filter) }
 
   function renderWork() {
     var grid = $('#work-grid'); grid.innerHTML = ''
     WORK.forEach(function (w, i) {
       var a = document.createElement('a')
-      a.className = 'item reveal' + (filter !== 'all' && w.cat !== filter ? ' is-hidden' : '')
+      a.className = 'item reveal' + (!matches(w) ? ' is-hidden' : '')
       a.href = 'work/' + w.id + '/index.html'; a.target = '_blank'; a.rel = 'noopener noreferrer'
       a.style.transitionDelay = (i % 2) * 90 + 'ms'
       a.innerHTML = '<div class="item__shot"><img class="desk" loading="lazy" alt=""><img class="phone" loading="lazy" alt=""></div>' +
@@ -105,6 +106,7 @@
       imgs[1].src = 'img/' + w.id + '-phone.webp'; imgs[1].alt = w.name + ', phone'
       a.querySelector('h3').textContent = w.name
       var tag = a.querySelector('.tag'); tag.textContent = TAGS[w.tag][lang]; tag.classList.add('tag--' + w.tag)
+      if (w.film) { var fb = document.createElement('span'); fb.className = 'film-badge'; fb.textContent = lang === 'sq' ? '▶ Film me scroll' : '▶ Scroll film'; a.querySelector('.item__shot').appendChild(fb) }
       a.querySelector('.item__where').textContent = w.where[lang]
       w.chips[lang].forEach(function (c) { var li = document.createElement('li'); li.textContent = c; a.querySelector('.chips').appendChild(li) })
       a.querySelector('.item__open').textContent = T[lang].open
@@ -136,7 +138,7 @@
     b.addEventListener('click', function () {
       filter = b.dataset.f
       $$('.filters button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)) })
-      $$('.item').forEach(function (el, i) { el.classList.toggle('is-hidden', filter !== 'all' && WORK[i].cat !== filter) })
+      $$('.item').forEach(function (el, i) { el.classList.toggle('is-hidden', !matches(WORK[i])) })
     })
   })
 

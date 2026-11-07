@@ -145,3 +145,6 @@ input:focus, textarea:focus { outline: 2px solid var(--sand); outline-offset: 0;
 .offer__text { grid-column: 2; color: var(--ink-2); max-width: 60ch; }
 .offer .btn { grid-column: 3; grid-row: 1 / span 2; }
 @media (max-width: 800px) { .offer { grid-template-columns: 1fr; } .offer__tag, .offer__text, .offer .btn { grid-column: 1; grid-row: auto; justify-self: start; } }
+
+/* Sites with a scroll-driven film get a small badge on their card. */
+.film-badge { position: absolute; top: 14px; left: 14px; padding: 6px 12px; border-radius: 999px; background: color-mix(in oklab, var(--ground) 82%, transparent); color: var(--sand); font-size: .8rem; font-weight: 600; backdrop-filter: blur(6px); box-shadow: 0 0 0 1px color-mix(in oklab, var(--sand) 40%, transparent); }
