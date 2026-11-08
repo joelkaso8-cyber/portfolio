@@ -113,5 +113,19 @@
     var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target) } }) }, { rootMargin: '0px 0px -10% 0px' })
     $$('.reveal').forEach(function (el) { io.observe(el) })
   } else $$('.reveal').forEach(function (el) { el.classList.add('is-in') })
+
+  // Café menu: pour animation built with React from src/ura-coffee-menu. Loads only when it scrolls near.
+  var pm = $('#pour-menu')
+  if (pm) {
+    var loadMenu = function () {
+      var link = document.createElement('link'); link.rel = 'stylesheet'; link.href = 'pour-menu/pour-menu.css'
+      link.onload = link.onerror = function () { import('./pour-menu/pour-menu.js').catch(function () { $('#menu').hidden = true }) }
+      document.head.appendChild(link)
+    }
+    if ('IntersectionObserver' in window) {
+      var mio = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { mio.disconnect(); loadMenu() } }, { rootMargin: '400px 0px' })
+      mio.observe(pm)
+    } else loadMenu()
+  }
   renderBag()
 })()

@@ -82,6 +82,12 @@ legend { margin-bottom: 8px; font-size: .88rem; font-weight: 700; color: var(--i
 .hours li { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--line); }
 .hours li.is-today { color: var(--accent); font-weight: 700; }
 
+/* Café menu: the pour animation is a React bundle in pour-menu/ (source: src/ura-coffee-menu). The box below holds its space until it loads. */
+.menu > * { max-width: 72rem; margin-inline: auto; }
+.pour-menu { min-height: calc(244px + 100vw); border-radius: var(--r); background: var(--ground-2); box-shadow: inset 0 0 0 1px var(--line); }
+.pour-menu.is-ready { min-height: 0; background: none; box-shadow: none; }
+@media (min-width: 640px) { .pour-menu { min-height: max(670px, calc((min(72rem, 90vw) - 120px) * .64 + 80px)); } }
+
 .wholesale { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(28px, 5vw, 80px); align-items: start; }
 .wholesale > div { display: grid; gap: 16px; }
 .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }

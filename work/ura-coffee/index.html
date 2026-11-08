@@ -19,7 +19,7 @@
   <a class="demo-ribbon" href="../../index.html#work">Demo by Joel Kaso ↗</a>
   <header class="top" id="top-bar">
     <a class="brand" href="#">Ura<span>Coffee Roasters</span></a>
-    <nav class="top__links" aria-label="Main"><a href="#beans">Beans</a><a href="#subscribe">Subscribe</a><a href="#cafe">Café</a><a href="#wholesale">Wholesale</a></nav>
+    <nav class="top__links" aria-label="Main"><a href="#beans">Beans</a><a href="#subscribe">Subscribe</a><a href="#cafe">Café</a><a href="#menu">Menu</a><a href="#wholesale">Wholesale</a></nav>
     <button class="bag-btn" type="button" id="bag-open"><span class="sr">Your bag, items:</span> <span id="bag-count">0</span></button>
   </header>
 
@@ -68,6 +68,11 @@
         <p>Trongate, Merchant City, Glasgow G1 · Espresso, filter, pastries from the bakery next door.</p>
         <ul class="hours" id="hours"></ul>
       </div>
+    </section>
+
+    <section class="section menu" id="menu" aria-labelledby="menu-title">
+      <div class="head reveal"><h2 id="menu-title">What we pour</h2><p>Hover or tap a drink to watch it made. Whole, oat or skimmed milk at no extra cost.</p></div>
+      <div class="pour-menu reveal" id="pour-menu" aria-busy="true"></div>
     </section>
 
     <section class="section wholesale" id="wholesale">
