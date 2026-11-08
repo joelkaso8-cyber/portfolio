@@ -69,6 +69,9 @@
       'f.name': 'Name', 'f.business': 'Business', 'f.email': 'Email', 'f.msg': 'What do you need?', 'f.send': 'Send',
       'footer.note': 'Demo sites use made-up business names. Photos on demos: Wikimedia Commons, credited on each site.',
       err: { name: 'Write your name.', email: 'Write a full email address.' }, ok: 'Your email app is opening with the message ready. Press send there.',
+      sent: 'Thanks, your message is sent. I reply within a day.', sending: 'Sending…',
+      'about.title': 'Who builds your site', 'about.p1': "I'm Joel, a web designer from Albania. I build fast, good-looking websites for hotels, restaurants and local businesses. I do the design, the code and the setup myself, so you talk to one person.", 'about.p2': "My first real project was my family's hotel in Përmet (9.0 on Booking.com): a booking calendar, the route on Google Maps and booking alerts on Telegram.", 'about.cta': 'See the hotel site',
+      'about.items': ['I reply within a day, in English or Albanian', 'Fixed price: 50% to start, 50% when it is finished', 'The site is yours, with no monthly fees'],
       subject: 'Website enquiry', 'viewer.open': 'Open in new tab ↗',
       'offer.tag': 'Launch offer', 'offer.t1': 'A full website for', 'offer.cta': 'Claim a spot',
       'offer.text': 'For my first 10 clients only (usually €800–1,200). Phone and desktop design, direct booking or orders, WhatsApp, map, two languages and Google Business Profile setup.',
@@ -105,6 +108,9 @@
       'f.name': 'Emri', 'f.business': 'Biznesi', 'f.email': 'Email', 'f.msg': 'Çfarë të duhet?', 'f.send': 'Dërgo',
       'footer.note': 'Faqet demo kanë emra biznesesh të shpikur. Fotot e demove: Wikimedia Commons, të përmendura në secilën faqe.',
       err: { name: 'Shkruaj emrin.', email: 'Shkruaj një email të plotë.' }, ok: 'Po hapet aplikacioni i emailit me mesazhin gati. Shtyp Dërgo atje.',
+      sent: 'Faleminderit, mesazhi u dërgua. Përgjigjem brenda një dite.', sending: 'Po dërgohet…',
+      'about.title': 'Kush e ndërton faqen tënde', 'about.p1': 'Jam Joel, dizajner web nga Shqipëria. Ndërtoj faqe të shpejta dhe të bukura për hotele, restorante dhe biznese lokale. Dizajnin, kodin dhe konfigurimin i bëj vetë, ndaj flet me një person të vetëm.', 'about.p2': 'Projekti im i parë real ishte hoteli i familjes sime në Përmet (9.0 në Booking.com): me kalendar rezervimi, rrugën në Google Maps dhe njoftime rezervimesh në Telegram.', 'about.cta': 'Shiko faqen e hotelit',
+      'about.items': ['Përgjigje brenda një dite, në anglisht ose shqip', 'Çmim fiks: 50% në fillim, 50% kur përfundon', 'Faqja është e jotja, pa pagesa mujore'],
       subject: 'Kërkesë për website', 'viewer.open': 'Hap në skedë të re ↗',
       'offer.tag': 'Ofertë fillimi', 'offer.t1': 'Një website i plotë për', 'offer.cta': 'Rezervo një vend',
       'offer.text': 'Vetëm për 10 klientët e mi të parë (zakonisht 800–1.200 €). Dizajn për telefon dhe kompjuter, rezervim ose porosi, WhatsApp, hartë, dy gjuhë dhe profili i biznesit në Google.',
@@ -193,7 +199,8 @@
     })
   }, { passive: true })
 
-  // Contact: opens the visitor's email app with the message ready (no server needed).
+  // Contact: sent to my inbox through FormSubmit (no server of my own). If that fails, the visitor's email app opens with the message ready, so no message is lost.
+  var ENDPOINT = 'https://formsubmit.co/ajax/' + EMAIL
   var form = $('#contact-form'), status = $('#contact-status')
   var clean = function (s, max) { return String(s).replace(/[<>\u0000-\u0008\u000b-\u001f]/g, ' ').trim().slice(0, max) }
   form.addEventListener('submit', function (e) {
@@ -204,9 +211,23 @@
     if (!name) return fail('name', T[lang].err.name)
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('email', T[lang].err.email)
     if (form.elements.website.value) return
-    var body = name + (form.elements.business.value ? ' · ' + clean(form.elements.business.value, 100) : '') + '\n' + email + '\n\n' + clean(form.elements.msg.value, 1000)
-    status.className = 'form-status is-ok'; status.textContent = T[lang].ok
-    window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(T[lang].subject + ': ' + name) + '&body=' + encodeURIComponent(body)
+    var business = clean(form.elements.business.value, 100), msg = clean(form.elements.msg.value, 1000)
+    var btn = form.querySelector('button[type="submit"]'), subject = T[lang].subject + ': ' + name
+    var viaMail = function () {
+      status.className = 'form-status is-ok'; status.textContent = T[lang].ok
+      window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(name + (business ? ' · ' + business : '') + '\n' + email + '\n\n' + msg)
+    }
+    btn.disabled = true; btn.textContent = T[lang].sending; status.className = 'form-status'; status.textContent = ''
+    fetch(ENDPOINT, {
+      method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ name: name, business: business, email: email, message: msg, _subject: subject, _captcha: 'false', _template: 'table' })
+    }).then(function (r) { return r.json() })
+      .then(function (j) {
+        if (String(j.success) !== 'true') throw new Error('not sent')
+        status.className = 'form-status is-ok'; status.textContent = T[lang].sent; form.reset()
+      })
+      .catch(viaMail)
+      .then(function () { btn.disabled = false; btn.textContent = T[lang]['f.send'] })
   })
 
   // Site viewer: the project opens full screen inside the portfolio (this also works where new tabs are blocked).

@@ -6,6 +6,9 @@
   'use strict'
   var hero = document.querySelector('.hero'), v = hero && hero.querySelector('.hero-film video')
   if (!v) return
+  // Data Saver or a slow connection: keep the poster still and let the page scroll normally, no 2-7 MB film.
+  var net = navigator.connection
+  if (net && (net.saveData || /^(slow-2g|2g|3g)$/.test(net.effectiveType))) return
   var DIST = 2400, TOUCH = 2.4
   var phone = window.matchMedia('(max-width: 900px) and (orientation: portrait)').matches
   var SRC = phone ? 'media/hero-m.mp4' : 'media/hero.mp4'
