@@ -18,7 +18,7 @@
   <div class="urgent"><span>Toothache or a broken tooth? Same-day emergency appointments.</span> <a href="tel:+441134960000">Call 0113 496 0000</a></div>
   <header class="nav">
     <a class="brand" href="#top">Aurelia<span>Dental Studio</span></a>
-    <nav class="nav__links" aria-label="Main"><a href="#treatments">Treatments</a><a href="#finance">Pay monthly</a><a href="#team">Team</a><a href="#faq">FAQ</a></nav>
+    <nav class="nav__links" aria-label="Main"><a href="#treatments">Treatments</a><a href="#smile">Your smile</a><a href="#finance">Pay monthly</a><a href="#team">Team</a><a href="#faq">FAQ</a></nav>
     <a class="btn btn--small nav__cta" href="#book">Book online</a>
     <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
   </header>
@@ -43,6 +43,21 @@
     <section class="section" id="treatments">
       <div class="head reveal"><h2>Treatments &amp; prices</h2><p>No hidden extras. X-rays are included in every new patient exam.</p></div>
       <div class="treat" id="treat-list"></div>
+    </section>
+
+    <section class="section" id="smile" aria-labelledby="sm-title">
+      <div class="head reveal"><h2 id="sm-title">Your smile, tooth by tooth</h2><p>Slide the shade to see whitening. Pick a treatment and tap the teeth it is for: we price the plan and spread it the same way as our finance.</p></div>
+      <div class="sm reveal">
+        <div class="sm__stage" id="sm-stage"><p class="sm__hint" id="sm-hint" aria-live="polite">Tap a tooth</p></div>
+        <div class="card sm__panel">
+          <div class="sm__row"><label for="sm-shade">Shade <output id="sm-shade-out"></output></label><input type="range" id="sm-shade" min="0" max="10" step="1" /><p class="sm__note" id="sm-shade-note"></p><button class="btn btn--ghost sm__whiten" type="button" id="sm-whiten" aria-pressed="false">Add teeth whitening · £350</button></div>
+          <div class="sm__row"><span id="sm-l-tool">Treatment to add</span><div class="sm__chips" role="group" aria-labelledby="sm-l-tool"><button type="button" data-tool="filling" aria-pressed="true"><i style="background:#9fd3c1"></i>Filling £120</button><button type="button" data-tool="bonding" aria-pressed="false"><i style="background:#d9b779"></i>Bonding £250</button><button type="button" data-tool="crown" aria-pressed="false"><i style="background:#d9b779"></i>Crown £650</button><button type="button" data-tool="implant" aria-pressed="false"><i style="background:#8fa59c"></i>Implant £2,400</button><button type="button" data-tool="clear" aria-pressed="false"><i style="background:#eef4f1"></i>Healthy</button></div></div>
+          <ul class="sm__plan" id="sm-plan" aria-live="polite"></ul>
+          <div class="sm__sum"><div><span>Plan total</span><strong id="sm-total">£0</strong></div><div><span>Monthly</span><strong id="sm-month">£0</strong><small id="sm-month-note"></small></div></div>
+          <div class="sm__chips" role="group" aria-label="Months"><button type="button" data-months="6">6 mo</button><button type="button" data-months="12">12 mo</button><button type="button" data-months="24">24 mo</button><button type="button" data-months="36">36 mo</button></div>
+          <div class="sm__btns"><button class="btn" type="button" id="sm-book">Book a consultation</button><button class="btn btn--ghost" type="button" id="sm-reset">Start again</button></div>
+        </div>
+      </div>
     </section>
 
     <section class="section finance" id="finance">

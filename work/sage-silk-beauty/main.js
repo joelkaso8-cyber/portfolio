@@ -78,7 +78,7 @@
     last = Date.now()
     var t = totals()
     st.className = 'form-status is-ok'
-    st.textContent = 'Booked, ' + name + ': ' + new Date(date.value + 'T00:00').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }) + ' at ' + $('#b-time').value + ', ' + $('#total-time').textContent + ', £' + t.p + '. (Demo: nothing is charged or sent.)'
+    st.textContent = 'Booked, ' + name + ': ' + new Date(date.value + 'T00:00').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }) + ' at ' + $('#b-time').value + ', ' + $('#total-time').textContent + ', £' + t.p + '.' + (window.sageDesign ? ' Nails: ' + String(window.sageDesign).slice(0, 160) + '.' : '') + ' (Demo: nothing is charged or sent.)'
   })
 
   // Gift voucher with a live preview.
@@ -120,4 +120,12 @@
   } else $$('.reveal').forEach(function (el) { el.classList.add('is-in') })
   $('#credits').textContent = 'Photos from Wikimedia Commons: ' + CREDITS.map(function (c) { return c[0] + ' (' + c[1] + ')' }).join(', ') + '.'
   renderCats(); renderList(); renderBasket()
+  // The polish bar (polish.js): loads only when its section scrolls near.
+  ;(function () {
+    var sec = document.getElementById('polish'); if (!sec) return
+    var load = function () { var sc = document.createElement('script'); sc.src = 'polish.js'; document.body.appendChild(sc) }
+    if (!('IntersectionObserver' in window)) return load()
+    var io2 = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io2.disconnect(); load() } }, { rootMargin: '600px 0px' })
+    io2.observe(sec)
+  })()
 })()

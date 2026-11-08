@@ -19,7 +19,7 @@
   <a class="demo-ribbon" href="../../index.html#work">Demo by Joel Kaso ↗</a>
   <header class="top" id="top-bar">
     <a class="brand" href="#">Grusht<span>Boxing Club</span></a>
-    <nav class="top__links" aria-label="Main"><a href="#classes">Classes</a><a href="#timer">Round timer</a><a href="#join">Membership</a><a href="#gym">The gym</a></nav>
+    <nav class="top__links" aria-label="Main"><a href="#classes">Classes</a><a href="#timer">Round timer</a><a href="#join">Membership</a><a href="#bag">Heavy bag</a><a href="#gym">The gym</a></nav>
     <a class="btn btn--sm" href="#trial">Free class</a>
   </header>
 
@@ -98,6 +98,33 @@
         <p class="price"><span>Per month</span><strong id="p-price">£0</strong><small id="p-note"></small></p>
         <a class="btn" href="#trial" id="p-go">Try a class first</a>
       </form>
+    </section>
+
+    <section class="section split hb-sec" id="bag" aria-labelledby="hb-title">
+      <div class="split__text reveal">
+        <h2 id="hb-title">Hit the bag</h2>
+        <p>Throw the numbers like in class: 1 jab, 2 cross, 3 and 4 hooks, 5 and 6 uppercuts. Tap the bag (the sides for hooks, low for uppercuts), use the pads, or press 1 to 6. Then take a 30-second round with the coach calling combos.</p>
+        <dl class="hb-stats">
+          <div><dt>Punches</dt><dd id="hb-punches">0</dd></div>
+          <div><dt>Combos</dt><dd id="hb-combos">0</dd></div>
+          <div><dt>Per minute</dt><dd id="hb-ppm">0</dd></div>
+          <div><dt>Biggest swing</dt><dd id="hb-swing">0°</dd></div>
+        </dl>
+        <div class="hb-btns"><button class="btn" type="button" id="hb-round">Start a 30-second round</button><button class="btn btn--ghost" type="button" id="hb-sound" aria-pressed="true">Sound on</button></div>
+        <p class="hb-best" id="hb-best"></p>
+        <p class="form-status" id="hb-result" role="status"></p>
+      </div>
+      <div class="card hb reveal">
+        <div class="hb__stage" id="hb-stage" tabindex="0" aria-label="Heavy bag. Press 1 to 6 to punch.">
+          <canvas id="hb-canvas" role="img" aria-label="A heavy bag hanging under a lamp, with your gloves up in front of it"></canvas>
+          <div class="hb__clock" id="hb-clock" hidden><span id="hb-time">0:30</span><i id="hb-bar"></i></div>
+          <div class="hb__call" id="hb-call" aria-live="polite"></div>
+          <p class="hb__hint" id="hb-hint">Tap the bag</p>
+        </div>
+        <div class="hb__pads" role="group" aria-label="Punches">
+          <button type="button" data-p="1"><b>1</b>Jab</button><button type="button" data-p="2"><b>2</b>Cross</button><button type="button" data-p="3"><b>3</b>Hook</button><button type="button" data-p="4"><b>4</b>Hook</button><button type="button" data-p="5"><b>5</b>Upper</button><button type="button" data-p="6"><b>6</b>Upper</button>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="gym">

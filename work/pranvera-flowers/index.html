@@ -19,7 +19,7 @@
   <a class="demo-ribbon" href="../../index.html#work">Demo by Joel Kaso ↗</a>
   <header class="top" id="top-bar">
     <a class="brand" href="#">Pranvera<span>Flowers</span></a>
-    <nav class="top__links" aria-label="Main"><a href="#build">Build a bouquet</a><a href="#shop">Shop</a><a href="#delivery">Delivery</a><a href="#workshops">Workshops</a></nav>
+    <nav class="top__links" aria-label="Main"><a href="#season">In season</a><a href="#build">Build a bouquet</a><a href="#shop">Shop</a><a href="#delivery">Delivery</a><a href="#workshops">Workshops</a></nav>
     <button class="bag-btn" type="button" id="bag-open"><span class="sr">Your basket, items:</span> <span id="bag-count">0</span></button>
   </header>
 
@@ -40,6 +40,20 @@
     </section>
 
     <div class="cutoff" aria-live="polite"><p id="cutoff"></p></div>
+
+    <section class="section" id="season" aria-labelledby="sn-title">
+      <div class="head reveal"><h2 id="sn-title">What is in season</h2><p>Turn the year. Our six stems open when they are at their best in Britain and close back to buds when they are not. Tap a flower to add it to your bouquet.</p></div>
+      <div class="sn reveal">
+        <div class="sn__stage" id="sn-stage"></div>
+        <div class="card sn__panel">
+          <div class="sn__nav"><button class="sn__arrow" type="button" id="sn-prev" aria-label="Previous month">&#8249;</button><p class="sn__month" id="sn-month" aria-live="polite"></p><button class="sn__arrow" type="button" id="sn-next" aria-label="Next month">&#8250;</button></div>
+          <dl class="sn__lists"><div><dt>At their best</dt><dd id="sn-in"></dd></div><div><dt>Starting or ending</dt><dd id="sn-soon"></dd></div></dl>
+          <p class="sn__tip" id="sn-tip"></p>
+          <button class="btn" type="button" id="sn-fill">Fill the builder</button>
+          <p class="form-status" id="sn-status" role="status"></p>
+        </div>
+      </div>
+    </section>
 
     <section class="section build" id="build">
       <div class="build__preview reveal">

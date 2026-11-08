@@ -203,6 +203,16 @@
     form.reset()
   })
 
+  // Heavy bag (bag.js): loads only when its section scrolls near.
+  var bagSec = $('#bag')
+  if (bagSec) {
+    var loadBag = function () { var sc = document.createElement('script'); sc.src = 'bag.js'; document.body.appendChild(sc) }
+    if ('IntersectionObserver' in window) {
+      var bagIo = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { bagIo.disconnect(); loadBag() } }, { rootMargin: '600px 0px' })
+      bagIo.observe(bagSec)
+    } else loadBag()
+  }
+
   // Reveal on scroll
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {

@@ -19,7 +19,7 @@
   <a class="demo-ribbon" href="../../index.html#work">Demo by Joel Kaso ↗</a>
   <header class="top" id="top-bar">
     <a class="brand" href="#">Shkumë<span>Car Wash</span></a>
-    <nav class="top__links" aria-label="Main"><a href="#washes">Washes</a><a href="#club">Unlimited</a><a href="#detail">Detailing</a><a href="#visit">Visit</a></nav>
+    <nav class="top__links" aria-label="Main"><a href="#washes">Washes</a><a href="#diy">Wash it</a><a href="#club">Unlimited</a><a href="#detail">Detailing</a><a href="#visit">Visit</a></nav>
     <a class="btn btn--sm" href="#detail">Book a detail</a>
   </header>
 
@@ -55,6 +55,28 @@
         <div><h3>Add-ons</h3><p class="muted">Ticked items are added at the pay station.</p></div>
         <div class="addons__list" id="addons"></div>
         <p class="total"><span>Your wash</span><strong id="w-total">$0</strong><small id="w-note"></small></p>
+      </div>
+    </section>
+
+    <section class="section" id="diy" aria-labelledby="dw-title">
+      <div class="head reveal">
+        <h2 id="dw-title">Wash it yourself</h2>
+        <p>Pick a tool and drag it over the <span id="dw-size">car</span>: foam first, then rinse, then the extras. Every step is a step in our tunnel, so you will know which wash you just did.</p>
+      </div>
+      <div class="dw reveal">
+        <div class="dw__stage" id="dw-stage"><canvas id="dw-canvas" role="img" aria-label="A dirty car in the wash tunnel. Drag a tool over it to clean it, or press Drive through the tunnel."></canvas></div>
+        <div class="card dw__panel">
+          <div class="dw__tools" role="group" aria-label="Tools">
+            <button type="button" data-tool="foam" aria-pressed="true"><i style="background:conic-gradient(#e2f0fa 0 33%,#f7dbe9 0 66%,#f7ecc4 0)"></i>Triple foam</button>
+            <button type="button" data-tool="rinse" aria-pressed="false"><i style="background:#8db8d6"></i>Rinse</button>
+            <button type="button" data-tool="wax" aria-pressed="false"><i style="background:#d8b85a"></i>Hot wax</button>
+            <button type="button" data-tool="tires" aria-pressed="false"><i style="background:#14171a;box-shadow:0 0 0 3px #4a4844"></i>Tire shine</button>
+            <button type="button" data-tool="glass" aria-pressed="false"><i style="background:#b9e3f2"></i>Rain repellent</button>
+          </div>
+          <ul class="dw__list" id="dw-list" aria-label="Your wash so far"></ul>
+          <p class="dw__verdict" id="dw-verdict" role="status"></p>
+          <div class="dw__btns"><button class="btn" type="button" id="dw-choose" hidden>Choose</button><button class="btn btn--ghost btn--sm" type="button" id="dw-auto">Drive through the tunnel</button><button class="btn btn--ghost btn--sm" type="button" id="dw-reset">Get it dirty again</button></div>
+        </div>
       </div>
     </section>
 

@@ -398,3 +398,22 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   .final-stage{position:relative;height:auto;min-height:min(92vh,880px);padding:clamp(88px,10vw,140px) var(--gut)}
   .final-video{display:none}
 }
+
+/* Design it (assets/ink.js): draw once, mirrored round the circle; see it on paper or on the forearm. */
+.dz { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(28px, 5vw, 80px); align-items: center; }
+.dz-copy { display: grid; gap: 18px; }
+.dz-ctl { display: grid; gap: 14px; margin-top: 8px; }
+.dz-row { display: grid; gap: 8px; }
+.dz-row > span { color: var(--text-secondary); }
+.dz-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.dz-chips button { min-height: 44px; padding: 0 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); color: var(--text-primary); font: 500 14px/1 inherit; font-family: inherit; cursor: pointer; transition: border-color .2s, background .2s, color .2s; }
+.dz-chips button:hover { border-color: var(--line-strong); }
+.dz-chips button[aria-pressed="true"] { background: var(--accent-muted); border-color: var(--accent); color: var(--accent); }
+.dz-guide { min-height: 1.6em; color: var(--text-secondary); font-size: 15px; }
+.dz-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.dz-stage { position: relative; width: 100%; aspect-ratio: 1; border-radius: 22px; overflow: hidden; background: radial-gradient(70% 70% at 50% 45%, #1b1f23, var(--canvas)); box-shadow: inset 0 0 0 1px var(--line); }
+.dz-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; }
+.dz-hint { position: absolute; left: 50%; bottom: 14px; margin: 0; transform: translateX(-50%); padding: 6px 12px; border-radius: 999px; background: rgba(12,14,16,.7); color: var(--accent); pointer-events: none; white-space: nowrap; }
+.dz-hint[hidden] { display: none; }
+@media (max-width: 900px) { .dz { grid-template-columns: 1fr; } .dz-stage { order: -1; } }
+@media (prefers-reduced-motion: reduce) { .dz-chips button { transition: none; } }

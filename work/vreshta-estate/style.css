@@ -122,3 +122,39 @@ input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 0;
 @media (max-width: 900px) { .top__links { display: none; } .cart-btn { margin-left: auto; } .tasting, .visit { grid-template-columns: 1fr; } .tiers { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .wines, .row { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .wine, .btn { transition: none; } }
+
+/* Aroma wheel (aroma.js): the wine's aromas bloom on a wheel; swirl the glass to open it up. */
+.ar { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 56px); align-items: center; }
+.ar__stage { position: relative; width: 100%; max-width: 620px; aspect-ratio: 1; justify-self: center; }
+.ar__svg { display: block; width: 100%; height: 100%; user-select: none; }
+.ar__fam { font: 700 9.5px var(--sans); letter-spacing: .08em; text-transform: uppercase; fill: var(--ink); }
+.ar__label { font: 500 10.5px var(--sans); fill: var(--ink-2); }
+.ar__label.is-on { font-weight: 700; fill: var(--ink); }
+.ar__grip { position: absolute; left: 50%; top: 50%; width: 30%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; touch-action: none; cursor: grab; }
+#aroma.is-swirling .ar__grip { cursor: grabbing; }
+.ar__tip { position: absolute; left: 50%; top: 56.5%; z-index: 1; margin: 0; transform: translateX(-50%); padding: 4px 10px; border-radius: 999px; background: rgba(26,21,16,.75); color: var(--accent); font: 700 .68rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; pointer-events: none; transition: opacity .3s; }
+#aroma.is-swirling .ar__tip { opacity: 0; }
+.ar__panel { align-content: start; }
+.ar__panel h3 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
+.ar__grapes { color: var(--muted); }
+.ar__wines { display: flex; flex-wrap: wrap; gap: 6px; }
+.ar__wines button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--ground); color: var(--ink-2); font: 600 .88rem var(--sans); cursor: pointer; transition: border-color .2s, background .2s; }
+.ar__wines button:hover { border-color: var(--accent); }
+.ar__wines button[aria-pressed="true"] { background: var(--panel); border-color: var(--accent); color: var(--ink); }
+.ar__wines i { width: 12px; height: 12px; border-radius: 50%; box-shadow: 0 0 0 2px rgba(247,239,226,.12); }
+.ar__notes { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.ar__notes li { padding: 5px 12px; border-radius: 999px; background: color-mix(in oklab, var(--c) 20%, transparent); box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--c) 55%, transparent); color: var(--ink); font-size: .88rem; }
+.ar__struct { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 22px; margin: 0; }
+.ar__struct div { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.ar__struct dt { color: var(--muted); font-size: .84rem; }
+.ar__struct dd { display: flex; gap: 4px; margin: 0; }
+.ar__struct i { width: 16px; height: 6px; border-radius: 3px; background: var(--line); }
+.ar__struct i.on { background: var(--accent); }
+.ar__pair span { display: block; margin-bottom: 2px; color: var(--muted); font-size: .76rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.ar__pair b { color: var(--ink); font-weight: 600; }
+.ar__hint { min-height: 1.5em; color: var(--accent); font-size: .92rem; }
+.ar__btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.ar__btns .btn--ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.ar__btns .btn--ghost:hover { background: var(--panel); }
+@media (max-width: 900px) { .ar { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .ar__wines button, .ar__tip { transition: none; } }

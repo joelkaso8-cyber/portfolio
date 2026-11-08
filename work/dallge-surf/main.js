@@ -33,6 +33,7 @@
   var today = new Date(); today.setHours(0, 0, 0, 0)
   var r = rnd(key(today)), wave = (0.6 + r * 1.6).toFixed(1), period = Math.round(8 + r * 6), wind = Math.round(4 + rnd('w' + key(today)) * 18)
   var score = Math.max(1, Math.min(5, Math.round(wave * 1.4 + period / 6 - wind / 8)))
+  window.dallgeReport = { wave: Number(wave), period: period, wind: wind } // read by swell.js
   var ht = highTide(today), sea = 14 - Math.round(rnd('t' + key(today)) * 4)
   var g = [
     ['Waves', wave + ' m', period + ' s period'], ['Wind', wind + ' mph', wind < 10 ? 'offshore, clean' : 'onshore, choppy'],
@@ -109,6 +110,16 @@
     $('#hire-total').textContent = perDay ? '£' + sum.toFixed(0) + (days >= 5 ? ' (20% week discount)' : '') : 'Pick a board or a wetsuit'
   }
   hf.addEventListener('input', hire); hire()
+
+  // Read the sea (swell.js): loads only when its section scrolls near.
+  var swellSec = $('#swell')
+  if (swellSec) {
+    var loadSwell = function () { var sc = document.createElement('script'); sc.src = 'swell.js'; document.body.appendChild(sc) }
+    if ('IntersectionObserver' in window) {
+      var swIo = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { swIo.disconnect(); loadSwell() } }, { rootMargin: '600px 0px' })
+      swIo.observe(swellSec)
+    } else loadSwell()
+  }
 
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target) } }) }, { rootMargin: '0px 0px -10% 0px' })

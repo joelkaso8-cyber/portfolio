@@ -1,0 +1,55 @@
+/* A day in Përmet (day.js): drag the real sun across the valley; the plan shows what to do at each hour. */
+.pd-sec{padding-bottom:var(--section-gap-s);scroll-margin-top:96px}
+.pd{display:grid;gap:var(--space-sm)}
+.pd__stage{position:relative;width:100%;aspect-ratio:21/9;overflow:hidden;border-radius:var(--radius-card);background:var(--color-paper-2);box-shadow:var(--edge-light),var(--shadow-card)}
+.pd__stage canvas{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;touch-action:pan-y;cursor:ew-resize}
+.pd__grip{position:absolute;left:0;top:0;z-index:2;width:60px;height:60px;border-radius:50%;touch-action:none;cursor:grab}
+.pd__grip:active{cursor:grabbing}
+.pd__clock{position:absolute;z-index:3;left:var(--space-md);top:var(--space-md);display:flex;align-items:baseline;gap:var(--space-sm);margin:0;padding:var(--space-xs) var(--space-md);border-radius:var(--radius-pill);pointer-events:none}
+.pd__clock b{font:var(--display-weight) var(--text-2xl)/1 var(--font-display);letter-spacing:var(--tracking-display);font-variant-numeric:tabular-nums;color:var(--color-ink)}
+.pd__clock span{font-size:var(--text-sm);color:var(--color-ink-2)}
+.pd__sun{position:absolute;z-index:3;right:var(--space-md);top:var(--space-md);margin:0;padding:var(--space-xs) var(--space-md);border-radius:var(--radius-pill);font-size:var(--text-sm);color:var(--color-ink-2);font-variant-numeric:tabular-nums;pointer-events:none}
+.pd__scrub{position:relative;padding-bottom:20px}
+.pd__scrub input{display:block;width:100%;height:44px;margin:0;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer}
+.pd__scrub input::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(90deg,oklch(40% .06 265),oklch(78% .1 70) 18%,oklch(88% .05 95) 50%,oklch(78% .1 60) 80%,oklch(36% .06 265))}
+.pd__scrub input::-moz-range-track{height:4px;border-radius:2px;background:linear-gradient(90deg,oklch(40% .06 265),oklch(78% .1 70) 18%,oklch(88% .05 95) 50%,oklch(78% .1 60) 80%,oklch(36% .06 265))}
+.pd__scrub input::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-11px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#fff6dc,#f2b46a 60%,#d9844a);border:2px solid var(--color-light);box-shadow:var(--shadow-card)}
+.pd__scrub input::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#fff6dc,#f2b46a 60%,#d9844a);border:2px solid var(--color-light)}
+.pd__scrub input:focus-visible{outline:2px solid var(--color-focus);outline-offset:2px}
+.pd__hours{position:absolute;left:0;right:0;top:40px;height:18px;font-size:var(--text-xs);color:var(--color-muted);font-variant-numeric:tabular-nums}
+.pd__hours span{position:absolute;transform:translateX(-50%)}
+.pd__lanes{position:relative;display:grid;gap:var(--space-sm)}
+.pd__lane{display:grid;gap:6px}
+.pd__lane-name{position:sticky;left:0;justify-self:start;margin:0;font-size:var(--text-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--color-muted)}
+.pd__lane-track{position:relative;height:calc(var(--rows,1) * 50px - 6px)}
+.pd__item{position:absolute;left:var(--a);top:calc(var(--r) * 50px);width:var(--w);min-width:46px;height:44px;display:flex;align-items:center;gap:6px;padding:0 10px;border:0;border-radius:var(--radius-inner);background:var(--color-light);box-shadow:inset 0 0 0 1px var(--color-rule);color:var(--color-ink-2);font-size:var(--text-xs);text-align:left;white-space:nowrap;overflow:hidden;cursor:pointer;transition:background-color var(--dur-short) var(--ease-out),color var(--dur-short) var(--ease-out)}
+.pd__item:hover{color:var(--color-ink);box-shadow:inset 0 0 0 1px var(--color-shade-2)}
+.pd__item-time{flex:none;font-variant-numeric:tabular-nums;opacity:.7}
+.pd__item-name{overflow:hidden;text-overflow:ellipsis}
+.pd__item[aria-pressed=true]{background:var(--color-accent);color:var(--color-accent-ink);box-shadow:var(--shadow-card)}
+.pd__item:focus-visible{outline:2px solid var(--color-focus);outline-offset:2px}
+.pd__foot{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:var(--space-lg);align-items:start;margin-top:var(--space-sm)}
+.pd__card{display:grid;gap:var(--space-xs);align-content:start;min-height:230px;padding:var(--space-lg) var(--space-xl)}
+.pd__when{margin:0;font-size:var(--text-xs);letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent)}
+.pd__title{font-size:var(--text-xl);color:var(--color-ink)}
+.pd__meta{font-size:var(--text-sm);color:var(--color-muted)}
+.pd__line{max-width:62ch;color:var(--color-ink-2)}
+.pd__tip{max-width:62ch;padding-left:var(--space-sm);border-left:2px solid var(--color-accent);color:var(--color-ink)}
+.pd__note{font-size:var(--text-sm);color:var(--color-muted)}
+.pd__cta{margin-top:var(--space-xs)}
+.pd__days{display:grid;gap:var(--space-md);justify-items:start}
+.pd__chip{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 var(--space-md);border:0;border-radius:var(--radius-pill);background:var(--color-light);color:var(--color-ink-2);font-size:var(--text-sm);cursor:pointer;box-shadow:inset 0 0 0 1px var(--color-rule);transition:background-color var(--dur-micro) var(--ease-out),color var(--dur-micro) var(--ease-out)}
+.pd__chip:hover{color:var(--color-ink);box-shadow:inset 0 0 0 1px var(--color-shade-2)}
+.pd__chip[aria-pressed=true]{background:var(--color-accent);color:var(--color-accent-ink);box-shadow:var(--shadow-card)}
+.pd__chip:focus-visible{outline:2px solid var(--color-focus);outline-offset:2px}
+@media (max-width:60rem){.pd__stage{aspect-ratio:16/10}.pd__foot{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:40rem){
+  .pd__stage{aspect-ratio:1/1}
+  .pd__clock b{font-size:var(--text-xl)}
+  .pd__sun{top:auto;right:var(--space-sm);bottom:var(--space-sm);left:var(--space-sm);text-align:center;font-size:var(--text-xs)}
+  .pd__lanes{overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+  .pd__lane{min-width:760px}
+  .pd__hours span:nth-child(even){display:none}
+  .pd__card{padding:var(--space-lg);min-height:0}
+}
+@media (prefers-reduced-motion:reduce){.pd__item,.pd__chip{transition:none}}

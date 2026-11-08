@@ -483,3 +483,37 @@ section { position: relative; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Wipe the glass (steam.js): the hot room behind a steamed-up window. */
+.steam { padding: 0 0 clamp(96px, 14vw, 180px); background: var(--ground-2); }
+.st { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 56px); align-items: start; }
+.st__stage { position: relative; aspect-ratio: 3 / 2; border-radius: var(--r); overflow: hidden; background: #18170f; box-shadow: 0 0 0 1px var(--line-2), 0 40px 80px -40px rgba(0,0,0,.8); }
+.st__stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+.st__stage canvas:active { cursor: grabbing; }
+.st__pins { position: absolute; inset: 0; pointer-events: none; }
+.st__pin { position: absolute; display: flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border-radius: 999px; background: rgba(18,17,12,.78); color: var(--ink); font-size: .84rem; white-space: nowrap; transform: translate(-50%, -50%) scale(.6); opacity: 0; transition: opacity .5s, transform .6s cubic-bezier(.2,1.4,.4,1); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); box-shadow: 0 0 0 1px var(--line-2); }
+.st__pin b { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: #1c160c; font-size: .72rem; font-weight: 700; }
+.st__pin.is-found { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.st__hint { position: absolute; left: 50%; top: 50%; margin: 0; transform: translate(-50%, -50%); pointer-events: none; }
+.st__hint span { display: inline-flex; padding: 10px 18px; border-radius: 999px; background: rgba(18,17,12,.55); color: var(--ink); font-family: var(--serif); font-size: 1.5rem; font-style: italic; animation: st-breathe 2.6s ease-in-out infinite; }
+.st__hint[hidden] { display: none; }
+@keyframes st-breathe { 50% { opacity: .55; transform: scale(.97); } }
+.st__temp { position: absolute; right: 14px; bottom: 12px; margin: 0; padding: 4px 10px; border-radius: 999px; background: rgba(18,17,12,.6); color: var(--accent-2); font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; pointer-events: none; }
+.st__panel { display: grid; gap: 18px; }
+.st__count { display: grid; gap: 8px; color: var(--muted); font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; }
+.st__count i { display: block; height: 2px; background: var(--line-2); }
+.st__count b { display: block; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .6s ease; }
+.st__list { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.st__list li { display: grid; grid-template-columns: 34px 1fr auto; gap: 12px; align-items: start; padding: 12px 0; border-bottom: 1px solid var(--line); opacity: .45; transition: opacity .5s; }
+.st__list li.is-found { opacity: 1; }
+.st__list b { color: var(--accent); font-size: .8rem; letter-spacing: .1em; padding-top: 6px; }
+.st__list h3 { font-size: 1.45rem; }
+.st__list p { margin: 2px 0 0; color: var(--muted); font-size: .92rem; }
+.st__list span { color: var(--ink-2); font-family: var(--serif); font-size: 1.2rem; }
+.st__done { display: grid; gap: 12px; }
+.st__done[hidden] { display: none; }
+.st__done p { font-family: var(--serif); font-size: 1.5rem; line-height: 1.2; color: var(--ink); }
+.st__btns { display: flex; flex-wrap: wrap; gap: 10px; }
+@media (max-width: 860px) { .st { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .st__pin, .st__count b, .st__list li { transition: none; } .st__hint span { animation: none; } }
+@media (max-width: 600px) { .st__pin { padding: 4px; } .st__pin span { display: none; } .st__hint span { font-size: 1.2rem; } }

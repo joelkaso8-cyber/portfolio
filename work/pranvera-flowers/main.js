@@ -227,6 +227,16 @@
   st.textContent = open ? 'Open now · until ' + pad(HOURS[L.day][1]) + ':00' : 'Closed now · opens ' + (nowH < HOURS[L.day][0] ? 'at ' + pad(HOURS[L.day][0]) + ':00' : 'tomorrow at ' + pad(HOURS[(L.day + 1) % 7][0]) + ':00')
 
   renderBag()
+  // In season (season.js): loads only when its section scrolls near.
+  var seasonSec = $('#season')
+  if (seasonSec) {
+    var loadSeason = function () { var sc = document.createElement('script'); sc.src = 'season.js'; document.body.appendChild(sc) }
+    if ('IntersectionObserver' in window) {
+      var snIo = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { snIo.disconnect(); loadSeason() } }, { rootMargin: '600px 0px' })
+      snIo.observe(seasonSec)
+    } else loadSeason()
+  }
+
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target) } }) }, { rootMargin: '0px 0px -10% 0px' })
     $$('.reveal').forEach(function (e) { io.observe(e) })

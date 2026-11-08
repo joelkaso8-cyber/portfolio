@@ -176,6 +176,16 @@
   })
 
   renderWashes(); total(); club()
+
+  // Wash it yourself (wash.js): loads only when its section scrolls near.
+  var diy = $('#diy')
+  if (diy) {
+    var loadDiy = function () { var sc = document.createElement('script'); sc.src = 'wash.js'; document.body.appendChild(sc) }
+    if ('IntersectionObserver' in window) {
+      var diyIo = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { diyIo.disconnect(); loadDiy() } }, { rootMargin: '600px 0px' })
+      diyIo.observe(diy)
+    } else loadDiy()
+  }
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target) } }) }, { rootMargin: '0px 0px -10% 0px' })
     $$('.reveal').forEach(function (el) { io.observe(el) })

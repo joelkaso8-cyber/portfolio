@@ -17,7 +17,7 @@
   <a class="demo-ribbon" href="../../index.html#work">Demo website by Joel Kaso · see the portfolio</a>
   <header class="nav">
     <a class="brand" href="#top"><svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 26V12l11-7 11 7v14" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></svg>Kala<span>Build &amp; Renovate</span></a>
-    <nav class="nav__links" aria-label="Main"><a href="#services">Services</a><a href="#projects">Projects</a><a href="#estimate">Price guide</a><a href="#faq">FAQ</a></nav>
+    <nav class="nav__links" aria-label="Main"><a href="#services">Services</a><a href="#projects">Projects</a><a href="#estimate">Price guide</a><a href="#rebuild">See it built</a><a href="#faq">FAQ</a></nav>
     <a class="btn btn--small nav__cta" href="#quote">Free quote</a>
     <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
   </header>
@@ -91,6 +91,23 @@
         <p class="calc__result"><span>Typical cost</span><strong id="calc-out">£0</strong><small id="calc-weeks"></small></p>
         <a class="btn" href="#quote" id="calc-cta">Get a fixed quote for this</a>
       </form>
+    </section>
+
+    <section class="section" id="rebuild" aria-labelledby="rb-title">
+      <div class="head reveal"><h2 id="rb-title">See it built</h2><p>Choose the room, size and finish, then the floor and the walls. The room builds itself, and the price comes from the same guide as above.</p></div>
+      <div class="rb reveal">
+        <div class="rb__stage" id="rb-stage"></div>
+        <div class="card rb__panel">
+          <div class="rb__row"><span id="rb-l-room">Room</span><div class="rb__chips" role="group" aria-labelledby="rb-l-room"><button type="button" data-room="kitchen">Kitchen</button><button type="button" data-room="bath">Bathroom</button><button type="button" data-room="house">Whole floor</button></div></div>
+          <div class="rb__row"><label for="rb-size">Size <output id="rb-size-out"></output></label><input type="range" id="rb-size" min="4" max="60" value="12" /></div>
+          <div class="rb__row"><span id="rb-l-fin">Finish</span><div class="rb__chips" role="group" aria-labelledby="rb-l-fin"><button type="button" data-finish="1">Standard</button><button type="button" data-finish="1.35">Premium</button><button type="button" data-finish="1.8">Luxury</button></div></div>
+          <div class="rb__row"><span id="rb-l-floor">Floor</span><div class="rb__chips" role="group" aria-labelledby="rb-l-floor"><button type="button" data-floor="oak">Oak boards</button><button type="button" data-floor="stone">Stone tiles</button><button type="button" data-floor="concrete">Polished concrete</button></div></div>
+          <div class="rb__row"><span id="rb-l-walls">Walls</span><div class="rb__chips" role="group" aria-labelledby="rb-l-walls"><button type="button" data-walls="plaster"><i style="background:#e7e1d7"></i>Plaster</button><button type="button" data-walls="sage"><i style="background:#a7b4a0"></i>Sage</button><button type="button" data-walls="terra"><i style="background:#cf9a72"></i>Terracotta</button></div></div>
+          <p class="rb__price"><span>Typical cost</span><strong id="rb-price"></strong><small id="rb-weeks"></small></p>
+          <p class="rb__spec" id="rb-spec" aria-live="polite"></p>
+          <div class="rb__btns"><button class="btn" type="button" id="rb-quote">Send this as a quote</button><button class="btn btn--ghost" type="button" id="rb-rebuild">Build it again</button></div>
+        </div>
+      </div>
     </section>
 
     <section class="section process reveal" aria-labelledby="process-title">

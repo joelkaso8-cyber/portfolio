@@ -47,6 +47,7 @@
   <nav aria-label="Main">
     <ul class="links">
       <li><a class="link" href="#run">The run</a></li>
+      <li><a class="link" href="#ride">Ride it</a></li>
       <li><a class="link" href="#trips">Daily tours</a></li>
       <li><a class="link" href="#day">Day plan</a></li>
       <li><a class="link" href="#first-time">FAQ</a></li>
@@ -148,12 +149,62 @@
     </div>
   </section>
 
+  <!-- 02 Ride it (assets/river.js) -->
+  <section class="section ride reveal" id="ride" aria-labelledby="ride-h" data-enter="rise" data-scene="rapid">
+    <div class="hline" aria-hidden="true"><span class="bar"></span><svg class="lip" viewBox="0 0 60 80"><path d="M0 1.5h14c9 0 12.5 4 14 12L30 78" pathLength="1"/></svg></div>
+    <div class="wrap">
+      <div class="ride-head">
+        <p class="kicker part" style="--i:0">02 · Ride it</p>
+        <h2 id="ride-h" class="part" style="--i:1">Float all 8.7 km before you book.</h2>
+        <p class="lede part" style="--i:2">Grab the raft and pull it downstream, or let it float. Take the helm through both Class II rapids, stop at Cliff Jump Rock and Pebble Beach, and pick the light of your tour.</p>
+      </div>
+      <div class="rr part" style="--i:3">
+        <div class="rr-view">
+          <div class="rr-stage" id="rr-stage">
+            <canvas id="rr-canvas" tabindex="0" role="img" aria-label="Top-down view of the Vjosa run with your raft. Left and right arrow keys steer, Space floats or pauses."></canvas>
+            <div class="rr-grip" id="rr-grip" aria-hidden="true"></div>
+            <p class="rr-hint chip" id="rr-hint">Pull the raft down · slide it to steer</p>
+          </div>
+          <div class="rr-rail" id="rr-rail">
+            <div class="rr-track"><span class="rr-fill" id="rr-fill"></span></div>
+            <span class="rr-tick" style="left:0%"><i></i><b>Put-in</b></span><span class="rr-tick rapid" style="left:20%"><i></i><b>Canyon II</b></span><span class="rr-tick rapid" style="left:40%"><i></i><b>Blue Wave II</b></span><span class="rr-tick" style="left:60%"><i></i><b>Cliff Jump</b></span><span class="rr-tick" style="left:80%"><i></i><b>Pebble Beach</b></span><span class="rr-tick" style="left:100%"><i></i><b>Take-out</b></span>
+            <button class="rr-knob" id="rr-knob" type="button" role="slider" aria-label="Your raft on the 8.7 km run" aria-valuemin="0" aria-valuemax="8.7" aria-valuenow="0" aria-valuetext="0.0 km, Put-in near Përmet"></button>
+          </div>
+        </div>
+        <div class="rr-panel">
+          <p class="rr-cls" id="rr-cls">Start</p>
+          <h3 class="rr-stop" id="rr-stop">Put-in near Përmet</h3>
+          <p class="rr-text" id="rr-text">Helmet, life jacket and wetsuit on after the 15-minute briefing. One certified guide in every raft.</p>
+          <dl class="rr-read">
+            <div><dt>River</dt><dd><span id="rr-km">0.0</span> <small>/ 8.7 km</small></dd></div>
+            <div><dt>On the water</dt><dd id="rr-time">0 min</dd></div>
+          </dl>
+          <p class="rr-next" id="rr-next">Next: Canyon Entrance in 1.7 km</p>
+          <p class="rr-call" id="rr-call" aria-live="polite"></p>
+          <div class="rr-ctl">
+            <button class="btn btn-ghost btn-sm" type="button" id="rr-float" aria-pressed="false">Start floating</button>
+            <button class="btn btn-ghost btn-sm" type="button" id="rr-jump" hidden>Jump · guide's green light</button>
+            <button class="rr-reset" type="button" id="rr-restart">Back to the put-in</button>
+          </div>
+          <p class="rr-score">Clean lines <b id="rr-clean">0/2</b> · Bumps <b id="rr-bumps">0</b> · Jumps <b id="rr-jumps">0</b></p>
+          <div class="rr-slot" role="group" aria-label="Tour time">
+            <button type="button" data-slot="morning" aria-pressed="false">Morning · 09:30 AM</button>
+            <button type="button" data-slot="afternoon" aria-pressed="true">Afternoon · 01:00 PM</button>
+            <button type="button" data-slot="custom" aria-pressed="false">Custom time</button>
+          </div>
+          <p class="rr-light" id="rr-light">Afternoon sun: warm, turquoise water for the swim stops.</p>
+          <a class="btn btn-primary" id="rr-book" href="#book" data-trip="afternoon">Book the Afternoon Run · €30</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 02 Daily tours -->
   <section class="section trips reveal" id="trips" aria-labelledby="trips-h" data-enter="raft" data-scene="beach">
     <div class="hline" aria-hidden="true"><span class="bar"></span><svg class="lip" viewBox="0 0 60 80"><path d="M0 1.5h14c9 0 12.5 4 14 12L30 78" pathLength="1"/></svg></div>
     <div class="wrap">
       <div class="trips-head">
-        <p class="kicker part" style="--i:0">02 · Pick your time</p>
+        <p class="kicker part" style="--i:0">03 · Pick your time</p>
         <h2 id="trips-h" class="part" style="--i:1">Morning, afternoon, or private group?</h2>
       </div>
       <div class="cards">
@@ -195,7 +246,7 @@
   <section class="section day reveal" id="day" aria-labelledby="day-h" data-enter="flow" data-scene="cliff">
     <div class="hline" aria-hidden="true"><span class="bar"></span><svg class="lip" viewBox="0 0 60 80"><path d="M0 1.5h14c9 0 12.5 4 14 12L30 78" pathLength="1"/></svg></div>
     <div class="wrap">
-      <p class="kicker part" style="--i:0">03 · Your day</p>
+      <p class="kicker part" style="--i:0">04 · Your day</p>
       <h2 id="day-h" class="part" style="--i:1">From Përmet square to the river and back.</h2>
       <ol class="steps">
         <li class="track" aria-hidden="true"><span class="flat"></span><svg class="fall" viewBox="0 0 40 90"><path d="M0 1.5h8c6 0 8.5 3 9.5 9L20 88" pathLength="1"/></svg></li>
@@ -242,7 +293,7 @@
   <section class="section drop-sec reveal" id="feel" aria-labelledby="feel-h" data-enter="depth" data-scene="rapid">
     <div class="hline" aria-hidden="true"><span class="bar"></span><svg class="lip" viewBox="0 0 60 80"><path d="M0 1.5h14c9 0 12.5 4 14 12L30 78" pathLength="1"/></svg></div>
     <div class="wrap">
-      <p class="kicker part" style="--i:0">04 · Hearts still racing</p>
+      <p class="kicker part" style="--i:0">05 · Hearts still racing</p>
       <h2 id="feel-h" class="part" style="--i:1">Hold the button. Hit the rapid.</h2>
 
       <div class="drop-stage part" style="--i:2">
@@ -299,7 +350,7 @@
     <div class="hline" aria-hidden="true"><span class="bar"></span><svg class="lip" viewBox="0 0 60 80"><path d="M0 1.5h14c9 0 12.5 4 14 12L30 78" pathLength="1"/></svg></div>
     <div class="wrap">
       <div class="faq-intro">
-        <p class="kicker part" style="--i:0">05 · Good to know</p>
+        <p class="kicker part" style="--i:0">06 · Good to know</p>
         <h2 id="faq-h" class="part" style="--i:1">Never rafted? Here are straight answers.</h2>
         <p class="lede part" style="--i:2">Most of our guests have never been in a raft before. Here is how it works.</p>
       </div>
@@ -342,7 +393,7 @@
     <div class="hline" aria-hidden="true"><span class="bar"></span><svg class="lip" viewBox="0 0 60 80"><path d="M0 1.5h14c9 0 12.5 4 14 12L30 78" pathLength="1"/></svg></div>
     <div class="wrap">
       <div class="book-copy">
-        <p class="kicker part" style="--i:0">06 · Book your seat</p>
+        <p class="kicker part" style="--i:0">07 · Book your seat</p>
         <h2 id="book-h" class="part" style="--i:1">Run the wild Vjosa.</h2>
         <p class="lede part" style="--i:2">Fast booking with direct WhatsApp confirmation. Pay on site in Përmet (€30 / 3,000 ALL). Limited spots daily.</p>
       </div>
@@ -434,7 +485,7 @@
       </div>
     </div>
     <ul class="foot-links">
-      <li><a href="#run">The run</a></li>
+      <li><a href="#run">The run</a></li><li><a href="#ride">Ride it</a></li>
       <li><a href="#trips">Daily tours</a></li>
       <li><a href="#day">Day plan</a></li>
       <li><a href="#first-time">FAQ</a></li>

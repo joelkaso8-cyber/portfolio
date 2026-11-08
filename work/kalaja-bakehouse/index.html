@@ -17,7 +17,7 @@
   <a class="demo-ribbon" href="../../index.html#work">Demo website by Joel Kaso · see the portfolio</a>
   <header class="nav">
     <a class="brand" href="#top">Kalaja<span>Bakehouse</span></a>
-    <nav class="nav__links" aria-label="Main"><a href="#order" data-i18n="nav.order">Order ahead</a><a href="#today" data-i18n="nav.today">Today</a><a href="#catering" data-i18n="nav.catering">Catering</a><a href="#visit" data-i18n="nav.visit">Visit</a></nav>
+    <nav class="nav__links" aria-label="Main"><a href="#order" data-i18n="nav.order">Order ahead</a><a href="#today" data-i18n="nav.today">Today</a><a href="#oven-window" data-i18n="nav.oven">The oven</a><a href="#catering" data-i18n="nav.catering">Catering</a><a href="#visit" data-i18n="nav.visit">Visit</a></nav>
     <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="sq" aria-pressed="false">SQ</button></div>
     <button class="cart-btn" type="button" id="cart-open"><span class="sr" data-i18n="cart.title">Your order</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14l-1.5 12h-11Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span id="cart-count">0</span></button>
   </header>
@@ -37,6 +37,20 @@
     <section class="section" id="today">
       <div class="head reveal"><h2 data-i18n="today.title">Today's bakes</h2><p id="today-day"></p></div>
       <div class="board reveal" id="board"></div>
+    </section>
+
+    <section class="section" id="oven-window" aria-labelledby="ov-title">
+      <div class="head reveal"><h2 id="ov-title" data-i18n="oven.title">The oven</h2><p data-i18n="oven.lead">Pick one of today's bakes and turn the timer. Take it out when it is golden, then reserve one from the real tray.</p></div>
+      <div class="ov reveal">
+        <div class="ov__stage" id="ov-stage"><canvas id="ov-canvas" role="img" aria-label="The bakery's wood-fired oven with a bake inside"></canvas><p class="ov__state" id="ov-state" aria-live="polite"></p></div>
+        <div class="card ov__panel">
+          <div class="ov__bakes" role="group" aria-label="Bake"><button type="button" data-bake="0"><span></span><small></small></button><button type="button" data-bake="1"><span></span><small></small></button><button type="button" data-bake="2"><span></span><small></small></button><button type="button" data-bake="3"><span></span><small></small></button></div>
+          <div class="ov__timer"><div class="ov__knob" id="ov-knob" role="slider" tabindex="0" aria-valuemin="0"><div class="ov__dial" id="ov-dial"><i></i></div></div><div><p class="ov__mins" id="ov-mins"></p><p class="ov__name" id="ov-name"></p></div></div>
+          <p class="ov__next" id="ov-next"></p>
+          <div class="ov__btns"><button class="btn" type="button" id="ov-reserve"></button><button class="btn btn--ghost" type="button" id="ov-auto"></button></div>
+          <p class="form-status" id="ov-msg" role="status"></p>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="order">

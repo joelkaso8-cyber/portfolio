@@ -545,3 +545,57 @@ html.rm .river-line{stroke-dashoffset:0}
 html.rm .mk{opacity:1}
 html.rm .speck{display:none}
 html.rm .hold-row{display:none}
+
+/* 02 Ride it (assets/river.js): float the 8.7 km run, steer the rapids, pick the tour light. */
+.ride .wrap{display:grid;gap:clamp(28px,4vw,48px)}
+.ride-head{max-width:780px}
+.ride-head h2{margin-bottom:.3em}
+.rr{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(20px,3.5vw,48px);align-items:start}
+.rr-view{display:grid;gap:10px;min-width:0}
+.rr-stage{position:relative;width:100%;aspect-ratio:1/1;max-height:min(720px,80vh);border-radius:22px;overflow:hidden;background:#1d3125;border:1px solid var(--hair);box-shadow:0 34px 70px -34px rgba(0,0,0,.7)}
+.rr-stage canvas{position:absolute;inset:0;display:block;width:100%;height:100%;touch-action:pan-y;cursor:crosshair}
+.rr-stage canvas:focus-visible{outline:2px solid var(--accent-text);outline-offset:-4px;border-radius:22px}
+.rr-grip{position:absolute;left:0;top:0;width:72px;height:72px;border-radius:50%;touch-action:none;cursor:grab;will-change:transform}
+.rr-grip:active{cursor:grabbing}
+.rr-hint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);margin:0;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;pointer-events:none;transition:opacity .5s var(--ease-out)}
+.rr-hint.off{opacity:0}
+.rr-rail{position:relative;height:56px;margin:0 16px;touch-action:none;cursor:pointer}
+.rr-track{position:absolute;left:0;right:0;top:20px;height:4px;border-radius:4px;background:rgba(169,195,187,.22)}
+.rr-fill{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:inherit;background:linear-gradient(90deg,#4aa595,var(--accent-text))}
+.rr-tick{position:absolute;top:17px;display:grid;justify-items:center;gap:9px;transform:translateX(-50%);pointer-events:none}
+.rr-tick i{width:10px;height:10px;border-radius:50%;background:var(--canvas);border:2px solid var(--stone)}
+.rr-tick.rapid i{border-color:var(--accent-text)}
+.rr-tick b{font-family:var(--f-mono);font-weight:400;font-size:.58rem;line-height:1;letter-spacing:.06em;text-transform:uppercase;color:var(--text-secondary);white-space:nowrap}
+.rr-tick:first-of-type{transform:translateX(-5px);justify-items:start}
+.rr-tick:last-of-type{transform:translateX(calc(-100% + 5px));justify-items:end}
+.rr-knob{position:absolute;top:0;left:0;width:48px;height:44px;margin-left:-24px;padding:0;border:0;background:none;cursor:grab;touch-action:none}
+.rr-knob::after{content:"";position:absolute;left:4px;right:4px;top:9px;height:26px;border-radius:13px;background:radial-gradient(circle,#EEF3EE 2.6px,transparent 3.2px) 9px 50%/10px 10px repeat-x,var(--accent);box-shadow:0 8px 18px -8px rgba(238,63,47,.9),inset 0 0 0 2px rgba(255,255,255,.2)}
+.rr-knob:focus-visible{outline:none}
+.rr-knob:focus-visible::after{outline:2px solid var(--accent-text);outline-offset:3px}
+.rr-panel{display:grid;gap:14px;align-content:start;padding:clamp(20px,2.4vw,30px);border-radius:22px;background:var(--panel);border:1px solid var(--hair);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.rr-cls{margin:0;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text)}
+.rr-stop{margin:-4px 0 0;font-size:clamp(1.9rem,3vw,2.6rem)}
+.rr-text{margin:0;min-height:3.2em;color:var(--text-secondary)}
+.rr-read{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0}
+.rr-read div{padding:12px 14px;border-radius:14px;background:rgba(6,20,19,.42);border:1px solid var(--hair)}
+.rr-read dt{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-secondary)}
+.rr-read dd{margin:6px 0 0;font-family:var(--f-display);font-weight:800;font-size:1.75rem;line-height:1;text-transform:uppercase;font-variant-numeric:tabular-nums}
+.rr-read small{font-size:.55em;color:var(--text-secondary)}
+.rr-next{margin:0;font-size:.95rem;color:var(--text-secondary)}
+.rr-call{margin:0;min-height:3.1em;padding:10px 14px;border-left:3px solid var(--accent);border-radius:0 12px 12px 0;background:rgba(238,63,47,.09);font-size:1rem;line-height:1.45}
+.rr-call:empty{visibility:hidden}
+.rr-ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.rr-ctl [hidden]{display:none}
+.rr-reset{min-height:44px;padding:0 6px;border:0;background:none;color:var(--text-secondary);font:inherit;font-size:.92rem;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.rr-reset:hover{color:var(--text-primary)}
+.rr-score{margin:0;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-secondary)}
+.rr-score b{font-weight:400;color:var(--text-primary)}
+.rr-slot{display:flex;flex-wrap:wrap;gap:6px;padding-top:6px;border-top:1px solid var(--hair)}
+.rr-slot button{min-height:44px;padding:0 14px;border-radius:999px;border:1px solid rgba(169,195,187,.3);background:rgba(6,20,19,.42);color:var(--text-primary);font:500 .9rem var(--f-body);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.rr-slot button:hover{border-color:var(--stone)}
+.rr-slot button[aria-pressed="true"]{background:var(--accent-muted);border-color:var(--accent);color:#fff}
+.rr-light{margin:-4px 0 0;font-size:.92rem;color:var(--text-secondary)}
+#rr-book{justify-self:start}
+@media (max-width:900px){.rr{grid-template-columns:1fr}.rr-stage{aspect-ratio:4/5;max-height:74vh}}
+@media (max-width:560px){.rr-tick b{display:none}.rr-read dd{font-size:1.45rem}.rr-rail{height:44px}}
+@media (prefers-reduced-motion:reduce){.rr-slot button,.rr-hint{transition:none}}

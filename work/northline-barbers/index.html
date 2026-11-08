@@ -27,7 +27,7 @@
   <header class="nav" id="top-bar">
     <a class="brand" href="#top">NORTHLINE<span data-i18n="brand.sub">Barbers · Est. 2019</span></a>
     <nav class="nav__links" aria-label="Main">
-      <a href="#prices" data-i18n="nav.prices">Prices</a><a href="#team" data-i18n="nav.team">Barbers</a><a href="#work" data-i18n="nav.work">Work</a><a href="#find" data-i18n="nav.find">Find us</a>
+      <a href="#prices" data-i18n="nav.prices">Prices</a><a href="#fade" data-i18n="nav.fade">Your cut</a><a href="#team" data-i18n="nav.team">Barbers</a><a href="#work" data-i18n="nav.work">Work</a><a href="#find" data-i18n="nav.find">Find us</a>
     </nav>
     <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="sq" aria-pressed="false">SQ</button></div>
     <a class="btn btn--small nav__cta" href="#book" data-i18n="cta.book">Book now</a>
@@ -59,6 +59,26 @@
     <section class="section" id="prices">
       <div class="head reveal"><h2 data-i18n="prices.title">Prices</h2><p data-i18n="prices.lead">Card, cash or Apple Pay. Students get 10% off Monday to Thursday.</p></div>
       <ul class="prices" id="price-list"></ul>
+    </section>
+
+    <section class="section" id="fade" aria-labelledby="fd-title">
+      <div class="head reveal"><h2 id="fd-title" data-i18n="fade.title">Design your cut</h2><p data-i18n="fade.lead">Drag the fade line on the head or use the controls. We tell you what to ask for, who to book and what it costs.</p></div>
+      <div class="fd reveal">
+        <div class="fd__stage" id="fd-stage"><p class="fd__hint" id="fd-hint">Drag the fade line</p></div>
+        <div class="fd__panel">
+          <div class="fd__row"><label for="fd-fade" id="fd-l-fade">Fade height</label><input type="range" id="fd-fade" min="0" max="100" /></div>
+          <div class="fd__row"><span id="fd-l-guard">Clipper guard</span><div class="fd__chips" role="group" aria-labelledby="fd-l-guard"><button type="button" data-guard="0"></button><button type="button" data-guard="1"></button><button type="button" data-guard="2"></button><button type="button" data-guard="3"></button></div></div>
+          <div class="fd__row"><span id="fd-l-top">Top</span><div class="fd__chips" role="group" aria-labelledby="fd-l-top"><button type="button" data-top="crop"></button><button type="button" data-top="quiff"></button><button type="button" data-top="slick"></button><button type="button" data-top="curls"></button></div></div>
+          <div class="fd__row"><label for="fd-len"><span id="fd-l-len">Top length</span> <output id="fd-len-out"></output></label><input type="range" id="fd-len" min="0" max="100" /></div>
+          <div class="fd__row"><span id="fd-l-beard">Beard</span><div class="fd__chips" role="group" aria-labelledby="fd-l-beard"><button type="button" data-beard="none"></button><button type="button" data-beard="stubble"></button><button type="button" data-beard="sculpt"></button></div></div>
+          <div class="fd__row fd__row--2">
+            <div class="fd__row"><span id="fd-l-skin">Skin</span><div class="fd__swatches" role="group" aria-labelledby="fd-l-skin"><button type="button" data-skin="0" aria-label="1"></button><button type="button" data-skin="1" aria-label="2"></button><button type="button" data-skin="2" aria-label="3"></button><button type="button" data-skin="3" aria-label="4"></button></div></div>
+            <div class="fd__row"><span id="fd-l-hair">Hair</span><div class="fd__swatches" role="group" aria-labelledby="fd-l-hair"><button type="button" data-hair="0" aria-label="1"></button><button type="button" data-hair="1" aria-label="2"></button><button type="button" data-hair="2" aria-label="3"></button><button type="button" data-hair="3" aria-label="4"></button></div></div>
+          </div>
+          <dl class="fd__result" aria-live="polite"><div><dt id="fd-k-cut">Your cut</dt><dd id="fd-name"></dd></div><div><dt id="fd-k-svc">Book as</dt><dd id="fd-svc"></dd></div><div><dt id="fd-k-barber">Best barber</dt><dd id="fd-barber"></dd></div></dl>
+          <button class="btn" type="button" id="fd-book">Book this cut</button>
+        </div>
+      </div>
     </section>
 
     <section class="section split">

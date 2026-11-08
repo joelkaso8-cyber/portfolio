@@ -155,3 +155,28 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--terra); out
 /* The phone menu: closed until the burger opens it, and never on wide screens. */
 .mobile-menu[hidden] { display: none; }
 @media (min-width: 901px) { .mobile-menu { display: none !important; } }
+
+/* See it built (rebuild.js): an isometric room that builds itself from the price-guide choices. */
+.rb { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 48px); align-items: start; }
+.rb__stage { aspect-ratio: 4 / 3; border-radius: var(--r); overflow: hidden; background: radial-gradient(90% 70% at 50% 40%, #2c3236, #1a1d1f); box-shadow: inset 0 0 0 1px var(--line); }
+.rb__svg { display: block; width: 100%; height: 100%; }
+.rb__panel { align-content: start; gap: 14px; }
+.rb__row { display: grid; gap: 8px; }
+.rb__row > span, .rb__row > label { font-size: .76rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.rb__row output { color: var(--ink); letter-spacing: 0; text-transform: none; margin-left: 6px; }
+.rb__chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.rb__chips button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--ground); color: var(--ink-2); font: 600 .9rem var(--sans); cursor: pointer; transition: background .2s, border-color .2s, color .2s; }
+.rb__chips button:hover { border-color: var(--terra); }
+.rb__chips button[aria-pressed="true"] { background: var(--terra); border-color: var(--terra); color: var(--terra-ink); }
+.rb__chips i { width: 14px; height: 14px; border-radius: 50%; box-shadow: 0 0 0 2px rgba(0,0,0,.25); }
+.rb input[type="range"] { width: 100%; height: 44px; margin: 0; accent-color: var(--terra); cursor: pointer; }
+.rb__price { display: grid; gap: 2px; margin: 4px 0 0; padding: 14px 16px; border-radius: 12px; background: var(--ground); }
+.rb__price span { color: var(--muted); font-size: .82rem; }
+.rb__price strong { font: 700 1.9rem/1.1 var(--display); color: var(--ink); }
+.rb__price small { color: var(--sage); }
+.rb__spec { color: var(--ink-2); font-size: .95rem; }
+.rb__btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.rb__btns .btn--ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.rb__btns .btn--ghost:hover { background: var(--panel); }
+@media (max-width: 900px) { .rb { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .rb__chips button { transition: none; } }

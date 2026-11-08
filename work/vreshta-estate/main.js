@@ -119,6 +119,16 @@
     $('#tiers').appendChild(el)
   })
 
+  // Aroma wheel (aroma.js): loads only when its section scrolls near.
+  var aromaSec = $('#aroma')
+  if (aromaSec) {
+    var loadAroma = function () { var sc = document.createElement('script'); sc.src = 'aroma.js'; document.body.appendChild(sc) }
+    if ('IntersectionObserver' in window) {
+      var arIo = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { arIo.disconnect(); loadAroma() } }, { rootMargin: '600px 0px' })
+      arIo.observe(aromaSec)
+    } else loadAroma()
+  }
+
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target) } }) }, { rootMargin: '0px 0px -10% 0px' })
     $$('.reveal').forEach(function (el) { io.observe(el) })

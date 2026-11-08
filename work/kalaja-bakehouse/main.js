@@ -52,6 +52,9 @@
     },
   }
   var CREDITS = [['Silar', 'CC BY-SA 4.0'], ['Petar Milošević', 'CC BY-SA 4.0'], ['E4024', 'CC BY-SA 4.0'], ['Daderot', 'CC0'], ['Enzo Abramo', 'CC0'], ['Abdulrohmatt', 'CC BY-SA 4.0'], ['Andy Li', 'CC0'], ['Catherine Sharman', 'CC BY 2.0'], ['Bex Walton', 'CC BY 2.0']]
+  // The oven (oven.js)
+  Object.assign(T.en, { 'nav.oven': 'The oven', 'oven.title': 'The oven', 'oven.lead': "Pick one of today's bakes and turn the timer. Take it out when it is golden, then reserve one from the real tray." })
+  Object.assign(T.sq, { 'nav.oven': 'Furra', 'oven.title': 'Furra', 'oven.lead': 'Zgjidh një nga pjekjet e sotme dhe rrotullo kohëmatësin. Nxirre kur të marrë ngjyrë të artë, pastaj rezervo një nga tava e vërtetë.' })
   var lang = 'en'
   try { if (localStorage.getItem('kalaja-lang') === 'sq') lang = 'sq' } catch (e) {}
   var cart = {}
@@ -166,6 +169,16 @@
     renderBoard(); renderProducts(); renderCart(); renderHours(); est()
   }
   $$('[data-lang]').forEach(function (b) { b.addEventListener('click', function () { lang = b.dataset.lang; try { localStorage.setItem('kalaja-lang', lang) } catch (e) {} ; applyLang() }) })
+
+  // The oven (oven.js): loads only when its section scrolls near.
+  var ovenSec = $('#oven-window')
+  if (ovenSec) {
+    var loadOven = function () { var sc = document.createElement('script'); sc.src = 'oven.js'; document.body.appendChild(sc) }
+    if ('IntersectionObserver' in window) {
+      var ovIo = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { ovIo.disconnect(); loadOven() } }, { rootMargin: '600px 0px' })
+      ovIo.observe(ovenSec)
+    } else loadOven()
+  }
 
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target) } }) }, { rootMargin: '0px 0px -10% 0px' })

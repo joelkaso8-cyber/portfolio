@@ -220,6 +220,7 @@
     renderBooking()
     $('#book').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
   }
+  window.avullBook = bookThis // used by steam.js
   function hoursFor(iso) { return C.hours[DAY_KEYS[dayIdx(iso)]] }
   function slotsFor(iso) {
     var h = hoursFor(iso), s = svcById(B.svc); if (!h || !s) return []
@@ -697,4 +698,12 @@
       var m = location.hash.match(/^#book-(.+)$/); if (m && svcById(decodeURIComponent(m[1]))) bookThis(decodeURIComponent(m[1]), 0)
     })
     .catch(function () { reveal(); status(t('err.send'), true) })
+  // Wipe the glass (steam.js): loads only when its section scrolls near.
+  ;(function () {
+    var sec = document.getElementById('steam'); if (!sec) return
+    var load = function () { var sc = document.createElement('script'); sc.src = 'steam.js'; document.body.appendChild(sc) }
+    if (!('IntersectionObserver' in window)) return load()
+    var io2 = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io2.disconnect(); load() } }, { rootMargin: '600px 0px' })
+    io2.observe(sec)
+  })()
 })()

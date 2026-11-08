@@ -19,7 +19,7 @@
   <a class="demo-ribbon" href="../../index.html#work">Demo by Joel Kaso ↗</a>
   <header class="top" id="top-bar">
     <a class="brand" href="#">DALLGË<span>Surf School</span></a>
-    <nav class="top__links" aria-label="Main"><a href="#lessons">Lessons</a><a href="#report">Surf report</a><a href="#hire">Hire</a><a href="#faq">FAQ</a></nav>
+    <nav class="top__links" aria-label="Main"><a href="#lessons">Lessons</a><a href="#report">Surf report</a><a href="#swell">Read the sea</a><a href="#hire">Hire</a><a href="#faq">FAQ</a></nav>
     <a class="btn btn--small" href="#book">Book</a>
   </header>
 
@@ -45,6 +45,26 @@
       <div class="head reveal"><h2>Surf report</h2><p id="report-day">Fistral Beach</p></div>
       <div class="gauges reveal" id="gauges"></div>
       <p class="note reveal">Demo values. A live site pulls these from a surf forecast service every hour.</p>
+    </section>
+
+    <section class="section" id="swell" aria-labelledby="sw-title">
+      <div class="head reveal"><h2 id="sw-title">Read the sea</h2><p>Fistral in cross-section, starting from today's report. Change the swell and the wind, watch where the waves break, and see which lesson suits the day.</p></div>
+      <div class="sw reveal">
+        <div class="sw__stage" id="sw-stage"><canvas id="sw-canvas" role="img" aria-label="Cross-section of Fistral beach: swell rolls in from the right, grows over the sandbar and breaks into whitewater near the shore."></canvas></div>
+        <div class="card sw__panel">
+          <div class="sw__controls">
+            <label><span>Wave height <output id="sw-h-out"></output></span><input type="range" id="sw-h" min="0.3" max="3" step="0.1" /></label>
+            <label><span>Period <output id="sw-t-out"></output></span><input type="range" id="sw-t" min="6" max="16" step="1" /></label>
+            <label><span>Wind <output id="sw-w-out"></output></span><input type="range" id="sw-w" min="0" max="30" step="1" /></label>
+            <div class="sw__dir" role="group" aria-label="Wind direction"><button type="button" data-dir="off" aria-pressed="true">Offshore</button><button type="button" data-dir="on" aria-pressed="false">Onshore</button></div>
+          </div>
+          <div class="sw__verdict">
+            <div class="sw__rating" id="sw-rating"></div>
+            <p id="sw-text" aria-live="polite"></p>
+            <div class="sw__btns"><button class="btn" type="button" id="sw-book">Book</button><button class="btn btn--ghost" type="button" id="sw-today">Today's report</button></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="section book" id="book">

@@ -108,6 +108,26 @@
       </div>
     </section>
 
+    <section class="steam" id="steam" aria-labelledby="st-title">
+      <div class="wrap">
+        <div class="head reveal"><p class="kicker" data-i18n="steam.k">The hot room</p><h2 id="st-title" data-i18n="steam.t">Wipe the <em>glass.</em></h2><p class="muted" data-i18n="steam.p">The window to the hot room is all steam. Wipe it to find the four stations of the ritual. It fogs up again on its own.</p></div>
+        <div class="st reveal">
+          <div class="st__stage" id="st-stage">
+            <canvas id="st-canvas" role="img" aria-label="A steamed-up window onto the hot room of the hammam. Wipe it to see the room."></canvas>
+            <div class="st__pins" id="st-pins"></div>
+            <p class="st__hint" id="st-hint"><span id="st-hint-t">Wipe the glass</span></p>
+            <p class="st__temp" id="st-temp"></p>
+          </div>
+          <div class="st__panel">
+            <div class="st__count"><span id="st-count" aria-live="polite"></span><i><b id="st-bar"></b></i></div>
+            <ol class="st__list" id="st-list"></ol>
+            <div class="st__done" id="st-done" hidden><p id="st-done-t"></p><button class="btn" type="button" id="st-book"></button></div>
+            <div class="st__btns"><button class="btn btn--ghost" type="button" id="st-auto"></button><button class="btn btn--ghost" type="button" id="st-fog"></button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="menu" id="menu" aria-labelledby="menu-t">
       <div class="wrap">
         <div class="head head--row reveal">

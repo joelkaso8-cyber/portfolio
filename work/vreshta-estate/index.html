@@ -19,7 +19,7 @@
   <a class="demo-ribbon" href="../../index.html#work">Demo by Joel Kaso ↗</a>
   <header class="top" id="top-bar">
     <a class="brand" href="#">Vreshta<span>Estate</span></a>
-    <nav class="top__links" aria-label="Main"><a href="#tastings">Tastings</a><a href="#wines">Wines</a><a href="#club">Wine club</a><a href="#visit">Visit</a></nav>
+    <nav class="top__links" aria-label="Main"><a href="#tastings">Tastings</a><a href="#wines">Wines</a><a href="#aroma">Aromas</a><a href="#club">Wine club</a><a href="#visit">Visit</a></nav>
     <button class="cart-btn" type="button" id="cart-open"><span class="sr">Your cart, bottles:</span> <span id="cart-count">0</span></button>
   </header>
 
@@ -56,6 +56,22 @@
     <section class="section" id="wines">
       <div class="head reveal"><h2>The wines</h2><p>10% off any 6 bottles. Shipping to most US states.</p></div>
       <div class="wines" id="wine-list"></div>
+    </section>
+
+    <section class="section" id="aroma" aria-labelledby="ar-title">
+      <div class="head reveal"><h2 id="ar-title">Taste with your eyes</h2><p>Pick a bottle and the aroma wheel turns to what is in the glass. Drag around the glass to swirl it and let the wine open up.</p></div>
+      <div class="ar reveal">
+        <div class="ar__stage" id="ar-stage"><p class="ar__tip">Swirl here</p></div>
+        <div class="ar__panel card">
+          <div class="ar__wines" role="group" aria-label="Wine"><button type="button" data-wine="0"><i></i>Hill Rosé</button><button type="button" data-wine="1"><i></i>Three Rows GSM</button><button type="button" data-wine="2"><i></i>Limestone Syrah</button><button type="button" data-wine="3"><i></i>Golden Hour White</button></div>
+          <div><h3 id="ar-name"></h3><p class="ar__grapes" id="ar-grapes"></p></div>
+          <ul class="ar__notes" id="ar-notes" aria-label="Aromas"></ul>
+          <dl class="ar__struct" id="ar-struct"></dl>
+          <p class="ar__pair"><span>Pairs with</span> <b id="ar-pair"></b></p>
+          <p class="ar__hint" id="ar-hint" aria-live="polite"></p>
+          <div class="ar__btns"><button class="btn" type="button" id="ar-add">Add to cart</button><button class="btn btn--ghost" type="button" id="ar-swirl">Swirl the glass</button></div>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="club">

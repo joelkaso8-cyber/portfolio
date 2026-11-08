@@ -125,3 +125,30 @@ input:focus, select:focus { outline: 2px solid var(--butter); outline-offset: 0;
 }
 @media (max-width: 560px) { .products, .row { grid-template-columns: 1fr; } .board { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
+
+/* The oven (oven.js): turn the timer and watch a bake rise and brown; reserve one from the real tray. */
+.ov { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 48px); align-items: start; }
+.ov__stage { position: relative; aspect-ratio: 8 / 5.2; border-radius: var(--r); overflow: hidden; background: #1d1510; box-shadow: inset 0 0 0 1px var(--line); }
+.ov__stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ov__state { position: absolute; left: 50%; top: 18px; margin: 0; transform: translateX(-50%); padding: 8px 16px; border-radius: 999px; background: rgba(29,21,16,.78); color: var(--ink); font-size: .92rem; white-space: nowrap; transition: background .3s, color .3s; }
+.ov__state.is-gold { background: var(--butter); color: var(--butter-ink); }
+.ov__state.is-dark { background: var(--paprika); color: #fff; }
+.ov__panel { align-content: start; }
+.ov__bakes { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.ov__bakes button { display: grid; gap: 2px; min-height: 56px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--ground); color: var(--ink-2); font: 600 .92rem var(--sans); text-align: left; cursor: pointer; transition: border-color .2s, background .2s; }
+.ov__bakes button small { color: var(--muted); font-weight: 500; }
+.ov__bakes button:hover { border-color: var(--butter); }
+.ov__bakes button[aria-pressed="true"] { background: var(--panel); border-color: var(--butter); color: var(--ink); }
+.ov__timer { display: flex; align-items: center; gap: 20px; }
+.ov__knob { position: relative; flex: none; width: 124px; height: 124px; border-radius: 50%; background: repeating-conic-gradient(from -150deg, var(--line) 0 2deg, transparent 2deg 20deg); cursor: grab; touch-action: none; }
+.ov__knob:focus-visible { outline: 2px solid var(--butter-hi); outline-offset: 4px; }
+.ov__dial { position: absolute; inset: 14px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff1d4, #e8b562 45%, #9a6a2a); box-shadow: 0 8px 18px rgba(0,0,0,.45), inset 0 -4px 8px rgba(0,0,0,.25); transform: rotate(0deg); }
+.ov__dial i { position: absolute; left: 50%; top: 8px; width: 5px; height: 30px; margin-left: -2.5px; border-radius: 3px; background: var(--butter-ink); }
+.ov__mins { margin: 0; font: 400 2.4rem/1 var(--serif); color: var(--ink); font-variant-numeric: tabular-nums; }
+.ov__name { margin: 4px 0 0; color: var(--muted); }
+.ov__next { color: var(--butter); }
+.ov__btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.ov__btns .btn--ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+.ov__btns .btn--ghost:hover { background: var(--panel); }
+@media (max-width: 900px) { .ov { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .ov__bakes button, .ov__state { transition: none; } }

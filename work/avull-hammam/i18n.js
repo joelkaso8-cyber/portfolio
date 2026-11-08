@@ -119,3 +119,6 @@ window.I18N = {
     'ok.giftdemo': 'Faleminderit. Kjo është demo, ndaj nuk u dërgua asgjë. Në faqen e vërtetë porosia shkon direkt te spa.',
   },
 }
+// Wipe the glass (steam.js)
+Object.assign(window.I18N.en, { 'steam.k': 'The hot room', 'steam.t': 'Wipe the <em>glass.</em>', 'steam.p': 'The window to the hot room is all steam. Wipe it to find the four stations of the ritual. It fogs up again on its own.' })
+Object.assign(window.I18N.sq, { 'steam.k': 'Dhoma e nxehtë', 'steam.t': 'Fshi <em>xhamin.</em>', 'steam.p': 'Dritarja e dhomës së nxehtë është plot avull. Fshije për të gjetur katër stacionet e ritualit. Mbushet sërish me avull vetë.' })

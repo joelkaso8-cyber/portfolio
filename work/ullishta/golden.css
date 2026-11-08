@@ -1,0 +1,45 @@
+/* Golden hour from the terrace (golden.js): live Dhërmi sun times, drag the sun, each room's view. */
+.gh-sec{padding-block:var(--section-gap-s) var(--section-gap);scroll-margin-top:var(--nav-h,72px)}
+.gh{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:var(--gap-columns);align-items:start}
+.gh__view{display:grid;gap:var(--space-xs);min-width:0}
+.gh__stage{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden}
+.gh__stage canvas{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;touch-action:pan-y;cursor:ew-resize}
+.gh__grip{position:absolute;left:0;top:0;z-index:2;width:60px;height:60px;border-radius:50%;touch-action:none;cursor:grab}
+.gh__grip:active{cursor:grabbing}
+.gh__scrub{position:relative;padding-bottom:24px}
+.gh__track{position:absolute;left:0;right:0;top:19px;height:6px;border-radius:3px;box-shadow:inset 0 0 0 1px oklch(30% .03 55 / .14)}
+.gh__scrub input[type=range]{position:relative;z-index:1;display:block;width:100%;height:44px;margin:0;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer}
+.gh__scrub input[type=range]::-webkit-slider-runnable-track{height:44px;background:transparent}
+.gh__scrub input[type=range]::-moz-range-track{height:44px;background:transparent}
+.gh__scrub input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:9px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#fff6dc,#f2b46a 60%,#d9844a);border:2px solid var(--color-card);box-shadow:0 2px 8px oklch(30% .05 55 / .35)}
+.gh__scrub input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#fff6dc,#f2b46a 60%,#d9844a);border:2px solid var(--color-card);box-shadow:0 2px 8px oklch(30% .05 55 / .35)}
+.gh__scrub input[type=range]:focus-visible{outline:2px solid var(--color-focus);outline-offset:2px}
+.gh__marks{position:absolute;left:0;right:0;top:44px;height:20px;font-size:var(--text-xs);color:var(--color-muted)}
+.gh__marks span{position:absolute;white-space:nowrap}
+.gh__marks span.is-set{color:var(--color-ink)}
+.gh__panel{display:grid;gap:var(--space-md);padding:var(--space-xl) calc(var(--space-xl) + var(--space-xs))}
+.gh__phase{font-size:var(--text-sm);letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted)}
+.gh__clock{display:flex;align-items:baseline;gap:var(--space-sm);margin-top:calc(var(--space-xs) * -1);font:var(--display-weight) clamp(3rem,5vw,4.5rem)/1 var(--font-display);letter-spacing:var(--tracking-display);font-variant-numeric:tabular-nums;color:var(--color-ink)}
+.gh__clock small{font:400 var(--text-sm)/1 var(--font-body);letter-spacing:0;color:var(--color-muted)}
+.gh__note{min-height:2.9em;color:var(--color-ink-2)}
+.gh__facts{display:grid;margin:0;border-top:var(--rule-head) solid var(--color-ink)}
+.gh__facts>div{display:flex;justify-content:space-between;gap:var(--space-md);padding:var(--space-sm) 0;border-bottom:var(--rule-hair) solid var(--color-rule)}
+.gh__facts dt{color:var(--color-muted)}
+.gh__facts dd{margin:0;color:var(--color-ink);font-variant-numeric:tabular-nums}
+.gh__date{display:grid;gap:var(--space-2xs);font-size:var(--text-sm);color:var(--color-muted)}
+.gh__date-row{display:flex;flex-wrap:wrap;gap:var(--space-xs);align-items:center}
+.gh__date input{min-height:44px;padding:0 var(--space-xs);border:0;border-bottom:var(--rule-hair) solid var(--color-ink-2);border-radius:0;background:transparent;color:var(--color-ink);font-size:1rem}
+.gh__date input:focus-visible{outline:2px solid var(--color-focus);outline-offset:2px}
+.gh__chip{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 var(--space-md);border:0;border-radius:var(--radius-pill);background:transparent;color:var(--color-ink-2);font-size:var(--text-sm);cursor:pointer;text-shadow:0 1px 0 var(--lit);box-shadow:inset 0 0 0 1px var(--color-card-edge);transition:box-shadow var(--dur-short),background var(--dur-short),color var(--dur-short)}
+.gh__chip:hover{box-shadow:inset 0 0 0 1px var(--color-ink-2)}
+.gh__chip[aria-pressed=true]{color:var(--color-ink);background:var(--card-shade);box-shadow:inset 0 0 0 1px var(--color-ink),inset 1px 2px 3px oklch(30% .03 55 / .12),0 1px 0 var(--lit)}
+.gh__chip:focus-visible{outline:2px solid var(--color-focus);outline-offset:2px}
+.gh__open{font-size:var(--text-sm);color:var(--color-muted)}
+.gh__rooms{display:flex;flex-wrap:wrap;gap:var(--space-xs);padding-top:var(--space-md);border-top:var(--rule-hair) solid var(--color-rule)}
+.gh__room-note{min-height:2.9em;color:var(--color-ink-2)}
+#gh-ask{justify-self:start;max-width:100%;white-space:normal;text-align:center;line-height:1.3;padding-block:var(--space-xs)}
+.gh__panel{min-width:0}
+@media (min-width:60.01rem){.gh__view{position:sticky;top:calc(var(--nav-h,76px) + var(--space-lg))}}
+@media (max-width:60rem){.gh{grid-template-columns:minmax(0,1fr)}.gh__stage{aspect-ratio:4/3}}
+@media (max-width:40rem){.gh__stage{aspect-ratio:1/1}.gh__panel{padding:var(--space-lg)}.gh__marks span:not(.is-set){display:none}#gh-ask{justify-self:stretch;text-align:center}}
+@media (prefers-reduced-motion:reduce){.gh__chip{transition:none}}

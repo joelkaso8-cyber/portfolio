@@ -102,4 +102,12 @@
     $$('.reveal').forEach(function (el) { io.observe(el) })
   } else $$('.reveal').forEach(function (el) { el.classList.add('is-in') })
   $('#credits').textContent = 'Photos from Wikimedia Commons: ' + CREDITS.map(function (c) { return c[0] + ' (' + c[1] + ')' }).join(', ') + '.'
+  // Your smile (smile.js): loads only when its section scrolls near.
+  ;(function () {
+    var sec = document.getElementById('smile'); if (!sec) return
+    var load = function () { var sc = document.createElement('script'); sc.src = 'smile.js'; document.body.appendChild(sc) }
+    if (!('IntersectionObserver' in window)) return load()
+    var io2 = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io2.disconnect(); load() } }, { rootMargin: '600px 0px' })
+    io2.observe(sec)
+  })()
 })()

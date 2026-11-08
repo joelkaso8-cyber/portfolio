@@ -656,4 +656,12 @@
   if (RM.matches) pinToFinalStates();
   applyHeroMode();
   headerState();
+  // Design it (assets/ink.js): loads only when its section scrolls near.
+  (function () {
+    var sec = document.getElementById('design'); if (!sec) return
+    var load = function () { var sc = document.createElement('script'); sc.src = 'assets/ink.js'; document.body.appendChild(sc) }
+    if (!('IntersectionObserver' in window)) return load()
+    var io2 = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io2.disconnect(); load() } }, { rootMargin: '600px 0px' })
+    io2.observe(sec)
+  })();
 })();
