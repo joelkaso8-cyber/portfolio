@@ -93,6 +93,7 @@
     ] },
     oven: { photo: 'byrek', items: [
       ['Byrek me spinaq', 'Hand-rolled filo with spinach and white cheese', 9, 1],
+      ['Byrek me djathë', 'Hand-rolled filo with white cheese', 9, 1],
       ['Byrek me mish', 'Hand-rolled filo with spiced minced beef', 10],
       ['Tavë kosi', 'Lamb and rice baked in yoghurt', 16.5],
       ['Pite me kungull', 'Sweet pumpkin pie, the Sunday special', 8.5, 1],
@@ -104,6 +105,9 @@
       ['Turkish coffee', 'Served with a piece of lokum', 3, 1],
     ] },
   }
+  // Pre-order from the kitchen belt (belt/belt.js, source in src/lule-kitchen-belt).
+  Object.assign(T.en, { 'pre.title': 'Dishes for your table', 'pre.note': 'We start cooking them when you arrive.', 'pre.total': 'Pre-order total', 'pre.remove': 'Remove one', 'pre.msg': 'Pre-order: ', 'pre.ok': ' Your dishes: ' })
+  Object.assign(T.sq, { 'pre.title': 'Pjatat për tavolinën', 'pre.note': 'I nisim t\'i gatuajmë sapo të vini.', 'pre.total': 'Totali i porosisë', 'pre.remove': 'Hiq një', 'pre.msg': 'Porosi paraprake: ', 'pre.ok': ' Pjatat: ' })
   // Opening hours, Monday first: [open, close] in 24h, London time.
   var HOURS = [[12, 23], [12, 23], [12, 23], [12, 23], [12, 24], [11, 24], [11, 22]]
   var CREDITS = [
@@ -169,7 +173,8 @@
     document.documentElement.lang = lang
     $$('[data-i18n]').forEach(function (el) { var v = t(el.getAttribute('data-i18n')); if (typeof v !== 'string') return; if (/<em>/.test(v)) el.innerHTML = v; else el.textContent = v })
     $$('[data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)) })
-    renderMenu(); renderHours(); renderFaq()
+    renderMenu(); renderHours(); renderFaq(); renderPre()
+    window.dispatchEvent(new CustomEvent('lule:lang', { detail: lang }))
     $('#credits').textContent = 'Photos from Wikimedia Commons: ' + CREDITS.map(function (c) { return c[0] + ' (' + c[1] + ')' }).join(', ') + '. ' + t('film')
   }
 
@@ -251,15 +256,49 @@
     var sb = $('#book-send'); sb.disabled = true; setTimeout(function () { sb.disabled = false }, 4000)
     status.className = 'form-status is-ok'
     status.textContent = t('ok')(data)
+    if (pre.length) status.textContent += t('pre.ok') + preText() + '.'
     form.reset(); dateInput.value = todayIso(); fillTimes()
+    pre = []; renderPre()
   })
 
   // Book via WhatsApp: the same details, written out as a message.
   $('#wa-book').addEventListener('click', function () {
     var f = function (k, v) { return t('wa.msg').split('{' + k + '}').join(v) }
-    var msg = t('wa.msg').replace('{g}', guests === 8 ? '8+' : guests).replace('{d}', dateInput.value || '-').replace('{t}', form.elements.time.value || '-').replace('{n}', clean(form.elements.name.value, 80) || '-').replace('{x}', clean(form.elements.notes.value, 300))
+    var msg = t('wa.msg').replace('{g}', guests === 8 ? '8+' : guests).replace('{d}', dateInput.value || '-').replace('{t}', form.elements.time.value || '-').replace('{n}', clean(form.elements.name.value, 80) || '-').replace('{x}', (pre.length ? t('pre.msg') + preText() + '. ' : '') + clean(form.elements.notes.value, 300))
     window.open('https://wa.me/442079460000?text=' + encodeURIComponent(msg.trim()), '_blank', 'noopener')
   })
+
+  // Pre-order: dishes added on the kitchen belt go into the booking request and the WhatsApp message.
+  var pre = []
+  function preName(p) { return clean(p.names[lang] || p.names.en, 60) }
+  function preText() { return pre.map(function (p) { return p.q + '× ' + preName(p) }).join(', ') }
+  function renderPre() {
+    var box = $('#preorder'), ul = $('#preorder-list'), total = 0, count = 0
+    if (!box) return
+    ul.innerHTML = ''
+    pre.forEach(function (p) {
+      total += p.price * p.q; count += p.q
+      var li = document.createElement('li')
+      li.innerHTML = '<span></span><b></b><button type="button" class="preorder__rm">−</button>'
+      li.children[0].textContent = p.q + ' × ' + preName(p)
+      li.children[1].textContent = '£' + (p.price * p.q).toFixed(2)
+      li.children[2].setAttribute('aria-label', t('pre.remove') + ': ' + preName(p))
+      li.children[2].addEventListener('click', function () { p.q--; if (p.q < 1) pre.splice(pre.indexOf(p), 1); renderPre() })
+      ul.appendChild(li)
+    })
+    $('#preorder-total').textContent = '£' + total.toFixed(2)
+    box.hidden = !count
+    window.dispatchEvent(new CustomEvent('lule:preorder-count', { detail: count }))
+  }
+  window.addEventListener('lule:preorder', function (e) {
+    var d = e.detail || {}
+    if (typeof d.id !== 'string' || !d.names) return
+    var hit = pre.find(function (p) { return p.id === d.id })
+    if (hit) hit.q = Math.min(hit.q + 1, 20)
+    else pre.push({ id: d.id, names: { en: String(d.names.en || ''), sq: String(d.names.sq || d.names.en || '') }, price: Math.max(0, Number(d.price) || 0), q: 1 })
+    renderPre()
+  })
+  window.addEventListener('lule:belt-ready', renderPre)
 
   // FAQ
   function renderFaq() {
@@ -304,6 +343,20 @@
     }, { rootMargin: '0px 0px -10% 0px' })
     $$('.reveal').forEach(function (el) { io.observe(el) })
   } else $$('.reveal').forEach(function (el) { el.classList.add('is-in') })
+
+  // Kitchen belt: React bundle built from src/lule-kitchen-belt. Loads only when it scrolls near.
+  var beltEl = $('#lule-belt')
+  if (beltEl) {
+    var loadBelt = function () {
+      var link = document.createElement('link'); link.rel = 'stylesheet'; link.href = 'belt/belt.css'
+      link.onload = link.onerror = function () { import('./belt/belt.js').catch(function () { beltEl.hidden = true }) }
+      document.head.appendChild(link)
+    }
+    if ('IntersectionObserver' in window) {
+      var bio = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { bio.disconnect(); loadBelt() } }, { rootMargin: '400px 0px' })
+      bio.observe(beltEl)
+    } else loadBelt()
+  }
 
   applyLang()
   setInterval(renderHours, 60000)

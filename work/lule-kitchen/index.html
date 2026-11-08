@@ -92,6 +92,8 @@
       </div>
     </section>
 
+    <div class="belt reveal" id="lule-belt" aria-busy="true"></div>
+
     <section class="section story" id="story">
       <figure class="story__photo reveal"><img src="img/room-1600.webp" srcset="img/room-800.webp 800w, img/room-1600.webp 1600w" sizes="(min-width: 900px) 50vw, 100vw" alt="The dining room with wooden tables and a chandelier" loading="lazy" /></figure>
       <div class="story__text reveal">
@@ -145,6 +147,11 @@
         <div class="row">
           <label><span data-i18n="book.name">Name</span><input name="name" autocomplete="name" required maxlength="80" /></label>
           <label><span data-i18n="book.phone">Mobile</span><input name="phone" type="tel" autocomplete="tel" required maxlength="25" placeholder="07…" /></label>
+        </div>
+        <div class="preorder" id="preorder" hidden>
+          <p class="preorder__title"><span data-i18n="pre.title">Dishes for your table</span><small data-i18n="pre.note">We start cooking them when you arrive.</small></p>
+          <ul id="preorder-list"></ul>
+          <p class="preorder__total"><span data-i18n="pre.total">Pre-order total</span><b id="preorder-total">£0.00</b></p>
         </div>
         <label><span data-i18n="book.notes">Notes (allergies, birthday…)</span><textarea name="notes" rows="2" maxlength="300"></textarea></label>
         <div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
