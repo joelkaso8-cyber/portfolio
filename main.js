@@ -40,6 +40,9 @@
     { id: 'brolin-tattoo', film: true, name: 'Brolin Tattoo', cat: 'local', tag: 'project', where: { en: 'Tattoo studio', sq: 'Studio tatuazhesh' },
       chips: { en: ['Ink film hero', 'Work gallery', 'Dark editorial look'], sq: ['Film me bojë në hyrje', 'Galeri punësh', 'Pamje e errët editoriale'] } },
   ]
+  // Only these show in the portfolio. The other sites stay in work/; add an id here to show it again.
+  var SHOWN = ['ura-coffee', 'lule-kitchen', 'kaso-ervehe', 'vjosa-rafting']
+  WORK = WORK.filter(function (w) { return SHOWN.indexOf(w.id) !== -1 })
   var TAGS = { client: { en: 'Client', sq: 'Klient' }, demo: { en: 'Demo', sq: 'Demo' }, concept: { en: 'Concept', sq: 'Koncept' }, project: { en: 'Project', sq: 'Projekt' } }
 
   var T = {
