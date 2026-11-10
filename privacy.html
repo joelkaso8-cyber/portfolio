@@ -1,71 +1,130 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src 'self' https://www.google.com https://www.youtube-nocookie.com https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https: mailto:">
-<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex">
-<title>Privacy policy · Joel Kaso</title>
+<title>Privacy policy · Politika e privatësisë · Joel Kaso</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-  :root { --bg: #161714; --ink: #ece7dd; --muted: #b5ad9f; --line: rgba(255,255,255,.1); --accent: #c9a86a; }
+  :root { --bg: #161714; --ink: #f1ece0; --text: #d9d3c7; --muted: #b5ad9f; --line: #36372f; --accent: #d6c49a; }
   * { box-sizing: border-box; }
-  html { background: var(--bg); }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  html { background: var(--bg); scroll-behavior: smooth; scroll-padding-top: 16px; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 1.0625rem/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
   main { max-width: 44rem; margin: 0 auto; padding: clamp(2rem, 6vw, 4.5rem) 1.25rem 4rem; }
   a { color: var(--accent); text-underline-offset: 3px; }
-  .back { display: inline-flex; min-height: 44px; align-items: center; color: var(--muted); text-decoration: none; font-size: .9rem; }
-  .back:hover, .back:focus-visible { color: var(--ink); }
-  h1 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); line-height: 1.15; margin: 1rem 0 .4rem; font-weight: 600; letter-spacing: -.01em; }
-  .date { color: var(--muted); margin: 0 0 2.2rem; font-size: .9rem; }
-  h2 { font-size: 1.1rem; margin: 2.2rem 0 .5rem; padding-top: 1.4rem; border-top: 1px solid var(--line); font-weight: 600; }
-  p, li { color: #d9d3c7; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  .top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 20px; }
+  .top a { display: inline-flex; min-height: 44px; align-items: center; color: var(--muted); text-decoration: none; }
+  .top a:hover, .top a:focus-visible { color: var(--ink); }
+  h1 { font-size: clamp(1.8rem, 4.5vw, 2.6rem); line-height: 1.15; margin: 1rem 0 .4rem; font-weight: 600; letter-spacing: -.01em; color: var(--ink); }
+  .date { color: var(--muted); margin: 0 0 2.2rem; }
+  h2 { font-size: 1.15rem; margin: 2.2rem 0 .5rem; padding-top: 1.4rem; border-top: 1px solid var(--line); font-weight: 600; color: var(--ink); }
   ul { padding-left: 1.2rem; }
   li { margin: .3rem 0; }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+  section + section { margin-top: 4rem; padding-top: 1rem; border-top: 3px solid var(--line); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
 <main>
-  <a class="back" href="index.html">← Back to Joel Kaso</a>
-  <h1>Privacy policy</h1>
-  <p class="date">Last updated: November 2026</p>
+  <p class="top"><a href="index.html">← Joel Kaso</a> <a href="#sq" lang="sq" hreflang="sq">Shqip ↓</a></p>
 
-  <p>This page explains, in plain words, what information Joel Kaso, web designer (Albania) collects through this website and what happens to it.</p>
+  <section id="en" lang="en">
+    <h1>Privacy policy</h1>
+    <p class="date">Last updated: November 2026</p>
+    <p>This page says, in plain words, what this website collects and what happens to it.</p>
 
-  <h2>Who is responsible</h2>
-  <p>Joel Kaso, web designer (Albania). You can reach us at <a href="mailto:joelkaso8@gmail.com">joelkaso8@gmail.com</a>.</p>
+    <h2>Who is responsible</h2>
+    <p>Joel Kaso, web designer (Albania). Write to me at <a href="mailto:joelkaso8@gmail.com">joelkaso8@gmail.com</a>.</p>
 
-  <h2>What we collect</h2>
-  <ul>
-    <li>Only what you type into a form yourself: for example your name, phone number or email, and the details of your booking or question.</li>
-    <li>Nothing is collected just because you visit the page. There are no advertising or tracking cookies, and no analytics that follow you.</li>
-  </ul>
+    <h2>What I collect</h2>
+    <ul>
+      <li>Only what you type into the contact form yourself: your name, your business name (optional), your email and your message.</li>
+      <li>If you write to me on WhatsApp, call me or email me, I receive what you send there.</li>
+      <li>Nothing is collected just because you visit. There are no advertising or tracking cookies and no analytics.</li>
+    </ul>
 
-  <h2>Why we use it</h2>
-  <ul>
-    <li>To answer your message, confirm your booking or order, and contact you about it.</li>
-    <li>The legal basis is your request (taking steps before a contract) and our legitimate interest in replying to you.</li>
-    <li>We never sell your details and never use them for marketing unless you clearly agree.</li>
-  </ul>
+    <h2>Where it goes</h2>
+    <ul>
+      <li>The form is delivered to my Gmail inbox by FormSubmit (formsubmit.co), a service that turns forms into emails. Your message passes through their servers.</li>
+      <li>If sending fails, your own email app opens with the message ready, and you send it yourself.</li>
+      <li>The WhatsApp buttons open WhatsApp (Meta), where their own policy applies.</li>
+      <li>The site is hosted on GitHub Pages. Like every host, GitHub records technical data such as IP addresses for security.</li>
+    </ul>
 
-  <h2>Who else sees it</h2>
-  <p>Your message reaches us through email, WhatsApp or a booking service, which handle it under their own privacy policies. Links to WhatsApp, Instagram, Google Maps or other sites open those services, and their own policies apply there.</p>
+    <h2>Why I use it</h2>
+    <ul>
+      <li>To answer your message and prepare a quote.</li>
+      <li>The legal basis is your request (steps before a contract) and my legitimate interest in replying to you.</li>
+      <li>I never sell your details and never use them for advertising.</li>
+    </ul>
 
-  <h2>Cookies and storage</h2>
-  <p>This site uses no tracking cookies. It may save small settings in your own browser, such as your language choice, so the site remembers them. You can clear these at any time in your browser settings. Fonts are stored on this website, so loading a page does not send your details to Google.</p>
+    <h2>Cookies and browser storage</h2>
+    <p>This site uses no cookies. It saves two small things in your own browser only: the language you chose, and the times of the last messages you sent (spam protection). You can clear them at any time in your browser settings. Fonts are stored on this website, so opening a page sends nothing to Google.</p>
 
-  <h2>How long we keep it</h2>
-  <p>Only as long as needed to handle your request and any booking that follows, and no longer than 12 months unless the law requires longer (for example for invoices).</p>
+    <h2>How long I keep it</h2>
+    <p>Only as long as needed to handle your request and any work that follows, and no longer than 12 months unless the law requires longer (for example for invoices).</p>
 
-  <h2>Your rights</h2>
-  <p>You can ask to see, correct or delete the information we hold about you, or object to how we use it. Just contact us at <a href="mailto:joelkaso8@gmail.com">joelkaso8@gmail.com</a>. You also have the right to complain to the data protection authority in your country.</p>
+    <h2>Your rights</h2>
+    <p>You can ask to see, correct or delete what I hold about you, or object to how I use it. Write to <a href="mailto:joelkaso8@gmail.com">joelkaso8@gmail.com</a>. You also have the right to complain to the data protection authority in your country.</p>
 
-  <h2>Security</h2>
-  <p>The site is served over an encrypted connection (HTTPS), forms are protected against spam bots, and we only keep what we need.</p>
+    <h2>Sites shown in the portfolio</h2>
+    <p>The demo sites and client projects shown in the portfolio have their own privacy pages.</p>
+
+    <h2>Security</h2>
+    <p>The site is served over an encrypted connection (HTTPS), the form is protected against spam bots, and I keep only what I need.</p>
+  </section>
+
+  <section id="sq" lang="sq">
+    <h1>Politika e privatësisë</h1>
+    <p class="date">Përditësuar së fundi: nëntor 2026</p>
+    <p>Kjo faqe tregon, me fjalë të thjeshta, çfarë mbledh kjo faqe interneti dhe çfarë ndodh me të.</p>
+
+    <h2>Kush përgjigjet</h2>
+    <p>Joel Kaso, dizajner web (Shqipëri). Më shkruaj në <a href="mailto:joelkaso8@gmail.com">joelkaso8@gmail.com</a>.</p>
+
+    <h2>Çfarë mbledh</h2>
+    <ul>
+      <li>Vetëm atë që shkruan vetë në formularin e kontaktit: emrin, emrin e biznesit (nuk është i detyrueshëm), emailin dhe mesazhin.</li>
+      <li>Nëse më shkruan në WhatsApp, më telefonon ose më dërgon email, marr atë që më dërgon aty.</li>
+      <li>Asgjë nuk mblidhet vetëm sepse e viziton faqen. Nuk ka cookies reklamash ose gjurmimi dhe nuk ka analitikë.</li>
+    </ul>
+
+    <h2>Ku shkon</h2>
+    <ul>
+      <li>Formulari mbërrin në emailin tim (Gmail) përmes FormSubmit (formsubmit.co), një shërbim që i kthen formularët në email. Mesazhi kalon nëpër serverët e tyre.</li>
+      <li>Nëse dërgimi dështon, hapet aplikacioni yt i emailit me mesazhin gati dhe e dërgon vetë.</li>
+      <li>Butonat e WhatsApp hapin WhatsApp (Meta), ku vlen politika e tyre.</li>
+      <li>Faqja mbahet në GitHub Pages. Si çdo shërbim hostimi, GitHub regjistron të dhëna teknike, si adresa IP, për arsye sigurie.</li>
+    </ul>
+
+    <h2>Pse e përdor</h2>
+    <ul>
+      <li>Për t'iu përgjigjur mesazhit tënd dhe për të përgatitur një ofertë.</li>
+      <li>Baza ligjore është kërkesa jote (hapa para një kontrate) dhe interesi im i ligjshëm për t'u përgjigjur.</li>
+      <li>Nuk i shes kurrë të dhënat e tua dhe nuk i përdor kurrë për reklama.</li>
+    </ul>
+
+    <h2>Cookies dhe ruajtja në shfletues</h2>
+    <p>Kjo faqe nuk përdor cookies. Ruan dy gjëra të vogla vetëm në shfletuesin tënd: gjuhën që ke zgjedhur dhe orën e mesazheve të fundit që ke dërguar (mbrojtje nga spam-i). Mund t'i fshish kur të duash nga cilësimet e shfletuesit. Shkronjat (fontet) ruhen në këtë faqe, ndaj hapja e saj nuk dërgon asgjë te Google.</p>
+
+    <h2>Sa gjatë e mbaj</h2>
+    <p>Vetëm sa duhet për t'iu përgjigjur kërkesës dhe për punën që mund të pasojë, dhe jo më shumë se 12 muaj, përveç kur ligji kërkon më gjatë (për shembull për fatura).</p>
+
+    <h2>Të drejtat e tua</h2>
+    <p>Mund të kërkosh të shohësh, të korrigjosh ose të fshish atë që kam për ty, ose të kundërshtosh mënyrën si e përdor. Më shkruaj në <a href="mailto:joelkaso8@gmail.com">joelkaso8@gmail.com</a>. Ke edhe të drejtën të ankohesh tek autoriteti i mbrojtjes së të dhënave në vendin tënd.</p>
+
+    <h2>Faqet në portofol</h2>
+    <p>Faqet demo dhe projektet e klientëve që shfaqen në portofol kanë faqet e tyre të privatësisë.</p>
+
+    <h2>Siguria</h2>
+    <p>Faqja hapet me lidhje të enkriptuar (HTTPS), formulari mbrohet nga robotët e spam-it dhe mbaj vetëm atë që më duhet.</p>
+    <p class="top"><a href="index.html?lang=sq">← Joel Kaso</a> <a href="#en" lang="en" hreflang="en">English ↑</a></p>
+  </section>
 </main>
 </body>
 </html>
