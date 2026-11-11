@@ -10,6 +10,8 @@
       chips: { en: ['Candle film that plays as you scroll', '4-step booking with calendar and live slots', 'Find-your-ritual quiz', 'Gift voucher you can save', 'Quiet-times chart'], sq: ['Film qiriri që luan me scroll', 'Rezervim në 4 hapa me kalendar dhe orare', 'Kuiz për ritualin', 'Kupon dhuratë që ruhet', 'Grafik i orëve të qeta'] } },
     { id: 'ura-coffee', film: true, name: 'Ura Coffee Roasters', cat: 'food', tag: 'demo', where: { en: 'Coffee roastery · Glasgow, UK', sq: 'Furrë kafeje · Glasgow, Skoci' },
       chips: { en: ['Espresso film that plays as you scroll', 'Bean shop with bag', 'Subscription builder', 'Live café hours'], sq: ['Film espreso që luan me scroll', 'Dyqan kafeje me shportë', 'Abonim', 'Orari live'] } },
+    { id: 'balte-studio', film: true, name: 'Baltë Studio', cat: 'local', tag: 'demo', where: { en: 'Pottery studio · Tirana, Albania', sq: 'Studio qeramike · Tiranë, Shqipëri' },
+      chips: { en: ['Clay film that plays as you scroll', 'Class booking on WhatsApp', 'Fanned photo gallery', 'Live opening hours', 'EN / SQ'], sq: ['Film balte që luan me scroll', 'Rezervim kursesh në WhatsApp', 'Galeri fotosh si freskore', 'Orari live', 'EN / SQ'] } },
     { id: 'dallge-surf', film: true, name: 'Dallgë Surf School', cat: 'local', tag: 'demo', where: { en: 'Surf school · Newquay, Cornwall', sq: 'Shkollë surfi · Newquay, Angli' },
       chips: { en: ['Drone film that flies as you scroll', 'Tide-timed booking', 'Surf report', 'Hire calculator'], sq: ['Film me dron që fluturon me scroll', 'Rezervim sipas baticës', 'Raporti i valëve', 'Llogaritës qiraje'] } },
     { id: 'vreshta-estate', film: true, name: 'Vreshta Estate', cat: 'food', tag: 'demo', where: { en: 'Winery · Paso Robles, California', sq: 'Kantinë vere · Paso Robles, Kaliforni' },
@@ -42,7 +44,7 @@
       chips: { en: ['Ink film hero', 'Work gallery', 'Dark editorial look'], sq: ['Film me bojë në hyrje', 'Galeri punësh', 'Pamje e errët editoriale'] } },
   ]
   // Only these show in the portfolio. The other sites stay in work/; add an id here to show it again.
-  var SHOWN = ['ura-coffee', 'lule-kitchen', 'kaso-ervehe', 'vjosa-rafting']
+  var SHOWN = ['ura-coffee', 'balte-studio', 'lule-kitchen', 'kaso-ervehe', 'vjosa-rafting']
   WORK = WORK.filter(function (w) { return SHOWN.indexOf(w.id) !== -1 })
   var TAGS = { client: { en: 'Client', sq: 'Klient' }, demo: { en: 'Demo', sq: 'Demo' }, concept: { en: 'Concept', sq: 'Koncept' }, project: { en: 'Project', sq: 'Projekt' } }
 

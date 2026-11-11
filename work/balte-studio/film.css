@@ -1,0 +1,25 @@
+/* Scroll film (shared by the scroll-video demos). Colours come from each site's own tokens. */
+.film { position: relative; height: 420vh; }
+.film__stage { position: sticky; top: 0; height: 100svh; overflow: hidden; background: var(--ground) center / cover no-repeat; }
+.film__stage video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s ease; }
+.film__stage.is-ready video { opacity: 1; }
+.film__stage::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, color-mix(in oklab, var(--ground) 82%, transparent), transparent 55%), linear-gradient(to bottom, color-mix(in oklab, var(--ground) 55%, transparent), transparent 22%); pointer-events: none; }
+.film__band { position: absolute; z-index: 2; left: var(--gut); right: var(--gut); bottom: clamp(56px, 10vh, 110px); max-width: 860px; opacity: 0; visibility: hidden; will-change: opacity, transform; }
+.film__band:first-of-type { opacity: 1; visibility: visible; }
+.film__bar { position: absolute; z-index: 3; left: 0; right: 0; bottom: 0; height: 3px; background: color-mix(in oklab, var(--ink) 15%, transparent); }
+.film__bar i { display: block; height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
+/* Loading line along the top edge while the film downloads; it fades once the film is ready. */
+.film__load { position: absolute; z-index: 25; top: 0; left: 0; right: 0; height: 2px; background: color-mix(in oklab, var(--ink) 12%, transparent); transition: opacity .6s ease .2s; pointer-events: none; }
+.film__load i { display: block; height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0.02); transition: transform .25s linear; }
+.film__load.is-unknown i { width: 30%; transform: none; animation: loadslide 1.2s ease-in-out infinite; }
+@keyframes loadslide { from { margin-left: -30%; } to { margin-left: 100%; } }
+.film__load.is-done { opacity: 0; }
+.film__cue { position: absolute; z-index: 2; right: var(--gut); bottom: clamp(56px, 10vh, 110px); display: grid; justify-items: center; gap: 8px; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); opacity: .8; }
+.film__cue::after { content: ""; width: 1px; height: 46px; background: linear-gradient(var(--ink), transparent); animation: cue 1.8s ease-in-out infinite; }
+@keyframes cue { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+/* No film (reduced motion, or it failed to load): one screen, the poster, the first line only. */
+.film--still { height: auto; }
+.film--still .film__stage { position: relative; }
+.film--still .film__band:not(:first-of-type), .film--still .film__bar, .film--still .film__cue { display: none; }
+@media (prefers-reduced-motion: reduce) { .film { height: auto; } .film__stage { position: relative; } .film__band:not(:first-of-type), .film__bar, .film__cue { display: none; } .film__cue::after { animation: none; } }
+@media (max-width: 700px) { .film { height: 360vh; } .film__cue { display: none; } }
