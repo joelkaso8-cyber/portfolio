@@ -276,23 +276,38 @@
     var url = 'work/' + w.id + '/index.html'
     $('#viewer-title').textContent = w.name
     $('#viewer-open').href = url
-    frame.src = url
+    frame.contentWindow.location.replace(new URL(url, location.href).href) // replace, not src: the preview must not add its own Back steps
     setMode('desk')
     viewer.showModal()
     document.body.style.overflow = 'hidden'
   }
   function closeViewer() { viewer.close() }
   viewer.addEventListener('close', function () {
-    frame.src = 'about:blank'; document.body.style.overflow = ''
-    if (/[?&]site=/.test(location.search)) history.replaceState(null, '', pageUrl())
+    document.body.style.overflow = ''
+    var blank = function () { frame.contentWindow.location.replace('about:blank') }
+    if (!(history.state && history.state.site)) return blank() // closed with Back: already on the portfolio entry
+    // Closed with the button: step back to the portfolio entry first, then empty the preview (loading a page in it would cancel the step back).
+    history.back()
+    setTimeout(function () {
+      if (viewer.open) return // another site was opened meanwhile
+      // shortcut: if the browser ignored back(), only the address is fixed and one later Back press does nothing.
+      if (history.state && history.state.site) history.replaceState(null, '', pageUrl())
+      blank()
+    }, 400)
   })
   // Direct links: portfolio/?site=<id> opens the portfolio with that site already showing in the viewer.
   // Opening a site from the grid puts the same link in the address bar, so it can be copied and shared.
   var openViewerBase = openViewer
   openViewer = function (w) {
     openViewerBase(w)
-    try { history.replaceState(null, '', location.pathname + '?site=' + w.id + location.hash) } catch (e) {}
+    // The portfolio stays one step back in history, so the browser's Back button closes the site instead of leaving the portfolio.
+    try { history.replaceState(null, '', pageUrl()); history.pushState({ site: w.id }, '', location.pathname + '?site=' + w.id + location.hash) } catch (e) {}
   }
+  window.addEventListener('popstate', function () {
+    var id = history.state && history.state.site, w = id && WORK.find(function (x) { return x.id === id })
+    if (w && !viewer.open) openViewerBase(w) // Forward: show the site again
+    else if (!w && viewer.open) viewer.close() // Back: return to the portfolio
+  })
   function openFromLink() {
     var m = location.search.match(/[?&]site=([a-z0-9-]+)/i), w = m && WORK.find(function (x) { return x.id === m[1].toLowerCase() })
     if (w) openViewer(w)
@@ -304,6 +319,17 @@
     try {
       var ribbon = frame.contentDocument && frame.contentDocument.querySelector('.demo-ribbon, .demo-tag')
       if (ribbon) ribbon.addEventListener('click', function (e) { e.preventDefault(); closeViewer() })
+      // Links inside the previewed site replace its page instead of adding Back steps, so one Back always returns to the portfolio.
+      var win = frame.contentWindow
+      win.document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]')
+        if (!a || e.defaultPrevented || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || a.target === '_blank' || a.hasAttribute('download') || a.origin !== location.origin) return
+        e.preventDefault()
+        if (a.pathname === win.location.pathname && a.search === win.location.search) { // a section of the same page: just scroll there
+          var el = a.hash.length > 1 && win.document.getElementById(decodeURIComponent(a.hash.slice(1)))
+          if (el) el.scrollIntoView(); else win.scrollTo(0, 0)
+        } else win.location.replace(a.href)
+      })
     } catch (e) {}
   })
 

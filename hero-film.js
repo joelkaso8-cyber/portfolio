@@ -9,7 +9,7 @@
   // Data Saver or a slow connection: keep the poster still and let the page scroll normally, no 2-7 MB film.
   var net = navigator.connection
   if (net && (net.saveData || /^(slow-2g|2g|3g)$/.test(net.effectiveType))) return
-  var DIST = 2400, TOUCH = 2.4
+  var DIST = 600, TOUCH = 3.2 // px of scroll input for the whole film (was 2400, then 900); raise it for a longer film
   var phone = window.matchMedia('(max-width: 900px) and (orientation: portrait)').matches
   var SRC = phone ? 'media/hero-m.mp4' : 'media/hero.mp4'
   var bar = hero.querySelector('.hero-progress i'), hint = hero.querySelector('.hero-hint')
@@ -48,7 +48,7 @@
     hint.classList.toggle('gone', started)
   }
   function frame() {
-    cur += (target - cur) * 0.16
+    cur += (target - cur) * 0.24
     if (Math.abs(target - cur) < 0.0005) cur = target
     render()
     raf = cur !== target ? requestAnimationFrame(frame) : 0
