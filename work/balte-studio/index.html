@@ -350,7 +350,7 @@ dialog.lb::backdrop{background:rgba(12,18,22,.93)}
 .form-msg:empty{display:none}
 .form-msg a{color:var(--bone);font-weight:600}
 .form noscript{color:var(--mute);font-size:.9375rem}
-.row2{display:grid;gap:1.1rem}
+.row2{display:grid;gap:1.1rem;align-items:start}
 @media (min-width:560px){.row2{grid-template-columns:1fr 1fr}}
 @media (min-width:1000px){
   .book-grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(3rem,7vw,7rem);align-items:start}
@@ -396,6 +396,118 @@ dialog.lb::backdrop{background:rgba(12,18,22,.93)}
 .foot-mark{font-family:var(--display);font-size:clamp(6.5rem,31vw,27rem);line-height:.72;letter-spacing:-.03em;color:var(--slate-2);text-align:center;margin-top:clamp(2rem,5vw,4rem);margin-bottom:-.06em;white-space:nowrap;user-select:none}
 @media (min-width:760px){.foot-grid{grid-template-columns:1fr 1.3fr 1.3fr;gap:clamp(2rem,5vw,5rem)}}
 
+/* hero seal + story facts */
+.seal{position:absolute;z-index:2;right:var(--gut);top:calc(var(--head) + 1.25rem);width:clamp(6.25rem,11vw,10.5rem);aspect-ratio:1}
+.seal svg{display:block;width:100%;height:100%;transform:rotate(var(--rot,0deg))}
+.seal text{font:600 15.5px var(--body);fill:var(--bone);letter-spacing:.04em}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.8rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+.facts strong{display:block;font-family:var(--display);font-weight:400;font-size:clamp(2rem,3.4vw,2.9rem);line-height:1;color:var(--ember)}
+.facts span{display:block;margin-top:.35rem;font-size:.875rem;line-height:1.35;color:var(--mute)}
+
+/* class finder */
+fieldset{border:0;padding:0;margin:0;min-width:0}
+legend{padding:0}
+.who{margin-top:1.7rem}
+.who-l{font-weight:600;font-size:.9375rem}
+.who-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
+.chip{min-height:44px;padding:.5rem 1.05rem;border-radius:999px;border:1px solid rgba(20,29,35,.35);background:transparent;color:var(--ink);font-weight:600;font-size:.9375rem;cursor:pointer;transition:background-color .25s,color .25s,border-color .25s,transform .35s var(--ease)}
+.chip:hover{border-color:var(--ink);transform:translateY(-2px)}
+.chip:active{transform:scale(.94)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--slip);border-color:var(--ink)}
+.who-out{margin-top:.7rem;min-height:1.5rem;font-size:.9375rem;font-weight:600;color:var(--ember-deep)}
+.svc{transition:background-color .35s,padding .5s var(--ease),opacity .45s}
+.svc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--ember-deep);transform:scaleY(0);transform-origin:top;transition:transform .6s var(--ease)}
+.svc.is-match{padding-left:1.1rem}
+.svc.is-match::before{transform:scaleY(1)}
+.svc.is-dim{opacity:.28}
+.svc.is-dim .btn{visibility:hidden}
+
+/* 14-day slider */
+.day{display:grid;gap:.4rem 2rem;align-items:end;margin-top:clamp(2rem,5vw,3.5rem)}
+.day-n{font-family:var(--display);font-size:clamp(3rem,9vw,6.5rem);line-height:.9;color:var(--ember);font-variant-numeric:tabular-nums;white-space:nowrap}
+.day-t{font-size:clamp(1.0625rem,1.6vw,1.35rem);line-height:1.4;min-height:2.8em;max-width:30rem;color:var(--bone)}
+.day-l{font-size:.9375rem;font-weight:600;color:#CBBDAC;margin-top:.8rem}
+.day-r{-webkit-appearance:none;appearance:none;width:100%;height:44px;margin:0;background:transparent;cursor:grab;--p:0%}
+.day-r:active{cursor:grabbing}
+.day-r::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:linear-gradient(90deg,var(--ember) var(--p),rgba(230,221,208,.22) var(--p))}
+.day-r::-moz-range-track{height:6px;border-radius:3px;background:rgba(230,221,208,.22)}
+.day-r::-moz-range-progress{height:6px;border-radius:3px;background:var(--ember)}
+.day-r::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;margin-top:-12px;border-radius:50%;background:var(--ember);border:4px solid var(--umber);box-shadow:0 0 0 2px var(--ember);transition:transform .25s var(--ease)}
+.day-r::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--ember);border:4px solid var(--umber);box-shadow:0 0 0 2px var(--ember)}
+.day-r:hover::-webkit-slider-thumb{transform:scale(1.15)}
+.day-r:active::-webkit-slider-thumb{transform:scale(1.3)}
+.day-r:focus-visible{outline:3px solid var(--bone);outline-offset:4px;border-radius:8px}
+.day-l,.day-r{grid-column:1/-1}
+.js .steps li::before{transition:color .4s,transform .5s var(--ease);transform-origin:left bottom}
+.js .steps li h3,.js .steps li p{transition:opacity .4s}
+.js .steps li:not(.is-on)::before{color:rgba(230,221,208,.28);transform:scale(.82)}
+.js .steps li:not(.is-on) h3,.js .steps li:not(.is-on) p{opacity:.5}
+@media (min-width:760px){.day{grid-template-columns:auto 1fr}}
+
+/* glaze picker */
+.glaze{display:grid;gap:2.25rem;align-items:center;margin-top:clamp(3rem,7vw,6rem);padding-top:clamp(2.5rem,5vw,4.5rem);border-top:1px solid var(--line)}
+.cup{position:relative;isolation:isolate;width:min(100%,clamp(15rem,27vw,25rem));aspect-ratio:240/230;margin-inline:auto}
+.cup svg{position:absolute;inset:0;width:100%;height:100%}
+.cup::after{content:"";position:absolute;z-index:-1;left:14%;right:24%;bottom:8%;height:8%;border-radius:50%;background:rgba(0,0,0,.4)}
+.cup-raw{color:#C7B59A}
+.cup-glazed{color:var(--glaze,#9DB8A6);clip-path:inset(0 0 100% 0);transition:clip-path 1.1s var(--ease)}
+.cup.is-glazed .cup-glazed{clip-path:inset(0 0 22% 0)}
+.cup.no-t .cup-glazed{transition:none}
+.cup-top{fill:rgba(20,29,35,.5)}
+.cup-shine{fill:none;stroke:rgba(255,255,255,.28);stroke-width:5;stroke-linecap:round}
+.glaze h3{font-size:clamp(1.6rem,3vw,2.5rem);line-height:1.08}
+.glaze-copy>p{margin-top:.9rem;color:#CBBDAC;max-width:30rem}
+.glazes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.65rem;max-width:25rem;margin-top:1.5rem}
+.glazes label{position:relative;display:block;aspect-ratio:1;cursor:pointer}
+.glazes input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.glazes .sw{display:block;width:100%;height:100%;border-radius:50%;background:var(--g);border:2px solid rgba(230,221,208,.28);transition:transform .35s var(--ease),box-shadow .25s}
+.glazes label:hover .sw{transform:scale(1.13)}
+.glazes input:active+.sw{transform:scale(.9)}
+.glazes input:checked+.sw{box-shadow:0 0 0 3px var(--umber),0 0 0 6px var(--ember)}
+.glazes input:focus-visible+.sw{outline:3px solid var(--bone);outline-offset:5px}
+.glaze-name{margin-top:1.4rem;min-height:2.2rem;font-family:var(--display);font-size:1.6rem;line-height:1.2}
+.glaze .btn{margin-top:1.1rem}
+@media (min-width:900px){.glaze{grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(3rem,7vw,7rem)}}
+
+/* scroll band between process and gallery */
+.band{background:var(--slate);overflow:hidden;padding-top:clamp(2.5rem,6vw,5rem)}
+.band p{display:flex;align-items:center;gap:.45em;width:max-content;white-space:nowrap;padding-inline:var(--gut);font-family:var(--display);font-size:clamp(3rem,11vw,10rem);line-height:1;color:rgba(230,221,208,.1);-webkit-text-stroke:1.5px rgba(230,221,208,.6);transform:translateX(var(--x,0px))}
+.band i{flex:none;width:.2em;height:.2em;border-radius:50%;background:var(--ember)}
+.band+.gal{padding-top:clamp(2.5rem,6vw,5rem)}
+
+/* booking: time chips, people stepper, live ticket */
+.slots legend{font-size:.9375rem;font-weight:600;margin-bottom:.4rem}
+.slot-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.4rem}
+.slot{position:relative;min-width:0}
+.slot input{position:absolute;inset:0;width:100%;height:100%;min-height:0;margin:0;padding:0;opacity:0;cursor:pointer}
+.slot span{display:grid;place-items:center;min-height:3.25rem;padding:.4rem .2rem;border-radius:4px;border:1px solid rgba(230,221,208,.28);background:var(--ink);font-size:.9375rem;font-weight:600;font-variant-numeric:tabular-nums;transition:background-color .25s,color .25s,border-color .25s,transform .3s var(--ease)}
+.slot:hover span{border-color:rgba(230,221,208,.6);transform:translateY(-2px)}
+.slot input:active+span{transform:scale(.95)}
+.slot input:checked+span{background:var(--ember);border-color:var(--ember);color:var(--ink)}
+.slot input:focus-visible+span{outline:3px solid var(--ember);outline-offset:3px}
+.slot input:disabled{cursor:not-allowed}
+.slot input:disabled+span{opacity:.35;text-decoration:line-through;transform:none}
+.stepper{display:grid;grid-template-columns:3.25rem minmax(0,1fr) 3.25rem;gap:.5rem}
+.stepper button{min-height:3.25rem;border-radius:4px;border:1px solid rgba(230,221,208,.28);background:var(--ink);font-size:1.4rem;line-height:1;cursor:pointer;transition:background-color .25s,color .25s,border-color .25s,transform .3s var(--ease)}
+.stepper button:hover{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.stepper button:active{transform:scale(.92)}
+.stepper button[disabled]{opacity:.35;cursor:not-allowed;background:var(--ink);color:inherit;border-color:rgba(230,221,208,.28);transform:none}
+.stepper input{text-align:center;-moz-appearance:textfield;appearance:textfield}
+.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.ticket{display:grid;grid-template-columns:1fr 1fr;border:1px dashed rgba(230,221,208,.34);border-radius:6px;margin:0}
+.ticket div{padding:.75rem .95rem;min-width:0;border-top:1px dashed rgba(230,221,208,.2)}
+.ticket div:nth-child(-n+2){border-top:0}
+.ticket div:nth-child(even){border-left:1px dashed rgba(230,221,208,.2)}
+.ticket dt{font-size:.8125rem;color:var(--mute)}
+.ticket dd{margin:.15rem 0 0;font-family:var(--display);font-size:1.15rem;line-height:1.25;overflow-wrap:anywhere}
+.ticket small{display:block;font:400 .8125rem/1.3 var(--body);color:var(--mute)}
+#tkTotal{color:var(--ember)}
+
+/* headings that rise word by word, footer letters */
+.wm{display:inline-block;overflow:hidden;vertical-align:top;padding:.14em 0;margin:-.14em 0}
+.wi{display:inline-block}
+.foot-mark .fl{display:inline-block}
+
 /* sticky bar (phones) */
 .bar{position:fixed;inset:auto 0 0 0;z-index:60;display:grid;grid-template-columns:1fr 1fr 1.25fr;background:rgba(20,29,35,.97);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
 .bar a{min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:.8125rem;font-weight:600;text-decoration:none;transition:background-color .2s,color .2s}
@@ -440,6 +552,17 @@ dialog.lb::backdrop{background:rgba(12,18,22,.93)}
   .svc-list li:nth-child(3),.steps li:nth-child(3),.trust li:nth-child(3),.shot:nth-child(3){--i:2}
   .svc-list li:nth-child(4),.steps li:nth-child(4),.shot:nth-child(4){--i:3}
   .svc-list li:nth-child(n+5){--i:0}
+  .seal{animation:seal-in 1.7s .9s var(--ease) both}
+  @keyframes seal-in{from{opacity:0;transform:scale(.55) rotate(-140deg)}}
+  .js h2.rv.split{opacity:1;transform:none}
+  .js h2.split .wi{transform:translateY(115%);transition:transform 1s var(--ease);transition-delay:calc(var(--n,0) * 60ms)}
+  .js h2.split.in .wi{transform:none}
+  .js .foot-mark .fl{opacity:0;transform:translateY(55%);transition:opacity .8s,transform 1.1s var(--ease);transition-delay:calc(var(--n,0) * 90ms)}
+  .js .foot-mark.in .fl{opacity:1;transform:none}
+  .cup.is-glazed{animation:cup-pop .7s var(--ease)}
+  @keyframes cup-pop{from{transform:scale(.92) rotate(-4deg)}}
+  .ticket dd.pop{animation:tk-pop .5s var(--ease)}
+  @keyframes tk-pop{from{opacity:0;transform:translateY(.5em)}}
   dialog.lb[open]{animation:lb-in .45s var(--ease)}
   @keyframes lb-in{from{opacity:0;transform:scale(.94)}}
 }
@@ -461,6 +584,7 @@ dialog.lb::backdrop{background:rgba(12,18,22,.93)}
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s7-6.2 7-12a7 7 0 0 0-14 0c0 5.800 7 12 7 12z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="cup-shape" viewBox="0 0 240 230"><path fill="currentColor" d="M50 60h120l-9 112q-2 24-24 24H83q-22 0-24-24z"/><ellipse fill="currentColor" cx="110" cy="60" rx="60" ry="9"/><path fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round" d="M168 88c40-2 42 60-5 62"/></symbol>
   <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.8-4.900 4.600 1.300 6.600L12 17.300l-5.900 3.300 1.300-6.600L2.500 9.400l6.600-.8z"/></symbol>
 </svg>
 
@@ -505,6 +629,7 @@ dialog.lb::backdrop{background:rgba(12,18,22,.93)}
       <p class="small" data-i="f3b">We glaze it, fire it twice and message you when it is ready, 14 days later.</p>
       <a class="btn btn-ghost" href="#classes" data-i="f3c">See the classes</a>
     </div>
+    <div class="seal" aria-hidden="true"><svg viewBox="0 0 200 200" focusable="false"><defs><path id="sealp" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#sealp" textLength="482" lengthAdjust="spacing" data-i="seal">First class €25 — no experience needed — </textPath></text><circle cx="100" cy="100" r="44" fill="none" stroke="#E8854D" stroke-width="9"/><circle cx="100" cy="82" r="9" fill="#E6DDD0"/></svg></div>
     <p class="film__cue" aria-hidden="true" data-i="cue">Scroll</p>
     <div class="film__bar" aria-hidden="true"><i></i></div>
   </div>
@@ -523,45 +648,56 @@ dialog.lb::backdrop{background:rgba(12,18,22,.93)}
     <div class="svc-intro">
       <h2 class="rv" data-i="sh">Six ways to get clay under your nails.</h2>
       <p class="rv" data-i="ss">Every price includes the clay, the glazes, both firings and an apron. You bring nothing.</p>
+      <div class="who rv">
+        <p class="who-l" id="who-l" data-i="whol">Who is coming?</p>
+        <div class="who-chips" role="group" aria-labelledby="who-l">
+          <button class="chip" type="button" data-who="all" aria-pressed="true" data-i="who0">Everyone</button>
+          <button class="chip" type="button" data-who="me" aria-pressed="false" data-i="who1">Just me</button>
+          <button class="chip" type="button" data-who="two" aria-pressed="false" data-i="who2">Two of us</button>
+          <button class="chip" type="button" data-who="kids" aria-pressed="false" data-i="who3">Kids</button>
+          <button class="chip" type="button" data-who="team" aria-pressed="false" data-i="who4">A team</button>
+        </div>
+        <p class="who-out" id="whoOut" aria-live="polite"></p>
+      </div>
       <figure class="svc-pic rv-wipe"><img src="img/wedge-640.webp" srcset="img/wedge-640.webp 640w, img/wedge-1200.webp 1200w" sizes="(max-width: 999px) 90vw, 26rem" width="640" height="426" loading="lazy" decoding="async" alt="Two hands kneading a lump of grey clay on a wooden table" data-i-alt="awedge"></figure>
     </div>
     <ul class="svc-list">
-      <li class="svc rv">
+      <li class="svc rv" data-who="me two">
         <h3 data-i="s1n">First Wheel</h3>
         <p class="svc-price"><span data-i="s1p">€25</span><small data-i="s1u">per person</small></p>
         <p class="svc-desc" data-i="s1d">Two hours, two pieces. We show you how to centre the clay, you make a cup and a bowl, we glaze and fire them.</p>
         <p class="svc-time" data-i="s1t">2 hours</p>
         <a class="btn btn-ink" href="#book" data-book="first"><span data-i="book">Book</span><span class="vh" data-i="s1n">First Wheel</span></a>
       </li>
-      <li class="svc rv">
+      <li class="svc rv" data-who="me">
         <h3 data-i="s2n">Four-week course</h3>
         <p class="svc-price"><span data-i="s2p">€95</span><small data-i="s2u">per person</small></p>
         <p class="svc-desc" data-i="s2d">Four evenings, never more than six people. Centring, pulling walls, trimming, glazing. You go home with six to eight pieces.</p>
         <p class="svc-time" data-i="s2t">4 × 2.5 hours</p>
         <a class="btn btn-ink" href="#book" data-book="course"><span data-i="book">Book</span><span class="vh" data-i="s2n">Four-week course</span></a>
       </li>
-      <li class="svc rv">
+      <li class="svc rv" data-who="two">
         <h3 data-i="s3n">Date at the wheel</h3>
         <p class="svc-price"><span data-i="s3p">€55</span><small data-i="s3u">for two</small></p>
         <p class="svc-desc" data-i="s3d">One wheel, four hands and a glass of wine each. The Friday that fills up first in the studio.</p>
         <p class="svc-time" data-i="s3t">2 hours</p>
         <a class="btn btn-ink" href="#book" data-book="date"><span data-i="book">Book</span><span class="vh" data-i="s3n">Date at the wheel</span></a>
       </li>
-      <li class="svc rv">
+      <li class="svc rv" data-who="kids">
         <h3 data-i="s4n">Kids' Saturday</h3>
         <p class="svc-price"><span data-i="s4p">€15</span><small data-i="s4u">per child</small></p>
         <p class="svc-desc" data-i="s4d">Ages 6 to 12. Pinch pots, clay animals and one go on the wheel. Parents win ninety quiet minutes.</p>
         <p class="svc-time" data-i="s4t">90 minutes</p>
         <a class="btn btn-ink" href="#book" data-book="kids"><span data-i="book">Book</span><span class="vh" data-i="s4n">Kids' Saturday</span></a>
       </li>
-      <li class="svc rv">
+      <li class="svc rv" data-who="team">
         <h3 data-i="s5n">Team session</h3>
         <p class="svc-price"><span data-i="s5p">€22</span><small data-i="s5u">per person</small></p>
         <p class="svc-desc" data-i="s5d">6 to 14 colleagues around one long table. Better than one more dinner, and everybody leaves with their own mug.</p>
         <p class="svc-time" data-i="s5t">2.5 hours</p>
         <a class="btn btn-ink" href="#book" data-book="team"><span data-i="book">Book</span><span class="vh" data-i="s5n">Team session</span></a>
       </li>
-      <li class="svc rv">
+      <li class="svc rv" data-who="me">
         <h3 data-i="s6n">Open studio</h3>
         <p class="svc-price"><span data-i="s6p">€8</span><small data-i="s6u">per hour</small></p>
         <p class="svc-desc" data-i="s6d">Finished a course? Rent a wheel by the hour and work on your own. Firing is charged by weight, €6 per kilo.</p>
@@ -572,17 +708,55 @@ dialog.lb::backdrop{background:rgba(12,18,22,.93)}
   </div>
 </section>
 
-<section class="proc" aria-labelledby="proc-h">
+<section class="proc" id="process" aria-labelledby="proc-h">
   <div class="wrap">
     <h2 class="rv" id="proc-h" data-i="ph">From wet clay to your kitchen shelf in 14 days.</h2>
+    <div class="day rv" id="dayBox">
+      <p class="day-n" id="dayN" aria-hidden="true">Day 1</p>
+      <p class="day-t" id="dayT" aria-hidden="true">You throw two pieces on the wheel.</p>
+      <label class="day-l" for="day" data-i="dayl">Drag to follow your pot through the two weeks</label>
+      <input class="day-r" type="range" id="day" min="1" max="14" step="1" value="1">
+    </div>
     <ol class="steps">
-      <li class="rv"><h3 data-i="p1n">You throw</h3><p data-i="p1d">Day 1. Your hands, our wheel and a teacher at your side.</p></li>
-      <li class="rv"><h3 data-i="p2n">We fire it</h3><p data-i="p2d">Day 5. First firing at 950 °C, once your piece is bone dry.</p></li>
-      <li class="rv"><h3 data-i="p3n">You pick a glaze</h3><p data-i="p3d">Day 8. Choose one of 12 glazes. We dip the piece and fire it again at 1,240 °C.</p></li>
-      <li class="rv"><h3 data-i="p4n">You take it home</h3><p data-i="p4d">Day 14. We message you on WhatsApp when it is ready. Safe for food and for the dishwasher.</p></li>
+      <li class="rv" data-day="1"><h3 data-i="p1n">You throw</h3><p data-i="p1d">Day 1. Your hands, our wheel and a teacher at your side.</p></li>
+      <li class="rv" data-day="5"><h3 data-i="p2n">We fire it</h3><p data-i="p2d">Day 5. First firing at 950 °C, once your piece is bone dry.</p></li>
+      <li class="rv" data-day="8"><h3 data-i="p3n">You pick a glaze</h3><p data-i="p3d">Day 8. Choose one of 12 glazes. We dip the piece and fire it again at 1,240 °C.</p></li>
+      <li class="rv" data-day="14"><h3 data-i="p4n">You take it home</h3><p data-i="p4d">Day 14. We message you on WhatsApp when it is ready. Safe for food and for the dishwasher.</p></li>
     </ol>
+    <div class="glaze" id="glaze">
+      <div class="cup rv" id="cup" aria-hidden="true">
+        <svg class="cup-raw" viewBox="0 0 240 230" focusable="false"><use href="#cup-shape"/></svg>
+        <svg class="cup-glazed" viewBox="0 0 240 230" focusable="false"><use href="#cup-shape"/></svg>
+        <svg viewBox="0 0 240 230" focusable="false"><ellipse class="cup-top" cx="110" cy="60" rx="53" ry="6.5"/><path class="cup-shine" d="M74 86q-5 44 6 84"/></svg>
+      </div>
+      <div class="glaze-copy rv">
+        <h3 data-i="gh3">Try a glaze on your cup.</h3>
+        <p data-i="gp">Twelve glazes sit on our shelf. Tap one to dip the cup, and we note it on your booking.</p>
+        <fieldset class="glazes">
+          <legend class="vh" data-i="tkg">Glaze</legend>
+          <label><input type="radio" name="glaze" data-c="#9DB8A6"><span class="sw" style="--g:#9DB8A6"></span><span class="vh" data-i="g1">Celadon</span></label>
+          <label><input type="radio" name="glaze" data-c="#6F7F4F"><span class="sw" style="--g:#6F7F4F"></span><span class="vh" data-i="g2">Moss</span></label>
+          <label><input type="radio" name="glaze" data-c="#3A2A20"><span class="sw" style="--g:#3A2A20"></span><span class="vh" data-i="g3">Tenmoku</span></label>
+          <label><input type="radio" name="glaze" data-c="#4F6C93"><span class="sw" style="--g:#4F6C93"></span><span class="vh" data-i="g4">Cobalt wash</span></label>
+          <label><input type="radio" name="glaze" data-c="#CDBE9E"><span class="sw" style="--g:#CDBE9E"></span><span class="vh" data-i="g5">Oatmeal</span></label>
+          <label><input type="radio" name="glaze" data-c="#E2DCCD"><span class="sw" style="--g:#E2DCCD"></span><span class="vh" data-i="g6">Ash white</span></label>
+          <label><input type="radio" name="glaze" data-c="#8E4A32"><span class="sw" style="--g:#8E4A32"></span><span class="vh" data-i="g7">Iron red</span></label>
+          <label><input type="radio" name="glaze" data-c="#56636B"><span class="sw" style="--g:#56636B"></span><span class="vh" data-i="g8">Slate</span></label>
+          <label><input type="radio" name="glaze" data-c="#C08A3E"><span class="sw" style="--g:#C08A3E"></span><span class="vh" data-i="g9">Honey</span></label>
+          <label><input type="radio" name="glaze" data-c="#BFD0CF"><span class="sw" style="--g:#BFD0CF"></span><span class="vh" data-i="g10">Sea salt</span></label>
+          <label><input type="radio" name="glaze" data-c="#2B2F31"><span class="sw" style="--g:#2B2F31"></span><span class="vh" data-i="g11">Charcoal</span></label>
+          <label><input type="radio" name="glaze" data-c="#B79F7D"><span class="sw" style="--g:#B79F7D"></span><span class="vh" data-i="g12">Sand</span></label>
+        </fieldset>
+        <p class="glaze-name" id="glazeName" aria-live="polite"></p>
+        <a class="btn btn-ember" href="#book" data-i="gbook">Book with this glaze</a>
+      </div>
+    </div>
   </div>
 </section>
+
+<div class="band" aria-hidden="true">
+  <p><span data-i="w1">Centre it</span><i></i><span data-i="w2">Pull it up</span><i></i><span data-i="w3">Trim it</span><i></i><span data-i="w4">Glaze it</span><i></i><span data-i="w5">Fire it</span><i></i><span data-i="w6">Drink from it</span></p>
+</div>
 
 <section class="gal" id="gallery" aria-labelledby="gal-h">
   <div class="gal-head">
@@ -626,6 +800,11 @@ dialog.lb::backdrop{background:rgba(12,18,22,.93)}
     <p data-i="a2">I still teach most of the beginner classes myself, with Genti and Sara. None of us will take the clay out of your hands to "fix" your pot. A cup that leans a little and is yours beats a perfect one that is ours.</p>
     <p data-i="a3">Your first piece will come out crooked. You will love it anyway.</p>
     <p class="sign">Mira Dushku<small data-i="asign">founder and teacher</small></p>
+    <ul class="facts">
+      <li><strong>9</strong><span data-i="sf1">wheels</span></li>
+      <li><strong>6</strong><span data-i="sf2">people at most in a class</span></li>
+      <li><strong>3</strong><span data-i="sf3">teachers</span></li>
+    </ul>
   </div>
 </section>
 
@@ -704,17 +883,24 @@ dialog.lb::backdrop{background:rgba(12,18,22,.93)}
           <input id="f-date" name="date" type="date" required aria-describedby="e-date">
           <small class="err" id="e-date" role="alert"></small>
         </div>
-        <div class="f">
-          <label for="f-time" data-i="ftime">Start time</label>
-          <select id="f-time" name="time" aria-describedby="e-time">
-            <option>10:00</option><option>12:30</option><option>16:00</option><option selected>18:30</option>
-          </select>
+        <fieldset class="f slots">
+          <legend data-i="ftime">Start time</legend>
+          <div class="slot-row">
+            <label class="slot"><input type="radio" name="time" value="10:00" aria-describedby="e-time"><span>10:00</span></label>
+            <label class="slot"><input type="radio" name="time" value="12:30"><span>12:30</span></label>
+            <label class="slot"><input type="radio" name="time" value="16:00"><span>16:00</span></label>
+            <label class="slot"><input type="radio" name="time" value="18:30" checked><span>18:30</span></label>
+          </div>
           <small class="err" id="e-time" role="alert"></small>
-        </div>
+        </fieldset>
       </div>
       <div class="f">
         <label for="f-people" data-i="fpeople">How many people</label>
-        <input id="f-people" name="people" type="number" inputmode="numeric" min="1" max="14" value="1" required aria-describedby="e-people">
+        <div class="stepper">
+          <button type="button" id="pMinus" aria-label="One person fewer" data-i-aria="apminus">&minus;</button>
+          <input id="f-people" name="people" type="number" inputmode="numeric" min="1" max="14" value="1" required aria-describedby="e-people">
+          <button type="button" id="pPlus" aria-label="One person more" data-i-aria="applus">+</button>
+        </div>
         <small class="err" id="e-people" role="alert"></small>
       </div>
       <div class="f">
@@ -722,7 +908,12 @@ dialog.lb::backdrop{background:rgba(12,18,22,.93)}
         <textarea id="f-note" name="note" maxlength="300" rows="3"></textarea>
       </div>
       <div class="hp" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-      <p class="est" id="est" aria-live="polite"></p>
+      <dl class="ticket" id="ticket">
+        <div><dt data-i="tkc">Class</dt><dd id="tkClass"></dd></div>
+        <div><dt data-i="tkw">When</dt><dd id="tkWhen"></dd></div>
+        <div><dt data-i="tkg">Glaze</dt><dd id="tkGlaze"></dd></div>
+        <div><dt data-i="tkt">Total</dt><dd><span id="tkTotal"></span><small data-i="tkpaid">paid at the studio</small></dd></div>
+      </dl>
       <button class="btn btn-ember" type="submit" id="send"><svg class="icon icon-fill" aria-hidden="true"><use href="#i-wa"/></svg><span id="sendTxt" data-i="fsend">Send request on WhatsApp</span></button>
       <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
       <noscript>This form needs JavaScript. You can also write to us directly: <a href="https://wa.me/355690000142" rel="noopener noreferrer">WhatsApp +355 69 000 0142</a>.</noscript>
@@ -838,10 +1029,13 @@ function checkBooking(o) {
 }
 function buildMsg(t, o) {
   var l = [t.mHi, t.mClass + ': ' + o.cls, t.mDate + ': ' + o.date + ', ' + o.time, t.mPeople + ': ' + o.people, t.mName + ': ' + o.name];
+  if (o.glaze) l.push(t.mGlaze + ': ' + o.glaze);
   if (o.note) l.push(t.mNote + ': ' + o.note);
   return l.join('\n');
 }
 function waUrl(num, text) { return 'https://wa.me/' + num + '?text=' + encodeURIComponent(text); }
+// which of the seven day texts belongs to day n of the 14
+function stage(n) { return n < 2 ? 0 : n < 5 ? 1 : n < 6 ? 2 : n < 8 ? 3 : n < 9 ? 4 : n < 14 ? 5 : 6; }
 /*end*/
 
 /* ---------- language ---------- */
@@ -913,6 +1107,13 @@ var SQ = {
   d0: 'E diel', d1: 'E hënë', d2: 'E martë', d3: 'E mërkurë', d4: 'E enjte', d5: 'E premte', d6: 'E shtunë', closed: 'Mbyllur',
   fdemo: 'Faqe demo. Studioja, njerëzit, çmimet dhe vlerësimet janë të trilluara.',
   fcred: 'Filmi: “Modelado de cerámica en torno” nga Gabby K, CC BY-SA 4.0, i prerë dhe me ngjyra të ndryshuara. Foto nga Quino Al, Swapnil Dwivedi, Alex Jones, Igor Ovsyannykov, Jessica Ruscello, Annie Spratt, pepe nero dhe Shane Albuquerque. CC0, nga Wikimedia Commons.',
+  seal: 'Ora e parë 25 € — nuk duhet përvojë — ', sf1: 'çarqe', sf2: 'veta më së shumti në një orë', sf3: 'mësues',
+  whol: 'Kush vjen?', who0: 'Të gjithë', who1: 'Vetëm unë', who2: 'Ne të dy', who3: 'Fëmijë', who4: 'Një ekip',
+  dayl: 'Tërhiqe për të ndjekur enën tënde gjatë dy javëve',
+  gh3: 'Provo një glazurë te filxhani yt.', gp: 'Në raft kemi dymbëdhjetë glazura. Prek njërën për ta zhytur filxhanin dhe ne e shënojmë te rezervimi yt.', gbook: 'Rezervo me këtë glazurë',
+  g1: 'Celadon', g2: 'Myshk', g3: 'Tenmoku', g4: 'Kobalt i lehtë', g5: 'Tërshërë', g6: 'E bardhë hiri', g7: 'E kuqe hekuri', g8: 'Rrasë', g9: 'Mjaltë', g10: 'Kripë deti', g11: 'Qymyr', g12: 'Rërë',
+  w1: 'Qendërzoje', w2: 'Ngrije lart', w3: 'Pastroje', w4: 'Glazuroje', w5: 'Piqe', w6: 'Pi kafe me të',
+  tkc: 'Kursi', tkw: 'Kur', tkg: 'Glazura', tkt: 'Totali', tkpaid: 'paguhet në studio', apminus: 'Një person më pak', applus: 'Një person më shumë',
   fby: 'Faqe nga Joel Kaso', bar1: 'Telefono', bar3: 'Rezervo'
 };
 var EN = {};
@@ -927,9 +1128,10 @@ var S = {
     eName: 'Tell us your name.', eDate: 'Pick a date.', ePast: 'Pick a date from today onward.', eMon: 'We are closed on Mondays. Pick another day.',
     eKids: 'The kids\' class runs on Saturdays only.', eSun: 'On Sundays we close at 16:00. Pick 10:00 or 12:30.',
     ePeople: 'Enter a number from 1 to 14.', eTeam: 'Team sessions are for 6 to 14 people.',
-    estPP: 'Estimated total: {x}, paid at the studio', estFlat: '{x} for the two of you, paid at the studio', estHr: '{x} per wheel per hour, paid at the studio',
+    whoOut: '{n} of 6 classes fit', dayLbl: 'Day {n}', gNone: 'Unglazed clay. Pick a glaze.', tkPick: 'Pick a date', tkNoGlaze: 'Choose later', tFlat: '{x} for two', tHr: '{x} per hour',
+    dayT: ['You throw two pieces on the wheel.', 'Your pieces dry slowly under a cloth.', 'First firing. The kiln climbs to 950 °C.', 'The kiln cools. Nobody opens it early.', 'You choose a glaze. Second firing at 1,240 °C.', 'It cools again, then we sand the foot smooth.', 'Ready. We message you on WhatsApp.'],
     sending: 'Opening WhatsApp…', ok: 'WhatsApp opened with your request. Press send there and we will confirm. ', okLink: 'Did not open? Tap here.',
-    mHi: 'Hello Baltë Studio! I would like to book a class.', mClass: 'Class', mDate: 'Date', mPeople: 'People', mName: 'Name', mNote: 'Note',
+    mHi: 'Hello Baltë Studio! I would like to book a class.', mClass: 'Class', mDate: 'Date', mPeople: 'People', mName: 'Name', mGlaze: 'Glaze', mNote: 'Note',
     mAsk: 'Hello Baltë Studio! I have a question about your classes.', mapTitle: 'Map: Baltë Studio, Rruga e Poçarëve 7, Tirana'
   },
   sq: {
@@ -942,9 +1144,10 @@ var S = {
     eName: 'Na thuaj emrin.', eDate: 'Zgjidh një datë.', ePast: 'Zgjidh një datë nga sot e tutje.', eMon: 'Të hënave jemi mbyllur. Zgjidh një ditë tjetër.',
     eKids: 'Kursi i fëmijëve bëhet vetëm të shtunave.', eSun: 'Të dielave mbyllim në 16:00. Zgjidh 10:00 ose 12:30.',
     ePeople: 'Shkruaj një numër nga 1 deri në 14.', eTeam: 'Seancat për ekipe janë për 6 deri në 14 veta.',
-    estPP: 'Totali i përafërt: {x}, paguhet në studio', estFlat: '{x} për të dy, paguhet në studio', estHr: '{x} për çark në orë, paguhet në studio',
+    whoOut: '{n} nga 6 kurse përshtaten', dayLbl: 'Dita {n}', gNone: 'Baltë pa glazurë. Zgjidh një glazurë.', tkPick: 'Zgjidh datën', tkNoGlaze: 'E zgjedh më vonë', tFlat: '{x} për dy veta', tHr: '{x} në orë',
+    dayT: ['Bën dy enë në çark.', 'Enët thahen ngadalë nën një pëlhurë.', 'Pjekja e parë. Furra ngjitet në 950 °C.', 'Furra ftohet. Askush nuk e hap para kohe.', 'Zgjedh glazurën. Pjekja e dytë në 1.240 °C.', 'Ftohet sërish, pastaj ia lëmojmë fundin.', 'Gati. Të shkruajmë në WhatsApp.'],
     sending: 'Po hapet WhatsApp-i…', ok: 'WhatsApp-i u hap me kërkesën tënde. Shtyp dërgo atje dhe ne ta konfirmojmë. ', okLink: 'Nuk u hap? Prek këtu.',
-    mHi: 'Përshëndetje Baltë Studio! Dua të rezervoj një kurs.', mClass: 'Kursi', mDate: 'Data', mPeople: 'Sa veta', mName: 'Emri', mNote: 'Shënim',
+    mHi: 'Përshëndetje Baltë Studio! Dua të rezervoj një kurs.', mClass: 'Kursi', mDate: 'Data', mPeople: 'Sa veta', mName: 'Emri', mGlaze: 'Glazura', mNote: 'Shënim',
     mAsk: 'Përshëndetje Baltë Studio! Kam një pyetje për kurset.', mapTitle: 'Harta: Baltë Studio, Rruga e Poçarëve 7, Tiranë'
   }
 };
@@ -965,7 +1168,8 @@ function setLang(l, save) {
   $$('.lang button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)); });
   $$('.js-wa').forEach(function (a) { a.setAttribute('href', waUrl(WA, S[lang].mAsk)); });
   var fr = $('#map iframe'); if (fr) fr.setAttribute('title', S[lang].mapTitle);
-  renderFigs(1); renderStatus(); renderEst(); clearErrors(); liveDate(); formMsg.textContent = '';
+  renderFigs(1); renderStatus(); renderTicket(); clearErrors(); liveDate(); formMsg.textContent = '';
+  renderWho(); renderDay(); renderGlaze(); splitHeads();
   if (save) { try { localStorage.setItem('balte-lang', lang); } catch (e) {} }
 }
 $$('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-lang'), true); }); });
@@ -1011,24 +1215,37 @@ function renderStatus() {
 setInterval(renderStatus, 60000);
 
 /* ---------- header: clear over the film, solid once it has played ---------- */
-var head = $('#head'), film = $('.film'), ticking = false;
+var head = $('#head'), film = $('.film'), band = $('.band'), bandP = $('.band p'), seal = $('.seal svg'), ticking = false;
 // phones held upright get the portrait film from scrub.js, so they get the matching still too
 if (window.matchMedia('(max-width: 760px) and (orientation: portrait)').matches) film.setAttribute('data-poster', 'media/poster-m.jpg');
 function onScroll() {
   ticking = false;
   var still = calm || film.classList.contains('film--still');
   head.classList.toggle('solid', window.pageYOffset > (still ? 24 : film.offsetHeight - window.innerHeight - 8));
+  if (calm) return;
+  if (window.pageYOffset < film.offsetHeight) seal.style.setProperty('--rot', (window.pageYOffset * 0.22).toFixed(1) + 'deg');
+  // the big words slide sideways while their band crosses the screen
+  var r = band.getBoundingClientRect(), vh = window.innerHeight;
+  if (r.bottom > 0 && r.top < vh) bandP.style.setProperty('--x', (-(1 - r.bottom / (vh + r.height)) * Math.max(0, bandP.scrollWidth - window.innerWidth)).toFixed(1) + 'px');
 }
 window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
 onScroll();
 
 /* ---------- scroll reveals ---------- */
-var rvEls = $$('.rv, .rv-wipe');
+var mark = $('.foot-mark');
+mark.textContent.split('').forEach(function (ch, k, all) {
+  if (k === 0) mark.textContent = '';
+  var sp = doc.createElement('span');
+  sp.className = 'fl'; sp.style.setProperty('--n', k); sp.textContent = ch;
+  mark.appendChild(sp);
+});
+var rvEls = $$('.rv, .rv-wipe, .foot-mark');
 if ('IntersectionObserver' in window && !calm) {
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) {
       if (!e.isIntersecting) return;
       e.target.classList.add('in');
+      if (e.target.id === 'dayBox') dayPlay();
       if (e.target.querySelector && e.target.querySelector('.fig') && !countUp.done) { countUp.done = true; countUp(); }
       io.unobserve(e.target);
     });
@@ -1117,33 +1334,45 @@ $('#circ').addEventListener('focusin', circStop);
 if (!calm) cTimer = setInterval(function () { circShow(cI + 1, true); }, 6500);
 
 /* ---------- booking form -> WhatsApp ---------- */
-var form = $('#form'), fName = $('#f-name'), fClass = $('#f-class'), fDate = $('#f-date'), fTime = $('#f-time'), fPeople = $('#f-people'), fNote = $('#f-note'),
-    est = $('#est'), send = $('#send'), sendTxt = $('#sendTxt'), formMsg = $('#formMsg');
+var form = $('#form'), fName = $('#f-name'), fClass = $('#f-class'), fDate = $('#f-date'), timeRadios = $$('input[name="time"]'), fPeople = $('#f-people'), fNote = $('#f-note'),
+    send = $('#send'), sendTxt = $('#sendTxt'), formMsg = $('#formMsg');
 function iso(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
 function money(n) { return lang === 'sq' ? n + ' €' : '€' + n; }
 var today = iso(new Date());
 fDate.min = today;
 
-function renderEst() {
-  var p = PRICES[fClass.value], n = Math.max(1, Math.min(14, parseInt(fPeople.value, 10) || 1)), L = S[lang];
-  est.textContent = p[1] === 'flat' ? L.estFlat.replace('{x}', money(p[0])) : p[1] === 'hr' ? L.estHr.replace('{x}', money(p[0])) : L.estPP.replace('{x}', money(p[0] * n));
+function timeVal() { var r = timeRadios.filter(function (x) { return x.checked && !x.disabled; })[0]; return r ? r.value : ''; }
+function dateObj() { var p = fDate.value.split('-'); return p.length === 3 ? new Date(+p[0], +p[1] - 1, +p[2]) : null; }
+// a value that changed pops in, so the ticket visibly follows the form
+function put(el, v) {
+  if (el.textContent === v) return;
+  el.textContent = v;
+  el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop');
+}
+function renderTicket() {
+  var p = PRICES[fClass.value], n = Math.max(1, Math.min(14, parseInt(fPeople.value, 10) || 1)), L = S[lang], dt = dateObj();
+  put($('#tkClass'), fClass.options[fClass.selectedIndex].textContent.split(',')[0]);
+  put($('#tkWhen'), dt ? L.wd[dt.getDay()] + ', ' + dt.getDate() + ' ' + L.mo[dt.getMonth()] + ', ' + timeVal() : L.tkPick);
+  put($('#tkGlaze'), glazeName() || L.tkNoGlaze);
+  put($('#tkTotal'), p[1] === 'flat' ? L.tFlat.replace('{x}', money(p[0])) : p[1] === 'hr' ? L.tHr.replace('{x}', money(p[0])) : money(p[0] * n));
 }
 function classRules() {
   var isDate = fClass.value === 'date';
   if (isDate) fPeople.value = 2;
   else if (fClass.value === 'team' && +fPeople.value < 6) fPeople.value = 6;
   fPeople.readOnly = isDate;
-  renderEst();
+  $('#pMinus').disabled = $('#pPlus').disabled = isDate;
+  renderTicket();
 }
 // impossible slots are switched off as soon as a date is chosen, instead of failing on send
 function liveDate() {
   var p = fDate.value.split('-');
   if (p.length !== 3) return;
   var dow = new Date(+p[0], +p[1] - 1, +p[2]).getDay();
-  $$('option', fTime).forEach(function (o) { o.disabled = dow === 0 && (o.value === '16:00' || o.value === '18:30'); });
-  if (fTime.options[fTime.selectedIndex].disabled) fTime.value = '12:30';
+  timeRadios.forEach(function (r) { r.disabled = dow === 0 && (r.value === '16:00' || r.value === '18:30'); });
+  if (!timeVal()) timeRadios[1].checked = true;
   clearErrors();
-  var err = checkBooking({ name: 'x', date: fDate.value, today: today, dow: dow, cls: fClass.value, time: fTime.value, people: 6 });
+  var err = checkBooking({ name: 'x', date: fDate.value, today: today, dow: dow, cls: fClass.value, time: timeVal(), people: 6 });
   if (err) showErr(err, false);
 }
 function showErr(err, focus) {
@@ -1154,7 +1383,7 @@ function showErr(err, focus) {
 }
 fClass.addEventListener('change', function () { classRules(); liveDate(); });
 fDate.addEventListener('change', liveDate);
-fPeople.addEventListener('input', renderEst);
+fPeople.addEventListener('input', renderTicket);
 
 $$('[data-book]').forEach(function (a) {
   a.addEventListener('click', function () {
@@ -1163,26 +1392,36 @@ $$('[data-book]').forEach(function (a) {
   });
 });
 
-var FIELD = { eName: fName, eDate: fDate, ePast: fDate, eMon: fDate, eKids: fDate, eSun: fTime, ePeople: fPeople, eTeam: fPeople };
+var FIELD = { eName: fName, eDate: fDate, ePast: fDate, eMon: fDate, eKids: fDate, eSun: timeRadios[0], ePeople: fPeople, eTeam: fPeople };
 function clearErrors() {
   $$('.err', form).forEach(function (e) { e.textContent = ''; });
   $$('[aria-invalid]', form).forEach(function (e) { e.removeAttribute('aria-invalid'); });
 }
-[fName, fDate, fTime, fPeople, fClass].forEach(function (el) { el.addEventListener('input', clearErrors); });
+[fName, fDate, fPeople, fClass].concat(timeRadios).forEach(function (el) { el.addEventListener('input', clearErrors); });
+// any change in the form redraws the ticket (runs after the field's own listeners)
+form.addEventListener('input', renderTicket);
+form.addEventListener('change', renderTicket);
+function stepPeople(d) {
+  var min = fClass.value === 'team' ? 6 : 1;
+  fPeople.value = Math.max(min, Math.min(14, (parseInt(fPeople.value, 10) || min) + d));
+  clearErrors(); renderTicket();
+}
+$('#pMinus').addEventListener('click', function () { stepPeople(-1); });
+$('#pPlus').addEventListener('click', function () { stepPeople(1); });
 
 form.addEventListener('submit', function (e) {
   e.preventDefault();
   if (send.disabled) return;
   clearErrors(); formMsg.textContent = '';
   var L = S[lang], parts = fDate.value.split('-'), dt = parts.length === 3 ? new Date(+parts[0], +parts[1] - 1, +parts[2]) : null;
-  var o = { name: clean(fName.value, 60), date: fDate.value, today: today, dow: dt ? dt.getDay() : -1, cls: fClass.value, time: fTime.value, people: Number(fPeople.value) };
+  var o = { name: clean(fName.value, 60), date: fDate.value, today: today, dow: dt ? dt.getDay() : -1, cls: fClass.value, time: timeVal(), people: Number(fPeople.value) };
   var err = checkBooking(o);
   if (err) { showErr(err, true); return; }
   var text = buildMsg(L, {
     cls: fClass.options[fClass.selectedIndex].textContent,
     // written out by hand: not every browser ships Albanian date names
     date: L.wd[dt.getDay()] + ', ' + dt.getDate() + ' ' + L.mo[dt.getMonth()] + ' ' + dt.getFullYear(),
-    time: o.time, people: o.people, name: o.name, note: clean(fNote.value, 300)
+    time: o.time, people: o.people, name: o.name, glaze: glazeName(), note: clean(fNote.value, 300)
   });
   var url = waUrl(WA, text), bot = $('#f-web').value !== '';
   // opened inside the tap so popup blockers allow it; the honeypot skips the open
@@ -1197,6 +1436,81 @@ form.addEventListener('submit', function (e) {
       formMsg.appendChild(a);
     }
   }, 1200);
+});
+
+/* ---------- class finder: who is coming? ---------- */
+var whoBtns = $$('.who .chip'), svcRows = $$('.svc'), whoOut = $('#whoOut'), who = 'all';
+function renderWho() {
+  var n = 0;
+  svcRows.forEach(function (r) {
+    var ok = who === 'all' || (' ' + r.getAttribute('data-who') + ' ').indexOf(' ' + who + ' ') > -1;
+    if (ok) n++;
+    r.classList.toggle('is-dim', !ok);
+    r.classList.toggle('is-match', ok && who !== 'all');
+  });
+  whoBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-who') === who)); });
+  whoOut.textContent = who === 'all' ? '' : S[lang].whoOut.replace('{n}', n);
+}
+whoBtns.forEach(function (b) { b.addEventListener('click', function () { who = b.getAttribute('data-who'); renderWho(); }); });
+
+/* ---------- 14-day slider ---------- */
+var dayR = $('#day'), dayN = $('#dayN'), dayT = $('#dayT'), stepLis = $$('.steps li'), dayTimer = null, dayTouched = false;
+function renderDay() {
+  var n = +dayR.value, L = S[lang];
+  dayN.textContent = L.dayLbl.replace('{n}', n);
+  dayT.textContent = L.dayT[stage(n)];
+  dayR.style.setProperty('--p', ((n - 1) / 13 * 100).toFixed(1) + '%');
+  dayR.setAttribute('aria-valuetext', dayN.textContent + '. ' + dayT.textContent);
+  stepLis.forEach(function (li) { li.classList.toggle('is-on', n >= +li.getAttribute('data-day')); });
+}
+function dayStop() { dayTouched = true; clearInterval(dayTimer); dayTimer = null; }
+// plays through once when it first scrolls into view, so it is clear the line can be dragged
+function dayPlay() {
+  if (calm || dayTimer || dayTouched) return;
+  dayTimer = setInterval(function () {
+    if (+dayR.value >= 14) return dayStop();
+    dayR.value = +dayR.value + 1; renderDay();
+  }, 320);
+}
+dayR.addEventListener('input', function () { dayStop(); renderDay(); });
+dayR.addEventListener('pointerdown', dayStop);
+
+/* ---------- glaze picker ---------- */
+var cup = $('#cup'), glazeRadios = $$('input[name="glaze"]'), glazeNameEl = $('#glazeName');
+function glazeName() { var r = glazeRadios.filter(function (x) { return x.checked; })[0]; return r ? $('.vh', r.parentNode).textContent : ''; }
+function renderGlaze() { glazeNameEl.textContent = glazeName() || S[lang].gNone; }
+glazeRadios.forEach(function (r) {
+  r.addEventListener('change', function () {
+    // pull the glaze off without a transition, swap the colour, then dip again
+    cup.classList.add('no-t'); cup.classList.remove('is-glazed'); void cup.offsetWidth;
+    cup.style.setProperty('--glaze', r.getAttribute('data-c'));
+    cup.classList.remove('no-t'); cup.classList.add('is-glazed');
+    renderGlaze(); renderTicket();
+  });
+});
+
+/* ---------- headings rise word by word ---------- */
+function splitHeads() {
+  if (calm) return;
+  $$('h2.rv').forEach(function (h) {
+    var words = h.textContent.trim().split(/\s+/);
+    h.textContent = '';
+    words.forEach(function (w, k) {
+      var m = doc.createElement('span'), i = doc.createElement('span');
+      m.className = 'wm'; i.className = 'wi'; i.style.setProperty('--n', k); i.textContent = w;
+      m.appendChild(i); h.appendChild(m); h.appendChild(doc.createTextNode(' '));
+    });
+    h.classList.add('split');
+  });
+}
+
+/* ---------- reviews: swipe on touch ---------- */
+var swipeX = null;
+$('#circ').addEventListener('pointerdown', function (e) { swipeX = e.clientX; });
+$('#circ').addEventListener('pointerup', function (e) {
+  if (swipeX === null) return;
+  var dx = e.clientX - swipeX; swipeX = null;
+  if (Math.abs(dx) > 45) { circStop(); circShow(cI + (dx < 0 ? 1 : -1), true); }
 });
 
 /* ---------- map on tap ---------- */
