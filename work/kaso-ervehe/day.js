@@ -88,7 +88,8 @@
   function hhmm(min) { min = Math.round(min); var h = Math.floor(min / 60) % 24, m = ((min % 60) + 60) % 60; return ('0' + h).slice(-2) + ':' + ('0' + m).slice(-2) }
 
   // ---- Build once React has hydrated ----
-  function hydrated() { var m = document.getElementById('main'); return !!m && Object.keys(m).some(function (k) { return k.indexOf('__reactFiber') === 0 || k.indexOf('__reactProps') === 0 }) }
+  // Providers.tsx sets data-hydrated on <html> once React has taken over the page.
+  function hydrated() { return document.documentElement.getAttribute('data-hydrated') === 'true' }
   var tries = 0
   ;(function wait() { if (hydrated() || tries++ > 60) build(); else setTimeout(wait, 120) })()
 
@@ -108,7 +109,7 @@
           '<div class="pd__lanes" id="pd-lanes"></div>' +
           '<div class="pd__foot">' +
             '<article class="pd__card clear" id="pd-card" aria-live="polite"></article>' +
-            '<div class="pd__days"><div class="chips" role="group" id="pd-dates"></div><button type="button" class="btn btn--clear btn--small" id="pd-play"></button></div>' +
+            '<div class="pd__days"><div class="chips" role="group" id="pd-dates"></div><button type="button" class="btn btn--clear btn--small" id="pd-play" data-pd="play"></button></div>' +
           '</div>' +
         '</div>' +
       '</div>'
