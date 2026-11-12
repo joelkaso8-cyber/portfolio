@@ -13,7 +13,7 @@
     en: {
       'skip': 'Skip to content',
       'nav.catch': 'The catch', 'nav.menu': 'Menu', 'nav.find': 'Find us', 'nav.book': 'Book a table',
-      'hero.hook': 'Fish taverna on Spile harbour. Our boat goes out at five every morning, and the menu is whatever it brings back, priced by the kilo.',
+      'hero.hook': 'Fish taverna on Spile harbour. The menu is what the boat brings in.',
       'q.title': 'Book a table', 'q.day': 'Day', 'q.today': 'Today', 'q.tomorrow': 'Tomorrow', 'q.other': 'Other day',
       'q.date': 'Date', 'q.time': 'Time', 'q.people': 'People', 'q.less': 'One person fewer', 'q.more': 'One person more',
       'q.send': 'Book on WhatsApp',
@@ -54,8 +54,8 @@
       'dock.book': 'Book',
       // dynamic
       'live.today': 'Today: {n} kinds, {kg} kg on ice',
-      'live.open': 'Open now until 23:30', 'live.kitchen': 'Open now, kitchen closed', 'live.closed': 'Closed now, opens at 12:00',
-      'live.closedtom': 'Closed now, opens tomorrow at 12:00',
+      'live.open': 'Open until 23:30', 'live.kitchen': 'Open, kitchen closed', 'live.closed': 'Closed, opens at 12:00',
+      'live.closedtom': 'Closed, opens tomorrow at 12:00',
       'log': 'Out {out}, back {back}, {date}',
       'left': '{kg} kg left', 'soldout': 'All gone today',
       'sum': 'Table for {p}, {day}, {time}', 'sum.held': ' · holding {n}',
@@ -70,7 +70,7 @@
     sq: {
       'skip': 'Kalo te përmbajtja',
       'nav.catch': 'Peshku sot', 'nav.menu': 'Menuja', 'nav.find': 'Na gjeni', 'nav.book': 'Rezervo',
-      'hero.hook': 'Tavernë peshku në skelën e Spiles. Barka jonë del çdo mëngjes në pesë, dhe menuja është ajo që sjell deti, me çmim për kilogram.',
+      'hero.hook': 'Tavernë peshku në skelën e Spiles. Menuja është ajo që sjell barka.',
       'q.title': 'Rezervo tavolinë', 'q.day': 'Dita', 'q.today': 'Sot', 'q.tomorrow': 'Nesër', 'q.other': 'Ditë tjetër',
       'q.date': 'Data', 'q.time': 'Ora', 'q.people': 'Persona', 'q.less': 'Një person më pak', 'q.more': 'Një person më shumë',
       'q.send': 'Rezervo në WhatsApp',
@@ -110,8 +110,8 @@
       'foot.credits': 'Burimet e figurave', 'foot.top': 'Kthehu lart',
       'dock.book': 'Rezervo',
       'live.today': 'Sot: {n} lloje, {kg} kg në akull',
-      'live.open': 'Hapur tani deri në 23:30', 'live.kitchen': 'Hapur tani, kuzhina e mbyllur', 'live.closed': 'Mbyllur tani, hapet në 12:00',
-      'live.closedtom': 'Mbyllur tani, hapet nesër në 12:00',
+      'live.open': 'Hapur deri në 23:30', 'live.kitchen': 'Hapur, kuzhina e mbyllur', 'live.closed': 'Mbyllur, hapet në 12:00',
+      'live.closedtom': 'Mbyllur, hapet nesër në 12:00',
       'log': 'Doli {out}, u kthye {back}, {date}',
       'left': 'kanë mbetur {kg} kg', 'soldout': 'Mbaroi për sot',
       'sum': 'Tavolinë për {p}, {day}, {time}', 'sum.held': ' · mbajmë {n}',
@@ -287,9 +287,13 @@
   function renderBooking () {
     fillTimes()
     $$('[data-bind="day"]').forEach(function (r) { r.checked = r.value === S.day })
-    $$('[data-bind="date"]').forEach(function (d) {
-      d.min = isoOf(dateFor(0)); d.max = isoOf(dateFor(90))
-      if (S.date) d.value = S.date
+    $$('select[data-bind="date"]').forEach(function (sel) {
+      var html = ''
+      for (var i = 2; i < 30; i++) {
+        var d = dateFor(i), iso = isoOf(d)
+        html += '<option value="' + iso + '"' + (iso === S.date ? ' selected' : '') + '>' + fmtDate(d) + '</option>'
+      }
+      sel.innerHTML = html
     })
     $$('.field--date').forEach(function (el) { el.hidden = S.day !== 'other' })
     $$('[data-bind="people"]').forEach(function (o) { o.value = S.people; o.textContent = S.people })

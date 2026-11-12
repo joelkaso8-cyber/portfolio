@@ -39,13 +39,10 @@
   <main id="main" tabindex="-1">
     <section class="hull" id="top" aria-labelledby="name">
       <div class="hull__paint">
-        <h1 class="name" id="name">
-          <span class="name__word">Kripë</span>
-          <span class="name__port">Himarë</span>
-        </h1>
-        <div class="hull__side">
-          <p class="reg" aria-hidden="true">VL 214</p>
-          <p class="hook" data-t="hero.hook">Fish taverna on Spile harbour. Our boat goes out at five every morning, and the menu is whatever it brings back, priced by the kilo.</p>
+        <h1 class="name" id="name"><span class="name__word">Kripë</span><span class="sr">, fish taverna, Himarë</span></h1>
+        <p class="reg" aria-hidden="true">VL 214 · Himarë</p>
+        <div class="hull__band">
+          <p class="hook" data-t="hero.hook">Fish taverna on Spile harbour. The menu is what the boat brings in.</p>
           <p class="live">
             <span class="live__chip" data-live="today">Today's catch is on ice</span>
             <span class="live__open" data-live="open">Every day 12:00–23:30</span>
@@ -65,7 +62,7 @@
               <label><input type="radio" name="q-day" value="other" data-bind="day"><span data-t="q.other">Other day</span></label>
             </div>
           </fieldset>
-          <label class="field field--date" hidden><span class="field__label" data-t="q.date">Date</span><input type="date" data-bind="date"></label>
+          <label class="field field--date" hidden><span class="field__label" data-t="q.date">Date</span><select data-bind="date"></select></label>
           <label class="field field--time"><span class="field__label" data-t="q.time">Time</span>
             <select data-bind="time"><option value="1200">12:00</option><option value="1230">12:30</option><option value="1300">13:00</option><option value="1900">19:00</option><option value="1930">19:30</option><option value="2000" selected>20:00</option><option value="2030">20:30</option><option value="2100">21:00</option></select>
           </label>
@@ -88,7 +85,6 @@
         <div class="catch__head">
           <h2 class="h2" id="catch-title" data-t="catch.title">In the boat today</h2>
           <p class="catch__log" data-live="log">Out at five, back by nine</p>
-          <p class="lead" data-t="catch.lead">Fish is sold by the kilo and weighed in front of you. When it is gone, it is gone. Tap a fish to hold one for your table.</p>
         </div>
 
         <ul class="catch" role="list">
@@ -148,6 +144,7 @@
             </button>
           </li>
         </ul>
+        <p class="lead catch__lead" data-t="catch.lead">Fish is sold by the kilo and weighed in front of you. When it is gone, it is gone. Tap a fish to hold one for your table.</p>
 
         <aside class="detail plate plate--light is-empty" id="detail" tabindex="-1" aria-labelledby="d-name" aria-live="polite">
           <div class="detail__empty">
@@ -270,7 +267,7 @@
               <label><input type="radio" name="b-day" value="other" data-bind="day"><span data-t="q.other">Other day</span></label>
             </div>
           </fieldset>
-          <label class="field field--date" hidden><span class="field__label" data-t="q.date">Date</span><input type="date" data-bind="date"></label>
+          <label class="field field--date" hidden><span class="field__label" data-t="q.date">Date</span><select data-bind="date"></select></label>
           <div class="book__pair">
             <label class="field"><span class="field__label" data-t="q.time">Time</span>
               <select data-bind="time"><option value="1200">12:00</option><option value="2000" selected>20:00</option></select>
@@ -335,11 +332,10 @@
 
   <footer class="floor">
     <div class="wrap floor__in">
-      <p class="floor__name" aria-hidden="true">Kripë</p>
       <div class="floor__text">
         <p><span data-t="foot.demo">Kripë is a demo website. The taverna, its boat, the dishes, prices and catch are made up.</span> <span data-t="foot.by">Designed and built by Joel Kaso.</span> <a href="https://joelkaso8-cyber.github.io/portfolio/" data-t="foot.more">See more work</a></p>
         <details class="credits">
-          <summary data-t="foot.credits">Picture credits</summary>
+          <summary><span data-t="foot.credits">Picture credits</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5l5 5-5 5"/></svg></summary>
           <ul role="list">
             <li>Fish and octopus engravings: Iconographia Zoologica, Special Collections, University of Amsterdam. Public domain, via <a href="https://commons.wikimedia.org/wiki/Category:Iconographia_Zoologica">Wikimedia Commons</a>. Cut out for this page.</li>
             <li><a href="https://commons.wikimedia.org/wiki/File:Porti_i_Himar%C3%ABs.jpg">Porti i Himarës</a>: Albinfo, CC BY 4.0, via Wikimedia Commons.</li>
