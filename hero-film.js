@@ -1,19 +1,21 @@
-// Hero film: the page always scrolls normally (no scroll lock). The film behind the hero follows
-// the scroll position: the first 600 px of scrolling play it to the end, scrolling back up plays it backwards.
-// On tall desktop screens style.css also holds the hero still for those 600 px, so the film plays in place.
+// Hero film: while the page sits at the top, scroll input scrubs the film
+// behind the hero text (forward and back) instead of moving the page.
+// At the end, scrolling on releases the page; scrolling back up at the top
+// takes control again. Nav links, End key and programmatic scrolls skip it.
 (function () {
   'use strict'
   var hero = document.querySelector('.hero'), v = hero && hero.querySelector('.hero-film video')
   if (!v) return
-  // Data Saver or a slow connection: keep the poster still, no 2-7 MB film.
+  // Data Saver or a slow connection: keep the poster still and let the page scroll normally, no 2-7 MB film.
   var net = navigator.connection
   if (net && (net.saveData || /^(slow-2g|2g|3g)$/.test(net.effectiveType))) return
-  var DIST = 600 // px of scroll for the whole film; Joel wants it short, so keep it at 600
+  var DIST = 600, TOUCH = 3.2 // px of scroll input for the whole film (was 2400, then 900); raise it for a longer film
   var phone = window.matchMedia('(max-width: 900px) and (orientation: portrait)').matches
   var SRC = phone ? 'media/hero-m.mp4' : 'media/hero.mp4'
   var bar = hero.querySelector('.hero-progress i'), hint = hero.querySelector('.hero-hint')
+  var root = document.documentElement
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  var dur = 0, target = 0, cur = 0, lastT = -1, seeking = false, pending = null, raf = 0
+  var dur = 0, target = 0, cur = 0, lastT = -1, locked = false, seeking = false, pending = null, started = false, raf = 0, touchY = 0
 
   function clamp(x) { return x < 0 ? 0 : x > 1 ? 1 : x }
   function seek(t) { if (seeking) { pending = t; return } seeking = true; v.currentTime = t }
@@ -37,23 +39,71 @@
   }
   if (document.readyState === 'complete') start(); else window.addEventListener('load', start, { once: true })
 
-  if (reduce) return // the still frame stays behind the text
+  if (reduce) return // no scroll takeover: the still frame stays behind the text
 
   function render() {
     if (dur) { var t = cur * (dur - 0.05); if (Math.abs(t - lastT) > 0.001) { lastT = t; seek(t) } }
-    v.style.transform = 'scale(' + (1 + cur * 0.08).toFixed(4) + ')'
-    hero.style.setProperty('--p', cur.toFixed(4)) // style.css moves the text and the device a little with it
-    if (bar) bar.style.transform = 'scaleX(' + cur.toFixed(4) + ')'
-    if (hint) hint.classList.toggle('gone', cur > 0.02)
+    v.style.transform = 'scale(' + (1 + cur * 0.06) + ')'
+    bar.style.transform = 'scaleX(' + cur + ')'
+    hint.classList.toggle('gone', started)
   }
-  // Eased: the film glides after the scroll instead of jumping.
   function frame() {
     cur += (target - cur) * 0.24
     if (Math.abs(target - cur) < 0.0005) cur = target
     render()
     raf = cur !== target ? requestAnimationFrame(frame) : 0
   }
-  function onScroll() { target = clamp(window.scrollY / DIST); if (!raf) raf = requestAnimationFrame(frame) }
-  window.addEventListener('scroll', onScroll, { passive: true })
-  onScroll()
+  function push(d) {
+    target = clamp(target + d / DIST)
+    if (target > 0.001) started = true
+    if (!raf) raf = requestAnimationFrame(frame)
+  }
+  function lock() { if (locked) return; locked = true; root.classList.add('film-locked') }
+  function unlock() { if (!locked) return; locked = false; root.classList.remove('film-locked') }
+  function finish() { target = cur = 1; started = true; render(); unlock() }
+  function busy() { return !!document.querySelector('dialog[open]') }
+  // One step of input (d > 0 = forward). Returns true when the page must not scroll.
+  function step(d) {
+    if (busy()) return false
+    if (locked) {
+      if (d > 0 && target >= 1 && cur > 0.995) { unlock(); return false }
+      push(d); return true
+    }
+    if (d < 0 && window.scrollY <= 0) { lock(); push(d); return true }
+    return false
+  }
+
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+  if (location.hash && location.hash !== '#top') finish()
+  else { window.scrollTo(0, 0); lock(); render() }
+
+  window.addEventListener('wheel', function (e) {
+    if (e.ctrlKey) return // pinch / browser zoom
+    var d = e.deltaY * (e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? innerHeight : 1)
+    if (d && step(d)) e.preventDefault()
+  }, { passive: false })
+
+  window.addEventListener('touchstart', function (e) { touchY = e.touches[0].clientY }, { passive: true })
+  window.addEventListener('touchmove', function (e) {
+    var y = e.touches[0].clientY, d = (touchY - y) * TOUCH; touchY = y
+    if (d && step(d) && e.cancelable) e.preventDefault()
+  }, { passive: false })
+
+  window.addEventListener('keydown', function (e) {
+    if (!locked || e.altKey || e.ctrlKey || e.metaKey) return
+    var tag = e.target.tagName, k = e.key, d = 0
+    if (/INPUT|TEXTAREA|SELECT/.test(tag) || busy()) return
+    if (k === 'End') { finish(); return }
+    if (k === 'ArrowDown') d = 120; else if (k === 'ArrowUp') d = -120
+    else if (k === 'PageDown') d = innerHeight * 0.8; else if (k === 'PageUp') d = -innerHeight * 0.8
+    else if (k === ' ' && tag !== 'BUTTON' && tag !== 'A') d = (e.shiftKey ? -1 : 1) * innerHeight * 0.8
+    if (d && step(d)) e.preventDefault()
+  })
+
+  // Links to sections (#work, #contact…) and scripted scrolls jump straight past the film.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]')
+    if (a && locked && a.getAttribute('href') !== '#top') finish()
+  }, true)
+  window.addEventListener('scroll', function () { if (locked && window.scrollY > 2) finish() }, { passive: true })
 })()
