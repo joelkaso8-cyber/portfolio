@@ -38,6 +38,18 @@ Launch prices: €400 one-page, €600 business site with booking, €800 hotel 
 - The chat assistant: the prices in `assistant-kb.json` (facts and the `price`, `packages` and `monthly` answers).
 - Google's copy of the prices: `makesOffer` and `priceRange` in the `application/ld+json` line in `index.html`.
 
+## Launch spots left
+
+In `main.js`, set `SPOTS_LEFT` to the real number of launch spots still open, for example `var SPOTS_LEFT = 7`. The offer band then says "7 of 10 launch spots left". Lower it each time a client signs. `null` hides the line.
+
+## Free preview
+
+The offer band offers a free homepage preview within 48 hours. The texts are `preview.*` and `faq.q7`/`faq.a7` in `main.js` (both languages), the same English text in `index.html`, and the `preview` answer in `assistant-kb.json`. To stop offering it, delete the `offer__preview` block in `index.html` and the 7th FAQ item.
+
+## Google Search Console
+
+To see what people search on Google before they find the site: open https://search.google.com/search-console, add the property `https://joelkaso8-cyber.github.io/portfolio/`, choose "HTML tag", and paste the `<meta name="google-site-verification" ...>` tag into the `<head>` of `index.html`. Then submit `sitemap.xml` there.
+
 ## Add a client review
 
 Open `main.js` and find `REVIEWS`. While the list is empty, the "What clients say" section is hidden. Add one entry per client, in both languages, and only with their permission:

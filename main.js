@@ -44,12 +44,16 @@
       chips: { en: ['Ink film hero', 'Work gallery', 'Dark editorial look'], sq: ['Film me bojë në hyrje', 'Galeri punësh', 'Pamje e errët editoriale'] } },
   ]
   // Only these show in the portfolio. The other sites stay in work/; add an id here to show it again.
-  var SHOWN = ['ura-coffee', 'balte-studio', 'lule-kitchen', 'kaso-ervehe', 'vjosa-rafting']
+  var SHOWN = ['ura-coffee', 'balte-studio', 'lule-kitchen', 'kaso-ervehe', 'northline-barbers', 'sage-silk-beauty', 'aurelia-dental', 'vjosa-rafting']
   WORK = WORK.filter(function (w) { return SHOWN.indexOf(w.id) !== -1 })
   // Real client reviews. The section stays hidden while this list is empty. Add one per client, in both languages, only with their permission:
   // { name: 'Arben Hoxha', role: { en: 'Owner, Hotel Example, Berat', sq: 'Pronar, Hotel Example, Berat' },
   //   quote: { en: 'What they said.', sq: 'Çfarë thanë.' }, url: 'https://their-site.al/' }   (url is optional)
   var REVIEWS = []
+
+  // Launch spots still open (out of 10). Set a number, for example 7, to show "7 of 10 launch spots left" in the offer band.
+  // Leave it null to hide the line. Lower it each time a client signs. Only show the real number.
+  var SPOTS_LEFT = null
 
   // Counts a button press if analytics.js is on (see the README). Does nothing otherwise.
   function track(name) { try { document.dispatchEvent(new CustomEvent('jk:track', { detail: name })) } catch (e) {} }
@@ -59,8 +63,8 @@
   // Every visible text in both languages. index.html carries the English copy; data-i18n keys point here.
   var T = {
     en: {
-      skip: 'Skip to content', title: 'Joel Kaso · Websites for small businesses',
-      desc: 'Joel Kaso designs and builds fast, custom websites with direct booking, WhatsApp and English/Albanian, for hotels, restaurants and local businesses. From €400.',
+      skip: 'Skip to content', title: 'Websites for hotels, restaurants & local businesses · Joel Kaso',
+      desc: 'Joel Kaso designs and builds fast, custom websites for hotels, restaurants and local businesses in Albania and abroad, with direct booking, WhatsApp and English/Albanian. From €400.',
       'nav.status': 'Taking new projects', 'nav.work': 'Work', 'nav.services': 'Services', 'nav.process': 'Process', 'nav.faq': 'FAQ', 'nav.contact': 'Contact',
       'hero.eyebrow': 'Web design & engineering studio · Albania → UK, EU & USA', 'hero.t1': 'Websites that turn visitors into', 'hero.t2': 'direct paying customers.',
       'hero.lead': 'Custom, fast websites for hotels, restaurants and local businesses, with a direct booking calendar, WhatsApp, two languages and no monthly platform lock-in.',
@@ -75,6 +79,8 @@
         food: { url: 'lule-kitchen.co.uk', img: 'img/lule-kitchen-desk-600.webp', title: 'Book a table tonight', l1: 'Guests', o1: ['2', '4', '6'], l2: 'Time', o2: ['19:00', '20:00', '21:00'], cta: 'Reserve on WhatsApp', toast: "Demo: your table request reached the restaurant's WhatsApp in seconds, with no booking fees." }
       },
       days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      'preview.t': 'Not sure yet? Get a free preview.', 'preview.p': 'Send me your business name and a few photos. Within 48 hours I show you your own homepage on your phone. You pay nothing unless you want the full site.', 'preview.cta': 'Get my free preview', 'preview.wa': 'Hi Joel, I\'d like a free preview of my website.\nMy business: \nCity: ',
+      'offer.spots': '{n} of 10 launch spots left', 'faq.q7': 'Can I see my website before I pay?', 'faq.a7': 'Yes. Send me your business name and a few photos, and within 48 hours I show you a free preview of your homepage. If you like it, we start with the 50% deposit. If not, you owe nothing.',
       'offer.tag': 'Launch offer', 'offer.t1': 'Websites from', 'offer.cta': 'Claim a spot',
       'offer.text': 'Launch prices for my first 10 clients: €400 for a one-page site, €600 with online booking, €800 for a hotel or guesthouse (usually €800–1,200). Every site comes with phone and desktop design, WhatsApp, a map, two languages and Google Business Profile setup.',
       'case.tag': 'Featured case study', 'case.title': 'Hotel Kaso Ervehe, Përmet', 'case.lead': "My family's hotel in Përmet was my first real project. Here is what changed.",
@@ -135,8 +141,8 @@
       'viewer.want': 'I want a site like this', 'viewer.open': 'Open in new tab ↗', 'wa.msg': "Hi Joel, I'd like a website."
     },
     sq: {
-      skip: 'Kalo te përmbajtja', title: 'Joel Kaso · Website për biznese të vogla',
-      desc: 'Joel Kaso projekton dhe ndërton website të shpejta me rezervim direkt, WhatsApp dhe dy gjuhë, për hotele, restorante dhe biznese lokale. Nga 400 €.',
+      skip: 'Kalo te përmbajtja', title: 'Faqe interneti për hotele, restorante dhe biznese · Joel Kaso',
+      desc: 'Krijim faqesh interneti për hotele, restorante dhe biznese lokale në Shqipëri: të shpejta, me rezervim direkt, WhatsApp dhe dy gjuhë. Nga 400 €.',
       'nav.status': 'Pranoj projekte të reja', 'nav.work': 'Punët', 'nav.services': 'Shërbimet', 'nav.process': 'Si punoj', 'nav.faq': 'Pyetje', 'nav.contact': 'Kontakt',
       'hero.eyebrow': 'Studio dizajni dhe ndërtimi web · Shqipëri → Angli, BE dhe SHBA', 'hero.t1': 'Website që i kthejnë vizitorët në', 'hero.t2': 'klientë direkt dhe të rregullt.',
       'hero.lead': 'Website të shpejta, të bëra posaçërisht për hotele, restorante dhe biznese lokale, me kalendar rezervimi direkt, WhatsApp, dy gjuhë dhe pa pagesa mujore për platforma.',
@@ -151,6 +157,8 @@
         food: { url: 'lule-kitchen.co.uk', img: 'img/lule-kitchen-desk-600.webp', title: 'Rezervo një tavolinë sonte', l1: 'Persona', o1: ['2', '4', '6'], l2: 'Ora', o2: ['19:00', '20:00', '21:00'], cta: 'Rezervo në WhatsApp', toast: 'Demo: kërkesa për tavolinë arriti në WhatsApp të restorantit për pak sekonda, pa tarifa rezervimi.' }
       },
       days: ['Die', 'Hën', 'Mar', 'Mër', 'Enj', 'Pre', 'Sht'],
+      'preview.t': 'Ende i pasigurt? Merr një parapamje falas.', 'preview.p': 'Më dërgo emrin e biznesit dhe disa foto. Brenda 48 orësh të tregoj faqen tënde kryesore në telefon. Nuk paguan asgjë, përveç nëse do faqen e plotë.', 'preview.cta': 'Dua parapamjen falas', 'preview.wa': 'Përshëndetje Joel, dua një parapamje falas të faqes sime.\nBiznesi im: \nQyteti: ',
+      'offer.spots': '{n} nga 10 vende të lira me çmim fillimi', 'faq.q7': 'A mund ta shoh faqen para se të paguaj?', 'faq.a7': 'Po. Më dërgo emrin e biznesit dhe disa foto, dhe brenda 48 orësh të tregoj falas një parapamje të faqes kryesore. Nëse të pëlqen, fillojmë me 50% paradhënie. Nëse jo, nuk më detyrohesh asgjë.',
       'offer.tag': 'Ofertë fillimi', 'offer.t1': 'Website duke filluar nga', 'offer.cta': 'Rezervo një vend',
       'offer.text': 'Çmime fillimi për 10 klientët e mi të parë: 400 € për website me një faqe, 600 € me rezervim online, 800 € për hotel ose bujtinë (zakonisht 800–1.200 €). Çdo website ka dizajn për telefon dhe kompjuter, WhatsApp, hartë, dy gjuhë dhe profilin e biznesit në Google.',
       'case.tag': 'Projekt i veçantë', 'case.title': 'Hotel Kaso Ervehe, Përmet', 'case.lead': 'Hoteli i familjes sime në Përmet ishte projekti im i parë real. Ja çfarë ndryshoi.',
@@ -298,6 +306,10 @@
       tt[ul.getAttribute('data-list')].forEach(function (x) { var li = document.createElement('li'); li.textContent = x; ul.appendChild(li) })
     })
     $$('[data-lang]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang)) })
+    $$('[data-money]').forEach(function (el) { el.textContent = money(+el.getAttribute('data-money')) })
+    var spots = $('#offer-spots')
+    spots.hidden = typeof SPOTS_LEFT !== 'number'
+    if (!spots.hidden) spots.textContent = t('offer.spots').replace('{n}', SPOTS_LEFT)
     renderWork(); renderSim(); renderRoi(); renderReviews(); buildOpts(); renderQuote()
   }
 
