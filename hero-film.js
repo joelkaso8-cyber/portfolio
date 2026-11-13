@@ -10,7 +10,8 @@
   if (net && (net.saveData || /^(slow-2g|2g|3g)$/.test(net.effectiveType))) return
   var DIST = 600 // px of scroll for the whole film; Joel wants it short, so keep it at 600
   var phone = window.matchMedia('(max-width: 900px) and (orientation: portrait)').matches
-  var SRC = phone ? 'media/hero-m.mp4' : 'media/hero.mp4'
+  // The same drone film the Hotel Kaso Ervehe site scrubs, shared so it downloads once.
+  var SRC = phone ? 'work/kaso-ervehe/video/fly-in-tall.mp4' : 'work/kaso-ervehe/video/fly-in-wide.mp4'
   var bar = hero.querySelector('.hero-progress i'), hint = hero.querySelector('.hero-hint')
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   var dur = 0, target = 0, cur = 0, lastT = -1, seeking = false, pending = null, raf = 0
