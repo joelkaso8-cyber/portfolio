@@ -339,18 +339,22 @@ input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offs
 .form-status.is-error { color: var(--err); }
 
 /* process */
-.timeline { position: relative; display: grid; counter-reset: t; }
-.timeline li { position: relative; display: grid; gap: 6px; padding: 0 0 34px 48px; counter-increment: t; }
-.timeline li::before { content: counter(t); position: absolute; left: 0; top: -2px; display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid var(--gold); border-radius: 50%; background: var(--surface); color: var(--gold); font-size: .875rem; font-weight: 600; }
-.timeline li::after { content: ""; position: absolute; left: 16px; top: 36px; bottom: 4px; width: 1px; background: linear-gradient(var(--line-2), transparent); }
-.timeline li:last-child::after { display: none; }
-.timeline small { color: var(--gold); font-size: .8125rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+/* Scroll-beam timeline: rebuilt from 21st.dev "Timeline" (Aceternity) in the site's gold. main.js sets --p (0..1) and .is-on. */
+.timeline { --p: 0; position: relative; isolation: isolate; display: grid; counter-reset: t; }
+.timeline::before, .timeline::after { content: ""; position: absolute; left: 15px; top: 16px; width: 2px; border-radius: 2px; z-index: 0; }
+.timeline::before { bottom: 0; background: linear-gradient(transparent, var(--line-2) 8%, var(--line-2) 80%, transparent); }
+.timeline::after { height: calc((100% - 16px) * var(--p)); background: linear-gradient(transparent, var(--gold) 12%, var(--gold-hi)); box-shadow: 0 0 14px rgba(229, 184, 105, .45); }
+.timeline li { position: relative; display: grid; gap: 6px; padding: 0 0 clamp(40px, 6vw, 72px) 52px; counter-increment: t; }
+.timeline li::before { content: counter(t); position: absolute; left: 0; top: 0; z-index: 1; display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid var(--line-2); border-radius: 50%; background: var(--surface); color: var(--muted); font-size: .875rem; font-weight: 600; transition: background .4s cubic-bezier(.22, 1, .36, 1), color .4s, border-color .4s, box-shadow .4s; }
+.timeline li:last-child { padding-bottom: 8px; }
+.timeline li.is-on::before { border-color: var(--gold); background: var(--gold); color: var(--gold-ink); box-shadow: 0 0 0 6px rgba(229, 184, 105, .12); }
+.timeline small { font-family: var(--serif); font-style: italic; font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1; color: var(--muted); transition: color .4s; }
+.timeline li.is-on small { color: var(--gold); }
 .timeline b { color: var(--ink); font-size: 1.25rem; font-weight: 600; line-height: 1.25; }
-.timeline span { color: var(--muted); }
+.timeline span { color: var(--muted); max-width: 46ch; }
 @media (min-width: 900px) {
-  .timeline { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
-  .timeline li { padding: 54px 12px 0 0; }
-  .timeline li::after { left: 42px; right: -14px; top: 15px; bottom: auto; width: auto; height: 1px; background: linear-gradient(90deg, var(--line-2), transparent); }
+  .timeline li { grid-template-columns: minmax(200px, 30%) 1fr; column-gap: 32px; padding-left: 72px; }
+  .timeline small { grid-row: span 2; padding-top: 2px; }
 }
 .guarantee { display: flex; align-items: flex-start; gap: 18px; margin-top: 28px; padding: 24px 28px; border-color: rgba(16, 185, 129, .3); }
 .guarantee .ico { width: 36px; height: 36px; color: var(--emerald-hi); }

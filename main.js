@@ -290,6 +290,21 @@
   }, { rootMargin: '0px 0px -8% 0px' }) : null
   function observe() { $$('.reveal:not(.is-in)').forEach(function (el) { if (io) io.observe(el); else el.classList.add('is-in') }) }
 
+  // Process timeline: the gold line grows as the section passes 60% of the screen; each dot lights when the line reaches it.
+  var tl = $('.timeline')
+  if (tl) {
+    var steps = $$('li', tl), tlBusy = false
+    var drawLine = function () {
+      tlBusy = false
+      var r = tl.getBoundingClientRect(), p = reduce ? 1 : Math.min(1, Math.max(0, (innerHeight * .6 - r.top) / r.height))
+      tl.style.setProperty('--p', p.toFixed(4))
+      steps.forEach(function (li) { li.classList.toggle('is-on', li.offsetTop + 16 <= p * r.height + 1) })
+    }
+    addEventListener('scroll', function () { if (!tlBusy) { tlBusy = true; requestAnimationFrame(drawLine) } }, { passive: true })
+    addEventListener('resize', drawLine)
+    drawLine()
+  }
+
   // Hero demo: three small working sites inside a device. Pick two options, press the button, see what the owner would receive.
   var SIMK = 'hotel', simSel = [null, null], toastTimer = 0
   function nextDays() {
