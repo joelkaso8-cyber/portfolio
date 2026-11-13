@@ -20,7 +20,7 @@
   v.addEventListener('seeked', function () { seeking = false; if (pending !== null) { var t = pending; pending = null; seek(t) } })
   v.addEventListener('loadedmetadata', function () {
     dur = v.duration || 0; lastT = -1
-    if (reduce) v.currentTime = dur * 0.6; else render()
+    render()
   })
   v.addEventListener('loadeddata', function () { // iOS won't paint a frame until play() has run once
     hero.classList.add('film-ready')
@@ -35,9 +35,9 @@
         .then(function (b) { load(URL.createObjectURL(b)) }).catch(function () { load(SRC) })
     } else load(SRC)
   }
+  // Reduced motion: keep the poster (media/hero.webp) and never download the film.
+  if (reduce) return
   if (document.readyState === 'complete') start(); else window.addEventListener('load', start, { once: true })
-
-  if (reduce) return // the still frame stays behind the text
 
   function render() {
     if (dur) { var t = cur * (dur - 0.05); if (Math.abs(t - lastT) > 0.001) { lastT = t; seek(t) } }

@@ -578,6 +578,13 @@
   $('#nav-links').addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false) })
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); toggle.focus() } })
 
+  // WhatsApp fab: tucked away (desktop only, see style.css) while the hero is on screen.
+  var fab = $('.wa-fab'), heroEl = $('.hero__inner')
+  if (fab && heroEl && 'IntersectionObserver' in window) {
+    fab.classList.add('is-tucked')
+    new IntersectionObserver(function (en) { fab.classList.toggle('is-tucked', en[0].isIntersecting) }, { threshold: 0.35 }).observe(heroEl)
+  }
+
   $('#year').textContent = new Date().getFullYear()
   applyLang()
   openFromLink()
