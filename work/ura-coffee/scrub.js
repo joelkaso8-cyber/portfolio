@@ -11,12 +11,16 @@
   var stage = film.querySelector('.film__stage')
   var video = film.querySelector('video')
   var bar = film.querySelector('.film__bar i')
+  var frame = film.querySelector('.film__frame') || stage
+  var dots = Array.prototype.slice.call(film.querySelectorAll('.film__dots li')), onDot = -1
   var bands = Array.prototype.map.call(film.querySelectorAll('.film__band'), function (el, i, all) {
     return { el: el, a: +el.dataset.a, b: +el.dataset.b, first: i === 0, last: i === all.length - 1, op: -1 }
   })
   var clamp = function (v, a, b) { return Math.min(b, Math.max(a, v)) }
   var smooth = function (x, a, b) { var t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t) }
-  stage.style.backgroundImage = "url('" + film.dataset.poster + "')"
+  var phoneQ = window.matchMedia('(max-width: 760px), (max-aspect-ratio: 4/5)')
+  var poster = phoneQ.matches && film.dataset.posterPhone ? film.dataset.posterPhone : film.dataset.poster
+  frame.style.backgroundImage = "url('" + poster + "')"
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)')
   if (reduce.matches) { film.classList.add('film--still'); return }
@@ -48,6 +52,10 @@
       }
     })
     if (bar) bar.style.transform = 'scaleX(' + p.toFixed(4) + ')'
+    // Side numbers: the chapter that is showing most.
+    var best = 0
+    bands.forEach(function (B, i) { if (B.op > bands[best].op) best = i })
+    if (dots.length && best !== onDot) { if (dots[onDot]) dots[onDot].classList.remove('is-on'); onDot = best; if (dots[best]) dots[best].classList.add('is-on') }
   }
 
   // Eased display position: the film glides after the scroll instead of jumping.
@@ -62,7 +70,7 @@
   function onScroll() { target = progress(); if (raf === null && onScreen) raf = requestAnimationFrame(tick) }
 
   // Load the whole clip as a blob: seeking a local blob is instant, seeking a streamed file stutters.
-  // Phones held upright get media/hero-m.mp4 (a portrait centre crop, about a third of the size) when it exists.
+  // Phones (and tall windows) get the smaller data-src-phone film, cut to the phone frame's shape.
   // A thin line on the stage shows how much has arrived; loading gives up only if nothing arrives for 15 s.
   var loadBar = document.createElement('div'); loadBar.className = 'film__load'; loadBar.innerHTML = '<i></i>'
   stage.appendChild(loadBar)
@@ -90,7 +98,7 @@
   }
   function load() {
     var src = film.dataset.src
-    var phone = window.matchMedia('(max-width: 760px) and (orientation: portrait)').matches
+    var phone = phoneQ.matches
     var small = film.dataset.srcPhone || src.replace(/\.mp4$/, '-m.mp4')
     var first = phone && small !== src ? grab(small).catch(function () { return grab(src) }) : grab(src)
     first
