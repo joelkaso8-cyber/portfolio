@@ -17,6 +17,7 @@
     "Case study: Hotel Kaso Ervehe in Përmet, Albania, Joel's family hotel and his first real client project. Up to 18% of every stay went to booking platforms. He built a fast site of its own in English and Albanian, a direct booking calendar, booking alerts on Telegram and the route on Google Maps.",
     "Portfolio: the work grid shows the real client site Hotel Kaso Ervehe and demo sites with made-up business names: Ura Coffee Roasters (coffee roastery, Glasgow), Lule Balkan Kitchen (restaurant, London), Northline Barbers (Manchester), Avull Hammam & Spa (Edinburgh), Baltë Studio (pottery, Tirana), Dallgë Surf School (Newquay), Vreshta Estate (winery, California), Grusht Boxing Club (London), Shkumë Car Wash (Michigan), Pranvera Flowers (Bristol), Kala Build & Renovate (Birmingham), Aurelia Dental Studio (Leeds), Sage & Silk beauty studio (Bristol), Kalaja Bakehouse (Bronx, New York), Ullishta boutique hotel concept, Vjosa Rafting and Brolin Tattoo. Many have a full-screen scroll film in the hero.",
     "Availability: Joel takes 2 new projects this month.",
+    "Free preview: a business owner can send Joel their business name and a few photos on WhatsApp, and within 48 hours he shows them their own homepage on their phone, free. They pay nothing unless they want the full site; if they do, work starts with the 50% deposit.",
     "Contact: WhatsApp +355 68 572 7406, or the contact form at the bottom of the page. The Quick quote section on the page gives a price and timing in three steps and sends the brief to Joel on WhatsApp."
   ],
   "topics": [
@@ -43,6 +44,10 @@
       "en": "No required monthly fees. You pay once, and your only required ongoing cost is the domain name, about €10–15 a year. If you want Joel to make your changes for you, there is an optional care plan for €25 a month that you can stop any time.",
       "sq": "Nuk ka pagesa mujore të detyrueshme. Paguan një herë, dhe e vetmja kosto e detyrueshme është domain-i, rreth 10–15 € në vit. Nëse do që ndryshimet t'i bëjë Joeli, ka një plan kujdesi opsional për 25 € në muaj që mund ta ndalosh kur të duash.",
       "go": "#faq" },
+    { "id": "preview", "kw": ["free preview", "preview", "sample", "example of my", "before i pay", "see it first", "try first", "mockup", "demo for me", "falas", "parapamje", "provë", "prove", "para se te paguaj", "shoh perpara"],
+      "en": "Yes: send Joel your business name and a few photos on WhatsApp, and within 48 hours he shows you your own homepage on your phone, free. You pay nothing unless you want the full site.",
+      "sq": "Po: dërgoji Joelit në WhatsApp emrin e biznesit dhe disa foto, dhe brenda 48 orësh të tregon faqen tënde kryesore në telefon, falas. Nuk paguan asgjë, përveç nëse do faqen e plotë.",
+      "go": "#services" },
     { "id": "own", "kw": ["own", "owner", "ownership", "my domain", "code", "move", "transfer", "change designer", "kujt", "pronar", "e imja", "domain", "kodi", "e kujt"],
       "en": "You own everything. The domain is registered in your name and the code is handed over to you, so you can move it or change designer whenever you like.",
       "sq": "Gjithçka është jotja. Domain-i regjistrohet në emrin tënd dhe kodi të dorëzohet ty, ndaj mund ta lëvizësh ose të ndryshosh dizajner kur të duash.",

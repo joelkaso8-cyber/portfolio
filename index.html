@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.goatcounter.com; media-src 'self' blob:; font-src 'self'; connect-src 'self' https://formsubmit.co https://joel-assistant.joelkaso8.workers.dev https://*.goatcounter.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <title>Joel Kaso · Websites for small businesses</title>
-  <meta name="description" content="Joel Kaso designs and builds fast, custom websites with direct booking, WhatsApp and English/Albanian, for hotels, restaurants and local businesses. From €400." />
+  <title>Websites for hotels, restaurants & local businesses · Joel Kaso</title>
+  <meta name="description" content="Joel Kaso designs and builds fast, custom websites for hotels, restaurants and local businesses in Albania and abroad, with direct booking, WhatsApp and English/Albanian. From €400." />
   <link rel="canonical" href="https://joelkaso8-cyber.github.io/portfolio/" />
   <link rel="alternate" hreflang="en" href="https://joelkaso8-cyber.github.io/portfolio/" />
   <link rel="alternate" hreflang="sq" href="https://joelkaso8-cyber.github.io/portfolio/?lang=sq" />
@@ -16,22 +16,22 @@
   <meta property="og:locale" content="en_GB" />
   <meta property="og:locale:alternate" content="sq_AL" />
   <meta property="og:url" content="https://joelkaso8-cyber.github.io/portfolio/" />
-  <meta property="og:title" content="Joel Kaso · Websites for small businesses" />
-  <meta property="og:description" content="Joel Kaso designs and builds fast, custom websites with direct booking, WhatsApp and English/Albanian, for hotels, restaurants and local businesses. From €400." />
+  <meta property="og:title" content="Websites for hotels, restaurants & local businesses · Joel Kaso" />
+  <meta property="og:description" content="Joel Kaso designs and builds fast, custom websites for hotels, restaurants and local businesses in Albania and abroad, with direct booking, WhatsApp and English/Albanian. From €400." />
   <meta property="og:image" content="https://joelkaso8-cyber.github.io/portfolio/img/og-card.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Joel Kaso, web design: fast websites for small businesses" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Joel Kaso · Websites for small businesses" />
-  <meta name="twitter:description" content="Joel Kaso designs and builds fast, custom websites with direct booking, WhatsApp and English/Albanian, for hotels, restaurants and local businesses. From €400." />
+  <meta name="twitter:title" content="Websites for hotels, restaurants & local businesses · Joel Kaso" />
+  <meta name="twitter:description" content="Joel Kaso designs and builds fast, custom websites for hotels, restaurants and local businesses in Albania and abroad, with direct booking, WhatsApp and English/Albanian. From €400." />
   <meta name="twitter:image" content="https://joelkaso8-cyber.github.io/portfolio/img/og-card.png" />
   <meta name="theme-color" content="#090a0c" />
   <link rel="preload" as="image" href="media/hero-m.webp" media="(max-width: 900px) and (orientation: portrait)" fetchpriority="high" />
   <link rel="preload" as="image" href="media/hero.webp" media="(min-width: 901px), (orientation: landscape)" fetchpriority="high" />
   <link rel="preload" as="font" type="font/woff2" href="gfonts/3c512d8e381c.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="gfonts/253e49fe3970.woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=20261113-5" />
+  <link rel="stylesheet" href="style.css?v=20261113-7" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="apple-touch-icon.png" type="image/png" sizes="180x180" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -140,9 +140,14 @@
 
     <section class="offer reveal" aria-labelledby="offer-title">
       <p class="tag tag--gold" data-i18n="offer.tag">Launch offer</p>
-      <h2 class="offer__title" id="offer-title"><span data-i18n="offer.t1">Websites from</span> <em class="gradient-text">€400</em></h2>
+      <p class="offer__spots" id="offer-spots" hidden></p>
+      <h2 class="offer__title" id="offer-title"><span data-i18n="offer.t1">Websites from</span> <em class="gradient-text" data-money="400">€400</em></h2>
       <p class="offer__text" data-i18n="offer.text">Launch prices for my first 10 clients: €400 for a one-page site, €600 with online booking, €800 for a hotel or guesthouse (usually €800–1,200). Every site comes with phone and desktop design, WhatsApp, a map, two languages and Google Business Profile setup.</p>
       <a class="btn" href="#quote" data-i18n="offer.cta">Claim a spot</a>
+      <div class="offer__preview">
+        <p><b data-i18n="preview.t">Not sure yet? Get a free preview.</b> <span data-i18n="preview.p">Send me your business name and a few photos. Within 48 hours I show you your own homepage on your phone. You pay nothing unless you want the full site.</span></p>
+        <a class="btn btn--wa" data-wa="preview.wa" href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%27d%20like%20a%20free%20preview%20of%20my%20website." target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="preview.cta">Get my free preview</span></a>
+      </div>
     </section>
 
     <section class="section case" id="case" aria-labelledby="case-title">
@@ -213,7 +218,7 @@
         <article class="plan card spot reveal">
           <h3 data-i18n="plan1.name">One-page site</h3>
           <p data-i18n="plan1.for">For cafés, barbers and trades that need to be found and contacted.</p>
-          <p class="price"><b>€400</b> <s>€800</s> <small data-i18n="plan.launch">launch price</small></p>
+          <p class="price"><b data-money="400">€400</b> <s data-money="800">€800</s> <small data-i18n="plan.launch">launch price</small></p>
           <ul class="ticks" data-list="plan1.items"></ul>
           <a class="btn btn--line" href="#quote" data-quote="trade" data-i18n="plan.ask">Start with this</a>
         </article>
@@ -221,14 +226,14 @@
           <p class="tag tag--gold" data-i18n="plan.popular">Most asked for</p>
           <h3 data-i18n="plan2.name">Business site with booking</h3>
           <p data-i18n="plan2.for">For restaurants, salons and clinics that take bookings every day.</p>
-          <p class="price"><b>€600</b> <s>€1,000</s> <small data-i18n="plan.launch">launch price</small></p>
+          <p class="price"><b data-money="600">€600</b> <s data-money="1000">€1,000</s> <small data-i18n="plan.launch">launch price</small></p>
           <ul class="ticks" data-list="plan2.items"></ul>
           <a class="btn" href="#quote" data-quote="food" data-i18n="plan.ask">Start with this</a>
         </article>
         <article class="plan card spot reveal">
           <h3 data-i18n="plan3.name">Hotel &amp; guesthouse</h3>
           <p data-i18n="plan3.for">For places that want direct bookings instead of paying commission.</p>
-          <p class="price"><b>€800</b> <s>€1,200</s> <small data-i18n="plan.launch">launch price</small></p>
+          <p class="price"><b data-money="800">€800</b> <s data-money="1200">€1,200</s> <small data-i18n="plan.launch">launch price</small></p>
           <ul class="ticks" data-list="plan3.items"></ul>
           <a class="btn btn--line" href="#quote" data-quote="stay" data-i18n="plan.ask">Start with this</a>
         </article>
@@ -323,6 +328,7 @@
         <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa4" id="fq4"><span data-i18n="faq.q4">How do bookings and orders reach me?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa4" role="region" aria-labelledby="fq4"><div><p data-i18n="faq.a4">However is easiest for you. Requests can go straight to your WhatsApp pre-filled with the customer's details, to your email, or into a booking calendar.</p></div></div></div>
         <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa5" id="fq5"><span data-i18n="faq.q5">How does payment work?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa5" role="region" aria-labelledby="fq5"><div><p data-i18n="faq.a5">50% to start the design, and the remaining 50% only when the website is finished, tested, and ready to go live.</p></div></div></div>
         <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa6" id="fq6"><span data-i18n="faq.q6">Who owns the domain and the website?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa6" role="region" aria-labelledby="fq6"><div><p data-i18n="faq.a6">You do. The domain is registered in your name and the code is handed over to you, so you can move it or change designer whenever you like.</p></div></div></div>
+        <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa7" id="fq7"><span data-i18n="faq.q7">Can I see my website before I pay?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa7" role="region" aria-labelledby="fq7"><div><p data-i18n="faq.a7">Yes. Send me your business name and a few photos, and within 48 hours I show you a free preview of your homepage. If you like it, we start with the 50% deposit. If not, you owe nothing.</p></div></div></div>
       </div>
     </section>
 
@@ -379,11 +385,11 @@
       </div>
     </div>
   </dialog>
-  <script src="qr.js?v=20261113-5" defer></script>
-  <script src="main.js?v=20261113-5" defer></script>
-  <script src="hero-film.js?v=20261113-5" defer></script>
-  <script src="assistant.js?v=20261113-5" defer></script>
-  <script src="form-guard.js?v=20261113-5" defer></script>
-  <script src="analytics.js?v=20261113-6" defer></script>
+  <script src="qr.js?v=20261113-7" defer></script>
+  <script src="main.js?v=20261113-7" defer></script>
+  <script src="hero-film.js?v=20261113-7" defer></script>
+  <script src="assistant.js?v=20261113-7" defer></script>
+  <script src="form-guard.js?v=20261113-7" defer></script>
+  <script src="analytics.js?v=20261113-7" defer></script>
 </body>
 </html>
