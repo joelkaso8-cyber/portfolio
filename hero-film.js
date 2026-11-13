@@ -10,7 +10,8 @@
   if (net && (net.saveData || /^(slow-2g|2g|3g)$/.test(net.effectiveType))) return
   var DIST = 600 // px of scroll for the whole film; Joel wants it short, so keep it at 600
   var phone = window.matchMedia('(max-width: 900px) and (orientation: portrait)').matches
-  var SRC = phone ? 'media/hero-m.mp4' : 'media/hero.mp4'
+  // The same drone film the Hotel Kaso Ervehe site scrubs, shared so it downloads once.
+  var SRC = phone ? 'work/kaso-ervehe/video/fly-in-tall.mp4' : 'work/kaso-ervehe/video/fly-in-wide.mp4'
   var bar = hero.querySelector('.hero-progress i'), hint = hero.querySelector('.hero-hint')
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   var dur = 0, target = 0, cur = 0, lastT = -1, seeking = false, pending = null, raf = 0
@@ -20,7 +21,7 @@
   v.addEventListener('seeked', function () { seeking = false; if (pending !== null) { var t = pending; pending = null; seek(t) } })
   v.addEventListener('loadedmetadata', function () {
     dur = v.duration || 0; lastT = -1
-    if (reduce) v.currentTime = dur * 0.6; else render()
+    render()
   })
   v.addEventListener('loadeddata', function () { // iOS won't paint a frame until play() has run once
     hero.classList.add('film-ready')
@@ -35,9 +36,22 @@
         .then(function (b) { load(URL.createObjectURL(b)) }).catch(function () { load(SRC) })
     } else load(SRC)
   }
-  if (document.readyState === 'complete') start(); else window.addEventListener('load', start, { once: true })
-
-  if (reduce) return // the still frame stays behind the text
+  // Reduced motion: keep the poster (media/hero.webp) and never download the film.
+  if (reduce) return
+  // The film is not needed for the first paint: fetch it on the first scroll or touch,
+  // or once the browser is idle after load, whichever comes first.
+  var started = false
+  function kick() {
+    if (started) return
+    started = true
+    removeEventListener('scroll', kick); removeEventListener('pointerdown', kick); removeEventListener('keydown', kick)
+    start()
+  }
+  addEventListener('scroll', kick, { passive: true, once: true })
+  addEventListener('pointerdown', kick, { passive: true, once: true })
+  addEventListener('keydown', kick, { once: true })
+  function idle() { if (window.requestIdleCallback) requestIdleCallback(kick, { timeout: 2500 }); else setTimeout(kick, 1500) }
+  if (document.readyState === 'complete') idle(); else window.addEventListener('load', idle, { once: true })
 
   function render() {
     if (dur) { var t = cur * (dur - 0.05); if (Math.abs(t - lastT) > 0.001) { lastT = t; seek(t) } }
