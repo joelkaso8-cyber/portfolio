@@ -111,7 +111,8 @@ h1 .gradient-text { line-height: 1; }
 
 /* hero: the film sits behind the content; the page scrolls normally and hero-film.js plays the film by scroll position */
 .hero { position: relative; margin-top: calc(-1 * var(--nav)); --p: 0; }
-.hero__stage { position: relative; }
+.hero__stage { position: relative; clip-path: inset(0); } /* the sticky film never paints past the hero (clip-path keeps sticky working; overflow would not) */
+.hero__stage::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; z-index: 0; height: 140px; background: linear-gradient(to bottom, transparent, var(--bg) 88%); pointer-events: none; } /* soft edge where the film ends */
 .hero-film { position: sticky; top: 0; z-index: 0; height: 100vh; height: 100svh; margin-bottom: -100vh; margin-bottom: -100svh; overflow: hidden; background: var(--bg) url(media/hero.webp) center / cover no-repeat; }
 @media (max-width: 900px) and (orientation: portrait) { .hero-film { background-image: url(media/hero-m.webp); } }
 .hero-film video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .7s; }
