@@ -9,6 +9,9 @@
   var net = navigator.connection
   if (net && (net.saveData || /^(slow-2g|2g|3g)$/.test(net.effectiveType))) return
   var DIST = 600 // px of scroll for the whole film; Joel wants it short, so keep it at 600
+  // Only the wide opening of the Kaso Ervehe fly-in (the whole lit hotel). Later it closes in on a dark
+  // doorway and the rooms, which read murky under the tint, so the hero stops before that.
+  var END = 2.6
   var phone = window.matchMedia('(max-width: 900px) and (orientation: portrait)').matches
   // The same drone film the Hotel Kaso Ervehe site scrubs, shared so it downloads once.
   var SRC = phone ? 'work/kaso-ervehe/video/fly-in-tall.mp4' : 'work/kaso-ervehe/video/fly-in-wide.mp4'
@@ -54,8 +57,8 @@
   if (document.readyState === 'complete') idle(); else window.addEventListener('load', idle, { once: true })
 
   function render() {
-    if (dur) { var t = cur * (dur - 0.05); if (Math.abs(t - lastT) > 0.001) { lastT = t; seek(t) } }
-    v.style.transform = 'scale(' + (1 + cur * 0.08).toFixed(4) + ')'
+    if (dur) { var t = cur * Math.min(dur - 0.05, END); if (Math.abs(t - lastT) > 0.001) { lastT = t; seek(t) } }
+    v.style.transform = 'scale(' + (1 + cur * 0.04).toFixed(4) + ')'
     hero.style.setProperty('--p', cur.toFixed(4)) // style.css moves the text and the device a little with it
     if (bar) bar.style.transform = 'scaleX(' + cur.toFixed(4) + ')'
     if (hint) hint.classList.toggle('gone', cur > 0.02)
