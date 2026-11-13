@@ -6,16 +6,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Ura Coffee Roasters · Glasgow (demo)</title>
-  <meta name="description" content="Demo website by Joel Kaso: a Glasgow coffee roastery with a scroll-driven espresso film, bean shop, subscription builder and café hours." />
+  <meta name="description" content="Demo website by Joel Kaso: a Glasgow coffee roastery with a scroll film from bean to cup, a brew-method picker, bean shop, subscription builder and café hours." />
   <meta name="robots" content="noindex" />
-  <meta name="theme-color" content="#18110d" />
+  <meta name="theme-color" content="#eee9e1" />
   <link href="gfonts/gf-2bd94e26.css" rel="stylesheet" />
-  <link rel="preload" as="image" href="media/poster.jpg" />
-  <link rel="stylesheet" href="film.css" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%2318110d'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='17' text-anchor='middle' fill='%23d49a64'%3EU%3C/text%3E%3C/svg%3E" />
+  <link rel="preload" as="image" href="media/film-poster.jpg" fetchpriority="high" />
+  <link rel="stylesheet" href="film.css?v=2" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23b34727'/%3E%3Ctext x='16' y='22' font-family='Arial Black,Arial' font-weight='900' font-size='16' text-anchor='middle' fill='%23fff8f2'%3EU%3C/text%3E%3C/svg%3E" />
   <meta property="og:title" content="Ura Coffee Roasters · Glasgow (demo)" />
-  <meta property="og:description" content="Demo website by Joel Kaso: a Glasgow coffee roastery with a scroll-driven espresso film, bean shop, subscription builder and café hours." />
+  <meta property="og:description" content="Demo website by Joel Kaso: a Glasgow coffee roastery with a scroll film from bean to cup, a brew-method picker, bean shop and subscription builder." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://joelkaso8-cyber.github.io/portfolio/work/ura-coffee/" />
   <meta property="og:image" content="https://joelkaso8-cyber.github.io/portfolio/work/ura-coffee/og.jpg" />
@@ -27,35 +27,69 @@
 <body>
   <a class="demo-ribbon" href="../../index.html#work">Demo by Joel Kaso ↗</a>
   <header class="top" id="top-bar">
-    <a class="brand" href="#">Ura<span>Coffee Roasters</span></a>
-    <nav class="top__links" aria-label="Main"><a href="#beans">Beans</a><a href="#subscribe">Subscribe</a><a href="#cafe">Café</a><a href="#menu">Menu</a><a href="#wholesale">Wholesale</a></nav>
-    <button class="bag-btn" type="button" id="bag-open"><span class="sr">Your bag, items:</span> <span id="bag-count">0</span></button>
+    <a class="brand" href="#" aria-label="Ura Coffee Roasters, back to the top">URA<span>Coffee<br />Roasters</span></a>
+    <nav class="top__links" aria-label="Main"><a href="#ritual">Brew</a><a href="#beans">Beans</a><a href="#menu">Menu</a><a href="#cafe">Visit</a></nav>
+    <div class="top__end">
+      <a class="btn btn--sm top__shop" href="#beans">Order coffee</a>
+      <button class="bag-btn" type="button" id="bag-open"><span class="sr">Your bag, items:</span> <span id="bag-count">0</span></button>
+    </div>
   </header>
 
   <main>
-    <section class="film" data-src="media/hero.mp4" data-poster="media/poster.jpg" aria-label="Espresso film">
+    <section class="film" data-src="media/film.mp4" data-src-phone="media/film-m.mp4" data-poster="media/film-poster.jpg" data-poster-phone="media/film-poster-m.jpg" aria-label="From bean to cup: a film that plays as you scroll">
       <div class="film__stage">
-        <video muted playsinline preload="none" aria-hidden="true"></video>
-        <div class="film__band" data-a="0" data-b="0.24">
-          <p class="eyebrow">Roasted in Glasgow every Tuesday</p>
-          <h1>Ura<br /><em>Coffee Roasters</em></h1>
+        <div class="film__frame"><video muted playsinline preload="none" aria-hidden="true"></video></div>
+        <div class="film__band" data-a="0" data-b="0.19">
+          <p class="chap"><b>01</b> Ura Coffee Roasters · Glasgow</p>
+          <h1 class="mega">Order <span>coffee</span><em class="script">freshly roasted</em></h1>
+          <p class="small">Speciality beans roasted in Glasgow every Tuesday and posted the next day. Free UK delivery over £30.</p>
+          <a class="btn" href="#beans">Shop the beans</a>
         </div>
-        <div class="film__band" data-a="0.26" data-b="0.48"><p class="big">Tamp it <em>level.</em></p><p class="small">18 grams, 15 kilos of pressure, no gaps.</p></div>
-        <div class="film__band" data-a="0.5" data-b="0.74"><p class="big">Let it <em>bloom.</em></p><p class="small">The first drops come through dark and slow.</p></div>
-        <div class="film__band" data-a="0.76" data-b="1"><p class="big">Then it <em>pours.</em></p><p class="small">36 grams in 28 seconds. Every bag on this page is roasted for this moment.</p><a class="btn" href="#beans">Shop the beans</a></div>
+        <div class="film__band" data-a="0.21" data-b="0.39">
+          <p class="chap"><b>02</b> The grind</p>
+          <p class="mega">Ground <span>to order</span><em class="script">precisely</em></p>
+          <p class="small">Espresso, filter or moka pot: we grind each bag for the way you brew, or send it whole.</p>
+        </div>
+        <div class="film__band" data-a="0.41" data-b="0.59">
+          <p class="chap"><b>03</b> The bloom</p>
+          <p class="mega">Slow <span>pour</span><em class="script">ritual</em></p>
+          <dl class="specs"><div><dt>Water</dt><dd>93°C</dd></div><div><dt>Dose</dt><dd>18 g</dd></div><div><dt>Brew</dt><dd>3:00</dd></div></dl>
+        </div>
+        <div class="film__band" data-a="0.61" data-b="0.79">
+          <p class="chap"><b>04</b> Extraction</p>
+          <p class="mega">Every <span>drop</span><em class="script">counts</em></p>
+          <p class="small">Clean, sweet cups. Every bag shows its origin, its roast and what it tastes like.</p>
+        </div>
+        <div class="film__band" data-a="0.81" data-b="1">
+          <p class="chap"><b>05</b> The ritual</p>
+          <p class="mega">Pick <span>your</span><em class="script">ritual</em></p>
+          <p class="small">Tell us how you brew and we will match the beans and the grind.</p>
+          <a class="btn" href="#ritual">Pick your ritual</a>
+        </div>
+        <ol class="film__dots" aria-hidden="true"><li>01</li><li>02</li><li>03</li><li>04</li><li>05</li></ol>
         <p class="film__cue">Scroll</p>
         <div class="film__bar"><i></i></div>
       </div>
     </section>
 
-    <section class="section" id="beans">
-      <div class="head reveal"><h2>This week's beans</h2><p>Roasted Tuesday, posted Wednesday. Free UK delivery over £30.</p></div>
+    <section class="section ritual" id="ritual" aria-labelledby="ritual-title">
+      <div class="head reveal">
+        <p class="chap"><b>05</b> The ritual</p>
+        <h2 class="mega mega--sm" id="ritual-title">Pick your <em class="script">ritual</em></h2>
+        <p>Choose how you brew. We pick the beans and the grind, and you can change both.</p>
+      </div>
+      <div class="rituals" id="ritual-list" role="radiogroup" aria-label="How do you brew?"></div>
+      <div class="match card reveal" id="ritual-match" aria-live="polite"></div>
+    </section>
+
+    <section class="section" id="beans" aria-labelledby="beans-title">
+      <div class="head reveal"><h2 class="mega mega--sm" id="beans-title">This week's <em class="script">beans</em></h2><p>Roasted Tuesday, posted Wednesday. Free UK delivery over £30.</p></div>
       <div class="beans" id="bean-list"></div>
     </section>
 
-    <section class="section sub" id="subscribe">
+    <section class="section sub" id="subscribe" aria-labelledby="sub-title">
       <div class="sub__text reveal">
-        <h2>Never run out</h2>
+        <h2 class="mega mega--sm" id="sub-title">Never run <em class="script">out</em></h2>
         <p>Pick a coffee, a grind and how often. Skip or cancel any time; subscribers save 15%.</p>
       </div>
       <form class="card reveal" id="sub-form">
@@ -69,23 +103,23 @@
       </form>
     </section>
 
-    <section class="section cafe" id="cafe">
-      <figure class="cafe__photo reveal"><img src="media/ending.jpg" alt="Espresso pouring from a bottomless portafilter" loading="lazy" /></figure>
+    <section class="section menu" id="menu" aria-labelledby="menu-title">
+      <div class="head reveal"><h2 class="mega mega--sm" id="menu-title">What we <em class="script">pour</em></h2><p>Hover or tap a drink to watch it made. Whole, oat or skimmed milk at no extra cost.</p></div>
+      <div class="pour-menu reveal" id="pour-menu" aria-busy="true"></div>
+    </section>
+
+    <section class="section cafe" id="cafe" aria-labelledby="cafe-title">
+      <figure class="cafe__photo reveal"><img src="media/ending.jpg" alt="Espresso pouring from a bottomless portafilter" width="1200" height="900" loading="lazy" decoding="async" /></figure>
       <div class="reveal">
-        <h2>The café</h2>
+        <h2 class="mega mega--sm" id="cafe-title">The <em class="script">café</em></h2>
         <p class="status" id="open-status"></p>
         <p>Trongate, Merchant City, Glasgow G1 · Espresso, filter, pastries from the bakery next door.</p>
         <ul class="hours" id="hours"></ul>
       </div>
     </section>
 
-    <section class="section menu" id="menu" aria-labelledby="menu-title">
-      <div class="head reveal"><h2 id="menu-title">What we pour</h2><p>Hover or tap a drink to watch it made. Whole, oat or skimmed milk at no extra cost.</p></div>
-      <div class="pour-menu reveal" id="pour-menu" aria-busy="true"></div>
-    </section>
-
-    <section class="section wholesale" id="wholesale">
-      <div class="reveal"><h2>Wholesale</h2><p>Cafés, offices and restaurants: we roast to order, train your team and service your machine.</p></div>
+    <section class="section wholesale" id="wholesale" aria-labelledby="ws-title">
+      <div class="reveal"><h2 class="mega mega--sm" id="ws-title">Whole<em class="script">sale</em></h2><p>Cafés, offices and restaurants: we roast to order, train your team and service your machine.</p></div>
       <form class="card reveal" id="ws-form" novalidate>
         <div class="row"><label>Name<input name="name" autocomplete="name" required maxlength="80" /></label><label>Business<input name="biz" autocomplete="organization" required maxlength="100" /></label></div>
         <div class="row"><label>Email<input name="email" type="email" autocomplete="email" required maxlength="120" /></label><label>Kilos a week<input name="kg" type="number" min="1" max="500" value="5" /></label></div>
@@ -97,11 +131,11 @@
   </main>
 
   <footer class="footer">
-    <p class="brand">Ura<span>Coffee Roasters</span></p>
+    <p class="brand">URA<span>Coffee<br />Roasters</span></p>
     <p>A demo website with a made-up roastery, designed and built by Joel Kaso. The shop and forms are a working demo; nothing is charged or sent.</p>
-    <p class="credits">Film: "Macro Espresso Process" by Scott Schiller, CC BY 2.0, via Wikimedia Commons.</p>
-  <p class="kit-legal" style="margin:1.25rem 0 0;font-size:.8rem;opacity:.7;text-align:center;width:100%"><a href="privacy.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacy policy</a></p>
-</footer>
+    <p class="credits" id="credits"></p>
+    <p class="kit-legal"><a href="privacy.html">Privacy policy</a></p>
+  </footer>
 
   <dialog class="bag" id="bag" aria-labelledby="bag-title">
     <div class="bag__head"><h2 id="bag-title">Your bag</h2><button type="button" class="x" id="bag-close" aria-label="Close">×</button></div>
@@ -111,8 +145,8 @@
     <button class="btn" type="button" id="bag-pay">Checkout</button>
     <p class="form-status" id="bag-status" role="status"></p>
   </dialog>
-  <script src="scrub.js"></script>
-  <script src="main.js"></script>
-<script src="form-guard.js" defer></script>
+  <script src="scrub.js?v=2"></script>
+  <script src="main.js?v=2"></script>
+  <script src="form-guard.js" defer></script>
 </body>
 </html>

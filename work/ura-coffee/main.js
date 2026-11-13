@@ -1,13 +1,20 @@
-// Ura Coffee Roasters demo: bean shop with a bag, subscription builder, live café hours, wholesale form.
+// Ura Coffee Roasters demo: brew-method picker, bean shop with a bag, subscription builder, live café hours, wholesale form.
 ;(function () {
   var $ = function (s, r) { return (r || document).querySelector(s) }
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)) }
   var gbp = function (n) { return '£' + n.toFixed(2) }
   var pad = function (n) { return String(n).padStart(2, '0') }
   var BEANS = [
-    { id: 'kayon', name: 'Kayon Mountain', origin: 'Ethiopia · washed', notes: ['jasmine', 'peach', 'black tea'], roast: 0.2, price: 12.5 },
-    { id: 'huila', name: 'La Esperanza', origin: 'Colombia · Huila', notes: ['red apple', 'caramel', 'cocoa'], roast: 0.5, price: 11 },
-    { id: 'ura', name: 'Ura House Espresso', origin: 'Brazil + Guatemala', notes: ['dark chocolate', 'hazelnut', 'treacle'], roast: 0.78, price: 10 },
+    { id: 'kayon', name: 'Kayon Mountain', short: 'Kayon', origin: 'Ethiopia · washed', notes: ['jasmine', 'peach', 'black tea'], roast: 0.2, price: 12.5 },
+    { id: 'huila', name: 'La Esperanza', short: 'Esperanza', origin: 'Colombia · Huila', notes: ['red apple', 'caramel', 'cocoa'], roast: 0.5, price: 11 },
+    { id: 'ura', name: 'Ura House Espresso', short: 'House', origin: 'Brazil + Guatemala', notes: ['dark chocolate', 'hazelnut', 'treacle'], roast: 0.78, price: 10 },
+  ]
+  var GRINDS = { beans: 'Whole beans', espresso: 'Espresso grind', filter: 'Filter grind', moka: 'Moka grind' }
+  // How you brew decides the beans and the grind. Photos are stills from the film.
+  var RITUALS = [
+    { id: 'espresso', name: 'Espresso', img: 'media/ritual-espresso.jpg', alt: 'Espresso running from a portafilter into a cup', bean: 'ura', grind: 'espresso', why: 'Chocolate and hazelnut, thick crema, strong enough for milk.' },
+    { id: 'pourover', name: 'Pour-over', img: 'media/ritual-pourover.jpg', alt: 'Hot water poured slowly over coffee in a paper filter', bean: 'kayon', grind: 'filter', why: 'Light and floral, like jasmine tea. Best brewed slowly.' },
+    { id: 'moka', name: 'Moka pot', img: 'media/ritual-moka.jpg', alt: 'Coffee bubbling up in a moka pot on the stove', bean: 'huila', grind: 'moka', why: 'Sweet caramel and red apple, round on the stove top.' },
   ]
   var HOURS = [[7.5, 17], [7.5, 17], [7.5, 17], [7.5, 17], [7.5, 18], [8.5, 18], [9.5, 16]]
   var DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -29,16 +36,22 @@
     el.querySelector('.bean__price').textContent = gbp(b.price)
     el.querySelector('button').setAttribute('aria-label', 'Add ' + b.name + ' to your bag')
     el.querySelector('button').addEventListener('click', function () {
-      bag[b.id] = (bag[b.id] || 0) + 1; renderBag()
-      var btn = $('#bag-open'); btn.classList.remove('bump'); void btn.offsetWidth; btn.classList.add('bump')
+      addToBag(b.id, 'beans')
     })
     $('#bean-list').appendChild(el)
   })
+  function addToBag(id, grind) {
+    var key = id + '|' + grind
+    bag[key] = (bag[key] || 0) + 1; renderBag()
+    var btn = $('#bag-open'); btn.classList.remove('bump'); void btn.offsetWidth; btn.classList.add('bump')
+  }
   function renderBag() {
     var ul = $('#bag-items'), total = 0, count = 0; ul.innerHTML = ''
-    Object.keys(bag).forEach(function (id) {
-      var b = BEANS.find(function (x) { return x.id === id }), q = bag[id]; total += b.price * q; count += q
-      var li = document.createElement('li'); li.innerHTML = '<span></span><span></span>'; li.children[0].textContent = q + ' × ' + b.name; li.children[1].textContent = gbp(b.price * q); ul.appendChild(li)
+    Object.keys(bag).forEach(function (key) {
+      var k = key.split('|'), b = BEANS.find(function (x) { return x.id === k[0] }), q = bag[key]; total += b.price * q; count += q
+      var li = document.createElement('li'); li.innerHTML = '<span><span></span><small></small></span><span></span>'
+      li.children[0].children[0].textContent = q + ' × ' + b.name + ', 250 g'; li.children[0].children[1].textContent = GRINDS[k[1]] || ''
+      li.children[1].textContent = gbp(b.price * q); ul.appendChild(li)
     })
     if (!count) ul.innerHTML = '<li>Your bag is empty.</li>'
     $('#bag-total').textContent = gbp(total); $('#bag-count').textContent = count
@@ -55,6 +68,37 @@
     bag = {}; renderBag()
   })
 
+  // Pick your ritual: one choice (a radio group), the match underneath with one-tap add to bag.
+  var pick = 'espresso'
+  RITUALS.forEach(function (r, i) {
+    var card = document.createElement('button')
+    card.type = 'button'; card.className = 'ritual-card reveal'; card.setAttribute('role', 'radio'); card.dataset.id = r.id
+    card.innerHTML = '<img width="800" height="600" loading="lazy" decoding="async" /><h3></h3><p></p><span class="tick" aria-hidden="true">✓</span>'
+    card.querySelector('img').src = r.img; card.querySelector('img').alt = r.alt
+    card.querySelector('h3').textContent = r.name
+    card.querySelector('p').textContent = BEANS.find(function (b) { return b.id === r.bean }).name + ' · ' + GRINDS[r.grind]
+    card.addEventListener('click', function () { pick = r.id; renderRitual() })
+    card.addEventListener('keydown', function (e) {
+      var d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key]
+      if (!d) return
+      e.preventDefault(); pick = RITUALS[(i + d + RITUALS.length) % RITUALS.length].id; renderRitual()
+      $('.ritual-card[data-id="' + pick + '"]').focus()
+    })
+    $('#ritual-list').appendChild(card)
+  })
+  function renderRitual() {
+    var r = RITUALS.find(function (x) { return x.id === pick }), b = BEANS.find(function (x) { return x.id === r.bean })
+    $$('.ritual-card').forEach(function (c) { var on = c.dataset.id === pick; c.setAttribute('aria-checked', String(on)); c.tabIndex = on ? 0 : -1 })
+    var m = $('#ritual-match')
+    m.innerHTML = '<div class="match__what"><b></b><span></span></div><div class="match__buy"><strong></strong><button class="btn" type="button"></button></div>'
+    m.querySelector('b').textContent = b.name + ' · ' + GRINDS[r.grind]
+    m.querySelector('span').textContent = r.why
+    m.querySelector('strong').textContent = gbp(b.price)
+    var add = m.querySelector('button'); add.textContent = 'Add 250 g to bag'
+    add.addEventListener('click', function () { addToBag(b.id, r.grind); add.textContent = 'Added ✓'; setTimeout(function () { add.textContent = 'Add 250 g to bag' }, 1600) })
+  }
+  renderRitual()
+
   // Subscription builder
   function seg(box, name, opts, checked) {
     opts.forEach(function (o, i) {
@@ -63,7 +107,7 @@
       $(box).appendChild(l)
     })
   }
-  seg('#sub-coffee', 'coffee', BEANS.map(function (b) { return [b.id, b.name.split(' ')[0]] }), 2)
+  seg('#sub-coffee', 'coffee', BEANS.map(function (b) { return [b.id, b.short] }), 2)
   seg('#sub-grind', 'grind', [['beans', 'Whole beans'], ['espresso', 'Espresso'], ['filter', 'Filter']], 0)
   seg('#sub-size', 'size', [['250', '250 g'], ['1000', '1 kg']], 0)
   seg('#sub-every', 'every', [['1', '1 week'], ['2', '2 weeks'], ['4', '4 weeks']], 1)
