@@ -14,6 +14,8 @@ Plain HTML, CSS and JavaScript. No build step: edit a file, check it locally, pu
 | `style.css` | Colours, fonts, sizes, layout |
 | `hero-film.js` | The film behind the first screen that plays as you scroll |
 | `form-guard.js` | Spam protection for the form |
+| `analytics.js` | Visit and click counting (GoatCounter, off until you add your code) |
+| `assistant.js`, `assistant-kb.json` | The chat assistant and the answers it gives |
 | `privacy.html`, `404.html` | Privacy policy (EN + SQ) and the "page not found" page |
 | `img/` | Screenshots on the cards: `<id>-desk.webp`, `<id>-desk-600.webp`, `<id>-phone.webp`, `<id>-phone-260.webp` |
 | `media/` | The hero film and its still pictures |
@@ -27,10 +29,38 @@ The English texts are also written in `index.html` (it is what shows before Java
 
 ## Change a price
 
-- Plan prices (`€400`, `€800`, `€1,000`, `€1,200`): in `index.html`, inside each `<p class="price">`.
-- The offer band (`€400`): in `index.html`, `offer__title`, and the sentence under it in `main.js` (`offer.text`, both languages).
-- Quick quote "usual" prices: `USUAL` in `main.js`.
-- Google's copy of the price: `"price":"400"` and `"priceRange"` in the `application/ld+json` line in `index.html`.
+Launch prices: €400 one-page, €600 business site with booking, €800 hotel and guesthouse. Usual prices: €800, €1,000, €1,200. Change all of these together:
+
+- Plan prices: in `index.html`, inside each `<p class="price">`.
+- The offer band: `offer.text` in `main.js` (both languages) and the same sentence in `index.html` (`offer__text`). The `€400` in `offer__title` is the "from" price.
+- Quick quote: `USUAL` and `LAUNCH` in `main.js`. A one-page business that ticks "booking" moves up to the booking price, €600 (in `quoteFacts`).
+- Care plan (€25 a month): `care.title`, `care.text` and `faq.a1` in `main.js` (both languages), and the same texts in `index.html`.
+- The chat assistant: the prices in `assistant-kb.json` (facts and the `price`, `packages` and `monthly` answers).
+- Google's copy of the prices: `makesOffer` and `priceRange` in the `application/ld+json` line in `index.html`.
+
+## Add a client review
+
+Open `main.js` and find `REVIEWS`. While the list is empty, the "What clients say" section is hidden. Add one entry per client, in both languages, and only with their permission:
+
+```js
+var REVIEWS = [
+  { name: 'Arben Hoxha', role: { en: 'Owner, Hotel Example, Berat', sq: 'Pronar, Hotel Example, Berat' },
+    quote: { en: 'What they said, in their words.', sq: 'Çfarë thanë, me fjalët e tyre.' },
+    url: 'https://their-site.al/' }
+]
+```
+
+`url` is optional. Short, specific quotes work best: what changed for the business (more bookings, less commission, faster replies).
+
+## Visit and click counting
+
+`analytics.js` counts visits and button presses with GoatCounter: no cookies and no personal data, and the privacy policy already describes it. It is off until you turn it on:
+
+1. Make a free account at https://www.goatcounter.com and pick a code, for example `joelkaso`.
+2. In `analytics.js`, set `var CODE = 'joelkaso'` and push.
+3. See the numbers at `https://joelkaso.goatcounter.com`.
+
+Besides page visits it counts these events: `whatsapp-<where>` (which WhatsApp button: hero, contact, dock…), `call-<where>`, `email-<where>`, `plan-<type>` ("Start with this"), `quote-sent-whatsapp`, `quote-copy`, `form-sent`, `want-site-like-this`, `open-site-<id>`, `language-<en|sq>` and `go-quote-from-<where>`. It does nothing on localhost.
 
 ## Show, hide or add a site
 

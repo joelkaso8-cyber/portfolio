@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self' blob:; font-src 'self'; connect-src 'self' https://formsubmit.co https://joel-assistant.joelkaso8.workers.dev; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.goatcounter.com; media-src 'self' blob:; font-src 'self'; connect-src 'self' https://formsubmit.co https://joel-assistant.joelkaso8.workers.dev https://*.goatcounter.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Joel Kaso · Websites for small businesses</title>
   <meta name="description" content="Joel Kaso designs and builds fast, custom websites with direct booking, WhatsApp and English/Albanian, for hotels, restaurants and local businesses. From €400." />
@@ -31,12 +31,12 @@
   <link rel="preload" as="image" href="media/hero.webp" media="(min-width: 901px), (orientation: landscape)" fetchpriority="high" />
   <link rel="preload" as="font" type="font/woff2" href="gfonts/3c512d8e381c.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="gfonts/253e49fe3970.woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=20261113-4" />
+  <link rel="stylesheet" href="style.css?v=20261113-5" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="apple-touch-icon.png" type="image/png" sizes="180x180" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Joel Kaso, web design","url":"https://joelkaso8-cyber.github.io/portfolio/","image":"https://joelkaso8-cyber.github.io/portfolio/img/og-card.png","description":"Fast, custom websites with direct booking, WhatsApp and English/Albanian for hotels, restaurants and local businesses.","email":"joelkaso8@gmail.com","telephone":"+355685727406","priceRange":"€400–€1,200","address":{"@type":"PostalAddress","addressCountry":"AL"},"areaServed":["Albania","United Kingdom","European Union","United States"],"knowsLanguage":["en","sq"],"founder":{"@type":"Person","name":"Joel Kaso","email":"joelkaso8@gmail.com"},"makesOffer":{"@type":"Offer","name":"One-page or booking website","price":"400","priceCurrency":"EUR"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Joel Kaso, web design","url":"https://joelkaso8-cyber.github.io/portfolio/","image":"https://joelkaso8-cyber.github.io/portfolio/img/og-card.png","description":"Fast, custom websites with direct booking, WhatsApp and English/Albanian for hotels, restaurants and local businesses.","email":"joelkaso8@gmail.com","telephone":"+355685727406","priceRange":"€400–€1,200","address":{"@type":"PostalAddress","addressCountry":"AL"},"areaServed":["Albania","United Kingdom","European Union","United States"],"knowsLanguage":["en","sq"],"founder":{"@type":"Person","name":"Joel Kaso","email":"joelkaso8@gmail.com"},"makesOffer":[{"@type":"Offer","name":"One-page website","price":"400","priceCurrency":"EUR"},{"@type":"Offer","name":"Business website with booking","price":"600","priceCurrency":"EUR"},{"@type":"Offer","name":"Hotel and guesthouse website","price":"800","priceCurrency":"EUR"}]}</script>
 </head>
 <body>
   <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
@@ -58,7 +58,7 @@
 
   <header class="nav">
     <a class="logo" href="#top"><img src="favicon.svg" width="40" height="40" alt="" />Joel Kaso</a>
-    <p class="status"><i aria-hidden="true"></i><span data-i18n="nav.status">Available for 2 projects this month</span></p>
+    <p class="status"><i aria-hidden="true"></i><span data-i18n="nav.status">Taking new projects</span></p>
     <nav class="nav__links" id="nav-links" aria-label="Main">
       <a href="#work" data-i18n="nav.work">Work</a>
       <a href="#services" data-i18n="nav.services">Services</a>
@@ -140,8 +140,8 @@
 
     <section class="offer reveal" aria-labelledby="offer-title">
       <p class="tag tag--gold" data-i18n="offer.tag">Launch offer</p>
-      <h2 class="offer__title" id="offer-title"><span data-i18n="offer.t1">A full website for</span> <em class="gradient-text">€400</em></h2>
-      <p class="offer__text" data-i18n="offer.text">For my first 10 clients only (usually €800–1,200). Phone and desktop design, direct booking or orders, WhatsApp, map, two languages and Google Business Profile setup.</p>
+      <h2 class="offer__title" id="offer-title"><span data-i18n="offer.t1">Websites from</span> <em class="gradient-text">€400</em></h2>
+      <p class="offer__text" data-i18n="offer.text">Launch prices for my first 10 clients: €400 for a one-page site, €600 with online booking, €800 for a hotel or guesthouse (usually €800–1,200). Every site comes with phone and desktop design, WhatsApp, a map, two languages and Google Business Profile setup.</p>
       <a class="btn" href="#quote" data-i18n="offer.cta">Claim a spot</a>
     </section>
 
@@ -166,6 +166,14 @@
       </div>
     </section>
 
+    <section class="section reviews" id="reviews" aria-labelledby="reviews-title" hidden>
+      <div class="head reveal">
+        <p class="tag" data-i18n="rev.tag">Client words</p>
+        <h2 id="reviews-title" data-i18n="rev.title">What clients say</h2>
+      </div>
+      <div class="reviews__list" id="reviews-list"></div>
+    </section>
+
     <section class="section compare" id="compare" aria-labelledby="compare-title">
       <div class="head reveal">
         <p class="tag" data-i18n="cmp.tag">Why custom</p>
@@ -178,7 +186,7 @@
           <span role="columnheader" data-i18n="cmp.c2">WordPress, Wix or an agency template</span>
         </div>
         <div class="cmp__row" role="row"><span role="rowheader" data-i18n="cmp.r1">Speed</span><span role="cell" class="cmp__me"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="cmp.r1a">Hand-built and light, with no plugins. Tested with Google PageSpeed before it goes live.</span></span><span role="cell"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="cmp.r1b">Heavy themes and plugins often take 3 to 6 seconds to open on a phone.</span></span></div>
-        <div class="cmp__row" role="row"><span role="rowheader" data-i18n="cmp.r2">Monthly fees</span><span role="cell" class="cmp__me"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="cmp.r2a">€0 a month to me. You own the code and pay only for your domain, about €10–15 a year.</span></span><span role="cell"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="cmp.r2b">Often €30–100 a month for plugins, hosting and maintenance.</span></span></div>
+        <div class="cmp__row" role="row"><span role="rowheader" data-i18n="cmp.r2">Monthly fees</span><span role="cell" class="cmp__me"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="cmp.r2a">No monthly fee required. You own the code and pay only for your domain, about €10–15 a year. A care plan is there if you want one.</span></span><span role="cell"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="cmp.r2b">Often €30–100 a month for plugins, hosting and maintenance.</span></span></div>
         <div class="cmp__row" role="row"><span role="rowheader" data-i18n="cmp.r3">Security</span><span role="cell" class="cmp__me"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="cmp.r3a">No database and no plugins, so there is far less to attack and nothing to keep updating.</span></span><span role="cell"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="cmp.r3b">Plugins need constant updates, and an old one is a common way in.</span></span></div>
         <div class="cmp__row" role="row"><span role="rowheader" data-i18n="cmp.r4">Enquiries</span><span role="cell" class="cmp__me"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="cmp.r4a">Bookings and messages reach your WhatsApp or Telegram within seconds.</span></span><span role="cell"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="cmp.r4b">A generic contact form that often ends up in spam.</span></span></div>
       </div>
@@ -213,18 +221,26 @@
           <p class="tag tag--gold" data-i18n="plan.popular">Most asked for</p>
           <h3 data-i18n="plan2.name">Business site with booking</h3>
           <p data-i18n="plan2.for">For restaurants, salons and clinics that take bookings every day.</p>
-          <p class="price"><b>€400</b> <s>€1,000</s> <small data-i18n="plan.launch">launch price</small></p>
+          <p class="price"><b>€600</b> <s>€1,000</s> <small data-i18n="plan.launch">launch price</small></p>
           <ul class="ticks" data-list="plan2.items"></ul>
           <a class="btn" href="#quote" data-quote="food" data-i18n="plan.ask">Start with this</a>
         </article>
         <article class="plan card spot reveal">
           <h3 data-i18n="plan3.name">Hotel &amp; guesthouse</h3>
           <p data-i18n="plan3.for">For places that want direct bookings instead of paying commission.</p>
-          <p class="price"><b>€400</b> <s>€1,200</s> <small data-i18n="plan.launch">launch price</small></p>
+          <p class="price"><b>€800</b> <s>€1,200</s> <small data-i18n="plan.launch">launch price</small></p>
           <ul class="ticks" data-list="plan3.items"></ul>
           <a class="btn btn--line" href="#quote" data-quote="stay" data-i18n="plan.ask">Start with this</a>
         </article>
       </div>
+      <aside class="care card spot reveal" aria-labelledby="care-title">
+        <div>
+          <p class="tag tag--gold" data-i18n="care.tag">Optional, after launch</p>
+          <h3 id="care-title" data-i18n="care.title">Care plan · €25 a month</h3>
+          <p data-i18n="care.text">Send me your text, price and photo changes and I make them, usually within two days. Every month I check that the site, the booking and your Google listing work. Stop any time: the site stays yours.</p>
+        </div>
+        <a class="btn btn--line" data-wa="care.wa" href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%27d%20like%20to%20know%20more%20about%20the%20care%20plan." target="_blank" rel="noopener noreferrer" data-i18n="care.cta">Ask about the care plan</a>
+      </aside>
     </section>
 
     <section class="section quote" id="quote" aria-labelledby="quote-title">
@@ -255,7 +271,7 @@
             <div><dt data-i18n="q.d2">Features</dt><dd id="q-o-needs"></dd></div>
             <div id="q-like-row" hidden><dt data-i18n="q.d5">In the style of</dt><dd id="q-o-like"></dd></div>
             <div><dt data-i18n="q.d3">Estimated turnaround</dt><dd id="q-o-time"></dd></div>
-            <div class="sum__price"><dt data-i18n="q.price">Launch price</dt><dd><b>€400</b> <s id="q-usual">€800</s> <span class="save" id="q-save"></span></dd></div>
+            <div class="sum__price"><dt data-i18n="q.price">Launch price</dt><dd><b id="q-price">€600</b> <s id="q-usual">€1,000</s> <span class="save" id="q-save"></span></dd></div>
           </dl>
           <p class="quote__note" data-i18n="q.note">Everything you pick is included. One payment, no monthly fees. 50% to start, 50% when it is ready.</p>
           <div class="actions">
@@ -301,7 +317,7 @@
         <p data-i18n="faq.lead">Everything you need to know before we start.</p>
       </div>
       <div class="acc reveal" id="acc">
-        <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa1" id="fq1"><span data-i18n="faq.q1">Are there any monthly fees after the site goes live?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa1" role="region" aria-labelledby="fq1"><div><p data-i18n="faq.a1">No monthly lock-in with me. You pay once for the design and build, and the website is 100% yours. Your only ongoing cost is your annual domain name (around €10–15/year).</p></div></div></div>
+        <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa1" id="fq1"><span data-i18n="faq.q1">Are there any monthly fees after the site goes live?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa1" role="region" aria-labelledby="fq1"><div><p data-i18n="faq.a1">No monthly lock-in with me. You pay once for the design and build, and the website is 100% yours. Your only required ongoing cost is your domain name (around €10–15/year). If you would rather I handle changes for you, there is an optional care plan for €25 a month that you can stop any time.</p></div></div></div>
         <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa2" id="fq2"><span data-i18n="faq.q2">How long does it take from start to finish?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa2" role="region" aria-labelledby="fq2"><div><p data-i18n="faq.a2">Most websites go live within 1 to 2 weeks. You will see the first working version on your phone within 7 days of our initial call.</p></div></div></div>
         <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa3" id="fq3"><span data-i18n="faq.q3">Can I change prices, photos, or menus myself later?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa3" role="region" aria-labelledby="fq3"><div><p data-i18n="faq.a3">Yes. When we launch, I send you a short video showing you exactly how to update your text, prices, and photos in minutes—no technical skills needed.</p></div></div></div>
         <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa4" id="fq4"><span data-i18n="faq.q4">How do bookings and orders reach me?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa4" role="region" aria-labelledby="fq4"><div><p data-i18n="faq.a4">However is easiest for you. Requests can go straight to your WhatsApp pre-filled with the customer's details, to your email, or into a booking calendar.</p></div></div></div>
@@ -363,10 +379,11 @@
       </div>
     </div>
   </dialog>
-  <script src="qr.js?v=20261113-4" defer></script>
-  <script src="main.js?v=20261113-4" defer></script>
-  <script src="hero-film.js?v=20261113-4" defer></script>
-  <script src="assistant.js?v=20261113-4" defer></script>
-  <script src="form-guard.js?v=20261113-4" defer></script>
+  <script src="qr.js?v=20261113-5" defer></script>
+  <script src="main.js?v=20261113-5" defer></script>
+  <script src="hero-film.js?v=20261113-5" defer></script>
+  <script src="assistant.js?v=20261113-5" defer></script>
+  <script src="form-guard.js?v=20261113-5" defer></script>
+  <script src="analytics.js?v=20261113-5" defer></script>
 </body>
 </html>
