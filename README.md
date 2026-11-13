@@ -54,7 +54,7 @@ var REVIEWS = [
 
 ## Visit and click counting
 
-`analytics.js` counts visits and button presses with GoatCounter: no cookies and no personal data, and the privacy policy already describes it. It is off until you turn it on:
+`analytics.js` counts visits and button presses with GoatCounter: no cookies and no personal data, and the privacy policy already describes it. It is on, with the code `joelkaso`. To move it to another account:
 
 1. Make a free account at https://www.goatcounter.com and pick a code, for example `joelkaso`.
 2. In `analytics.js`, set `var CODE = 'joelkaso'` and push.

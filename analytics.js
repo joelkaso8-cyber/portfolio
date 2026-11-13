@@ -2,7 +2,7 @@
 // Off until CODE is set. To turn it on: make a free account at goatcounter.com, pick a code (for example
 // "joelkaso"), write it below, push. The numbers then show at https://<code>.goatcounter.com.
 ;(function () {
-  var CODE = ''
+  var CODE = 'joelkaso'
   if (!CODE || !navigator.sendBeacon || /^(localhost|127\.|0\.0\.0\.0|\[::1\])/.test(location.hostname)) return
   var END = 'https://' + CODE + '.goatcounter.com/count'
 
