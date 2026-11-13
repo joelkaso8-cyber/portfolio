@@ -11,9 +11,7 @@
   if (net && (net.saveData || /^(slow-2g|2g|3g)$/.test(net.effectiveType))) return
   var DIST = 600, TOUCH = 3.2 // px of scroll input for the whole film (was 2400, then 900); raise it for a longer film
   var phone = window.matchMedia('(max-width: 900px) and (orientation: portrait)').matches
-  // The same drone film the Hotel Kaso Ervehe site scrubs, shared so it downloads once. Only its wide opening (the lit hotel) plays.
-  var END = 2.6
-  var SRC = phone ? 'work/kaso-ervehe/video/fly-in-tall.mp4' : 'work/kaso-ervehe/video/fly-in-wide.mp4'
+  var SRC = phone ? 'media/hero-m.mp4' : 'media/hero.mp4'
   var bar = hero.querySelector('.hero-progress i'), hint = hero.querySelector('.hero-hint')
   var root = document.documentElement
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -24,7 +22,7 @@
   v.addEventListener('seeked', function () { seeking = false; if (pending !== null) { var t = pending; pending = null; seek(t) } })
   v.addEventListener('loadedmetadata', function () {
     dur = v.duration || 0; lastT = -1
-    render()
+    if (reduce) v.currentTime = dur * 0.6; else render()
   })
   v.addEventListener('loadeddata', function () { // iOS won't paint a frame until play() has run once
     hero.classList.add('film-ready')
@@ -39,21 +37,12 @@
         .then(function (b) { load(URL.createObjectURL(b)) }).catch(function () { load(SRC) })
     } else load(SRC)
   }
-  if (reduce) return // no scroll takeover and no film download: the still frame stays behind the text
-  // The film is not needed for the first paint: fetch it on the first wheel, touch or key, or once the browser is idle.
-  var fetched = false
-  function kick() {
-    if (fetched) return
-    fetched = true
-    ;['wheel', 'touchstart', 'pointerdown', 'keydown'].forEach(function (n) { removeEventListener(n, kick) })
-    start()
-  }
-  ;['wheel', 'touchstart', 'pointerdown', 'keydown'].forEach(function (n) { addEventListener(n, kick, { passive: true, once: true }) })
-  function idle() { if (window.requestIdleCallback) requestIdleCallback(kick, { timeout: 2500 }); else setTimeout(kick, 1500) }
-  if (document.readyState === 'complete') idle(); else window.addEventListener('load', idle, { once: true })
+  if (document.readyState === 'complete') start(); else window.addEventListener('load', start, { once: true })
+
+  if (reduce) return // no scroll takeover: the still frame stays behind the text
 
   function render() {
-    if (dur) { var t = cur * Math.min(dur - 0.05, END); if (Math.abs(t - lastT) > 0.001) { lastT = t; seek(t) } }
+    if (dur) { var t = cur * (dur - 0.05); if (Math.abs(t - lastT) > 0.001) { lastT = t; seek(t) } }
     v.style.transform = 'scale(' + (1 + cur * 0.06) + ')'
     bar.style.transform = 'scaleX(' + cur + ')'
     hint.classList.toggle('gone', started)
