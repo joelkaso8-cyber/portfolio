@@ -37,7 +37,20 @@
   }
   // Reduced motion: keep the poster (media/hero.webp) and never download the film.
   if (reduce) return
-  if (document.readyState === 'complete') start(); else window.addEventListener('load', start, { once: true })
+  // The film is not needed for the first paint: fetch it on the first scroll or touch,
+  // or once the browser is idle after load, whichever comes first.
+  var started = false
+  function kick() {
+    if (started) return
+    started = true
+    removeEventListener('scroll', kick); removeEventListener('pointerdown', kick); removeEventListener('keydown', kick)
+    start()
+  }
+  addEventListener('scroll', kick, { passive: true, once: true })
+  addEventListener('pointerdown', kick, { passive: true, once: true })
+  addEventListener('keydown', kick, { once: true })
+  function idle() { if (window.requestIdleCallback) requestIdleCallback(kick, { timeout: 2500 }); else setTimeout(kick, 1500) }
+  if (document.readyState === 'complete') idle(); else window.addEventListener('load', idle, { once: true })
 
   function render() {
     if (dur) { var t = cur * (dur - 0.05); if (Math.abs(t - lastT) > 0.001) { lastT = t; seek(t) } }
