@@ -547,3 +547,72 @@ input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offs
   .asst__panel, .asst__msg, .asst__typing span { animation: none; }
   .asst__launch { transition: none; }
 }
+
+/* ---------- 3D pieces (depth.js): screenshot wall, phone dome, name badge ---------- */
+/* Wall: real site screenshots on a tilted plane, columns drifting up and down. Plain CSS 3D, no WebGL. */
+.wall { position: relative; display: grid; align-items: end; min-height: clamp(480px, 56vw, 700px); overflow: hidden; overflow: clip; background: var(--surface); border-block: 1px solid var(--line); isolation: isolate; }
+.wall__view { position: absolute; inset: 0; z-index: -2; display: flex; align-items: center; justify-content: center; }
+.wall__plane { flex: none; width: 1720px; height: 1720px; transform: scale(.5); }
+.wall__grid { position: relative; top: 900px; right: calc(50% - 570px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; width: 100%; height: 100%; transform-origin: 0 0; transform: rotateX(55deg) rotateZ(-45deg); transform-style: preserve-3d; }
+.wall__col { display: flex; flex-direction: column; gap: 32px; animation: wall-a 11s ease-in-out infinite alternate; }
+.wall__col:nth-child(even) { animation-name: wall-b; animation-duration: 15s; }
+@keyframes wall-a { from { transform: translateY(-60px); } to { transform: translateY(160px); } }
+@keyframes wall-b { from { transform: translateY(60px); } to { transform: translateY(-160px); } }
+.wall.is-off .wall__col { animation-play-state: paused; }
+.wall__col a { display: block; border-radius: 10px; overflow: hidden; box-shadow: 0 0 0 1px var(--line-2); transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
+.wall__col a:hover { transform: translateY(-12px); box-shadow: 0 0 0 2px var(--gold); }
+.wall__col img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.wall::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(0deg, var(--bg) 0%, rgba(9, 10, 12, .92) 34%, rgba(9, 10, 12, .25) 70%, rgba(9, 10, 12, .05) 100%); }
+.wall__copy { position: relative; max-width: 520px; padding: clamp(40px, 6vw, 96px) var(--gut); pointer-events: none; }
+.wall__copy > * { pointer-events: auto; }
+.wall__copy p { margin: 16px 0 28px; font-size: 1.125rem; color: var(--ink-2); text-wrap: pretty; }
+@media (min-width: 640px) { .wall__plane { transform: scale(.72); } }
+@media (min-width: 900px) {
+  .wall { align-items: center; }
+  .wall::before { background: linear-gradient(90deg, var(--bg) 0%, rgba(9, 10, 12, .9) 30%, rgba(9, 10, 12, .2) 62%, transparent 80%); }
+}
+@media (min-width: 1240px) { .wall__plane { transform: scale(.95); } }
+
+/* Dome: phone screenshots on the outside of a sphere. depth.js sets --R (radius), --u (angle per unit) and --ua (arc per unit). */
+.domeband .head { margin-bottom: clamp(12px, 2vw, 24px); }
+.dome { --R: 600px; --u: 6.4deg; --ua: 67px; position: relative; height: clamp(440px, 50vw, 640px); margin-inline: calc(var(--gut) * -1); overflow: hidden; overflow: clip; cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; }
+.dome.is-grab { cursor: grabbing; }
+.dome__stage { position: absolute; inset: 0; perspective: calc(var(--R) * 2); }
+.dome__sphere { position: absolute; left: 50%; top: 50%; transform-style: preserve-3d; }
+.dome__tile { position: absolute; left: calc(var(--ua) * -1); top: calc(var(--ua) * -1.5); width: calc(var(--ua) * 2); height: calc(var(--ua) * 3); padding: 5px; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: rotateY(calc(var(--u) * var(--x))) rotateX(calc(var(--u) * var(--y) * -1)) translateZ(var(--R)); }
+.dome__tile img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 10px; background: var(--surface-2); box-shadow: 0 0 0 1px var(--line-2); pointer-events: none; transition: box-shadow .25s var(--ease); }
+@media (hover: hover) { .dome__tile:hover img { box-shadow: 0 0 0 2px var(--gold); } }
+.dome::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, var(--bg), transparent 18%, transparent 82%, var(--bg)), linear-gradient(0deg, var(--bg), transparent 16%, transparent 84%, var(--bg)); }
+
+/* Badge on a strap. Without JS it hangs straight; depth.js adds .is-live and moves it. */
+.lanyard { --rope: 150px; --bw: 212px; --bh: 300px; position: relative; z-index: 3; height: calc(var(--rope) + var(--bh) + 76px); margin-top: 32px; }
+.lanyard__strap { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.lanyard__strap path { fill: none; stroke: var(--gold); stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; }
+.lanyard__strap text { font: 600 8px/1 var(--sans); letter-spacing: .24em; fill: var(--gold-ink); dominant-baseline: central; }
+.lanyard__pin { fill: var(--surface-2); stroke: var(--line-2); stroke-width: 2; }
+.lanyard:not(.is-live) .lanyard__strap { display: none; }
+.lanyard:not(.is-live)::before { content: ''; position: absolute; left: calc(50% - 7px); top: 0; width: 15px; height: calc(var(--rope) + 4px); border-radius: 4px; background: var(--gold); }
+.badge3d { position: absolute; left: 0; top: 0; width: var(--bw); height: calc(var(--bh) + 20px); padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: center; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; transform-origin: 50% 0; perspective: 900px; }
+.lanyard:not(.is-live) .badge3d { left: calc(50% - var(--bw) / 2); top: var(--rope); }
+.badge3d.is-grab { cursor: grabbing; }
+.badge3d:focus-visible { outline: none; }
+.badge3d:focus-visible .badge3d__face { box-shadow: inset 0 0 0 2px var(--gold), 0 24px 40px -24px rgba(0, 0, 0, .9); }
+.badge3d__clip { position: absolute; left: 50%; top: 0; z-index: 1; width: 30px; height: 26px; margin-left: -15px; border-radius: 7px 7px 4px 4px; background: linear-gradient(180deg, #e4e4e7, #8e9097); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .4), 0 2px 4px rgba(0, 0, 0, .5); }
+.badge3d__clip::after { content: ''; position: absolute; left: 8px; right: 8px; top: 6px; height: 6px; border-radius: 3px; background: #3a3b40; }
+.badge3d__card { position: absolute; left: 0; right: 0; top: 20px; bottom: 0; transform-style: preserve-3d; }
+.badge3d__face { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 36px 18px 22px; border-radius: 18px; background: linear-gradient(165deg, #1e1f25 0%, #111216 70%); box-shadow: inset 0 0 0 1px var(--line-2), 0 24px 40px -24px rgba(0, 0, 0, .9); overflow: hidden; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.badge3d__face::before { content: ''; position: absolute; left: 50%; top: 13px; width: 46px; height: 8px; margin-left: -23px; border-radius: 4px; background: var(--bg); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .9); }
+.badge3d__face::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(110deg, transparent 38%, rgba(255, 255, 255, .09) 50%, transparent 62%) var(--sx, 50%) 0 / 260% 100% no-repeat; }
+.badge3d__back { transform: rotateY(180deg); }
+.badge3d__front img { width: 64px; height: 64px; }
+.badge3d__name { font: 400 2.1rem/1 var(--serif); color: var(--ink); letter-spacing: -0.01em; }
+.badge3d__role { font-size: .6875rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); text-wrap: balance; }
+.badge3d__status { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--line); font-size: .8125rem; line-height: 1.35; color: var(--ink-2); }
+.badge3d__status span { text-wrap: balance; }
+.badge3d__status i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--emerald); box-shadow: 0 0 0 3px rgba(16, 185, 129, .22); }
+.badge3d__qr { width: 132px; padding: 8px; border-radius: 10px; background: #fff; }
+.badge3d__qr svg { display: block; width: 100%; height: auto; }
+.badge3d__scan { max-width: 17ch; font-size: .875rem; line-height: 1.35; color: var(--ink); }
+.lanyard__hint { position: absolute; left: 0; right: 0; bottom: 0; font-size: .8125rem; color: var(--muted); text-align: center; }
+@media (max-width: 639px) { .lanyard { --rope: 104px; --bw: 188px; --bh: 268px; } .badge3d__name { font-size: 1.85rem; } }
+@media (prefers-reduced-motion: reduce) { .wall__col { animation: none; } .wall__col a { transition: none; } }

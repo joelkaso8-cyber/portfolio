@@ -31,7 +31,7 @@
   <link rel="preload" as="image" href="media/hero.webp" media="(min-width: 901px), (orientation: landscape)" fetchpriority="high" />
   <link rel="preload" as="font" type="font/woff2" href="gfonts/3c512d8e381c.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="gfonts/253e49fe3970.woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=20261114-1" />
+  <link rel="stylesheet" href="style.css?v=20261114-2" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="apple-touch-icon.png" type="image/png" sizes="180x180" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -150,6 +150,20 @@
       </div>
     </section>
 
+    <!-- 3D wall of site screenshots (filled by depth.js from the shown sites), drifting; a click opens that site in the viewer -->
+    <section class="wall" aria-labelledby="wall-title">
+      <div class="wall__view" aria-hidden="true">
+        <div class="wall__plane">
+          <div class="wall__grid"></div>
+        </div>
+      </div>
+      <div class="wall__copy reveal">
+        <h2 id="wall-title" data-i18n="wall.title">Live sites, not mockups</h2>
+        <p data-i18n="wall.lead">Tap any screen to try that site the way your customers would.</p>
+        <a class="btn btn--line" href="#work" data-i18n="hero.work">See the work</a>
+      </div>
+    </section>
+
     <section class="section case" id="case" aria-labelledby="case-title">
       <div class="head reveal">
         <p class="tag" data-i18n="case.tag">Featured case study</p>
@@ -210,6 +224,15 @@
       </div>
       <div class="work" id="work-grid"></div>
       <p class="cta-row reveal"><a class="btn" href="#quote" data-i18n="cta.work">Get a site like these</a></p>
+    </section>
+
+    <!-- 3D dome of phone screenshots (built by depth.js; stays hidden without JS) -->
+    <section class="section domeband" id="dome-band" aria-labelledby="dome-title" hidden>
+      <div class="head reveal">
+        <h2 id="dome-title" data-i18n="dome.title">Every site, on a phone</h2>
+        <p data-i18n="dome.lead">Most of your customers will see your site on a phone. Drag to spin it, tap a screen to open that site.</p>
+      </div>
+      <div class="dome" id="dome" aria-hidden="true"><div class="dome__stage"><div class="dome__sphere"></div></div></div>
     </section>
 
     <section class="section" id="services">
@@ -342,6 +365,27 @@
           <a class="btn btn--wa" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%27d%20like%20a%20website." target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
           <a class="btn btn--line" href="tel:+355685727406">+355 68 57 27 406</a>
         </p>
+        <!-- Name badge on a strap: drag and throw it, tap to flip it to a WhatsApp QR code (depth.js) -->
+        <div class="lanyard" id="lanyard">
+          <svg class="lanyard__strap" aria-hidden="true" focusable="false"><path id="strap-path" d="M0 0" /><text><textPath href="#strap-path" startOffset="10">JOEL KASO · WEB DESIGN · JOEL KASO · WEB DESIGN · JOEL KASO · WEB DESIGN</textPath></text><circle class="lanyard__pin" r="6" /></svg>
+          <button type="button" class="badge3d" id="badge" aria-label="Joel Kaso's badge. Press to flip it and show a WhatsApp QR code." data-i18n-aria="badge.aria">
+            <span class="badge3d__clip" aria-hidden="true"></span>
+            <span class="badge3d__card">
+              <span class="badge3d__face badge3d__front">
+                <img src="favicon.svg" width="64" height="64" alt="" />
+                <b class="badge3d__name">Joel Kaso</b>
+                <span class="badge3d__role" data-i18n="badge.role">Web designer · Albania</span>
+                <span class="badge3d__status"><i aria-hidden="true"></i><span data-i18n="nav.status">Available for 2 projects this month</span></span>
+              </span>
+              <span class="badge3d__face badge3d__back">
+                <span class="badge3d__qr" id="badge-qr"></span>
+                <span class="badge3d__scan" data-i18n="badge.scan">Scan to message me on WhatsApp</span>
+                <span class="badge3d__role">+355 68 57 27 406</span>
+              </span>
+            </span>
+          </button>
+          <p class="lanyard__hint" data-i18n="badge.hint">Drag the badge. Tap it to flip.</p>
+        </div>
       </div>
       <form class="card form reveal" id="contact-form" novalidate>
         <div class="row">
@@ -385,11 +429,12 @@
       </div>
     </div>
   </dialog>
-  <script src="qr.js?v=20261114-1" defer></script>
-  <script src="main.js?v=20261114-1" defer></script>
-  <script src="hero-film.js?v=20261114-1" defer></script>
-  <script src="assistant.js?v=20261114-1" defer></script>
-  <script src="form-guard.js?v=20261114-1" defer></script>
-  <script src="analytics.js?v=20261114-1" defer></script>
+  <script src="qr.js?v=20261114-2" defer></script>
+  <script src="main.js?v=20261114-2" defer></script>
+  <script src="hero-film.js?v=20261114-2" defer></script>
+  <script src="assistant.js?v=20261114-2" defer></script>
+  <script src="form-guard.js?v=20261114-2" defer></script>
+  <script src="analytics.js?v=20261114-2" defer></script>
+  <script src="depth.js?v=20261114-2" defer></script>
 </body>
 </html>

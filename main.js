@@ -138,7 +138,11 @@
       ok: 'Your email app is opening with the message ready. Press send there.', sent: 'Thanks, your message is sent. I reply within a day.', sending: 'Sending…', subject: 'Website enquiry',
       'footer.note': 'Demo sites use made-up business names. Photos on demos: Wikimedia Commons, credited on each site.', 'footer.privacy': 'Privacy policy', 'footer.top': 'Back to top ↑',
       'viewer.desk': 'Desktop', 'viewer.phone': 'Phone', 'viewer.qr': 'Try it on your phone', 'viewer.qrhint': 'Point your phone camera at the code to open this site on your own phone.',
-      'viewer.want': 'I want a site like this', 'viewer.open': 'Open in new tab ↗', 'wa.msg': "Hi Joel, I'd like a website."
+      'viewer.want': 'I want a site like this', 'viewer.open': 'Open in new tab ↗', 'wa.msg': "Hi Joel, I'd like a website.",
+      'wall.title': 'Live sites, not mockups', 'wall.lead': 'Tap any screen to try that site the way your customers would.',
+      'dome.title': 'Every site, on a phone', 'dome.lead': 'Most of your customers will see your site on a phone. Drag to spin it, tap a screen to open that site.',
+      'badge.role': 'Web designer · Albania', 'badge.scan': 'Scan to message me on WhatsApp', 'badge.hint': 'Drag the badge. Tap it to flip.',
+      'badge.aria': "Joel Kaso's badge. Press to flip it and show a WhatsApp QR code."
     },
     sq: {
       skip: 'Kalo te përmbajtja', title: 'Faqe interneti për hotele, restorante dhe biznese · Joel Kaso',
@@ -216,7 +220,11 @@
       ok: 'Po hapet aplikacioni i emailit me mesazhin gati. Shtyp Dërgo atje.', sent: 'Faleminderit, mesazhi u dërgua. Përgjigjem brenda një dite.', sending: 'Po dërgohet…', subject: 'Kërkesë për website',
       'footer.note': 'Faqet demo kanë emra biznesesh të shpikur. Fotot e demove: Wikimedia Commons, të përmendura në secilën faqe.', 'footer.privacy': 'Politika e privatësisë', 'footer.top': 'Kthehu lart ↑',
       'viewer.desk': 'Kompjuter', 'viewer.phone': 'Telefon', 'viewer.qr': 'Provoje në telefon', 'viewer.qrhint': 'Drejtoje kamerën e telefonit te kodi për ta hapur këtë faqe në telefonin tënd.',
-      'viewer.want': 'Dua një faqe si kjo', 'viewer.open': 'Hap në skedë të re ↗', 'wa.msg': 'Përshëndetje Joel, dua një website.'
+      'viewer.want': 'Dua një faqe si kjo', 'viewer.open': 'Hap në skedë të re ↗', 'wa.msg': 'Përshëndetje Joel, dua një website.',
+      'wall.title': 'Faqe që punojnë, jo vetëm foto', 'wall.lead': 'Prek çdo ekran dhe provoje faqen si klientët e tu.',
+      'dome.title': 'Çdo faqe, në telefon', 'dome.lead': 'Shumica e klientëve do ta shohin faqen tënde në telefon. Tërhiqe për ta rrotulluar, prek një ekran për ta hapur.',
+      'badge.role': 'Dizajner web · Shqipëri', 'badge.scan': 'Skano për të më shkruar në WhatsApp', 'badge.hint': 'Tërhiqe kartën. Prek për ta kthyer.',
+      'badge.aria': 'Karta e Joel Kasos. Shtyp për ta kthyer dhe për të parë kodin QR të WhatsApp-it.'
     }
   }
 
@@ -507,6 +515,8 @@
     // The portfolio stays one step back in history, so the browser's Back button closes the site instead of leaving the portfolio.
     try { history.replaceState(null, '', pageUrl()); history.pushState({ site: w.id }, '', location.pathname + '?site=' + w.id + location.hash) } catch (e) {}
   }
+  // For depth.js (3D wall, dome, badge): the site list and the viewer.
+  window.JK = { work: WORK, open: function (id) { var w = WORK.find(function (x) { return x.id === id }); if (w) openViewer(w) } }
   window.addEventListener('popstate', function () {
     var id = history.state && history.state.site, w = id && WORK.find(function (x) { return x.id === id })
     if (w && !viewer.open) openViewerBase(w) // Forward: show the site again
