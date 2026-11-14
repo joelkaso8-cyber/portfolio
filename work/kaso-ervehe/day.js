@@ -12,8 +12,8 @@
   // ---- Words (EN, and SQ in the site's own phrasing where the site has it) ----
   var TX = {
     en: {
-      nav: 'Your day', title: 'A day in Përmet', lead: 'Drag the sun across the valley. The light follows the real sun over Përmet, and the plan shows what to do at each hour.',
-      canvas: 'The Përmet valley from the hotel garden, lit for the chosen hour', time: 'Time of day',
+      nav: 'Your day', title: 'A day in Përmet', lead: 'Scroll down and the sun crosses the valley. The light follows the real sun over Përmet, and the plan shows what to do at each hour.',
+      canvas: 'The Përmet valley from the hotel garden, lit for the time of day as you scroll', time: 'Time of day',
       rise: 'Sunrise', set: 'Sunset', light: 'Daylight', hours: function (h, m) { return h + ' h ' + m + ' min' },
       today: 'Today', seasons: ['Spring', 'Summer', 'Autumn', 'Winter'], play: 'Play the day', pause: 'Pause',
       laneIn: 'At the hotel', laneOut: 'Around Përmet', now: 'Now',
@@ -38,8 +38,8 @@
       }
     },
     sq: {
-      nav: 'Dita juaj', title: 'Një ditë në Përmet', lead: 'Tërhiqni diellin nëpër luginë. Drita ndjek diellin e vërtetë mbi Përmet, dhe plani tregon çfarë të bëni në çdo orë.',
-      canvas: 'Lugina e Përmetit nga kopshti i hotelit, e ndriçuar për orën e zgjedhur', time: 'Ora e ditës',
+      nav: 'Dita juaj', title: 'Një ditë në Përmet', lead: 'Rrëshqitni poshtë dhe dielli kalon luginën. Drita ndjek diellin e vërtetë mbi Përmet, dhe plani tregon çfarë të bëni në çdo orë.',
+      canvas: 'Lugina e Përmetit nga kopshti i hotelit, e ndriçuar sipas orës së ditës ndërsa rrëshqitni', time: 'Ora e ditës',
       rise: 'Lindja e diellit', set: 'Perëndimi', light: 'Dritë dite', hours: function (h, m) { return h + ' orë ' + m + ' min' },
       today: 'Sot', seasons: ['Pranverë', 'Verë', 'Vjeshtë', 'Dimër'], play: 'Shihni ditën', pause: 'Ndal',
       laneIn: 'Te hoteli', laneOut: 'Rreth Përmetit', now: 'Tani',
@@ -102,14 +102,13 @@
       '<div class="container">' +
         '<div class="head-split"><h2 id="pd-title" data-pd="title"></h2><p class="lead" data-pd="lead"></p></div>' +
         '<div class="pd">' +
-          '<div class="pd__stage" id="pd-stage"><canvas id="pd-canvas" role="img"></canvas><div class="pd__grip" id="pd-grip" aria-hidden="true"></div>' +
+          '<div class="pd__stage" id="pd-stage"><canvas id="pd-canvas" role="img"></canvas>' +
             '<p class="pd__clock clear"><b id="pd-clock">08:00</b><span id="pd-phase"></span></p>' +
             '<p class="pd__sun clear" id="pd-sun"></p></div>' +
-          '<div class="pd__scrub"><input type="range" id="pd-range" min="0" max="1000" step="1" value="300"><div class="pd__hours" id="pd-hours" aria-hidden="true"></div></div>' +
+          '<div class="pd__scrub"><input type="range" id="pd-range" min="0" max="1000" step="1" value="300" tabindex="-1" aria-hidden="true"><div class="pd__hours" id="pd-hours" aria-hidden="true"></div></div>' +
           '<div class="pd__lanes" id="pd-lanes"></div>' +
           '<div class="pd__foot">' +
             '<article class="pd__card clear" id="pd-card" aria-live="polite"></article>' +
-            '<div class="pd__days"><div class="chips" role="group" id="pd-dates"></div><button type="button" class="btn btn--clear btn--small" id="pd-play" data-pd="play"></button></div>' +
           '</div>' +
         '</div>' +
       '</div>'
@@ -141,12 +140,12 @@
   // ---- The piece ----
   function init(sec) {
     function $(id) { return document.getElementById(id) }
-    var stage = $('pd-stage'), cv = $('pd-canvas'), ctx = cv.getContext('2d'), grip = $('pd-grip')
+    var stage = $('pd-stage'), cv = $('pd-canvas'), ctx = cv.getContext('2d')
     var range = $('pd-range'), hoursEl = $('pd-hours'), lanesEl = $('pd-lanes'), card = $('pd-card')
-    var elClock = $('pd-clock'), elPhase = $('pd-phase'), elSun = $('pd-sun'), datesEl = $('pd-dates'), btnPlay = $('pd-play')
+    var elClock = $('pd-clock'), elPhase = $('pd-phase'), elSun = $('pd-sun')
     var wa = (function () { var a = document.querySelector('a[href*="wa.me/"]'); var m = a && /wa\.me\/(\d+)/.exec(a.getAttribute('href')); return m ? m[1] : '355693295827' })()
 
-    var day = null, min = 480, picked = null, playing = null, cw = 1, ch = 1, dpr = 1, T = 0
+    var day = null, min = 480, picked = null, cw = 1, ch = 1, dpr = 1, T = 0
     var ITEMS = []
 
     function clamp(v, a, b) { return v < a ? a : v > b ? b : v }
@@ -162,7 +161,7 @@
       buildItems()
       if (!keepMin) min = clamp(min, day.start, day.end)
       else min = clamp(keepMin, day.start, day.end)
-      hours(); lanes(); dates(); update(true)
+      hours(); lanes(); update(true)
     }
     function altAt(m) { var i = Math.floor(clamp(m, 0, 1439)), f = m - i; return day.alt[i] + (day.alt[i + 1] - day.alt[i]) * f }
 
@@ -205,36 +204,12 @@
         html += '<div class="pd__lane" style="--rows:' + rows.length + '"><p class="pd__lane-name">' + (ln === 'in' ? w.laneIn : w.laneOut) + '</p><div class="pd__lane-track">'
         list.forEach(function (it) {
           var a = pctOf(it.a), b = pctOf(it.vEnd)
-          html += '<button type="button" class="pd__item" data-item="' + it.id + '" title="' + w.items[it.id][0] + '" style="--a:' + Math.min(a, 100 - (b - a)).toFixed(2) + '%;--w:' + (b - a).toFixed(2) + '%;--r:' + it.row + '" aria-pressed="false"><span class="pd__item-time">' + hhmm(it.a) + '</span><span class="pd__item-name">' + w.items[it.id][0] + '</span></button>'
+          html += '<button type="button" class="pd__item" tabindex="-1" data-item="' + it.id + '" title="' + w.items[it.id][0] + '" style="--a:' + Math.min(a, 100 - (b - a)).toFixed(2) + '%;--w:' + (b - a).toFixed(2) + '%;--r:' + it.row + '" aria-pressed="false"><span class="pd__item-time">' + hhmm(it.a) + '</span><span class="pd__item-name">' + w.items[it.id][0] + '</span></button>'
         })
         html += '</div></div>'
       })
       lanesEl.innerHTML = html
-      lanesEl.querySelectorAll('[data-item]').forEach(function (b) {
-        b.addEventListener('click', function () {
-          var it = ITEMS.filter(function (x) { return x.id === b.dataset.item })[0]
-          picked = it.id; playing = null; min = it.a + Math.min(20, (it.b - it.a) / 3); update(true)
-        })
-      })
     }
-    function nextOn(month, dd) {
-      var now = parts(Date.now()), y = now.y
-      if (month < now.m || (month === now.m && dd < now.d)) y++
-      return [y, month, dd]
-    }
-    var dateSel = 'today'
-    function dates() {
-      var w = TX[lang()], keys = ['today', 'spring', 'summer', 'autumn', 'winter']
-      datesEl.innerHTML = keys.map(function (k, i) { return '<button type="button" class="pd__chip" data-date="' + k + '" aria-pressed="' + (dateSel === k) + '">' + (i ? w.seasons[i - 1] : w.today) + '</button>' }).join('')
-      datesEl.querySelectorAll('[data-date]').forEach(function (b) {
-        b.addEventListener('click', function () {
-          dateSel = b.dataset.date
-          var p = parts(Date.now()), d = dateSel === 'today' ? [p.y, p.m, p.d] : nextOn({ spring: 4, summer: 7, autumn: 10, winter: 1 }[dateSel], 15)
-          setDay(d[0], d[1], d[2], min)
-        })
-      })
-    }
-
     // ---- Light ----
     var KEYS = [
       [40, [112, 150, 186], [206, 220, 222], [128, 150, 170], [70, 96, 82], [150, 160, 110], [238, 234, 222], [255, 246, 222], 0.16],
@@ -407,7 +382,6 @@
       // pins for what is on now
       var w = TX[lang()]
       active().slice(0, 2).forEach(function (it) { pin(P[it.place], w.items[it.id][0], it.lane === 'out') })
-      grip.style.transform = 'translate(' + (clamp(s.x, 0, cw) - 30).toFixed(1) + 'px,' + (clamp(s.y, 10, H0) - 30).toFixed(1) + 'px)'
     }
     function pin(p, label, out) {
       if (!p) return
@@ -485,40 +459,29 @@
       var dl = Math.round(day.S - day.R)
       elSun.textContent = w.rise + ' ' + hhmm(day.R) + ' · ' + w.set + ' ' + hhmm(day.S) + ' · ' + w.hours(Math.floor(dl / 60), dl % 60)
       renderCard()
-      btnPlay.textContent = playing ? w.pause : w.play
       if (reduce || force || !visible) draw()
     }
-    window.__pdRelang = function () { lastCard = ''; lanes(); dates(); update(true) }
+    window.__pdRelang = function () { lastCard = ''; lanes(); update(true) }
 
-    // ---- Input ----
-    range.addEventListener('input', function () { playing = null; picked = null; min = day.start + (day.end - day.start) * (+range.value / 1000); update() })
-    function minFromX(clientX) {
-      var r = cv.getBoundingClientRect(), x = clientX - r.left, best = min, bd = 1e9
-      for (var m = day.start; m <= day.end; m += 2) { var d = Math.abs(sunXY(m).x - x); if (d < bd) { bd = d; best = m } }
-      return best
+    // ---- Scroll ----
+    // Joel, 2026-11-14: no dragging, tapping, dates or Play button. The day follows the page scroll:
+    // down moves the sun towards evening, up brings it back to the morning.
+    var goal = null
+    function scrollGoal() {
+      if (!day) return
+      var r = stage.getBoundingClientRect(), vh = window.innerHeight
+      goal = day.start + (day.end - day.start) * clamp((vh * 0.8 - r.top) / (r.height + vh * 0.4), 0, 1)
+      if (reduce || !visible) { min = goal; update(true) } else kick() // off screen: jump there, so the top is always the morning
     }
-    var dragId = null
-    function down(e) { if (e.button !== undefined && e.button !== 0) return; dragId = e.pointerId; playing = null; picked = null; try { e.currentTarget.setPointerCapture(e.pointerId) } catch (er) {} min = minFromX(e.clientX); update() }
-    function move(e) { if (dragId === e.pointerId) { min = minFromX(e.clientX); update() } }
-    function up(e) { if (dragId === e.pointerId) dragId = null }
-    ;[cv, grip].forEach(function (el) { el.addEventListener('pointerdown', down); el.addEventListener('pointermove', move); el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up) })
-    btnPlay.addEventListener('click', function () {
-      if (playing) { playing = null; update(); return }
-      if (reduce) { var n = ITEMS.filter(function (it) { return it.a > min + 1 }).sort(function (a, b) { return a.a - b.a })[0]; min = n ? n.a : day.start; update(); return }
-      if (min > day.end - 30) min = day.start
-      playing = { from: min, start: performance.now() }; picked = null; kick(); update()
-    })
+    window.addEventListener('scroll', scrollGoal, { passive: true })
+    window.addEventListener('resize', scrollGoal)
 
     // ---- Loop and size ----
     var raf = 0, visible = false, lastT = 0
     function frame(now) {
       raf = 0
       var dt = lastT ? Math.min(0.05, (now - lastT) / 1000) : 1 / 60; lastT = now; T += dt
-      if (playing) {
-        var span = day.end - playing.from, k = Math.min(1, (now - playing.start) / (span / (day.end - day.start) * 26000))
-        min = playing.from + span * k; if (k >= 1) playing = null
-        update()
-      }
+      if (goal !== null && Math.abs(goal - min) > 0.3) { min += (goal - min) * Math.min(1, dt * 6); update() }
       draw()
       if (visible) raf = requestAnimationFrame(frame); else lastT = 0
     }
@@ -537,6 +500,7 @@
     var p = parts(Date.now())
     min = Math.max(360, Math.min(1380, p.h * 60 + p.mi))
     setDay(p.y, p.m, p.d, min)
+    scrollGoal(); min = goal; update(true)
     kick()
   }
 })()

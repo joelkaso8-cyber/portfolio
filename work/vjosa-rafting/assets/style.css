@@ -596,6 +596,7 @@ html.rm .hold-row{display:none}
 .rr-slot button[aria-pressed="true"]{background:var(--accent-muted);border-color:var(--accent);color:#fff}
 .rr-light{margin:-4px 0 0;font-size:.92rem;color:var(--text-secondary)}
 #rr-book{justify-self:start}
+.rr-rail,.rr-knob{cursor:default;touch-action:auto}.rr-stage canvas{cursor:default}
 @media (max-width:900px){.rr{grid-template-columns:1fr}.rr-stage{aspect-ratio:4/5;max-height:74vh}}
 @media (max-width:560px){.rr-tick b{display:none}.rr-read dd{font-size:1.45rem}.rr-rail{height:44px}}
 @media (prefers-reduced-motion:reduce){.rr-slot button,.rr-hint{transition:none}}

@@ -586,8 +586,6 @@
      The one interactive moment: hold to go over the line
   ------------------------------------------------------------------ */
   const dropSec = $('.drop-sec');
-  const holdBtn = $('#hold');
-  const holdLabel = $('.hold-label', holdBtn);
   const raft = $('#raft');
   const dropPath = $('#dropPath');
   const bpmEl = $('#bpm');
@@ -601,7 +599,10 @@
     const pt = dropPath.getPointAtLength(DLEN * 0.83);
     splashG.setAttribute('transform', `translate(${pt.x.toFixed(1)} ${(pt.y - 4).toFixed(1)})`);
   }
-  let hp = 0, holding = false, done = false, hRaf = null, hLast = 0, lastBpm = '', lastHp = -1;
+  // Joel, 2026-11-14: no button. The drop plays as you scroll: down goes over the rapid (up to 164 bpm),
+  // up brings the raft back to the start and the heart back to 72 bpm.
+  const dropStage = $('.drop-stage', dropSec);
+  let hp = 0, goal = 0, hRaf = null, hLast = 0, lastBpm = '', lastHp = -1, isDone = false;
 
   function placeRaft(p) {
     // smooth on the flat, then gravity takes over at the lip
@@ -615,77 +616,36 @@
     const bpm = String(Math.round(72 + 92 * Math.pow(p, 1.3)));
     if (bpm !== lastBpm) { bpmEl.textContent = bpm; lastBpm = bpm; }
     if (Math.abs(p - lastHp) > 0.003 || p === 0 || p === 1) {
-      holdBtn.style.setProperty('--hp', p.toFixed(3));
       heart.style.setProperty('--hb', (1 + p * 0.28).toFixed(3));
       lastHp = p;
     }
   }
-  function holdTick(now) {
+  function setDone(v) {
+    if (v === isDone) return;
+    isDone = v;
+    dropSec.classList.toggle('done', v);
+    live.textContent = v ? DONE_TEXT : '';
+  }
+  function dropTick(now) {
     const dt = Math.min(100, now - (hLast || now));
     hLast = now;
-    if (holding && !done) {
-      hp = Math.min(1, hp + dt / 1700);
-    } else if (!done) {
-      hp += (0 - hp) * (1 - Math.pow(1 - 0.05, dt / 16.667));    // eases back, never snaps
-      if (hp < 0.0015) hp = 0;
-    }
+    hp += (goal - hp) * (1 - Math.pow(1 - 0.14, dt / 16.667));
+    if (Math.abs(goal - hp) < 0.002) hp = goal;
     placeRaft(hp);
-    if (hp >= 1 && !done) complete();
-    if ((holding && !done) || (!holding && !done && hp > 0)) hRaf = requestAnimationFrame(holdTick);
+    setDone(hp >= 0.995);
+    if (hp !== goal) hRaf = requestAnimationFrame(dropTick);
     else { hRaf = null; hLast = 0; }
   }
-  function kick() { if (hRaf === null) hRaf = requestAnimationFrame(holdTick); }
-  function complete() {
-    done = true;
-    holding = false;
-    dropSec.classList.remove('holding');
-    dropSec.classList.add('done');
-    holdLabel.textContent = 'Do it again';
-    live.textContent = DONE_TEXT;
+  function onDropScroll() {
+    if (RM.matches) return; // reduced motion keeps the finished state
+    const r = dropStage.getBoundingClientRect(), vh = window.innerHeight;
+    goal = clamp((vh * 0.85 - r.top) / (vh * 0.55), 0, 1);
+    if (hRaf === null) hRaf = requestAnimationFrame(dropTick);
   }
-  function resetDrop() {
-    done = false;
-    dropSec.classList.remove('done');
-    holdLabel.textContent = 'Hold to drop';
-    live.textContent = '';
-    kick();
-  }
-  function startHold() {
-    if (done) return;
-    holding = true;
-    dropSec.classList.add('holding');
-    kick();
-  }
-  function endHold() {
-    if (!holding) return;
-    holding = false;
-    dropSec.classList.remove('holding');
-    kick();
-  }
-  holdBtn.addEventListener('pointerdown', e => {
-    if (e.button !== 0) return;
-    if (done) { resetDrop(); return; }
-    holdBtn.setPointerCapture(e.pointerId);
-    startHold();
-  });
-  holdBtn.addEventListener('pointerup', endHold);
-  holdBtn.addEventListener('pointercancel', endHold);
-  holdBtn.addEventListener('lostpointercapture', endHold);
-  holdBtn.addEventListener('contextmenu', e => e.preventDefault());
-  holdBtn.addEventListener('keydown', e => {
-    if (e.key !== ' ' && e.key !== 'Enter') return;
-    e.preventDefault();
-    if (e.repeat) return;
-    if (done) { resetDrop(); return; }
-    startHold();
-  });
-  holdBtn.addEventListener('keyup', e => {
-    if (e.key !== ' ' && e.key !== 'Enter') return;
-    e.preventDefault();
-    endHold();
-  });
-  holdBtn.addEventListener('click', e => e.preventDefault());
+  addEventListener('scroll', onDropScroll, { passive: true });
+  addEventListener('resize', onDropScroll);
   placeRaft(0);
+  onDropScroll();
 
   /* ------------------------------------------------------------------
      Booking form (real reservation sent to WhatsApp with email fallback)
@@ -797,11 +757,7 @@
     counters.forEach(el => { el.textContent = el.dataset.to; });
     mapUpdate();
     if (hRaf !== null) { cancelAnimationFrame(hRaf); hRaf = null; }
-    holding = false;
-    hp = 1; placeRaft(1);
-    done = true;
-    dropSec.classList.add('done');
-    live.textContent = DONE_TEXT;
+    hp = goal = 1; placeRaft(1); setDone(true);
   }
   function unpinFinalStates() {
     if (!pinned) return;
@@ -809,11 +765,7 @@
     root.classList.remove('rm');
     mapDraw = -1;
     mapUpdate();
-    done = false;
-    hp = 0; placeRaft(0);
-    dropSec.classList.remove('done', 'holding');
-    holdLabel.textContent = 'Hold to drop';
-    live.textContent = '';
+    hp = 0; placeRaft(0); setDone(false); onDropScroll();
   }
   RM.addEventListener('change', e => {
     if (e.matches) pinToFinalStates();
@@ -826,7 +778,7 @@
   // Ride it (assets/river.js): loads only when its section scrolls near.
   (function () {
     const sec = document.getElementById('ride'); if (!sec) return;
-    const load = () => { const sc = document.createElement('script'); sc.src = 'assets/river.js'; document.body.appendChild(sc); };
+    const load = () => { const sc = document.createElement('script'); sc.src = 'assets/river.js?v=20261114'; document.body.appendChild(sc); };
     if (!('IntersectionObserver' in window)) return load();
     const io2 = new IntersectionObserver(es => { if (es[0].isIntersecting) { io2.disconnect(); load(); } }, { rootMargin: '600px 0px' });
     io2.observe(sec);

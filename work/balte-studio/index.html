@@ -444,30 +444,6 @@ legend{padding:0}
 .js .steps li:not(.is-on) h3,.js .steps li:not(.is-on) p{opacity:.5}
 @media (min-width:760px){.day{grid-template-columns:auto 1fr}}
 
-/* glaze picker */
-.glaze{display:grid;gap:2.25rem;align-items:center;margin-top:clamp(3rem,7vw,6rem);padding-top:clamp(2.5rem,5vw,4.5rem);border-top:1px solid var(--line)}
-.cup{position:relative;isolation:isolate;width:min(100%,clamp(15rem,27vw,25rem));aspect-ratio:240/230;margin-inline:auto}
-.cup svg{position:absolute;inset:0;width:100%;height:100%}
-.cup::after{content:"";position:absolute;z-index:-1;left:14%;right:24%;bottom:8%;height:8%;border-radius:50%;background:rgba(0,0,0,.4)}
-.cup-raw{color:#C7B59A}
-.cup-glazed{color:var(--glaze,#9DB8A6);clip-path:inset(0 0 100% 0);transition:clip-path 1.1s var(--ease)}
-.cup.is-glazed .cup-glazed{clip-path:inset(0 0 22% 0)}
-.cup.no-t .cup-glazed{transition:none}
-.cup-top{fill:rgba(20,29,35,.5)}
-.cup-shine{fill:none;stroke:rgba(255,255,255,.28);stroke-width:5;stroke-linecap:round}
-.glaze h3{font-size:clamp(1.6rem,3vw,2.5rem);line-height:1.08}
-.glaze-copy>p{margin-top:.9rem;color:#CBBDAC;max-width:30rem}
-.glazes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.65rem;max-width:25rem;margin-top:1.5rem}
-.glazes label{position:relative;display:block;aspect-ratio:1;cursor:pointer}
-.glazes input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
-.glazes .sw{display:block;width:100%;height:100%;border-radius:50%;background:var(--g);border:2px solid rgba(230,221,208,.28);transition:transform .35s var(--ease),box-shadow .25s}
-.glazes label:hover .sw{transform:scale(1.13)}
-.glazes input:active+.sw{transform:scale(.9)}
-.glazes input:checked+.sw{box-shadow:0 0 0 3px var(--umber),0 0 0 6px var(--ember)}
-.glazes input:focus-visible+.sw{outline:3px solid var(--bone);outline-offset:5px}
-.glaze-name{margin-top:1.4rem;min-height:2.2rem;font-family:var(--display);font-size:1.6rem;line-height:1.2}
-.glaze .btn{margin-top:1.1rem}
-@media (min-width:900px){.glaze{grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(3rem,7vw,7rem)}}
 
 /* scroll band between process and gallery */
 .band{background:var(--slate);overflow:hidden;padding-top:clamp(2.5rem,6vw,5rem)}
@@ -559,7 +535,6 @@ legend{padding:0}
   .js h2.split.in .wi{transform:none}
   .js .foot-mark .fl{opacity:0;transform:translateY(55%);transition:opacity .8s,transform 1.1s var(--ease);transition-delay:calc(var(--n,0) * 90ms)}
   .js .foot-mark.in .fl{opacity:1;transform:none}
-  .cup.is-glazed{animation:cup-pop .7s var(--ease)}
   @keyframes cup-pop{from{transform:scale(.92) rotate(-4deg)}}
   .ticket dd.pop{animation:tk-pop .5s var(--ease)}
   @keyframes tk-pop{from{opacity:0;transform:translateY(.5em)}}
@@ -723,34 +698,6 @@ legend{padding:0}
       <li class="rv" data-day="8"><h3 data-i="p3n">You pick a glaze</h3><p data-i="p3d">Day 8. Choose one of 12 glazes. We dip the piece and fire it again at 1,240 °C.</p></li>
       <li class="rv" data-day="14"><h3 data-i="p4n">You take it home</h3><p data-i="p4d">Day 14. We message you on WhatsApp when it is ready. Safe for food and for the dishwasher.</p></li>
     </ol>
-    <div class="glaze" id="glaze">
-      <div class="cup rv" id="cup" aria-hidden="true">
-        <svg class="cup-raw" viewBox="0 0 240 230" focusable="false"><use href="#cup-shape"/></svg>
-        <svg class="cup-glazed" viewBox="0 0 240 230" focusable="false"><use href="#cup-shape"/></svg>
-        <svg viewBox="0 0 240 230" focusable="false"><ellipse class="cup-top" cx="110" cy="60" rx="53" ry="6.5"/><path class="cup-shine" d="M74 86q-5 44 6 84"/></svg>
-      </div>
-      <div class="glaze-copy rv">
-        <h3 data-i="gh3">Try a glaze on your cup.</h3>
-        <p data-i="gp">Twelve glazes sit on our shelf. Tap one to dip the cup, and we note it on your booking.</p>
-        <fieldset class="glazes">
-          <legend class="vh" data-i="tkg">Glaze</legend>
-          <label><input type="radio" name="glaze" data-c="#9DB8A6"><span class="sw" style="--g:#9DB8A6"></span><span class="vh" data-i="g1">Celadon</span></label>
-          <label><input type="radio" name="glaze" data-c="#6F7F4F"><span class="sw" style="--g:#6F7F4F"></span><span class="vh" data-i="g2">Moss</span></label>
-          <label><input type="radio" name="glaze" data-c="#3A2A20"><span class="sw" style="--g:#3A2A20"></span><span class="vh" data-i="g3">Tenmoku</span></label>
-          <label><input type="radio" name="glaze" data-c="#4F6C93"><span class="sw" style="--g:#4F6C93"></span><span class="vh" data-i="g4">Cobalt wash</span></label>
-          <label><input type="radio" name="glaze" data-c="#CDBE9E"><span class="sw" style="--g:#CDBE9E"></span><span class="vh" data-i="g5">Oatmeal</span></label>
-          <label><input type="radio" name="glaze" data-c="#E2DCCD"><span class="sw" style="--g:#E2DCCD"></span><span class="vh" data-i="g6">Ash white</span></label>
-          <label><input type="radio" name="glaze" data-c="#8E4A32"><span class="sw" style="--g:#8E4A32"></span><span class="vh" data-i="g7">Iron red</span></label>
-          <label><input type="radio" name="glaze" data-c="#56636B"><span class="sw" style="--g:#56636B"></span><span class="vh" data-i="g8">Slate</span></label>
-          <label><input type="radio" name="glaze" data-c="#C08A3E"><span class="sw" style="--g:#C08A3E"></span><span class="vh" data-i="g9">Honey</span></label>
-          <label><input type="radio" name="glaze" data-c="#BFD0CF"><span class="sw" style="--g:#BFD0CF"></span><span class="vh" data-i="g10">Sea salt</span></label>
-          <label><input type="radio" name="glaze" data-c="#2B2F31"><span class="sw" style="--g:#2B2F31"></span><span class="vh" data-i="g11">Charcoal</span></label>
-          <label><input type="radio" name="glaze" data-c="#B79F7D"><span class="sw" style="--g:#B79F7D"></span><span class="vh" data-i="g12">Sand</span></label>
-        </fieldset>
-        <p class="glaze-name" id="glazeName" aria-live="polite"></p>
-        <a class="btn btn-ember" href="#book" data-i="gbook">Book with this glaze</a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -911,7 +858,6 @@ legend{padding:0}
       <dl class="ticket" id="ticket">
         <div><dt data-i="tkc">Class</dt><dd id="tkClass"></dd></div>
         <div><dt data-i="tkw">When</dt><dd id="tkWhen"></dd></div>
-        <div><dt data-i="tkg">Glaze</dt><dd id="tkGlaze"></dd></div>
         <div><dt data-i="tkt">Total</dt><dd><span id="tkTotal"></span><small data-i="tkpaid">paid at the studio</small></dd></div>
       </dl>
       <button class="btn btn-ember" type="submit" id="send"><svg class="icon icon-fill" aria-hidden="true"><use href="#i-wa"/></svg><span id="sendTxt" data-i="fsend">Send request on WhatsApp</span></button>
@@ -1029,7 +975,6 @@ function checkBooking(o) {
 }
 function buildMsg(t, o) {
   var l = [t.mHi, t.mClass + ': ' + o.cls, t.mDate + ': ' + o.date + ', ' + o.time, t.mPeople + ': ' + o.people, t.mName + ': ' + o.name];
-  if (o.glaze) l.push(t.mGlaze + ': ' + o.glaze);
   if (o.note) l.push(t.mNote + ': ' + o.note);
   return l.join('\n');
 }
@@ -1169,7 +1114,7 @@ function setLang(l, save) {
   $$('.js-wa').forEach(function (a) { a.setAttribute('href', waUrl(WA, S[lang].mAsk)); });
   var fr = $('#map iframe'); if (fr) fr.setAttribute('title', S[lang].mapTitle);
   renderFigs(1); renderStatus(); renderTicket(); clearErrors(); liveDate(); formMsg.textContent = '';
-  renderWho(); renderDay(); renderGlaze(); splitHeads();
+  renderWho(); renderDay(); splitHeads();
   if (save) { try { localStorage.setItem('balte-lang', lang); } catch (e) {} }
 }
 $$('.lang button').forEach(function (b) { b.addEventListener('click', function () { setLang(b.getAttribute('data-lang'), true); }); });
@@ -1353,7 +1298,6 @@ function renderTicket() {
   var p = PRICES[fClass.value], n = Math.max(1, Math.min(14, parseInt(fPeople.value, 10) || 1)), L = S[lang], dt = dateObj();
   put($('#tkClass'), fClass.options[fClass.selectedIndex].textContent.split(',')[0]);
   put($('#tkWhen'), dt ? L.wd[dt.getDay()] + ', ' + dt.getDate() + ' ' + L.mo[dt.getMonth()] + ', ' + timeVal() : L.tkPick);
-  put($('#tkGlaze'), glazeName() || L.tkNoGlaze);
   put($('#tkTotal'), p[1] === 'flat' ? L.tFlat.replace('{x}', money(p[0])) : p[1] === 'hr' ? L.tHr.replace('{x}', money(p[0])) : money(p[0] * n));
 }
 function classRules() {
@@ -1421,7 +1365,7 @@ form.addEventListener('submit', function (e) {
     cls: fClass.options[fClass.selectedIndex].textContent,
     // written out by hand: not every browser ships Albanian date names
     date: L.wd[dt.getDay()] + ', ' + dt.getDate() + ' ' + L.mo[dt.getMonth()] + ' ' + dt.getFullYear(),
-    time: o.time, people: o.people, name: o.name, glaze: glazeName(), note: clean(fNote.value, 300)
+    time: o.time, people: o.people, name: o.name, note: clean(fNote.value, 300)
   });
   var url = waUrl(WA, text), bot = $('#f-web').value !== '';
   // opened inside the tap so popup blockers allow it; the honeypot skips the open
@@ -1474,20 +1418,6 @@ function dayPlay() {
 }
 dayR.addEventListener('input', function () { dayStop(); renderDay(); });
 dayR.addEventListener('pointerdown', dayStop);
-
-/* ---------- glaze picker ---------- */
-var cup = $('#cup'), glazeRadios = $$('input[name="glaze"]'), glazeNameEl = $('#glazeName');
-function glazeName() { var r = glazeRadios.filter(function (x) { return x.checked; })[0]; return r ? $('.vh', r.parentNode).textContent : ''; }
-function renderGlaze() { glazeNameEl.textContent = glazeName() || S[lang].gNone; }
-glazeRadios.forEach(function (r) {
-  r.addEventListener('change', function () {
-    // pull the glaze off without a transition, swap the colour, then dip again
-    cup.classList.add('no-t'); cup.classList.remove('is-glazed'); void cup.offsetWidth;
-    cup.style.setProperty('--glaze', r.getAttribute('data-c'));
-    cup.classList.remove('no-t'); cup.classList.add('is-glazed');
-    renderGlaze(); renderTicket();
-  });
-});
 
 /* ---------- headings rise word by word ---------- */
 function splitHeads() {
