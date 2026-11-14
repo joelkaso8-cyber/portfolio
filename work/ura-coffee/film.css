@@ -1,50 +1,25 @@
-/* Scroll film, framed: the film sits in a large rounded window on the paper, the chapter text beside it.
-   The section is several screens tall; the stage sticks while the scroll position drives the film. */
-.film { position: relative; height: 560vh; }
-.film__stage { position: sticky; top: 0; height: 100svh; overflow: hidden; background: var(--paper); }
-.film__frame {
-  position: absolute; z-index: 1; top: 92px; bottom: 44px; right: var(--gut); width: 54vw;
-  border-radius: 28px; overflow: hidden; background: var(--paper-2) center / cover no-repeat;
-  box-shadow: 0 40px 80px -48px rgba(27, 22, 19, .55), 0 0 0 1px var(--line);
-}
-.film__frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s ease; }
-.film__stage.is-ready .film__frame video { opacity: 1; }
-.film__band {
-  position: absolute; z-index: 2; top: 92px; bottom: 44px; left: var(--gut); width: calc(46vw - 2 * var(--gut) - 32px);
-  display: flex; flex-direction: column; justify-content: center; gap: 22px;
-  opacity: 0; visibility: hidden; will-change: opacity, transform;
-}
-.film__frame + .film__band { opacity: 1; visibility: visible; }
-.film__band .btn { align-self: flex-start; }
-.film__dots { position: absolute; z-index: 3; right: calc(var(--gut) / 2 - 12px); top: 50%; transform: translateY(-50%); display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; font: 700 .7rem/1 var(--sans); letter-spacing: .1em; color: var(--muted); }
-.film__dots li { transition: color .3s ease, transform .3s ease; }
-.film__dots li.is-on { color: var(--accent); transform: translateX(-4px); }
-.film__bar { position: absolute; z-index: 3; left: 0; right: 0; bottom: 0; height: 3px; background: var(--line); }
+/* Scroll film (shared by the scroll-video demos). Colours come from each site's own tokens. */
+.film { position: relative; height: 420vh; }
+.film__stage { position: sticky; top: 0; height: 100svh; overflow: hidden; background: var(--ground) center / cover no-repeat; }
+.film__stage video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s ease; }
+.film__stage.is-ready video { opacity: 1; }
+.film__stage::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, color-mix(in oklab, var(--ground) 82%, transparent), transparent 55%), linear-gradient(to bottom, color-mix(in oklab, var(--ground) 55%, transparent), transparent 22%); pointer-events: none; }
+.film__band { position: absolute; z-index: 2; left: var(--gut); right: var(--gut); bottom: clamp(56px, 10vh, 110px); max-width: 860px; opacity: 0; visibility: hidden; will-change: opacity, transform; }
+.film__band:first-of-type { opacity: 1; visibility: visible; }
+.film__bar { position: absolute; z-index: 3; left: 0; right: 0; bottom: 0; height: 3px; background: color-mix(in oklab, var(--ink) 15%, transparent); }
 .film__bar i { display: block; height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
-.film__load { position: absolute; z-index: 25; top: 0; left: 0; right: 0; height: 2px; background: var(--line); transition: opacity .6s ease .2s; pointer-events: none; }
+/* Loading line along the top edge while the film downloads; it fades once the film is ready. */
+.film__load { position: absolute; z-index: 25; top: 0; left: 0; right: 0; height: 2px; background: color-mix(in oklab, var(--ink) 12%, transparent); transition: opacity .6s ease .2s; pointer-events: none; }
 .film__load i { display: block; height: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0.02); transition: transform .25s linear; }
 .film__load.is-unknown i { width: 30%; transform: none; animation: loadslide 1.2s ease-in-out infinite; }
 @keyframes loadslide { from { margin-left: -30%; } to { margin-left: 100%; } }
 .film__load.is-done { opacity: 0; }
-.film__cue { position: absolute; z-index: 2; left: var(--gut); bottom: 18px; display: flex; align-items: center; gap: 10px; margin: 0; font: 700 .72rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
-.film__cue::after { content: ""; width: 42px; height: 1px; background: currentColor; transform-origin: left; animation: cue 1.8s ease-in-out infinite; }
-@keyframes cue { 0% { transform: scaleX(0); } 60% { transform: scaleX(1); } 100% { transform: scaleX(1); opacity: 0; } }
-
-/* Phones held upright: the film on top, the chapter text underneath. */
-@media (max-width: 760px), (max-aspect-ratio: 4/5) {
-  .film { height: 480vh; }
-  .film__frame { top: 72px; left: var(--gut); right: var(--gut); bottom: auto; width: auto; height: 48svh; border-radius: 22px; }
-  .film__band { top: calc(72px + 48svh + 18px); bottom: 28px; right: var(--gut); width: auto; justify-content: flex-start; gap: 12px; }
-  .film__dots, .film__cue { display: none; }
-}
-
-/* No film (reduced motion, or it failed to load): one screen with the poster and the first chapter. */
+.film__cue { position: absolute; z-index: 2; right: var(--gut); bottom: clamp(56px, 10vh, 110px); display: grid; justify-items: center; gap: 8px; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); opacity: .8; }
+.film__cue::after { content: ""; width: 1px; height: 46px; background: linear-gradient(var(--ink), transparent); animation: cue 1.8s ease-in-out infinite; }
+@keyframes cue { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+/* No film (reduced motion, or it failed to load): one screen, the poster, the first line only. */
 .film--still { height: auto; }
-.film--still .film__stage { position: relative; min-height: 100svh; }
-.film--still .film__band ~ .film__band, .film--still .film__bar, .film--still .film__cue, .film--still .film__dots { display: none; }
-@media (prefers-reduced-motion: reduce) {
-  .film { height: auto; }
-  .film__stage { position: relative; min-height: 100svh; }
-  .film__band ~ .film__band, .film__bar, .film__cue, .film__dots { display: none; }
-  .film__cue::after { animation: none; }
-}
+.film--still .film__stage { position: relative; }
+.film--still .film__band:not(:first-of-type), .film--still .film__bar, .film--still .film__cue { display: none; }
+@media (prefers-reduced-motion: reduce) { .film { height: auto; } .film__stage { position: relative; } .film__band:not(:first-of-type), .film__bar, .film__cue { display: none; } .film__cue::after { animation: none; } }
+@media (max-width: 700px) { .film { height: 360vh; } .film__cue { display: none; } }
