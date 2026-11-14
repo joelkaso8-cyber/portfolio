@@ -294,6 +294,8 @@ input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offs
 .plan > p:not(.price):not(.tag) { color: var(--muted); }
 .plan .ticks { flex: 1; margin: 6px 0 10px; }
 .plan .btn { margin-top: auto; }
+.plan__demo { margin-top: -4px; font-size: .9rem; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; }
+.plan__demo:hover { color: var(--ink); }
 .plan--main { border-color: rgba(229, 184, 105, .42); background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(229, 184, 105, .13), transparent 70%), var(--surface); box-shadow: 0 40px 80px -45px rgba(229, 184, 105, .35); }
 .price b { color: var(--ink); font-size: 2.4rem; letter-spacing: -0.03em; }
 .price s { margin-left: 6px; color: var(--muted); }
