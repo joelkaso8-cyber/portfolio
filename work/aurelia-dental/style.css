@@ -141,3 +141,7 @@ input:focus, select:focus { outline: 2px solid var(--mint); outline-offset: 0; }
 @media (max-width: 560px) { .treat, .gallery, .row { grid-template-columns: 1fr; } .seg { grid-template-columns: repeat(2, 1fr); } .seg--2 { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
 
+
+/* Tap targets: the demo ribbon and the emergency call link are at least 44px high */
+.demo-ribbon { min-height: 44px; display: flex; align-items: center; justify-content: center; }
+.urgent a[href^="tel:"] { display: inline-flex; align-items: center; min-height: 44px; }

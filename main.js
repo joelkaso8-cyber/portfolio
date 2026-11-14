@@ -9,7 +9,7 @@
     { id: 'avull-hammam', film: true, name: 'Avull Hammam & Spa', cat: 'local', tag: 'demo', where: { en: 'Hammam and spa · Stockbridge, Edinburgh', sq: 'Hammam dhe spa · Stockbridge, Edinburgh' },
       chips: { en: ['Candle film that plays as you scroll', '4-step booking with calendar and live slots', 'Find-your-ritual quiz', 'Gift voucher you can save', 'Quiet-times chart'], sq: ['Film qiriri që luan me scroll', 'Rezervim në 4 hapa me kalendar dhe orare', 'Kuiz për ritualin', 'Kupon dhuratë që ruhet', 'Grafik i orëve të qeta'] } },
     { id: 'ura-coffee', film: true, name: 'Ura Coffee Roasters', cat: 'food', tag: 'demo', where: { en: 'Coffee roastery · Glasgow, UK', sq: 'Furrë kafeje · Glasgow, Skoci' },
-      chips: { en: ['Espresso film that plays as you scroll', 'Bean shop with bag', 'Subscription builder', 'Live café hours'], sq: ['Film espreso që luan me scroll', 'Dyqan kafeje me shportë', 'Abonim', 'Orari live'] } },
+      chips: { en: ['Espresso film that plays as you scroll', 'Table booking and pick-up orders on WhatsApp', 'Menu with diet filters', 'Live hours and directions', 'Bean shop with bag'], sq: ['Film espreso që luan me scroll', 'Rezervim tavoline dhe porosi në WhatsApp', 'Menu me filtra diete', 'Orari live dhe rruga', 'Dyqan kafeje me shportë'] } },
     { id: 'balte-studio', film: true, name: 'Baltë Studio', cat: 'local', tag: 'demo', where: { en: 'Pottery studio · Tirana, Albania', sq: 'Studio qeramike · Tiranë, Shqipëri' },
       chips: { en: ['Clay film that plays as you scroll', 'Class booking on WhatsApp', 'Fanned photo gallery', 'Live opening hours', 'EN / SQ'], sq: ['Film balte që luan me scroll', 'Rezervim kursesh në WhatsApp', 'Galeri fotosh si freskore', 'Orari live', 'EN / SQ'] } },
     { id: 'dallge-surf', film: true, name: 'Dallgë Surf School', cat: 'local', tag: 'demo', where: { en: 'Surf school · Newquay, Cornwall', sq: 'Shkollë surfi · Newquay, Angli' },
@@ -27,7 +27,7 @@
     { id: 'northline-barbers', film: true, name: 'Northline Barbers', cat: 'local', tag: 'demo', where: { en: 'Barber shop · Manchester, UK', sq: 'Berberi · Mançester, Angli' },
       chips: { en: ['Barber film that plays as you scroll', '4-step booking with live free slots', 'Book via WhatsApp', 'EN / SQ'], sq: ['Film berberie me scroll', 'Rezervim në 4 hapa me orare të lira', 'Rezervo në WhatsApp', 'EN / SQ'] } },
     { id: 'kaso-ervehe', name: 'Hotel Kaso Ervehe', cat: 'stay', tag: 'client', where: { en: 'Family hotel · Përmet, Albania', sq: 'Hotel familjar · Përmet, Shqipëri' },
-      chips: { en: ['Scroll film hero', 'Booking calendar', 'EN / SQ', 'Route on Google Maps', 'Bookings to Telegram'], sq: ['Film me scroll', 'Kalendar rezervimi', 'EN / SQ', 'Rruga në Google Maps', 'Rezervime në Telegram'] } },
+      chips: { en: ['Scroll film hero', 'Dates and guests on the first screen', 'Booking calendar', 'EN / SQ', 'Route on Google Maps', 'Bookings to Telegram'], sq: ['Film me scroll', 'Datat dhe mysafirët në ekranin e parë', 'Kalendar rezervimi', 'EN / SQ', 'Rruga në Google Maps', 'Rezervime në Telegram'] } },
     { id: 'kala-build', name: 'Kala Build & Renovate', cat: 'local', tag: 'demo', where: { en: 'Renovation company · Birmingham, UK', sq: 'Kompani rinovimi · Birmingham, Angli' },
       chips: { en: ['Before / after slider', 'Price estimator', 'Postcode check', 'Quote form'], sq: ['Para / pas me rrëshqitje', 'Llogaritës çmimi', 'Kontroll i zonës', 'Formular oferte'] } },
     { id: 'aurelia-dental', name: 'Aurelia Dental Studio', cat: 'local', tag: 'demo', where: { en: 'Dental clinic · Leeds, UK', sq: 'Klinikë dentare · Lids, Angli' },
@@ -39,7 +39,7 @@
     { id: 'ullishta', name: 'Ullishta', cat: 'stay', tag: 'concept', where: { en: 'Boutique hotel concept', sq: 'Koncept hoteli boutique' },
       chips: { en: ['Photo slideshow', 'Scroll motion', 'Booking calendar'], sq: ['Slideshow fotosh', 'Lëvizje me scroll', 'Kalendar rezervimi'] } },
     { id: 'vjosa-rafting', film: true, name: 'Vjosa Rafting', cat: 'local', tag: 'project', where: { en: 'Rafting trips · Vjosa river, Albania', sq: 'Rafting · lumi Vjosa, Shqipëri' },
-      chips: { en: ['Video hero', 'River photo backgrounds', 'Built for phones'], sq: ['Video në hyrje', 'Sfonde me lumin', 'E ndërtuar për telefon'] } },
+      chips: { en: ['Video hero', 'Price, time and meeting point at a glance', 'Book on WhatsApp in 1 tap', 'Built for phones'], sq: ['Video në hyrje', 'Çmimi, koha dhe pika e takimit me një shikim', 'Rezervo në WhatsApp me 1 prekje', 'E ndërtuar për telefon'] } },
     { id: 'brolin-tattoo', film: true, name: 'Brolin Tattoo', cat: 'local', tag: 'project', where: { en: 'Tattoo studio', sq: 'Studio tatuazhesh' },
       chips: { en: ['Ink film hero', 'Work gallery', 'Dark editorial look'], sq: ['Film me bojë në hyrje', 'Galeri punësh', 'Pamje e errët editoriale'] } },
   ]
@@ -59,6 +59,16 @@
   // "Live Client Site" and the footer says it is live. Then also update case.lead, case.s2 and case.s3, which say the site launches soon. Turn KASO_QUOTE on only if the hotel said those words and agreed to be quoted.
   var KASO_LIVE = false
   var KASO_QUOTE = false
+
+  // Which package each showcase sells. The preview window shows it as a badge, the card names it, and
+  // "I want a site like this" opens the quick quote on that package. Sites not listed here get no badge.
+  var TIER = { 'vjosa-rafting': 'starter', 'ura-coffee': 'business', 'kaso-ervehe': 'premium' }
+  // What the quick quote picks for each package (business type and features), so the price matches the badge.
+  var TIER_QUOTE = {
+    starter: { type: 'trade', needs: ['wa', 'gallery'] },
+    business: { type: 'food', needs: ['booking', 'wa', 'menu', 'langs', 'google'] },
+    premium: { type: 'stay', needs: ['booking', 'wa', 'langs', 'gallery', 'google'] }
+  }
 
   // Counts a button press if analytics.js is on (see the README). Does nothing otherwise.
   function track(name) { try { document.dispatchEvent(new CustomEvent('jk:track', { detail: name })) } catch (e) {} }
@@ -146,6 +156,7 @@
       'footer.note': 'Hotel Kaso Ervehe is a real client: my family’s hotel in Përmet. The interactive industry showcases (such as Vjosa Rafting and Ura Coffee Roasters) are custom concept builds with made-up names, made to show how booking and ordering work. Demo photos: Wikimedia Commons, credited on each site.', 'footer.privacy': 'Privacy policy', 'footer.top': 'Back to top ↑',
       'viewer.desk': 'Desktop', 'viewer.phone': 'Phone', 'viewer.qr': 'Try it on your phone', 'viewer.qrhint': 'Point your phone camera at the code to open this site on your own phone.',
       'viewer.want': 'I want a site like this', 'viewer.open': 'Open in new tab ↗', 'wa.msg': "Hi Joel, I'd like a website.",
+      'tier.starter': 'Starter package example · 390€', 'tier.business': 'Business package example · 590€', 'tier.premium': 'Premium package example · 1.190€', 'tier.premiumLive': 'Premium package · live client site · 1.190€',
       'wall.title': 'Live sites, not mockups', 'wall.lead': 'Tap any screen to try that site the way your customers would.',
       'dome.title': 'Every site, on a phone', 'dome.lead': 'Most of your customers will see your site on a phone. Drag to spin it, tap a screen to open that site.',
       'badge.role': 'Web designer · Albania', 'badge.scan': 'Scan to message me on WhatsApp', 'badge.hint': 'Drag the badge. Tap it to flip.',
@@ -229,6 +240,7 @@
       'footer.note': 'Hotel Kaso Ervehe është klient real: hoteli i familjes sime në Përmet. Modelet interaktive të demonstrimit (si Vjosa Rafting dhe Ura Coffee Roasters) janë ndërtime koncepti me emra të shpikur, të bëra për të treguar si funksionojnë rezervimet dhe porositë. Fotot e demove: Wikimedia Commons, të përmendura në secilën faqe.', 'footer.privacy': 'Politika e privatësisë', 'footer.top': 'Kthehu lart ↑',
       'viewer.desk': 'Kompjuter', 'viewer.phone': 'Telefon', 'viewer.qr': 'Provoje në telefon', 'viewer.qrhint': 'Drejtoje kamerën e telefonit te kodi për ta hapur këtë faqe në telefonin tënd.',
       'viewer.want': 'Dua një faqe si kjo', 'viewer.open': 'Hap në skedë të re ↗', 'wa.msg': 'Përshëndetje Joel, dua një website.',
+      'tier.starter': 'Shembull i paketës Starter · 390€', 'tier.business': 'Shembull i paketës Biznes · 590€', 'tier.premium': 'Shembull i paketës Premium · 1.190€', 'tier.premiumLive': 'Paketa Premium · faqe klienti live · 1.190€',
       'wall.title': 'Faqe që punojnë, jo vetëm foto', 'wall.lead': 'Prek çdo ekran dhe provoje faqen si klientët e tu.',
       'dome.title': 'Çdo faqe, në telefon', 'dome.lead': 'Shumica e klientëve do ta shohin faqen tënde në telefon. Tërhiqe për ta rrotulluar, prek një ekran për ta hapur.',
       'badge.role': 'Dizajner web · Shqipëri', 'badge.scan': 'Skano për të më shkruar në WhatsApp', 'badge.hint': 'Tërhiqe kartën. Prek për ta kthyer.',
@@ -243,6 +255,8 @@
   var pageUrl = function () { return location.pathname + (lang === 'sq' ? '?lang=sq' : '') + location.hash }
   var t = function (k) { return T[lang][k] }
   var money = function (n) { return n.toLocaleString('de-DE') + '€' } // Joel's format in both languages: 1.190€
+  // "Starter package example · 390€" for a site in TIER, or '' for the others.
+  var tierLabel = function (w) { var k = w && TIER[w.id]; return k ? t(k === 'premium' && KASO_LIVE ? 'tier.premiumLive' : 'tier.' + k) : '' }
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches
   var filter = 'all'
@@ -263,7 +277,7 @@
       a.href = 'work/' + w.id + '/index.html'; a.target = '_blank'; a.rel = 'noopener noreferrer'
       a.style.transitionDelay = (i % 2) * 90 + 'ms'
       a.innerHTML = '<div class="item__shot"><img class="desk" loading="lazy" decoding="async" alt=""><img class="phone" loading="lazy" decoding="async" alt=""></div>' +
-        '<div class="item__meta"><h3></h3><span class="badge"></span></div><p class="item__where"></p><ul class="chips"></ul><span class="item__open"></span>'
+        '<div class="item__meta"><h3></h3><span class="badge"></span></div><p class="item__where"></p><p class="item__tier" hidden></p><ul class="chips"></ul><span class="item__open"></span>'
       var imgs = a.querySelectorAll('img')
       imgs[0].width = 1200; imgs[0].height = 750; imgs[1].width = 390; imgs[1].height = 844
       imgs[0].src = 'img/' + w.id + '-desk.webp'; imgs[0].alt = w.name + t('shot')
@@ -275,6 +289,7 @@
       var tag = a.querySelector('.badge'); tag.textContent = TAGS[w.tag][lang]; tag.classList.add('badge--' + w.tag)
       if (w.film) { var fb = document.createElement('span'); fb.className = 'film-badge'; fb.textContent = t('film'); a.querySelector('.item__shot').appendChild(fb) }
       a.querySelector('.item__where').textContent = w.where[lang]
+      var tierEl = a.querySelector('.item__tier'); tierEl.textContent = tierLabel(w); tierEl.hidden = !tierEl.textContent
       w.chips[lang].forEach(function (c) { var li = document.createElement('li'); li.textContent = c; a.querySelector('.chips').appendChild(li) })
       a.querySelector('.item__open').textContent = t('open')
       a.addEventListener('click', function (e) {
@@ -498,6 +513,7 @@
     var url = 'work/' + w.id + '/index.html'
     viewing = w
     $('#viewer-title').textContent = w.name
+    var vt = $('#viewer-tier'); vt.textContent = tierLabel(w); vt.hidden = !vt.textContent
     $('#viewer-open').href = url
     frame.contentWindow.location.replace(new URL(url, location.href).href) // replace, not src: the preview must not add its own Back steps
     setMode('desk'); setQr(false)
@@ -645,17 +661,32 @@
     track('quote-copy')
     if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fail); else fail()
   })
-  // "Start with this" on a plan picks that business type and moves on to the features.
-  $$('[data-quote]').forEach(function (a) { a.addEventListener('click', function () { Q.type = a.dataset.quote; Q.like = ''; goStep(2) }) })
+  // "Start with this" on a plan picks that business type and that package's features, then moves on to the features.
+  // (With the default features the 390€ plan would open at 590€.)
+  $$('[data-quote]').forEach(function (a) { a.addEventListener('click', function () { var tq = TIER_QUOTE[PLAN[a.dataset.quote]]; Q.type = a.dataset.quote; if (tq) Q.needs = tq.needs.slice(); Q.like = ''; goStep(2) }) })
 
   // "I want a site like this" in the viewer: closes it and opens the quote summary with that site named.
   $('#viewer-want').addEventListener('click', function (e) {
     e.preventDefault()
     var w = viewing
     closeViewer()
-    if (w) { Q.like = w.name; Q.type = { stay: 'stay', food: 'food', local: 'trade' }[w.cat] || 'other' }
+    if (w) {
+      Q.like = w.name
+      var tq = TIER_QUOTE[TIER[w.id]]
+      // A showcase with a package opens the quote on that package; any other site picks the closest business type.
+      if (tq) { Q.type = tq.type; Q.needs = tq.needs.slice() } else Q.type = { stay: 'stay', food: 'food', local: 'trade' }[w.cat] || 'other'
+      track('viewer-want-' + w.id)
+    }
     goStep(3)
-    $('#quote').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' })
+    // Closing steps the browser back to the portfolio entry, and that step puts back the old scroll position.
+    // So the scroll to the quote waits for that step (or 500 ms if the browser takes no step).
+    var done = false, go = function () {
+      if (done) return; done = true; removeEventListener('popstate', onPop)
+      requestAnimationFrame(function () { $('#quote').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }) })
+    }
+    var onPop = function () { setTimeout(go, 30) }
+    addEventListener('popstate', onPop)
+    setTimeout(go, 500)
   })
 
   // Phone menu: the button opens the same five links; a link, Escape or a second tap closes it.

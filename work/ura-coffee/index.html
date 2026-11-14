@@ -6,16 +6,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Ura Coffee Roasters · Glasgow (demo)</title>
-  <meta name="description" content="Demo website by Joel Kaso: a Glasgow coffee roastery with a scroll-driven espresso film, bean shop, subscription builder and café hours." />
+  <meta name="description" content="Demo website by Joel Kaso: a Glasgow coffee roastery with a scroll-driven espresso film, table booking and pick-up orders on WhatsApp, a filterable café menu, bean shop and café hours." />
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#18110d" />
   <link href="gfonts/gf-2bd94e26.css" rel="stylesheet" />
   <link rel="preload" as="image" href="media/poster.jpg" />
   <link rel="stylesheet" href="film.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20261114" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%2318110d'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='17' text-anchor='middle' fill='%23d49a64'%3EU%3C/text%3E%3C/svg%3E" />
   <meta property="og:title" content="Ura Coffee Roasters · Glasgow (demo)" />
-  <meta property="og:description" content="Demo website by Joel Kaso: a Glasgow coffee roastery with a scroll-driven espresso film, bean shop, subscription builder and café hours." />
+  <meta property="og:description" content="Demo website by Joel Kaso: a Glasgow coffee roastery with a scroll-driven espresso film, table booking and pick-up orders on WhatsApp, a filterable café menu, bean shop and café hours." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://joelkaso8-cyber.github.io/portfolio/work/ura-coffee/" />
   <meta property="og:image" content="https://joelkaso8-cyber.github.io/portfolio/work/ura-coffee/og.jpg" />
@@ -28,7 +28,8 @@
   <a class="demo-ribbon" href="../../index.html#work">Demo by Joel Kaso ↗</a>
   <header class="top" id="top-bar">
     <a class="brand" href="#">Ura<span>Coffee Roasters</span></a>
-    <nav class="top__links" aria-label="Main"><a href="#beans">Beans</a><a href="#subscribe">Subscribe</a><a href="#cafe">Café</a><a href="#menu">Menu</a><a href="#wholesale">Wholesale</a></nav>
+    <nav class="top__links" aria-label="Main"><a href="#beans">Beans</a><a href="#subscribe">Subscribe</a><a href="#carte">Menu</a><a href="#cafe">Visit</a><a href="#wholesale">Wholesale</a></nav>
+    <a class="top__book" href="#book">Book a table</a>
     <button class="bag-btn" type="button" id="bag-open"><span class="sr">Your bag, items:</span> <span id="bag-count">0</span></button>
   </header>
 
@@ -42,7 +43,7 @@
         </div>
         <div class="film__band" data-a="0.26" data-b="0.48"><p class="big">Tamp it <em>level.</em></p><p class="small">18 grams, 15 kilos of pressure, no gaps.</p></div>
         <div class="film__band" data-a="0.5" data-b="0.74"><p class="big">Let it <em>bloom.</em></p><p class="small">The first drops come through dark and slow.</p></div>
-        <div class="film__band" data-a="0.76" data-b="1"><p class="big">Then it <em>pours.</em></p><p class="small">36 grams in 28 seconds. Every bag on this page is roasted for this moment.</p><a class="btn" href="#beans">Shop the beans</a></div>
+        <div class="film__band" data-a="0.76" data-b="1"><p class="big">Then it <em>pours.</em></p><p class="small">36 grams in 28 seconds. Every bag on this page is roasted for this moment.</p><div class="film__ctas"><a class="btn" href="#book">Book a table</a><a class="btn btn--line" href="#beans">Shop the beans</a></div></div>
         <p class="film__cue">Scroll</p>
         <div class="film__bar"><i></i></div>
       </div>
@@ -69,19 +70,57 @@
       </form>
     </section>
 
-    <section class="section cafe" id="cafe">
-      <figure class="cafe__photo reveal"><img src="media/ending.jpg" alt="Espresso pouring from a bottomless portafilter" loading="lazy" /></figure>
-      <div class="reveal">
-        <h2>The café</h2>
-        <p class="status" id="open-status"></p>
-        <p>Trongate, Merchant City, Glasgow G1 · Espresso, filter, pastries from the bakery next door.</p>
-        <ul class="hours" id="hours"></ul>
-      </div>
-    </section>
-
     <section class="section menu" id="menu" aria-labelledby="menu-title">
       <div class="head reveal"><h2 id="menu-title">What we pour</h2><p>Hover or tap a drink to watch it made. Whole, oat or skimmed milk at no extra cost.</p></div>
       <div class="pour-menu reveal" id="pour-menu" aria-busy="true"></div>
+    </section>
+
+    <!-- Full café menu (book.js): category tabs, diet filters, prices, and + to add a drink or bake to a pick-up order. -->
+    <section class="section carte" id="carte" aria-labelledby="carte-title">
+      <div class="head reveal"><h2 id="carte-title">The full menu</h2><p>Pastries come warm from the bakery next door. Brunch until 14:00. Tap + to add anything to a pick-up order.</p></div>
+      <div class="carte__bar reveal">
+        <div class="tabs" role="group" aria-label="Menu section" id="carte-cats"></div>
+        <div class="tabs tabs--diet" role="group" aria-label="Dietary filter" id="carte-diet"></div>
+      </div>
+      <ul class="carte__list reveal" id="carte-list" aria-live="polite"></ul>
+      <p class="carte__key"><span><b>V</b> vegetarian</span><span><b>VG</b> vegan</span><span><b>GF</b> gluten-free</span><span><b>N</b> contains nuts</span> Ask us about allergens: we keep a full list at the counter.</p>
+    </section>
+
+    <!-- Visit: open status, hours, address and map, WhatsApp; next to it the table / pick-up booking card (book.js). -->
+    <section class="section cafe" id="cafe" aria-labelledby="cafe-title">
+      <div class="visit reveal">
+        <figure class="cafe__photo"><img src="media/ending.jpg" alt="Espresso pouring from a bottomless portafilter at the Ura café" width="1280" height="720" loading="lazy" decoding="async" /></figure>
+        <h2 id="cafe-title">Visit the café</h2>
+        <p class="status" id="open-status"></p>
+        <address class="visit__where">Ura Coffee Roasters<br />Trongate, Merchant City, Glasgow G1<br /><span>Espresso, filter and pastries from the bakery next door.</span></address>
+        <div class="visit__actions">
+          <a class="btn btn--wa" id="visit-wa" href="https://wa.me/" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.1-.2Z"/></svg><span>Ask us on WhatsApp</span></a>
+          <a class="btn btn--line" href="https://www.google.com/maps/search/?api=1&amp;query=Trongate%2C%20Merchant%20City%2C%20Glasgow" target="_blank" rel="noopener noreferrer">Directions ↗</a>
+          <a class="btn btn--line" href="tel:+441414960000">Call</a>
+        </div>
+        <ul class="hours" id="hours" aria-label="Opening hours"></ul>
+      </div>
+
+      <form class="card bk reveal" id="book" aria-labelledby="bk-title" novalidate>
+        <div class="bk__head"><h3 id="bk-title">Book a table or order ahead</h3><p>Pick a time. We confirm on WhatsApp, usually within minutes while we are open.</p></div>
+        <fieldset><legend>I want to</legend><div class="seg seg--2" id="bk-mode"></div></fieldset>
+        <fieldset><legend>Day</legend><div class="seg" id="bk-day"></div></fieldset>
+        <fieldset><legend id="bk-time-l">Time</legend><div class="times" id="bk-time" role="radiogroup" aria-labelledby="bk-time-l"></div><p class="bk__closed" id="bk-closed" hidden></p></fieldset>
+        <div class="bk__guests" id="bk-guests">
+          <span id="bk-gl">Guests</span>
+          <div class="stepper" role="group" aria-labelledby="bk-gl"><button type="button" id="bk-minus" aria-label="One guest fewer">−</button><output id="bk-n" aria-live="polite">2</output><button type="button" id="bk-plus" aria-label="One more guest">+</button></div>
+        </div>
+        <div class="bk__order" id="bk-order" hidden>
+          <ul id="bk-items"></ul>
+          <p class="bk__empty" id="bk-empty">Nothing yet. Add from the menu above, or tap one of these:</p>
+          <div class="bk__quick" id="bk-quick"></div>
+          <p class="bk__sum" id="bk-sum"></p>
+        </div>
+        <label class="bk__name">Your name (optional)<input name="name" id="bk-name" autocomplete="given-name" maxlength="40" /></label>
+        <div class="bk__preview"><p class="bk__preview-l">The café gets this on WhatsApp</p><p class="bubble" id="bk-msg"></p></div>
+        <a class="btn bk__go" id="bk-go" href="https://wa.me/" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.1-.2Z"/></svg><span>Send on WhatsApp</span></a>
+        <p class="bk__note">Demo: Ura is a made-up café, so WhatsApp asks who to send it to. Send it to yourself to see what the owner gets.</p>
+      </form>
     </section>
 
     <section class="section wholesale" id="wholesale">
@@ -113,6 +152,7 @@
   </dialog>
   <script src="scrub.js"></script>
   <script src="main.js"></script>
+  <script src="book.js"></script>
 <script src="form-guard.js" defer></script>
 </body>
 </html>
