@@ -73,9 +73,6 @@
   }
   var lang = store.get('nl-lang') || ((navigator.languages || []).some(function (l) { return /^sq/i.test(l) }) ? 'sq' : 'en')
   if (!T[lang]) lang = 'en'
-  // Design your cut (fade.js)
-  Object.assign(T.en, { 'nav.fade': 'Your cut', 'fade.title': 'Design your cut', 'fade.lead': 'Drag the fade line on the head or use the controls. We tell you what to ask for, who to book and what it costs.' })
-  Object.assign(T.sq, { 'nav.fade': 'Prerja jote', 'fade.title': 'Krijo prerjen tënde', 'fade.lead': 'Tërhiq vijën e fade-it në kokë ose përdor kontrollet. Të themi çfarë të kërkosh, me kë të rezervosh dhe sa kushton.' })
   var t = function (k, v) { var s = T[lang][k] != null ? T[lang][k] : T.en[k]; if (v && typeof s === 'string') Object.keys(v).forEach(function (x) { s = s.split('{' + x + '}').join(v[x]) }); return s }
 
   // [name en, name sq, note en, note sq, minutes, price]
@@ -291,15 +288,6 @@
   $$('.g').forEach(function (g) { g.addEventListener('click', function () { var img = $('img', box); img.src = g.dataset.full; img.alt = $('img', g).alt; box.showModal() }) })
   box.addEventListener('click', function (e) { if (e.target === box) box.close() })
   render()
-  // Design your cut (fade.js): loads only when its section scrolls near.
-  var fadeSec = $('#fade')
-  if (fadeSec) {
-    var loadFade = function () { var sc = document.createElement('script'); sc.src = 'fade.js'; document.body.appendChild(sc) }
-    if ('IntersectionObserver' in window) {
-      var fdIo = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { fdIo.disconnect(); loadFade() } }, { rootMargin: '600px 0px' })
-      fdIo.observe(fadeSec)
-    } else loadFade()
-  }
 
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target) } }) }, { rootMargin: '0px 0px -10% 0px' })

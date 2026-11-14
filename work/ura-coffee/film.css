@@ -3,7 +3,7 @@
 .film__stage { position: sticky; top: 0; height: 100svh; overflow: hidden; background: var(--ground) center / cover no-repeat; }
 .film__stage video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s ease; }
 .film__stage.is-ready video { opacity: 1; }
-.film__stage::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, color-mix(in oklab, var(--ground) 82%, transparent), transparent 55%), linear-gradient(to bottom, color-mix(in oklab, var(--ground) 55%, transparent), transparent 22%); pointer-events: none; }
+.film__stage::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, color-mix(in oklab, var(--ground) 88%, transparent), color-mix(in oklab, var(--ground) 68%, transparent) 38%, transparent 72%), linear-gradient(to top, color-mix(in oklab, var(--ground) 88%, transparent), transparent 65%), linear-gradient(to bottom, color-mix(in oklab, var(--ground) 55%, transparent), transparent 22%); pointer-events: none; }
 .film__band { position: absolute; z-index: 2; left: var(--gut); right: var(--gut); bottom: clamp(56px, 10vh, 110px); max-width: 860px; opacity: 0; visibility: hidden; will-change: opacity, transform; }
 .film__band:first-of-type { opacity: 1; visibility: visible; }
 .film__bar { position: absolute; z-index: 3; left: 0; right: 0; bottom: 0; height: 3px; background: color-mix(in oklab, var(--ink) 15%, transparent); }

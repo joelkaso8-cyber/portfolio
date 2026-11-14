@@ -120,12 +120,4 @@
   } else $$('.reveal').forEach(function (el) { el.classList.add('is-in') })
   $('#credits').textContent = 'Photos from Wikimedia Commons: ' + CREDITS.map(function (c) { return c[0] + ' (' + c[1] + ')' }).join(', ') + '.'
   renderCats(); renderList(); renderBasket()
-  // The polish bar (polish.js): loads only when its section scrolls near.
-  ;(function () {
-    var sec = document.getElementById('polish'); if (!sec) return
-    var load = function () { var sc = document.createElement('script'); sc.src = 'polish.js'; document.body.appendChild(sc) }
-    if (!('IntersectionObserver' in window)) return load()
-    var io2 = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io2.disconnect(); load() } }, { rootMargin: '600px 0px' })
-    io2.observe(sec)
-  })()
 })()

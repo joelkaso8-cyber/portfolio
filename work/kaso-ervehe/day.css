@@ -2,9 +2,7 @@
 .pd-sec{padding-bottom:var(--section-gap-s);scroll-margin-top:96px}
 .pd{display:grid;gap:var(--space-sm)}
 .pd__stage{position:relative;width:100%;aspect-ratio:21/9;overflow:hidden;border-radius:var(--radius-card);background:var(--color-paper-2);box-shadow:var(--edge-light),var(--shadow-card)}
-.pd__stage canvas{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;touch-action:pan-y;cursor:ew-resize}
-.pd__grip{position:absolute;left:0;top:0;z-index:2;width:60px;height:60px;border-radius:50%;touch-action:none;cursor:grab}
-.pd__grip:active{cursor:grabbing}
+.pd__stage canvas{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;touch-action:pan-y;cursor:default}
 .pd__clock{position:absolute;z-index:3;left:var(--space-md);top:var(--space-md);display:flex;align-items:baseline;gap:var(--space-sm);margin:0;padding:var(--space-xs) var(--space-md);border-radius:var(--radius-pill);pointer-events:none}
 .pd__clock b{font:var(--display-weight) var(--text-2xl)/1 var(--font-display);letter-spacing:var(--tracking-display);font-variant-numeric:tabular-nums;color:var(--color-ink)}
 .pd__clock span{font-size:var(--text-sm);color:var(--color-ink-2)}
@@ -53,3 +51,4 @@
   .pd__card{padding:var(--space-lg);min-height:0}
 }
 @media (prefers-reduced-motion:reduce){.pd__item,.pd__chip{transition:none}}
+.pd__item,.pd__scrub input{pointer-events:none}

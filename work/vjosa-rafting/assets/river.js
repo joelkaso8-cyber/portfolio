@@ -1,4 +1,4 @@
-/* Ride it: the 8.7 km Vjosa run as a river you float and steer, from the put-in near Përmet to the take-out.
+/* Ride it: the 8.7 km Vjosa run as a river the raft floats down as you scroll, from the put-in near Përmet to the take-out.
    Everything shown comes from the page: two Class II rapids, Cliff Jump Rock, the Pebble Beach swim stop,
    2.5 to 3 hours on the water, and the €30 morning, afternoon and custom tours. */
 (function () {
@@ -8,11 +8,10 @@
   root.dataset.ready = '1'
 
   function $(id) { return document.getElementById(id) }
-  var stage = $('rr-stage'), cv = $('rr-canvas'), ctx = cv.getContext('2d'), grip = $('rr-grip'), hint = $('rr-hint')
-  var rail = $('rr-rail'), knob = $('rr-knob'), fillEl = $('rr-fill')
+  var stage = $('rr-stage'), cv = $('rr-canvas'), ctx = cv.getContext('2d')
+  var knob = $('rr-knob'), fillEl = $('rr-fill')
   var elStop = $('rr-stop'), elCls = $('rr-cls'), elText = $('rr-text'), elKm = $('rr-km'), elTime = $('rr-time'), elNext = $('rr-next'), elCall = $('rr-call')
-  var elClean = $('rr-clean'), elBumps = $('rr-bumps'), elJumps = $('rr-jumps'), elLight = $('rr-light')
-  var btnFloat = $('rr-float'), btnRestart = $('rr-restart'), btnJump = $('rr-jump'), btnBook = $('rr-book')
+  var elLight = $('rr-light'), btnBook = $('rr-book')
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
   var MONO = "'Martian Mono', ui-monospace, Consolas, monospace"
 
@@ -415,7 +414,6 @@
     ctx.restore()
     var paddling = moving || steering ? T * (7 + 5 * k) : 0
     raftShape(x, y, ang, 1 + 0.07 * lift, true, '#EE3F2F', paddling)
-    grip.style.transform = 'translate(' + (x - 36).toFixed(1) + 'px,' + (y - 36).toFixed(1) + 'px)'
     return { x: x, y: y }
   }
 
@@ -597,14 +595,6 @@
     set(elNext, 'textContent', nx ? 'Next: ' + nx.name + ' in ' + Math.max(0.1, (nx.f - f) * KM).toFixed(1) + ' km' : 'Then the transfer back to central Përmet.')
     var key = callKey()
     set(elCall, 'textContent', key ? 'Guide: “' + CALLS[key] + '”' : '')
-    set(elClean, 'textContent', cleanCount() + '/2')
-    set(elBumps, 'textContent', String(bumps))
-    set(elJumps, 'textContent', String(jumps))
-    var nearCliff = Math.abs(s - CLIFF) < 60
-    if (btnJump.hidden === nearCliff) btnJump.hidden = !nearCliff
-    btnJump.disabled = !!jump
-    set(btnFloat, 'textContent', reduce ? (s >= L - 0.5 ? 'Float it again' : 'Next stop') : playing ? 'Pause' : s >= L - 0.5 ? 'Float it again' : s > 1 ? 'Keep floating' : 'Start floating')
-    btnFloat.setAttribute('aria-pressed', playing ? 'true' : 'false')
     var pc = (f * 100).toFixed(2) + '%'
     knob.style.left = pc; fillEl.style.width = pc
     knob.setAttribute('aria-valuenow', (f * KM).toFixed(1))
@@ -630,91 +620,16 @@
     if (reduce) { var prev = s; s = ns; passes(prev, s, true); lat = latT = steering ? clamp(latT, -wid(s) / 2 + 1.7, wid(s) / 2 - 1.7) : autoLat(s); camX = cen(s + (ch * 0.5 - y0) / S * 0.7); kick(); return }
     sGoal = ns; kick()
   }
-  function interacted() { if (hint) hint.classList.add('off') }
-
-  // ---- Input ----
-  function latFromX(clientX) { var r = cv.getBoundingClientRect(); return camX + (clientX - r.left - cw / 2) / S - cen(s) }
-
-  // steer by dragging or tapping across the water (vertical swipes still scroll the page on touch)
-  var steerId = null
-  cv.addEventListener('pointerdown', function (e) {
-    if (e.button !== undefined && e.button !== 0) return
-    steerId = e.pointerId; steering = true; latT = latFromX(e.clientX); interacted()
-    try { cv.setPointerCapture(e.pointerId) } catch (er) {}
-    kick()
-  })
-  cv.addEventListener('pointermove', function (e) { if (steerId === e.pointerId) { latT = latFromX(e.clientX); kick() } })
-  function endSteer(e) { if (steerId === e.pointerId) steerId = null }
-  cv.addEventListener('pointerup', endSteer); cv.addEventListener('pointercancel', endSteer)
-
-  // grab the raft: pull it down to run the river, push it up to go back, slide it sideways to steer
-  grip.addEventListener('pointerdown', function (e) {
-    if (e.button !== undefined && e.button !== 0) return
-    e.preventDefault()
-    grab = { id: e.pointerId, x0: e.clientX, y0: e.clientY, pull: 0, vis: 0 }
-    playing = false; sGoal = null; interacted()
-    try { grip.setPointerCapture(e.pointerId) } catch (er) {}
-    kick()
-  })
-  grip.addEventListener('pointermove', function (e) {
-    if (!grab || grab.id !== e.pointerId) return
-    var dx = e.clientX - grab.x0, dy = e.clientY - grab.y0
-    if (Math.abs(dx) > 8 || steering) { steering = true; latT = latFromX(e.clientX) }
-    grab.pull = Math.abs(dy) < 6 ? 0 : clamp(dy, -80, 160)
-    if (reduce) { goto(s + grab.pull * 0.4); grab.y0 = e.clientY; grab.pull = 0 }
-    kick()
-  })
-  function endGrab(e) { if (grab && grab.id === e.pointerId) { grab = null; kick() } }
-  grip.addEventListener('pointerup', endGrab); grip.addEventListener('pointercancel', endGrab)
-
-  cv.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-      e.preventDefault(); interacted()
-      if (!steering) { steering = true; latT = lat }
-      latT += e.key === 'ArrowLeft' ? -2.5 : 2.5; kick()
-    } else if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); btnFloat.click() }
-  })
-
-  // the route rail: drag the raft along all six stops
-  var railId = null
-  function railF(clientX) { var r = rail.getBoundingClientRect(); return clamp((clientX - r.left) / r.width, 0, 1) }
-  rail.addEventListener('pointerdown', function (e) {
-    if (e.button !== undefined && e.button !== 0) return
-    railId = e.pointerId; playing = false; interacted()
-    try { rail.setPointerCapture(e.pointerId) } catch (er) {}
-    goto(railF(e.clientX) * L)
-  })
-  rail.addEventListener('pointermove', function (e) { if (railId === e.pointerId) goto(railF(e.clientX) * L) })
-  function endRail(e) { if (railId === e.pointerId) railId = null }
-  rail.addEventListener('pointerup', endRail); rail.addEventListener('pointercancel', endRail)
-  knob.addEventListener('keydown', function (e) {
-    var km = L / KM, cur = sGoal !== null ? sGoal : s, d = null
-    if (e.key === 'ArrowRight' || e.key === 'ArrowUp') d = cur + 0.1 * km
-    else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') d = cur - 0.1 * km
-    else if (e.key === 'PageUp') d = cur + km
-    else if (e.key === 'PageDown') d = cur - km
-    else if (e.key === 'Home') d = 0
-    else if (e.key === 'End') d = L
-    if (d === null) return
-    e.preventDefault(); playing = false; interacted(); goto(d)
-  })
-
-  btnFloat.addEventListener('click', function () {
-    interacted()
-    if (s >= L - 0.5) restart()
-    if (reduce) {
-      for (var i = 0; i < STOPS.length; i++) if (STOPS[i].s > s + 1) { goto(STOPS[i].s); return }
-      return
-    }
-    if (sGoal !== null) { var prev = s; s = sGoal; sGoal = null; passes(prev, s, true) }
-    playing = !playing; kick()
-  })
-  btnRestart.addEventListener('click', function () { restart(); kick() })
-  btnJump.addEventListener('click', function () {
-    if (jump) return
-    if (reduce) { jumps++; event('jump'); kick(); return }
-    jump = { t: 0 }; kick()
-  })
+  // Joel, 2026-11-14: no dragging, steering or buttons. The run follows the page scroll:
+  // down floats downstream, up paddles back to the put-in. The guide steers the lines.
+  function scrollRun() {
+    var r = stage.getBoundingClientRect(), vh = window.innerHeight, ns = clamp((vh * 0.75 - r.top) / (r.height + vh * 0.5), 0, 1) * L
+    if (r.bottom > 0 && r.top < vh) return goto(ns)
+    // off screen (measured now; the observer reports a frame late): jump straight there, so scrolling back up always finds the raft at the put-in
+    s = ns; sGoal = null; lat = latT = autoLat(s); latV = 0; camX = cen(s + (ch * 0.5 - y0) / S * 0.7); ui()
+  }
+  window.addEventListener('scroll', scrollRun, { passive: true })
+  window.addEventListener('resize', scrollRun)
 
   var SLOTS = {
     morning: { sun: -1, light: 'Morning light: crisp air and calmer canyon water.', book: 'Book the Morning Run · €30' },
@@ -730,13 +645,6 @@
     kick()
   }
   slotBtns.forEach(function (b) { b.addEventListener('click', function () { setSlot(b.dataset.slot) }) })
-
-  function restart() {
-    s = 0; lat = latT = latV = 0; steering = false; playing = false; sGoal = null; grab = null
-    bumps = 0; jumps = 0; jump = null; lastEv = null; shake = 0; spray = []
-    RAPIDS.forEach(function (r) { r.clean = false; r.pass = null; r.rocks.forEach(function (q) { q.hit = false; q.flash = 0 }) })
-    camX = cen((ch * 0.5 - y0) / S * 0.7)
-  }
 
   // ---- Size and visibility ----
   function resize() {
@@ -755,5 +663,6 @@
   } else { visible = true }
   setSlot('afternoon')
   resize()
+  scrollRun()
   kick()
 })()
