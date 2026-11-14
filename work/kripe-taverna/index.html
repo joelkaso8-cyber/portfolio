@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kripë · Fish taverna on Himarë harbour</title>
+  <meta name="description" content="Kripë, a family fish taverna on Spile harbour in Himarë. See what the boat brought in today, priced by the kilo, and book a table on WhatsApp. Demo site by Joel Kaso.">
+  <meta name="theme-color" content="#1aa6ac">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kripë · Fish taverna on Himarë harbour">
+  <meta property="og:description" content="Today's catch, priced by the kilo, and a table booked on WhatsApp. A demo site by Joel Kaso.">
+  <meta property="og:image" content="https://joelkaso8-cyber.github.io/portfolio/work/kripe-taverna/og.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/big-shoulders-display.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/barlow-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script>try{if(localStorage.getItem('kripe-lang')==='sq')document.documentElement.lang='sq'}catch(e){}</script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-t="skip">Skip to content</a>
+
+  <header class="rail">
+    <div class="rail__band">
+      <a class="rail__name" href="#top" aria-label="Kripë, back to the top">Kripë</a>
+      <nav class="rail__nav" aria-label="Sections">
+        <a href="#catch" data-t="nav.catch">The catch</a>
+        <a href="#menu" data-t="nav.menu">Menu</a>
+        <a href="#find" data-t="nav.find">Find us</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language / Gjuha">
+        <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" data-lang="sq" aria-pressed="false" lang="sq">SQ</button>
+      </div>
+      <a class="rail__book" href="#book" data-t="nav.book">Book a table</a>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hull" id="top" aria-labelledby="name">
+      <div class="hull__paint">
+        <h1 class="name" id="name"><span class="name__word">Kripë</span><span class="sr">, fish taverna, Himarë</span></h1>
+        <p class="reg" aria-hidden="true">VL 214 · Himarë</p>
+        <div class="hull__band">
+          <p class="hook" data-t="hero.hook">Fish taverna on Spile harbour. The menu is what the boat brings in.</p>
+          <p class="live">
+            <span class="live__chip" data-live="today">Today's catch is on ice</span>
+            <span class="live__open" data-live="open">Every day 12:00–23:30</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="waterline">
+        <div class="tide" aria-hidden="true"></div>
+        <form class="plate quick" id="quick" aria-labelledby="q-title">
+          <h2 class="plate__title" id="q-title" data-t="q.title">Book a table</h2>
+          <fieldset class="seg">
+            <legend class="field__label" data-t="q.day">Day</legend>
+            <div class="seg__row">
+              <label><input type="radio" name="q-day" value="today" data-bind="day" checked><span data-t="q.today">Today</span></label>
+              <label><input type="radio" name="q-day" value="tomorrow" data-bind="day"><span data-t="q.tomorrow">Tomorrow</span></label>
+              <label><input type="radio" name="q-day" value="other" data-bind="day"><span data-t="q.other">Other day</span></label>
+            </div>
+          </fieldset>
+          <label class="field field--date" hidden><span class="field__label" data-t="q.date">Date</span><select data-bind="date"></select></label>
+          <label class="field field--time"><span class="field__label" data-t="q.time">Time</span>
+            <select data-bind="time"><option value="1200">12:00</option><option value="1230">12:30</option><option value="1300">13:00</option><option value="1900">19:00</option><option value="1930">19:30</option><option value="2000" selected>20:00</option><option value="2030">20:30</option><option value="2100">21:00</option></select>
+          </label>
+          <div class="field field--people">
+            <span class="field__label" id="q-people" data-t="q.people">People</span>
+            <div class="stepper" role="group" aria-labelledby="q-people">
+              <button type="button" data-step="people-" aria-label="One person fewer" data-t-attr="aria-label:q.less"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12"/></svg></button>
+              <output data-bind="people" aria-live="polite">2</output>
+              <button type="button" data-step="people+" aria-label="One person more" data-t-attr="aria-label:q.more"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M10 4v12"/></svg></button>
+            </div>
+          </div>
+          <a class="btn btn--red quick__send" data-wa href="https://wa.me/355690000214" target="_blank" rel="noopener"><span data-t="q.send">Book on WhatsApp</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg></a>
+          <p class="quick__sum" data-sum aria-live="polite">Table for 2, today, 20:00</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="sea sea--catch" id="catch" aria-labelledby="catch-title">
+      <div class="wrap catch-wrap">
+        <div class="catch__head">
+          <h2 class="h2" id="catch-title" data-t="catch.title">In the boat today</h2>
+          <p class="catch__log" data-live="log">Out at five, back by nine</p>
+        </div>
+
+        <ul class="catch" role="list">
+          <li class="fish fish--koc" data-fish="koc">
+            <button class="fish__btn" type="button" aria-pressed="false" aria-controls="detail">
+              <img class="fish__img" src="img/fish-koc.webp" width="724" height="372" alt="" loading="lazy" decoding="async">
+              <span class="fish__tag">
+                <span class="fish__sq">Koc</span>
+                <span class="fish__en">Gilthead bream</span>
+                <span class="fish__line"><span class="fish__price">3,400 L/kg</span> <span class="fish__eur">≈ €34</span></span>
+                <span class="fish__left">Ask today</span>
+              </span>
+            </button>
+          </li>
+          <li class="fish fish--fangri" data-fish="fangri">
+            <button class="fish__btn" type="button" aria-pressed="false" aria-controls="detail">
+              <img class="fish__img" src="img/fish-fangri.webp" width="766" height="417" alt="" loading="lazy" decoding="async">
+              <span class="fish__tag">
+                <span class="fish__sq">Fangri</span>
+                <span class="fish__en">Red porgy</span>
+                <span class="fish__line"><span class="fish__price">4,200 L/kg</span> <span class="fish__eur">≈ €42</span></span>
+                <span class="fish__left">Ask today</span>
+              </span>
+            </button>
+          </li>
+          <li class="fish fish--oktapod" data-fish="oktapod">
+            <button class="fish__btn" type="button" aria-pressed="false" aria-controls="detail">
+              <img class="fish__img" src="img/fish-oktapod.webp" width="1067" height="1032" alt="" loading="lazy" decoding="async">
+              <span class="fish__tag">
+                <span class="fish__sq">Oktapod</span>
+                <span class="fish__en">Octopus</span>
+                <span class="fish__line"><span class="fish__price">2,600 L/kg</span> <span class="fish__eur">≈ €26</span></span>
+                <span class="fish__left">Ask today</span>
+              </span>
+            </button>
+          </li>
+          <li class="fish fish--barbun" data-fish="barbun">
+            <button class="fish__btn" type="button" aria-pressed="false" aria-controls="detail">
+              <img class="fish__img" src="img/fish-barbun.webp" width="1100" height="494" alt="" loading="lazy" decoding="async">
+              <span class="fish__tag">
+                <span class="fish__sq">Barbun</span>
+                <span class="fish__en">Red mullet</span>
+                <span class="fish__line"><span class="fish__price">2,800 L/kg</span> <span class="fish__eur">≈ €28</span></span>
+                <span class="fish__left">Ask today</span>
+              </span>
+            </button>
+          </li>
+          <li class="fish fish--kallamar" data-fish="kallamar">
+            <button class="fish__btn" type="button" aria-pressed="false" aria-controls="detail">
+              <img class="fish__img" src="img/fish-kallamar.webp" width="1100" height="714" alt="" loading="lazy" decoding="async">
+              <span class="fish__tag">
+                <span class="fish__sq">Kallamar</span>
+                <span class="fish__en">Squid</span>
+                <span class="fish__line"><span class="fish__price">2,400 L/kg</span> <span class="fish__eur">≈ €24</span></span>
+                <span class="fish__left">Ask today</span>
+              </span>
+            </button>
+          </li>
+        </ul>
+        <p class="lead catch__lead" data-t="catch.lead">Fish is sold by the kilo and weighed in front of you. When it is gone, it is gone. Tap a fish to hold one for your table.</p>
+
+        <aside class="detail plate plate--light is-empty" id="detail" tabindex="-1" aria-labelledby="d-name" aria-live="polite">
+          <div class="detail__empty">
+            <h3 class="detail__name" data-t="d.pick">Pick your fish</h3>
+            <ol class="steps">
+              <li data-t="d.s1">Tap a fish in the water.</li>
+              <li data-t="d.s2">Choose how we cook it and how much.</li>
+              <li data-t="d.s3">We weigh it and hold it for your table.</li>
+            </ol>
+            <p class="note" data-t="catch.demo">Demo data: the catch changes every day.</p>
+          </div>
+          <div class="detail__body">
+            <div class="detail__top">
+              <h3 class="detail__name" id="d-name">Koc</h3>
+              <button type="button" class="icon-btn" id="d-close" aria-label="Close" data-t-attr="aria-label:d.close"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+            </div>
+            <p class="detail__sub" id="d-sub">Gilthead bream · Sparus aurata</p>
+            <fieldset class="seg seg--light">
+              <legend class="field__label" data-t="d.how">How we cook it</legend>
+              <div class="seg__row" id="d-cooks"></div>
+            </fieldset>
+            <div class="field">
+              <span class="field__label" id="d-much-l" data-t="d.much">How much</span>
+              <div class="stepper stepper--light" role="group" aria-labelledby="d-much-l">
+                <button type="button" id="d-less" aria-label="Half a kilo less" data-t-attr="aria-label:d.less"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12"/></svg></button>
+                <output id="d-kg" aria-live="polite">1.0 kg</output>
+                <button type="button" id="d-more" aria-label="Half a kilo more" data-t-attr="aria-label:d.more"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M10 4v12"/></svg></button>
+              </div>
+            </div>
+            <p class="detail__est" id="d-est">about 3,400 L</p>
+            <button type="button" class="btn btn--navy detail__hold" id="d-hold">Hold it for my table</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="sea sea--ways" aria-labelledby="salt-title">
+      <div class="wrap ways">
+        <div class="salt">
+          <h2 class="salt__title" id="salt-title" data-t="salt.title">Kripë means salt</h2>
+          <p class="salt__text" data-t="salt.text">The house way: the whole fish baked under a crust of sea salt from the Narta pans, cracked open at your table. It keeps every bit of moisture in, and nothing else goes on it but lemon and olive oil from the hills above Himarë.</p>
+        </div>
+        <ul class="ways__list" role="list">
+          <li><h3 class="ways__name" lang="sq">Në skarë</h3><p data-t="ways.grill">Over olive-wood coals, with oregano picked on the hill. The way most people want it.</p></li>
+          <li><h3 class="ways__name" lang="sq">E skuqur</h3><p data-t="ways.fry">For the small ones: red mullet and squid, dusted in flour and fried in a minute.</p></li>
+          <li><h3 class="ways__name" lang="sq">Në tavë</h3><p data-t="ways.pot">Octopus and the day’s soup go in the clay pot with onion, tomato and a glass of white.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sea sea--menu" id="menu" aria-labelledby="menu-title">
+      <div class="wrap">
+        <div class="menu__head">
+          <h2 class="h2" id="menu-title" data-t="menu.title">Menu</h2>
+          <p class="note" data-t="menu.note">Demo prices in Albanian lek. Euro is approximate. We take cards and cash.</p>
+        </div>
+        <div class="menu">
+          <section class="menu__group menu__group--boat" aria-labelledby="m-boat">
+            <h3 class="menu__title" id="m-boat"><span data-t="menu.boat">From the boat</span> <small data-t="menu.boat.note">priced by the kilo, weighed at the table</small></h3>
+            <ul class="dishes" id="menu-boat" role="list">
+              <li class="dish"><span class="dish__name">Koc</span><span class="dish__desc">Gilthead bream</span><span class="dish__price"><b>3,400 L</b>/kg</span></li>
+              <li class="dish"><span class="dish__name">Fangri</span><span class="dish__desc">Red porgy</span><span class="dish__price"><b>4,200 L</b>/kg</span></li>
+              <li class="dish"><span class="dish__name">Barbun</span><span class="dish__desc">Red mullet</span><span class="dish__price"><b>2,800 L</b>/kg</span></li>
+              <li class="dish"><span class="dish__name">Oktapod</span><span class="dish__desc">Octopus</span><span class="dish__price"><b>2,600 L</b>/kg</span></li>
+              <li class="dish"><span class="dish__name">Kallamar</span><span class="dish__desc">Squid</span><span class="dish__price"><b>2,400 L</b>/kg</span></li>
+            </ul>
+          </section>
+          <section class="menu__group" aria-labelledby="m-meze">
+            <h3 class="menu__title" id="m-meze" data-t="menu.meze">Small plates</h3>
+            <ul class="dishes" role="list">
+              <li class="dish"><span class="dish__name">Midhje në avull</span><span class="dish__desc" data-en="Mussels steamed with white wine and garlic" data-sq="Midhje në avull me verë të bardhë dhe hudhër">Mussels steamed with white wine and garlic</span><span class="dish__price" data-lek="900">900 L</span></li>
+              <li class="dish"><span class="dish__name">Karkaleca saganaki</span><span class="dish__desc" data-en="Prawns baked with tomato and white cheese" data-sq="Karkaleca të pjekura me domate dhe djathë të bardhë">Prawns baked with tomato and white cheese</span><span class="dish__price" data-lek="1200">1,200 L</span></li>
+              <li class="dish"><span class="dish__name">Sardele të marinuara</span><span class="dish__desc" data-en="Sardines marinated in lemon and onion" data-sq="Sardele të marinuara me limon dhe qepë">Sardines marinated in lemon and onion</span><span class="dish__price" data-lek="700">700 L</span></li>
+              <li class="dish"><span class="dish__name">Tarator</span><span class="dish__desc" data-en="Yoghurt, cucumber, garlic and walnuts" data-sq="Kos, kastravec, hudhër dhe arra">Yoghurt, cucumber, garlic and walnuts</span><span class="dish__price" data-lek="450">450 L</span></li>
+              <li class="dish"><span class="dish__name">Ullinj të Himarës</span><span class="dish__desc" data-en="Olives from the groves above Himarë" data-sq="Ullinj nga ullishtat mbi Himarë">Olives from the groves above Himarë</span><span class="dish__price" data-lek="300">300 L</span></li>
+            </ul>
+          </section>
+          <section class="menu__group" aria-labelledby="m-pot">
+            <h3 class="menu__title" id="m-pot" data-t="menu.pot">From the pot</h3>
+            <ul class="dishes" role="list">
+              <li class="dish"><span class="dish__name">Çorbë peshku</span><span class="dish__desc" data-en="Fisherman’s soup from whatever the boat gave us" data-sq="Çorbë peshkatari me atë që dha barka sot">Fisherman’s soup from whatever the boat gave us</span><span class="dish__price" data-lek="800">800 L</span></li>
+              <li class="dish"><span class="dish__name">Oktapod në tavë</span><span class="dish__desc" data-en="Octopus baked in clay with onion and red wine" data-sq="Oktapod në tavë balte me qepë dhe verë të kuqe">Octopus baked in clay with onion and red wine</span><span class="dish__price" data-lek="1600">1,600 L</span></li>
+              <li class="dish"><span class="dish__name">Makarona me fruta deti</span><span class="dish__desc" data-en="Spaghetti with mussels, prawns and squid" data-sq="Makarona me midhje, karkaleca dhe kallamar">Spaghetti with mussels, prawns and squid</span><span class="dish__price" data-lek="1400">1,400 L</span></li>
+            </ul>
+          </section>
+          <section class="menu__group" aria-labelledby="m-sides">
+            <h3 class="menu__title" id="m-sides" data-t="menu.sides">Salads and sides</h3>
+            <ul class="dishes" role="list">
+              <li class="dish"><span class="dish__name">Sallatë fshati</span><span class="dish__desc" data-en="Tomato, cucumber, onion, white cheese and olives" data-sq="Domate, kastravec, qepë, djathë i bardhë dhe ullinj">Tomato, cucumber, onion, white cheese and olives</span><span class="dish__price" data-lek="600">600 L</span></li>
+              <li class="dish"><span class="dish__name">Lakra të egra</span><span class="dish__desc" data-en="Wild greens with lemon and olive oil" data-sq="Lakra të egra me limon dhe vaj ulliri">Wild greens with lemon and olive oil</span><span class="dish__price" data-lek="450">450 L</span></li>
+              <li class="dish"><span class="dish__name">Patate të skuqura</span><span class="dish__desc" data-en="Hand-cut chips" data-sq="Patate të prera me dorë">Hand-cut chips</span><span class="dish__price" data-lek="350">350 L</span></li>
+              <li class="dish"><span class="dish__name">Bukë shtëpie</span><span class="dish__desc" data-en="Bread from the wood oven" data-sq="Bukë nga furra me dru">Bread from the wood oven</span><span class="dish__price" data-lek="150">150 L</span></li>
+            </ul>
+          </section>
+          <section class="menu__group" aria-labelledby="m-drink">
+            <h3 class="menu__title" id="m-drink" data-t="menu.drink">To drink</h3>
+            <ul class="dishes" role="list">
+              <li class="dish"><span class="dish__name">Raki rrushi</span><span class="dish__desc" data-en="House grape raki, a glass" data-sq="Raki rrushi e shtëpisë, një gotë">House grape raki, a glass</span><span class="dish__price" data-lek="200">200 L</span></li>
+              <li class="dish"><span class="dish__name">Verë e bardhë</span><span class="dish__desc" data-en="House white, half a litre" data-sq="Verë e bardhë e shtëpisë, gjysmë litri">House white, half a litre</span><span class="dish__price" data-lek="900">900 L</span></li>
+              <li class="dish"><span class="dish__name">Birrë e ftohtë</span><span class="dish__desc" data-en="Cold Albanian lager" data-sq="Birrë shqiptare e ftohtë">Cold Albanian lager</span><span class="dish__price" data-lek="300">300 L</span></li>
+              <li class="dish"><span class="dish__name">Kafe turke</span><span class="dish__desc" data-en="Turkish coffee" data-sq="Kafe turke">Turkish coffee</span><span class="dish__price" data-lek="120">120 L</span></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="sea sea--book" id="book" aria-labelledby="book-title">
+      <div class="wrap book">
+        <div class="book__intro">
+          <h2 class="h2" id="book-title" data-t="book.title">Book a table</h2>
+          <p class="lead" data-t="book.lead">Choose a day, a time and how many of you. The message writes itself on the slate; send it and we answer on WhatsApp.</p>
+        </div>
+        <form class="plate plate--light book__form" id="full" aria-labelledby="book-title">
+          <fieldset class="seg">
+            <legend class="field__label" data-t="q.day">Day</legend>
+            <div class="seg__row">
+              <label><input type="radio" name="b-day" value="today" data-bind="day" checked><span data-t="q.today">Today</span></label>
+              <label><input type="radio" name="b-day" value="tomorrow" data-bind="day"><span data-t="q.tomorrow">Tomorrow</span></label>
+              <label><input type="radio" name="b-day" value="other" data-bind="day"><span data-t="q.other">Other day</span></label>
+            </div>
+          </fieldset>
+          <label class="field field--date" hidden><span class="field__label" data-t="q.date">Date</span><select data-bind="date"></select></label>
+          <div class="book__pair">
+            <label class="field"><span class="field__label" data-t="q.time">Time</span>
+              <select data-bind="time"><option value="1200">12:00</option><option value="2000" selected>20:00</option></select>
+            </label>
+            <div class="field">
+              <span class="field__label" id="b-people" data-t="q.people">People</span>
+              <div class="stepper" role="group" aria-labelledby="b-people">
+                <button type="button" data-step="people-" aria-label="One person fewer" data-t-attr="aria-label:q.less"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12"/></svg></button>
+                <output data-bind="people" aria-live="polite">2</output>
+                <button type="button" data-step="people+" aria-label="One person more" data-t-attr="aria-label:q.more"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M10 4v12"/></svg></button>
+              </div>
+            </div>
+          </div>
+          <p class="note note--warn" id="big-group" hidden data-t="book.big">More than 12 of you? Call us and we will set up the long table.</p>
+          <label class="field"><span class="field__label"><span data-t="book.name">Your name</span> <small data-t="book.optional">optional</small></span>
+            <input type="text" id="b-name" autocomplete="name" maxlength="60">
+          </label>
+          <label class="field"><span class="field__label"><span data-t="book.note">Anything we should know?</span> <small data-t="book.optional">optional</small></span>
+            <textarea id="b-note" rows="2" maxlength="240"></textarea>
+          </label>
+          <div class="chips" role="group" aria-label="Quick notes" data-t-attr="aria-label:book.chips">
+            <button type="button" class="chip" data-chip="chip.water" aria-pressed="false" data-t="chip.water">Table by the water</button>
+            <button type="button" class="chip" data-chip="chip.chair" aria-pressed="false" data-t="chip.chair">High chair</button>
+            <button type="button" class="chip" data-chip="chip.bday" aria-pressed="false" data-t="chip.bday">A birthday</button>
+          </div>
+          <div class="held-box">
+            <h3 class="field__label" data-t="book.held">Fish you are holding</h3>
+            <div id="held"><p class="held__empty">None yet. Tap a fish in today’s catch to hold one.</p></div>
+          </div>
+        </form>
+        <div class="book__slate">
+          <h3 class="slate__title" data-t="book.slate">Your message</h3>
+          <p class="slate" id="slate" aria-live="polite"><span class="slate__line">Hello Kripë! I’d like to book a table.</span></p>
+          <div class="book__actions">
+            <a class="btn btn--red" data-wa href="https://wa.me/355690000214" target="_blank" rel="noopener"><span data-t="book.send">Send on WhatsApp</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg></a>
+            <button type="button" class="btn btn--ghost" id="copy" data-t="book.copy">Copy message</button>
+          </div>
+          <p class="book__call"><span data-t="book.call">Or call</span> <a href="tel:+355690000214">+355 69 000 0214</a></p>
+          <p class="note" data-t="book.demo">Demo: the phone and WhatsApp number are placeholders.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sea sea--find" id="find" aria-labelledby="find-title">
+      <div class="wrap find">
+        <figure class="find__photo">
+          <img src="img/harbour-1600.webp" srcset="img/harbour-800.webp 800w, img/harbour-1600.webp 1600w" sizes="(min-width: 960px) 56vw, 100vw" width="1600" height="1065" alt="Himarë harbour at Spile: a small fishing boat on calm water, the breakwater and its light under the pines." loading="lazy" decoding="async">
+        </figure>
+        <div class="find__text">
+          <h2 class="h2" id="find-title" data-t="find.title">Find us</h2>
+          <p data-t="find.text">On the quay at Spile, Himarë, where the fishing boats tie up. Park on the seafront road and walk to the end of the harbour; we are the blue door with the boat outside.</p>
+          <p class="find__hours"><span data-t="find.hours">Every day 12:00–23:30. Kitchen until 22:45.</span> <span class="live__open" data-live="open"></span></p>
+          <ul class="find__links" role="list">
+            <li><a class="btn btn--light" href="https://www.google.com/maps/search/?api=1&amp;query=Port+of+Himar%C3%AB%2C+Spile%2C+Albania" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 18s6-5.2 6-10A6 6 0 0 0 4 8c0 4.8 6 10 6 10z"/><circle cx="10" cy="8" r="2"/></svg><span data-t="find.map">Open in Google Maps</span></a></li>
+            <li><a class="btn btn--light" href="tel:+355690000214"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3h3l1.5 4-2 1.2a9 9 0 0 0 4.3 4.3L13 10.5l4 1.5v3a2 2 0 0 1-2 2A13 13 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span data-t="find.call">Call</span></a></li>
+            <li><a class="btn btn--light" data-wa href="https://wa.me/355690000214" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 17l1.2-3.6A7 7 0 1 1 7 16.2L3 17z"/></svg><span data-t="find.wa">WhatsApp</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="floor">
+    <div class="wrap floor__in">
+      <div class="floor__text">
+        <p><span data-t="foot.demo">Kripë is a demo website. The taverna, its boat, the dishes, prices and catch are made up.</span> <span data-t="foot.by">Designed and built by Joel Kaso.</span> <a href="https://joelkaso8-cyber.github.io/portfolio/" data-t="foot.more">See more work</a></p>
+        <details class="credits">
+          <summary><span data-t="foot.credits">Picture credits</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5l5 5-5 5"/></svg></summary>
+          <ul role="list">
+            <li>Fish and octopus engravings: Iconographia Zoologica, Special Collections, University of Amsterdam. Public domain, via <a href="https://commons.wikimedia.org/wiki/Category:Iconographia_Zoologica">Wikimedia Commons</a>. Cut out for this page.</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Porti_i_Himar%C3%ABs.jpg">Porti i Himarës</a>: Albinfo, CC BY 4.0, via Wikimedia Commons.</li>
+          </ul>
+        </details>
+        <a class="floor__top" href="#top" data-t="foot.top">Back to the top</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="dock" href="#book" aria-label="Book a table" data-t-attr="aria-label:nav.book">
+    <span class="dock__sum" data-sum>Table for 2, today, 20:00</span>
+    <span class="dock__go"><span data-t="dock.book">Book</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg></span>
+  </a>
+</body>
+</html>

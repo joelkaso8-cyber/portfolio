@@ -6,6 +6,8 @@
   var BASE = 'https://joelkaso8-cyber.github.io/portfolio/'
 
   var WORK = [
+    { id: 'kripe-taverna', name: 'Kripë Fish Taverna', cat: 'food', tag: 'demo', where: { en: 'Fish taverna · Himarë, Albania', sq: 'Tavernë peshku · Himarë, Shqipëri' },
+      chips: { en: ['Painted-boat design', 'Today’s catch with kilos left', 'Hold a fish for your table', 'Book on WhatsApp', 'EN / SQ'], sq: ['Dizajn si barkë e lyer', 'Peshku i sotëm me kilogramët që mbeten', 'Mbaj një peshk për tavolinën', 'Rezervo në WhatsApp', 'EN / SQ'] } },
     { id: 'avull-hammam', film: true, name: 'Avull Hammam & Spa', cat: 'local', tag: 'demo', where: { en: 'Hammam and spa · Stockbridge, Edinburgh', sq: 'Hammam dhe spa · Stockbridge, Edinburgh' },
       chips: { en: ['Candle film that plays as you scroll', '4-step booking with calendar and live slots', 'Find-your-ritual quiz', 'Gift voucher you can save', 'Quiet-times chart'], sq: ['Film qiriri që luan me scroll', 'Rezervim në 4 hapa me kalendar dhe orare', 'Kuiz për ritualin', 'Kupon dhuratë që ruhet', 'Grafik i orëve të qeta'] } },
     { id: 'ura-coffee', film: true, name: 'Ura Coffee Roasters', cat: 'food', tag: 'demo', where: { en: 'Coffee roastery · Glasgow, UK', sq: 'Furrë kafeje · Glasgow, Skoci' },
@@ -44,7 +46,7 @@
       chips: { en: ['Ink film hero', 'Work gallery', 'Dark editorial look'], sq: ['Film me bojë në hyrje', 'Galeri punësh', 'Pamje e errët editoriale'] } },
   ]
   // Only these show in the portfolio. The other sites stay in work/; add an id here to show it again.
-  var SHOWN = ['ura-coffee', 'balte-studio', 'lule-kitchen', 'kaso-ervehe', 'northline-barbers', 'sage-silk-beauty', 'aurelia-dental', 'vjosa-rafting']
+  var SHOWN = ['kripe-taverna', 'ura-coffee', 'balte-studio', 'lule-kitchen', 'kaso-ervehe', 'northline-barbers', 'sage-silk-beauty', 'aurelia-dental', 'vjosa-rafting']
   WORK = WORK.filter(function (w) { return SHOWN.indexOf(w.id) !== -1 })
   // Real client reviews. The section stays hidden while this list is empty. Add one per client, in both languages, only with their permission:
   // { name: 'Arben Hoxha', role: { en: 'Owner, Hotel Example, Berat', sq: 'Pronar, Hotel Example, Berat' },
