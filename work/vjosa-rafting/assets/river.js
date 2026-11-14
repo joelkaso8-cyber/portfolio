@@ -624,8 +624,8 @@
   // down floats downstream, up paddles back to the put-in. The guide steers the lines.
   function scrollRun() {
     var r = stage.getBoundingClientRect(), vh = window.innerHeight, ns = clamp((vh * 0.75 - r.top) / (r.height + vh * 0.5), 0, 1) * L
-    if (visible) return goto(ns)
-    // off screen: jump straight there, so scrolling back up always finds the raft at the put-in
+    if (r.bottom > 0 && r.top < vh) return goto(ns)
+    // off screen (measured now; the observer reports a frame late): jump straight there, so scrolling back up always finds the raft at the put-in
     s = ns; sGoal = null; lat = latT = autoLat(s); latV = 0; camX = cen(s + (ch * 0.5 - y0) / S * 0.7); ui()
   }
   window.addEventListener('scroll', scrollRun, { passive: true })

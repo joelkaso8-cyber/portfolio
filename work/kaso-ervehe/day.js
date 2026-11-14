@@ -471,7 +471,8 @@
       if (!day) return
       var r = stage.getBoundingClientRect(), vh = window.innerHeight
       goal = day.start + (day.end - day.start) * clamp((vh * 0.8 - r.top) / (r.height + vh * 0.4), 0, 1)
-      if (reduce || !visible) { min = goal; update(true) } else kick() // off screen: jump there, so the top is always the morning
+      // off screen (measured now, not from the observer, which reports a frame late): jump there, so the top is always the morning
+      if (reduce || r.bottom <= 0 || r.top >= vh) { min = goal; update(true) } else kick()
     }
     window.addEventListener('scroll', scrollGoal, { passive: true })
     window.addEventListener('resize', scrollGoal)

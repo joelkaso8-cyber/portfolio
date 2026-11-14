@@ -778,7 +778,7 @@
   // Ride it (assets/river.js): loads only when its section scrolls near.
   (function () {
     const sec = document.getElementById('ride'); if (!sec) return;
-    const load = () => { const sc = document.createElement('script'); sc.src = 'assets/river.js?v=20261114'; document.body.appendChild(sc); };
+    const load = () => { const sc = document.createElement('script'); sc.src = 'assets/river.js?v=20261114-2'; document.body.appendChild(sc); };
     if (!('IntersectionObserver' in window)) return load();
     const io2 = new IntersectionObserver(es => { if (es[0].isIntersecting) { io2.disconnect(); load(); } }, { rootMargin: '600px 0px' });
     io2.observe(sec);
