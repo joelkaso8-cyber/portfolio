@@ -10,11 +10,11 @@
 .film__frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s ease; }
 .film__stage.is-ready .film__frame video { opacity: 1; }
 .film__band {
-  position: absolute; z-index: 2; top: 92px; bottom: 44px; left: var(--gut); width: calc(46vw - var(--gut) - 40px);
+  position: absolute; z-index: 2; top: 92px; bottom: 44px; left: var(--gut); width: calc(46vw - 2 * var(--gut) - 32px);
   display: flex; flex-direction: column; justify-content: center; gap: 22px;
   opacity: 0; visibility: hidden; will-change: opacity, transform;
 }
-.film__band:first-of-type { opacity: 1; visibility: visible; }
+.film__frame + .film__band { opacity: 1; visibility: visible; }
 .film__band .btn { align-self: flex-start; }
 .film__dots { position: absolute; z-index: 3; right: calc(var(--gut) / 2 - 12px); top: 50%; transform: translateY(-50%); display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; font: 700 .7rem/1 var(--sans); letter-spacing: .1em; color: var(--muted); }
 .film__dots li { transition: color .3s ease, transform .3s ease; }
@@ -41,10 +41,10 @@
 /* No film (reduced motion, or it failed to load): one screen with the poster and the first chapter. */
 .film--still { height: auto; }
 .film--still .film__stage { position: relative; min-height: 100svh; }
-.film--still .film__band:not(:first-of-type), .film--still .film__bar, .film--still .film__cue, .film--still .film__dots { display: none; }
+.film--still .film__band ~ .film__band, .film--still .film__bar, .film--still .film__cue, .film--still .film__dots { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .film { height: auto; }
   .film__stage { position: relative; min-height: 100svh; }
-  .film__band:not(:first-of-type), .film__bar, .film__cue, .film__dots { display: none; }
+  .film__band ~ .film__band, .film__bar, .film__cue, .film__dots { display: none; }
   .film__cue::after { animation: none; }
 }
