@@ -56,7 +56,7 @@
   var SPOTS_LEFT = 3
 
   // Hotel Kaso Ervehe. Turn KASO_LIVE on only while the hotel's guests really use the site: it badges the card
-  // "Live Client Site" and the footer says it is live. Turn KASO_QUOTE on only if the hotel said those words and agreed to be quoted.
+  // "Live Client Site" and the footer says it is live. Then also update case.lead, case.s2 and case.s3, which say the site launches soon. Turn KASO_QUOTE on only if the hotel said those words and agreed to be quoted.
   var KASO_LIVE = false
   var KASO_QUOTE = false
 
@@ -89,10 +89,10 @@
       'offer.spots': '{n} of 10 launch spots remaining at these prices', 'faq.q7': 'Can I see my website before I pay?', 'faq.a7': 'Yes. Send me your business name and a few photos, and within 48 hours I show you a free preview of your homepage. Then I build the full site, and you pay only when you are happy with it.',
       'offer.tag': 'Launch offer', 'offer.t1': 'Websites from', 'offer.cta': 'Claim a spot',
       'offer.text': 'Launch prices for my first 10 clients: 390€ for a starter site, 590€ for a business site with online booking and two languages, 1.190€ for a premium site with room booking and 3 months of care included. Every site comes with phone and desktop design, WhatsApp and a map.',
-      'case.tag': 'Featured case study', 'case.title': 'Hotel Kaso Ervehe, Përmet', 'case.lead': "My family's hotel in Përmet was my first real project. Here is what changed.",
+      'case.tag': 'Featured case study', 'case.title': 'Hotel Kaso Ervehe, Përmet', 'case.lead': "My family's hotel in Përmet is my first real project, and its new site launches soon. Here is what it changes.",
       'case.alt': 'Home page of the Hotel Kaso Ervehe website', 'case.pt': 'The problem', 'case.pp': 'Up to 18% of every stay went to booking platforms as commission.',
       'case.st': 'The solution', 'case.items': ['A fast site of its own, in English and Albanian', 'A direct booking calendar', 'Booking alerts on Telegram', 'The route on Google Maps'],
-      'case.s1': 'guest rating on Booking.com', 'case.proof': 'Check the reviews on Booking.com', 'case.s2': 'commission on direct reservations', 'case.s3': 'guests book in English or Albanian', 'case.cta': 'Open the hotel site in the live preview',
+      'case.s1': 'guest rating on Booking.com', 'case.proof': 'Check the reviews on Booking.com', 'case.s2': 'commission on direct reservations, once it launches', 'case.s3': 'guests can book in English or Albanian', 'case.cta': 'Open the hotel site in the live preview',
       'cmp.tag': 'Why custom', 'cmp.title': 'Built for you, or rented from a template', 'cmp.c0': 'What matters', 'cmp.c1': 'A custom site by Joel Kaso', 'cmp.c2': 'WordPress, Wix or an agency template',
       'cmp.r1': 'Speed', 'cmp.r1a': 'Hand-built and light, with no plugins. Tested with Google PageSpeed before it goes live.', 'cmp.r1b': 'Heavy themes and plugins often take 3 to 6 seconds to open on a phone.',
       'cmp.r2': 'Monthly fees', 'cmp.r2a': 'No monthly fee required. You own the code and pay only for your domain, about 10–15€ a year. A care plan is there if you want one.', 'cmp.r2b': 'Often 30–100€ a month for plugins, hosting and maintenance.',
@@ -172,10 +172,10 @@
       'offer.spots': 'Edhe {n} nga 10 vendet e para me këto çmime', 'faq.q7': 'A mund ta shoh faqen para se të paguaj?', 'faq.a7': 'Po. Më dërgo emrin e biznesit dhe disa foto, dhe brenda 48 orësh të tregoj falas një parapamje të faqes kryesore. Pastaj ndërtoj faqen e plotë dhe paguan vetëm kur të pëlqen.',
       'offer.tag': 'Ofertë fillimi', 'offer.t1': 'Website duke filluar nga', 'offer.cta': 'Rezervo një vend',
       'offer.text': 'Çmime fillimi për 10 klientët e mi të parë: 390€ për faqen Starter, 590€ për faqe biznesi me rezervim online dhe dy gjuhë, 1.190€ për faqen Premium me rezervim dhomash dhe 3 muaj plan kujdesi të përfshirë. Çdo website ka dizajn për telefon dhe kompjuter, WhatsApp dhe hartë.',
-      'case.tag': 'Projekt i veçantë', 'case.title': 'Hotel Kaso Ervehe, Përmet', 'case.lead': 'Hoteli i familjes sime në Përmet ishte projekti im i parë real. Ja çfarë ndryshoi.',
+      'case.tag': 'Projekt i veçantë', 'case.title': 'Hotel Kaso Ervehe, Përmet', 'case.lead': 'Hoteli i familjes sime në Përmet është projekti im i parë real, dhe faqja e re del online së shpejti. Ja çfarë ndryshon.',
       'case.alt': 'Faqja kryesore e website-it të Hotel Kaso Ervehe', 'case.pt': 'Problemi', 'case.pp': 'Deri në 18% e çdo qëndrimi shkonte si komision te platformat e rezervimit.',
       'case.st': 'Zgjidhja', 'case.items': ['Një faqe e shpejtë e vetja, në anglisht dhe shqip', 'Kalendar rezervimi direkt', 'Njoftime rezervimesh në Telegram', 'Rruga në Google Maps'],
-      'case.s1': 'vlerësim i mysafirëve në Booking.com', 'case.proof': 'Shiko vlerësimet në Booking.com', 'case.s2': 'komision për rezervimet direkte', 'case.s3': 'mysafirët rezervojnë në anglisht ose shqip', 'case.cta': 'Hap faqen e hotelit në pamjen live',
+      'case.s1': 'vlerësim i mysafirëve në Booking.com', 'case.proof': 'Shiko vlerësimet në Booking.com', 'case.s2': 'komision për rezervimet direkte, sapo të dalë online', 'case.s3': 'mysafirët mund të rezervojnë në anglisht ose shqip', 'case.cta': 'Hap faqen e hotelit në pamjen live',
       'cmp.tag': 'Pse me porosi', 'cmp.title': 'E ndërtuar për ty, apo e marrë me qira nga një shabllon', 'cmp.c0': 'Çfarë ka rëndësi', 'cmp.c1': 'Faqe me porosi nga Joel Kaso', 'cmp.c2': 'WordPress, Wix ose shabllon agjencie',
       'cmp.r1': 'Shpejtësia', 'cmp.r1a': 'E ndërtuar me dorë dhe e lehtë, pa plugin. E testuar me Google PageSpeed para se të dalë online.', 'cmp.r1b': 'Temat dhe plugin-et e rënda shpesh hapen për 3 deri 6 sekonda në telefon.',
       'cmp.r2': 'Pagesat mujore', 'cmp.r2a': 'Asnjë pagesë mujore e detyrueshme. Kodi është yti dhe paguan vetëm domain-in, rreth 10–15€ në vit. Plani i kujdesit është opsional.', 'cmp.r2b': 'Shpesh 30–100€ në muaj për plugin, hosting dhe mirëmbajtje.',
