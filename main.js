@@ -53,7 +53,7 @@
 
   // Launch spots still open (out of 10). Set a number, for example 7, to show "7 of 10 launch spots left" in the offer band.
   // Leave it null to hide the line. Lower it each time a client signs. Only show the real number.
-  var SPOTS_LEFT = null
+  var SPOTS_LEFT = 3
 
   // Hotel Kaso Ervehe. Turn KASO_LIVE on only while the hotel's guests really use the site: it badges the card
   // "Live Client Site" and the footer says it is live. Turn KASO_QUOTE on only if the hotel said those words and agreed to be quoted.
