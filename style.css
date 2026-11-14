@@ -576,7 +576,7 @@ input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offs
 /* Dome: phone screenshots on the outside of a sphere. depth.js sets --R (radius), --u (angle per unit) and --ua (arc per unit). */
 .domeband { position: relative; isolation: isolate; padding-top: clamp(72px, 8vw, 112px); }
 /* Full-width backdrop: 9 of the site screenshots, blurred and darkened (img/dome-bg.webp, 3 KB), fading into the page above and below. */
-.domeband::before { content: ''; position: absolute; z-index: -1; inset: 0 calc(50% - 50vw); background: linear-gradient(180deg, var(--bg) 0%, rgba(9, 10, 12, .3) 22%, rgba(9, 10, 12, .3) 78%, var(--bg) 100%), url(img/dome-bg.webp) center / cover no-repeat; }
+.domeband::before { content: ''; position: absolute; z-index: -1; inset: 0 calc(50% - 50vw); background: linear-gradient(180deg, var(--bg) 0%, rgba(9, 10, 12, .34) 9%, rgba(9, 10, 12, .34) 36%, rgba(9, 10, 12, 0) 50%, rgba(9, 10, 12, 0) 88%, var(--bg) 100%), linear-gradient(90deg, rgba(9, 10, 12, .5) 0%, rgba(9, 10, 12, .15) 55%, rgba(9, 10, 12, 0) 80%), url(img/dome-bg.webp) center / cover no-repeat; }
 .domeband .head { margin-bottom: clamp(12px, 2vw, 24px); }
 .dome { --R: 600px; --u: 6.4deg; --ua: 67px; position: relative; height: clamp(440px, 50vw, 640px); margin-inline: calc(var(--gut) * -1); overflow: hidden; overflow: clip; cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; }
 .dome.is-grab { cursor: grabbing; }
