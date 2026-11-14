@@ -217,3 +217,7 @@ legend { margin-bottom: 8px; font-size: .9rem; font-weight: 500; color: var(--in
 /* The phone menu: closed until the burger opens it, and never on wide screens. */
 .mobile-menu[hidden] { display: none; }
 @media (min-width: 901px) { .mobile-menu { display: none !important; } }
+
+/* Tap targets: every control at least 44px high on phones */
+.demo-ribbon, .lang button, .cookie button { min-height: 44px; }
+a[href^="tel:"], a[href^="https://wa.me/"]:not(.btn) { display: inline-flex; align-items: center; min-height: 44px; }

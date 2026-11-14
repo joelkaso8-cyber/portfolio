@@ -289,6 +289,8 @@ input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offs
 .badge--client { border-color: rgba(229, 184, 105, .4); color: var(--gold); }
 .badge--project { border-color: rgba(16, 185, 129, .35); color: var(--mint); }
 .item__where { padding: 4px 6px 0; color: var(--muted); font-size: .9375rem; }
+.item__tier { padding: 6px 6px 0; color: var(--gold-hi); font-size: .875rem; font-weight: 600; letter-spacing: .01em; }
+.item__tier[hidden] { display: none; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 14px 6px 0; }
 .chips li { padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--fill); color: var(--ink-2); font-size: .8125rem; }
 .item__open { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding: 18px 6px 0; color: var(--gold); font-size: .9375rem; font-weight: 600; }
@@ -457,7 +459,10 @@ input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offs
 .viewer::backdrop { background: rgba(0, 0, 0, .72); }
 .viewer[open] { display: flex; flex-direction: column; }
 .viewer__bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 16px; border-bottom: 1px solid var(--line); background: rgba(18, 19, 23, .94); }
-.viewer__title { margin-right: auto; color: var(--ink); font-weight: 600; }
+.viewer__head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; min-width: 0; margin: 0 auto 0 0; }
+.viewer__title { color: var(--ink); font-weight: 600; }
+.viewer__tier { display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border-radius: 999px; background: rgba(229, 184, 105, .1); box-shadow: inset 0 0 0 1px rgba(229, 184, 105, .38); color: var(--gold-hi); font-size: .8125rem; font-weight: 600; letter-spacing: .01em; white-space: nowrap; }
+.viewer__tier[hidden] { display: none; }
 .viewer__modes { display: flex; padding: 3px; border-radius: 999px; background: var(--fill); box-shadow: inset 0 0 0 1px var(--line); }
 .viewer__modes button { min-height: 44px; padding: 0 14px; border: 0; border-radius: 999px; background: none; color: var(--muted); font: 600 .875rem var(--sans); cursor: pointer; transition: color .2s, background-color .2s; }
 .viewer__modes button:hover { color: var(--ink); }

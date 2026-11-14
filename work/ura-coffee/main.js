@@ -10,6 +10,7 @@
     { id: 'ura', name: 'Ura House Espresso', origin: 'Brazil + Guatemala', notes: ['dark chocolate', 'hazelnut', 'treacle'], roast: 0.78, price: 10 },
   ]
   var HOURS = [[7.5, 17], [7.5, 17], [7.5, 17], [7.5, 17], [7.5, 18], [8.5, 18], [9.5, 16]]
+  window.URA_HOURS = HOURS // book.js builds its booking times from the same hours
   var DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
   var hh = function (h) { return pad(Math.floor(h)) + ':' + (h % 1 ? '30' : '00') }
   var bag = {}

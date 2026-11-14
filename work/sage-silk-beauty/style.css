@@ -125,3 +125,6 @@ legend { margin-bottom: 8px; font-size: .88rem; font-weight: 500; color: var(--i
 @media (max-width: 520px) { .row { grid-template-columns: 1fr; } .voucher { aspect-ratio: auto; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } html { scroll-behavior: auto; } }
 
+
+/* Tap targets: the demo ribbon is at least 44px high */
+.demo-ribbon { min-height: 44px; display: flex; align-items: center; justify-content: center; }

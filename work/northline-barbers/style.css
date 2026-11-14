@@ -216,3 +216,6 @@ input:focus { outline: 2px solid var(--brass); outline-offset: 0; }
   .demo-ribbon { top: 70px; bottom: auto; left: 12px; min-height: 30px; font-size: .72rem; opacity: .9; }
 }
 
+
+/* Tap targets: every control at least 44px high on phones */
+.demo-ribbon, .lang button, .cookie button { min-height: 44px; }
