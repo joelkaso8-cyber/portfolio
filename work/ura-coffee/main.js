@@ -73,7 +73,7 @@
   RITUALS.forEach(function (r, i) {
     var card = document.createElement('button')
     card.type = 'button'; card.className = 'ritual-card reveal'; card.setAttribute('role', 'radio'); card.dataset.id = r.id
-    card.innerHTML = '<img width="800" height="600" loading="lazy" decoding="async" /><h3></h3><p></p><span class="tick" aria-hidden="true">✓</span>'
+    card.innerHTML = '<img width="600" height="450" loading="lazy" decoding="async" /><h3></h3><p></p><span class="tick" aria-hidden="true">✓</span>'
     card.querySelector('img').src = r.img; card.querySelector('img').alt = r.alt
     card.querySelector('h3').textContent = r.name
     card.querySelector('p').textContent = BEANS.find(function (b) { return b.id === r.bean }).name + ' · ' + GRINDS[r.grind]
