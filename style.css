@@ -364,6 +364,10 @@ input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offs
 .guarantee { display: flex; align-items: flex-start; gap: 18px; margin-top: 28px; padding: 24px 28px; border-color: rgba(16, 185, 129, .3); }
 .guarantee .ico { width: 36px; height: 36px; color: var(--emerald-hi); }
 .guarantee p { margin-top: 6px; color: var(--ink-2); }
+.guarantee .btn { margin-top: 14px; }
+.bento__stat .proof { display: block; margin-top: 8px; font-size: .875rem; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; }
+.bento__stat .proof span { color: inherit; }
+.bento__stat .proof:hover { color: var(--ink); }
 
 /* care plan: one quiet band under the packages */
 .care { display: grid; gap: 22px; align-items: center; margin-top: 20px; padding: 26px 28px; }

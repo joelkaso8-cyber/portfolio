@@ -64,14 +64,14 @@
   var T = {
     en: {
       skip: 'Skip to content', title: 'Websites for hotels, restaurants & local businesses · Joel Kaso',
-      desc: 'Joel Kaso designs and builds fast, custom websites for hotels, restaurants and local businesses in Albania and abroad, with direct booking, WhatsApp and English/Albanian. From €400.',
+      desc: 'Joel Kaso designs and builds fast, custom websites for hotels, restaurants and local businesses in Albania and abroad, with direct booking, WhatsApp and English/Albanian. From 390€.',
       'nav.status': 'Taking new projects', 'nav.work': 'Work', 'nav.services': 'Services', 'nav.process': 'Process', 'nav.faq': 'FAQ', 'nav.contact': 'Contact',
       'hero.eyebrow': 'Web design & engineering studio · Albania → UK, EU & USA', 'hero.t1': 'Websites that turn visitors into', 'hero.t2': 'direct paying customers.',
       'hero.lead': 'Custom, fast websites for hotels, restaurants and local businesses, with a direct booking calendar, WhatsApp, two languages and no monthly platform lock-in.',
       'hero.quote': 'Get a quote', 'hero.work': 'See the work', 'hero.scroll': 'Scroll',
       'proof.1t': 'Fast on phones', 'proof.1p': 'hand-built, no page builders', 'proof.2t': '0% commission', 'proof.2p': 'on bookings that come direct', 'proof.3t': '7–14 days', 'proof.3p': 'from first call to live site',
       'roi.label': 'Your bookings a month', 'roi.pre': 'You keep about', 'roi.post': 'a month when those bookings come direct.',
-      'roi.note': 'Worked out with an average booking of €100 and an 18% platform commission.', 'roi.vt': '{n} bookings a month, about {x} kept',
+      'roi.note': 'Worked out with an average booking of 100€ and an 18% platform commission.', 'roi.vt': '{n} bookings a month, about {x} kept',
       'sim.aria': 'Try a live example', 'sim.hint': 'A working demo. Tap two choices, then the green button.',
       sim: {
         hotel: { url: 'kaso-ervehe.al', img: 'img/kaso-ervehe-desk-600.webp', title: 'Book a room in Përmet', l1: 'Check-in', l2: 'Nights', o2: ['1', '2', '3'], cta: 'Book on WhatsApp', toast: "Demo: your booking request just reached the hotel's WhatsApp and Telegram, with 0% commission." },
@@ -80,35 +80,35 @@
       },
       days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       'preview.t': 'Not sure yet? Get a free preview.', 'preview.p': 'Send me your business name and a few photos. Within 48 hours I show you your own homepage on your phone. You pay nothing unless you want the full site.', 'preview.cta': 'Get my free preview', 'preview.wa': 'Hi Joel, I\'d like a free preview of my website.\nMy business: \nCity: ',
-      'offer.spots': '{n} of 10 launch spots left', 'faq.q7': 'Can I see my website before I pay?', 'faq.a7': 'Yes. Send me your business name and a few photos, and within 48 hours I show you a free preview of your homepage. If you like it, we start with the 50% deposit. If not, you owe nothing.',
+      'offer.spots': '{n} of 10 launch spots left', 'faq.q7': 'Can I see my website before I pay?', 'faq.a7': 'Yes. Send me your business name and a few photos, and within 48 hours I show you a free preview of your homepage. Then I build the full site, and you pay only when you are happy with it.',
       'offer.tag': 'Launch offer', 'offer.t1': 'Websites from', 'offer.cta': 'Claim a spot',
-      'offer.text': 'Launch prices for my first 10 clients: €400 for a one-page site, €600 with online booking, €800 for a hotel or guesthouse (usually €800–1,200). Every site comes with phone and desktop design, WhatsApp, a map, two languages and Google Business Profile setup.',
+      'offer.text': 'Launch prices for my first 10 clients: 390€ for a starter site, 590€ for a business site with online booking and two languages, 1.190€ for a premium site with room booking and 3 months of care included. Every site comes with phone and desktop design, WhatsApp and a map.',
       'case.tag': 'Featured case study', 'case.title': 'Hotel Kaso Ervehe, Përmet', 'case.lead': "My family's hotel in Përmet was my first real project. Here is what changed.",
       'case.alt': 'Home page of the Hotel Kaso Ervehe website', 'case.pt': 'The problem', 'case.pp': 'Up to 18% of every stay went to booking platforms as commission.',
       'case.st': 'The solution', 'case.items': ['A fast site of its own, in English and Albanian', 'A direct booking calendar', 'Booking alerts on Telegram', 'The route on Google Maps'],
-      'case.s1': 'guest rating on Booking.com', 'case.s2': 'commission on direct reservations', 'case.s3': 'guests book in English or Albanian', 'case.cta': 'Open the hotel site in the live preview',
+      'case.s1': 'guest rating on Booking.com', 'case.proof': 'Check the reviews on Booking.com', 'case.s2': 'commission on direct reservations', 'case.s3': 'guests book in English or Albanian', 'case.cta': 'Open the hotel site in the live preview',
       'cmp.tag': 'Why custom', 'cmp.title': 'Built for you, or rented from a template', 'cmp.c0': 'What matters', 'cmp.c1': 'A custom site by Joel Kaso', 'cmp.c2': 'WordPress, Wix or an agency template',
       'cmp.r1': 'Speed', 'cmp.r1a': 'Hand-built and light, with no plugins. Tested with Google PageSpeed before it goes live.', 'cmp.r1b': 'Heavy themes and plugins often take 3 to 6 seconds to open on a phone.',
-      'cmp.r2': 'Monthly fees', 'cmp.r2a': 'No monthly fee required. You own the code and pay only for your domain, about €10–15 a year. A care plan is there if you want one.', 'cmp.r2b': 'Often €30–100 a month for plugins, hosting and maintenance.',
+      'cmp.r2': 'Monthly fees', 'cmp.r2a': 'No monthly fee required. You own the code and pay only for your domain, about 10–15€ a year. A care plan is there if you want one.', 'cmp.r2b': 'Often 30–100€ a month for plugins, hosting and maintenance.',
       'cmp.r3': 'Security', 'cmp.r3a': 'No database and no plugins, so there is far less to attack and nothing to keep updating.', 'cmp.r3b': 'Plugins need constant updates, and an old one is a common way in.',
       'cmp.r4': 'Enquiries', 'cmp.r4a': 'Bookings and messages reach your WhatsApp or Telegram within seconds.', 'cmp.r4b': 'A generic contact form that often ends up in spam.',
       'work.tag': 'Live sites', 'work.title': 'Selected work', 'work.all': 'All', 'work.stay': 'Hotels & stays', 'work.food': 'Restaurants & food', 'work.local': 'Local services', 'work.film': 'Scroll film experiences',
       'cta.work': 'Get a site like these', open: 'Open the site →', shot: ', website screenshot', film: '▶ Scroll film',
-      'services.tag': 'Packages', 'services.title': 'What you get', 'services.lead': 'Every site is designed for your business, not a template, and it is yours: no monthly lock-in.',
-      'plan1.name': 'One-page site', 'plan1.for': 'For cafés, barbers and trades that need to be found and contacted.',
+      'services.tag': 'Packages', 'services.title': 'What you get', 'services.lead': 'Every site is designed for your business, not a template, and it is yours: no monthly lock-in. Your booking tool stays: the site links to OpenTable, Fresha, Booksy, Mindbody, Square, Airbnb or Booking.com.',
+      'plan1.name': 'Starter site', 'plan1.for': 'For cafés, barbers and trades that need to be found and contacted.',
       'plan2.name': 'Business site with booking', 'plan2.for': 'For restaurants, salons and clinics that take bookings every day.',
-      'plan3.name': 'Hotel & guesthouse', 'plan3.for': 'For places that want direct bookings instead of paying commission.',
-      'plan.ask': 'Start with this', 'plan.popular': 'Most asked for', 'plan.launch': 'launch price',
-      'plan1.items': ['Designed for phones first', 'WhatsApp and call buttons', 'Google Maps and opening hours', 'Ready in about a week'],
-      'plan2.items': ['Everything in the one-page site', 'Online booking with a calendar', 'Menu or price list you can edit', 'Two languages', 'Google listing set up'],
-      'plan3.items': ['Rooms, prices and photo slides', 'Direct booking requests to WhatsApp or Telegram', 'Blocked dates you control', 'Guest page with Wi-Fi and tips'],
-      'care.tag': 'Optional, after launch', 'care.title': 'Care plan · €25 a month', 'care.cta': 'Ask about the care plan', 'care.wa': "Hi Joel, I'd like to know more about the care plan.",
+      'plan3.name': 'Premium site', 'plan3.for': 'For hotels, guesthouses and businesses that want everything done for them.',
+      'plan.ask': 'Start with this', 'plan.popular': 'Best value', 'plan.launch': 'launch price',
+      'plan1.items': ['Designed for phones first', 'WhatsApp and call buttons', 'Google Maps and opening hours', 'One language', 'Ready in about a week'],
+      'plan2.items': ['Everything in the starter site', 'Online booking with a calendar', 'Orders and pre-orders to WhatsApp', 'Menu or price list you can edit', 'Two languages', 'Google listing set up'],
+      'plan3.items': ['Everything in the business site', 'Rooms, prices and photo slides', 'Booking requests to WhatsApp or Telegram, with blocked dates you control', 'Guest page with Wi-Fi and tips', '3 months of the care plan included'],
+      'care.tag': 'Optional, after launch', 'care.title': 'Care plan · 25€ a month', 'care.cta': 'Ask about the care plan', 'care.wa': "Hi Joel, I'd like to know more about the care plan.",
       'care.text': 'Send me your text, price and photo changes and I make them, usually within two days. Every month I check that the site, the booking and your Google listing work. Stop any time: the site stays yours.',
       'rev.tag': 'Client words', 'rev.title': 'What clients say', 'rev.visit': 'Visit the site →',
       'q.tag': 'Quick quote', 'q.title': 'Plan your site in three steps', 'q.lead': 'Pick your business and what you need. You get the price and the timing straight away, and one tap sends it to me.',
       'q.s1': 'Your business', 'q.s2': 'Features', 'q.s3': 'Summary', 'q.type': 'What kind of business is it?', 'q.need': 'What should the site do?', 'q.sum': 'Your project',
       'q.d1': 'Business', 'q.d2': 'Features', 'q.d3': 'Estimated turnaround', 'q.d5': 'In the style of', 'q.price': 'Launch price',
-      'q.note': 'Everything you pick is included. One payment, no monthly fees. 50% to start, 50% when it is ready.',
+      'q.note': 'Everything you pick is included. One payment, no monthly fees, and nothing up front: you pay when you are happy with the finished site.',
       'q.send': 'Send spec on WhatsApp', 'q.copy': 'Copy project brief', 'q.back': 'Back', 'q.next': 'Next',
       'q.copied': 'Copied. Paste it into an email or a message to me.', 'q.copyfail': 'Copying is blocked in this browser. Use the WhatsApp button instead.',
       'q.days': '{a}–{b} days', 'q.save': 'You save {x}',
@@ -120,16 +120,16 @@
       's2.d': 'Within 7 days', 's2.t': 'First look on your phone', 's2.p': 'You see a working first version on your own phone.',
       's3.d': 'Week two', 's3.t': 'Full build and polish', 's3.p': 'Booking, WhatsApp, maps and languages, tested on every screen.',
       's4.d': 'Launch day', 's4.t': 'Live, with a video guide', 's4.p': 'Your own domain, Google listing and a short video on how to edit it.',
-      'g.title': 'You pay the second half only when it is ready', 'g.text': '50% deposit to start the work. The other 50% only when the site is tested, approved by you and ready to go live.',
+      'g.title': 'Nothing up front. You pay when you are happy.', 'g.text': 'I build your site first. You check it on a private link, on your own phone. You pay only when you are happy with it, and then it goes live on your domain.', 'g.cta': 'Book a free call', 'g.wa': "Hi Joel, I'd like a free call about a website.\nMy business: \nBest time for me: ",
       'about.tag': 'About', 'about.title': 'Who builds your site',
       'about.p1': "I'm Joel, a web designer from Albania. I build fast, good-looking websites for hotels, restaurants and local businesses. I do the design, the code and the setup myself, so you talk to one person.",
-      'about.items': ['I reply within a day, in English or Albanian', 'Fixed price: 50% to start, 50% when it is finished', 'The site is yours. No monthly fees unless you choose the care plan'],
+      'about.items': ['I reply within a day, in English or Albanian', 'Fixed price, nothing up front: you pay when you are happy', 'The site is yours. No monthly fees unless you choose the care plan'],
       'faq.tag': 'FAQ', 'faq.title': 'Common questions', 'faq.lead': 'Everything you need to know before we start.',
-      'faq.q1': 'Are there any monthly fees after the site goes live?', 'faq.a1': 'No monthly lock-in with me. You pay once for the design and build, and the website is 100% yours. Your only required ongoing cost is your domain name (around €10–15/year). If you would rather I handle changes for you, there is an optional care plan for €25 a month that you can stop any time.',
+      'faq.q1': 'Are there any monthly fees after the site goes live?', 'faq.a1': 'No monthly lock-in with me. You pay once for the design and build, and the website is 100% yours. Your only required ongoing cost is your domain name (around 10–15€/year). If you would rather I handle changes for you, there is an optional care plan for 25€ a month that you can stop any time.',
       'faq.q2': 'How long does it take from start to finish?', 'faq.a2': 'Most websites go live within 1 to 2 weeks. You will see the first working version on your phone within 7 days of our initial call.',
       'faq.q3': 'Can I change prices, photos, or menus myself later?', 'faq.a3': 'Yes. When we launch, I send you a short video showing you exactly how to update your text, prices, and photos in minutes—no technical skills needed.',
       'faq.q4': 'How do bookings and orders reach me?', 'faq.a4': "However is easiest for you. Requests can go straight to your WhatsApp pre-filled with the customer's details, to your email, or into a booking calendar.",
-      'faq.q5': 'How does payment work?', 'faq.a5': '50% to start the design, and the remaining 50% only when the website is finished, tested, and ready to go live.',
+      'faq.q5': 'How does payment work?', 'faq.a5': "Nothing up front. I build the site and you check it on a private link. When you are happy, you pay the full price, and then it goes live on your own domain. If you don't like it, you owe nothing.",
       'faq.q6': 'Who owns the domain and the website?', 'faq.a6': 'You do. The domain is registered in your name and the code is handed over to you, so you can move it or change designer whenever you like.',
       'contact.tag': 'Contact', 'contact.title': "Let's build yours", 'contact.lead': 'Tell me about your business. I reply within a day, in English or Albanian.',
       'f.name': 'Name', 'f.business': 'Business (optional)', 'f.email': 'Email', 'f.msg': 'What do you need?', 'f.send': 'Send',
@@ -146,14 +146,14 @@
     },
     sq: {
       skip: 'Kalo te përmbajtja', title: 'Faqe interneti për hotele, restorante dhe biznese · Joel Kaso',
-      desc: 'Krijim faqesh interneti për hotele, restorante dhe biznese lokale në Shqipëri: të shpejta, me rezervim direkt, WhatsApp dhe dy gjuhë. Nga 400 €.',
+      desc: 'Krijim faqesh interneti për hotele, restorante dhe biznese lokale në Shqipëri: të shpejta, me rezervim direkt, WhatsApp dhe dy gjuhë. Nga 390€.',
       'nav.status': 'Pranoj projekte të reja', 'nav.work': 'Punët', 'nav.services': 'Shërbimet', 'nav.process': 'Si punoj', 'nav.faq': 'Pyetje', 'nav.contact': 'Kontakt',
       'hero.eyebrow': 'Studio dizajni dhe ndërtimi web · Shqipëri → Angli, BE dhe SHBA', 'hero.t1': 'Website që i kthejnë vizitorët në', 'hero.t2': 'klientë direkt dhe të rregullt.',
       'hero.lead': 'Website të shpejta, të bëra posaçërisht për hotele, restorante dhe biznese lokale, me kalendar rezervimi direkt, WhatsApp, dy gjuhë dhe pa pagesa mujore për platforma.',
       'hero.quote': 'Kërko ofertë', 'hero.work': 'Shiko punët', 'hero.scroll': 'Rrëshqit poshtë',
       'proof.1t': 'E shpejtë në telefon', 'proof.1p': 'e shkruar me kod, pa shabllone', 'proof.2t': '0% komision', 'proof.2p': 'për rezervimet që vijnë direkt', 'proof.3t': '7–14 ditë', 'proof.3p': 'nga telefonata e parë te faqja online',
       'roi.label': 'Rezervimet e tua në muaj', 'roi.pre': 'Mban rreth', 'roi.post': 'në muaj kur këto rezervime vijnë direkt.',
-      'roi.note': 'Llogaritur me një rezervim mesatar 100 € dhe komision 18% të platformave.', 'roi.vt': '{n} rezervime në muaj, rreth {x} të mbajtura',
+      'roi.note': 'Llogaritur me një rezervim mesatar 100€ dhe komision 18% të platformave.', 'roi.vt': '{n} rezervime në muaj, rreth {x} të mbajtura',
       'sim.aria': 'Provo një shembull', 'sim.hint': 'Një demo që funksionon. Prek dy zgjedhje, pastaj butonin jeshil.',
       sim: {
         hotel: { url: 'kaso-ervehe.al', img: 'img/kaso-ervehe-desk-600.webp', title: 'Rezervo një dhomë në Përmet', l1: 'Mbërritja', l2: 'Netë', o2: ['1', '2', '3'], cta: 'Rezervo në WhatsApp', toast: 'Demo: kërkesa për rezervim sapo arriti në WhatsApp dhe Telegram të hotelit, me 0% komision.' },
@@ -162,35 +162,35 @@
       },
       days: ['Die', 'Hën', 'Mar', 'Mër', 'Enj', 'Pre', 'Sht'],
       'preview.t': 'Ende i pasigurt? Merr një parapamje falas.', 'preview.p': 'Më dërgo emrin e biznesit dhe disa foto. Brenda 48 orësh të tregoj faqen tënde kryesore në telefon. Nuk paguan asgjë, përveç nëse do faqen e plotë.', 'preview.cta': 'Dua parapamjen falas', 'preview.wa': 'Përshëndetje Joel, dua një parapamje falas të faqes sime.\nBiznesi im: \nQyteti: ',
-      'offer.spots': '{n} nga 10 vende të lira me çmim fillimi', 'faq.q7': 'A mund ta shoh faqen para se të paguaj?', 'faq.a7': 'Po. Më dërgo emrin e biznesit dhe disa foto, dhe brenda 48 orësh të tregoj falas një parapamje të faqes kryesore. Nëse të pëlqen, fillojmë me 50% paradhënie. Nëse jo, nuk më detyrohesh asgjë.',
+      'offer.spots': '{n} nga 10 vende të lira me çmim fillimi', 'faq.q7': 'A mund ta shoh faqen para se të paguaj?', 'faq.a7': 'Po. Më dërgo emrin e biznesit dhe disa foto, dhe brenda 48 orësh të tregoj falas një parapamje të faqes kryesore. Pastaj ndërtoj faqen e plotë dhe paguan vetëm kur të pëlqen.',
       'offer.tag': 'Ofertë fillimi', 'offer.t1': 'Website duke filluar nga', 'offer.cta': 'Rezervo një vend',
-      'offer.text': 'Çmime fillimi për 10 klientët e mi të parë: 400 € për website me një faqe, 600 € me rezervim online, 800 € për hotel ose bujtinë (zakonisht 800–1.200 €). Çdo website ka dizajn për telefon dhe kompjuter, WhatsApp, hartë, dy gjuhë dhe profilin e biznesit në Google.',
+      'offer.text': 'Çmime fillimi për 10 klientët e mi të parë: 390€ për faqen Starter, 590€ për faqe biznesi me rezervim online dhe dy gjuhë, 1.190€ për faqen Premium me rezervim dhomash dhe 3 muaj plan kujdesi të përfshirë. Çdo website ka dizajn për telefon dhe kompjuter, WhatsApp dhe hartë.',
       'case.tag': 'Projekt i veçantë', 'case.title': 'Hotel Kaso Ervehe, Përmet', 'case.lead': 'Hoteli i familjes sime në Përmet ishte projekti im i parë real. Ja çfarë ndryshoi.',
       'case.alt': 'Faqja kryesore e website-it të Hotel Kaso Ervehe', 'case.pt': 'Problemi', 'case.pp': 'Deri në 18% e çdo qëndrimi shkonte si komision te platformat e rezervimit.',
       'case.st': 'Zgjidhja', 'case.items': ['Një faqe e shpejtë e vetja, në anglisht dhe shqip', 'Kalendar rezervimi direkt', 'Njoftime rezervimesh në Telegram', 'Rruga në Google Maps'],
-      'case.s1': 'vlerësim i mysafirëve në Booking.com', 'case.s2': 'komision për rezervimet direkte', 'case.s3': 'mysafirët rezervojnë në anglisht ose shqip', 'case.cta': 'Hap faqen e hotelit në pamjen live',
+      'case.s1': 'vlerësim i mysafirëve në Booking.com', 'case.proof': 'Shiko vlerësimet në Booking.com', 'case.s2': 'komision për rezervimet direkte', 'case.s3': 'mysafirët rezervojnë në anglisht ose shqip', 'case.cta': 'Hap faqen e hotelit në pamjen live',
       'cmp.tag': 'Pse me porosi', 'cmp.title': 'E ndërtuar për ty, apo e marrë me qira nga një shabllon', 'cmp.c0': 'Çfarë ka rëndësi', 'cmp.c1': 'Faqe me porosi nga Joel Kaso', 'cmp.c2': 'WordPress, Wix ose shabllon agjencie',
       'cmp.r1': 'Shpejtësia', 'cmp.r1a': 'E ndërtuar me dorë dhe e lehtë, pa plugin. E testuar me Google PageSpeed para se të dalë online.', 'cmp.r1b': 'Temat dhe plugin-et e rënda shpesh hapen për 3 deri 6 sekonda në telefon.',
-      'cmp.r2': 'Pagesat mujore', 'cmp.r2a': 'Asnjë pagesë mujore e detyrueshme. Kodi është yti dhe paguan vetëm domain-in, rreth 10–15 € në vit. Plani i kujdesit është opsional.', 'cmp.r2b': 'Shpesh 30–100 € në muaj për plugin, hosting dhe mirëmbajtje.',
+      'cmp.r2': 'Pagesat mujore', 'cmp.r2a': 'Asnjë pagesë mujore e detyrueshme. Kodi është yti dhe paguan vetëm domain-in, rreth 10–15€ në vit. Plani i kujdesit është opsional.', 'cmp.r2b': 'Shpesh 30–100€ në muaj për plugin, hosting dhe mirëmbajtje.',
       'cmp.r3': 'Siguria', 'cmp.r3a': "Pa bazë të dhënash dhe pa plugin, ndaj ka shumë më pak për t'u sulmuar dhe asgjë për t'u përditësuar.", 'cmp.r3b': 'Plugin-et duan përditësime të vazhdueshme, dhe një i vjetër është një derë e zakonshme për sulme.',
       'cmp.r4': 'Kërkesat', 'cmp.r4a': 'Rezervimet dhe mesazhet të vijnë në WhatsApp ose Telegram për pak sekonda.', 'cmp.r4b': 'Një formular i zakonshëm që shpesh përfundon te spam-i.',
       'work.tag': 'Faqe online', 'work.title': 'Punë të zgjedhura', 'work.all': 'Të gjitha', 'work.stay': 'Hotele dhe akomodime', 'work.food': 'Restorante dhe ushqim', 'work.local': 'Shërbime lokale', 'work.film': 'Filma me scroll',
       'cta.work': 'Dua një faqe si këto', open: 'Hap faqen →', shot: ', pamje e faqes', film: '▶ Film me scroll',
-      'services.tag': 'Paketat', 'services.title': 'Çfarë merr', 'services.lead': 'Çdo faqe bëhet për biznesin tënd, jo nga shablloni, dhe është e jotja: pa pagesa mujore të detyruara.',
-      'plan1.name': 'Website me një faqe', 'plan1.for': 'Për kafene, berberë dhe mjeshtër që duan të gjenden dhe të kontaktohen.',
+      'services.tag': 'Paketat', 'services.title': 'Çfarë merr', 'services.lead': 'Çdo faqe bëhet për biznesin tënd, jo nga shablloni, dhe është e jotja: pa pagesa mujore të detyruara. Mjeti yt i rezervimeve mbetet: faqja lidhet me OpenTable, Fresha, Booksy, Mindbody, Square, Airbnb ose Booking.com.',
+      'plan1.name': 'Faqe Starter', 'plan1.for': 'Për kafene, berberë dhe mjeshtër që duan të gjenden dhe të kontaktohen.',
       'plan2.name': 'Faqe biznesi me rezervim', 'plan2.for': 'Për restorante, sallone dhe klinika që marrin rezervime çdo ditë.',
-      'plan3.name': 'Hotel dhe bujtinë', 'plan3.for': 'Për vende që duan rezervime direkte në vend të komisioneve.',
-      'plan.ask': 'Fillo me këtë', 'plan.popular': 'Më e kërkuara', 'plan.launch': 'çmim fillimi',
-      'plan1.items': ['E projektuar fillimisht për telefon', 'Butona WhatsApp dhe telefon', 'Google Maps dhe orari', 'Gati për rreth një javë'],
-      'plan2.items': ['Gjithçka nga website-i me një faqe', 'Rezervim online me kalendar', 'Menu ose çmime që i ndryshon vetë', 'Dy gjuhë', 'Profili në Google i rregulluar'],
-      'plan3.items': ['Dhoma, çmime dhe foto', 'Kërkesa rezervimi direkt në WhatsApp ose Telegram', 'Data të zëna që i kontrollon vetë', 'Faqe për mysafirët me Wi-Fi dhe këshilla'],
-      'care.tag': 'Opsional, pas publikimit', 'care.title': 'Plani i kujdesit · 25 € në muaj', 'care.cta': 'Pyet për planin e kujdesit', 'care.wa': 'Përshëndetje Joel, dua të di më shumë për planin e kujdesit.',
+      'plan3.name': 'Faqe Premium', 'plan3.for': 'Për hotele, bujtina dhe biznese që duan gjithçka gati.',
+      'plan.ask': 'Fillo me këtë', 'plan.popular': 'Vlera më e mirë', 'plan.launch': 'çmim fillimi',
+      'plan1.items': ['E projektuar fillimisht për telefon', 'Butona WhatsApp dhe telefon', 'Google Maps dhe orari', 'Një gjuhë', 'Gati për rreth një javë'],
+      'plan2.items': ['Gjithçka nga faqja Starter', 'Rezervim online me kalendar', 'Porosi dhe porosi paraprake në WhatsApp', 'Menu ose çmime që i ndryshon vetë', 'Dy gjuhë', 'Profili në Google i rregulluar'],
+      'plan3.items': ['Gjithçka nga faqja e biznesit', 'Dhoma, çmime dhe foto', 'Kërkesa rezervimi në WhatsApp ose Telegram, me data të zëna që i kontrollon vetë', 'Faqe për mysafirët me Wi-Fi dhe këshilla', '3 muaj plan kujdesi të përfshirë'],
+      'care.tag': 'Opsional, pas publikimit', 'care.title': 'Plani i kujdesit · 25€ në muaj', 'care.cta': 'Pyet për planin e kujdesit', 'care.wa': 'Përshëndetje Joel, dua të di më shumë për planin e kujdesit.',
       'care.text': 'Më dërgon ndryshimet e teksteve, çmimeve dhe fotove dhe i bëj unë, zakonisht brenda dy ditësh. Çdo muaj kontrolloj që faqja, rezervimi dhe profili yt në Google punojnë. Mund ta ndalosh kur të duash: faqja mbetet e jotja.',
       'rev.tag': 'Fjalët e klientëve', 'rev.title': 'Çfarë thonë klientët', 'rev.visit': 'Shiko faqen →',
       'q.tag': 'Ofertë e shpejtë', 'q.title': 'Planifiko faqen në tre hapa', 'q.lead': "Zgjidh biznesin dhe çfarë të duhet. Çmimin dhe kohën i sheh menjëherë, dhe me një prekje m'i dërgon mua.",
       'q.s1': 'Biznesi yt', 'q.s2': 'Funksionet', 'q.s3': 'Përmbledhja', 'q.type': 'Çfarë lloj biznesi ke?', 'q.need': 'Çfarë duhet të bëjë faqja?', 'q.sum': 'Projekti yt',
       'q.d1': 'Biznesi', 'q.d2': 'Funksionet', 'q.d3': 'Koha e përafërt', 'q.d5': 'Në stilin e', 'q.price': 'Çmim fillimi',
-      'q.note': 'Gjithçka që zgjedh përfshihet. Një pagesë, pa pagesa mujore. 50% në fillim, 50% kur është gati.',
+      'q.note': 'Gjithçka që zgjedh përfshihet. Një pagesë, pa pagesa mujore dhe asgjë paraprakisht: paguan kur faqja e mbaruar të pëlqen.',
       'q.send': 'Dërgo projektin në WhatsApp', 'q.copy': 'Kopjo përmbledhjen', 'q.back': 'Prapa', 'q.next': 'Vazhdo',
       'q.copied': 'U kopjua. Ngjite në një email ose mesazh për mua.', 'q.copyfail': 'Kopjimi është i bllokuar në këtë shfletues. Përdor butonin WhatsApp.',
       'q.days': '{a}–{b} ditë', 'q.save': 'Kursen {x}',
@@ -202,16 +202,16 @@
       's2.d': 'Brenda 7 ditëve', 's2.t': 'Pamja e parë në telefon', 's2.p': 'Versionin e parë që funksionon e sheh në telefonin tënd.',
       's3.d': 'Java e dytë', 's3.t': 'Ndërtimi i plotë', 's3.p': 'Rezervim, WhatsApp, harta dhe gjuhë, të testuara në çdo ekran.',
       's4.d': 'Dita e nisjes', 's4.t': 'Online, me video udhëzuese', 's4.p': 'Domain-i yt, profili në Google dhe një video e shkurtër si ta ndryshosh.',
-      'g.title': 'Gjysmën e dytë e paguan vetëm kur faqja është gati', 'g.text': '50% paradhënie për të nisur punën. 50% e tjetër vetëm kur faqja është testuar, e miratuar nga ti dhe gati për të dalë online.',
+      'g.title': 'Asgjë paraprakisht. Paguan kur faqja të pëlqen.', 'g.text': 'Faqen e ndërtoj unë së pari. E shikon në një lidhje private, në telefonin tënd. Paguan vetëm kur të pëlqen, dhe pastaj del online në domain-in tënd.', 'g.cta': 'Rezervo një telefonatë falas', 'g.wa': 'Përshëndetje Joel, dua një telefonatë falas për një faqe interneti.\nBiznesi im: \nOra që më përshtatet: ',
       'about.tag': 'Rreth meje', 'about.title': 'Kush e ndërton faqen tënde',
       'about.p1': 'Jam Joel, dizajner web nga Shqipëria. Ndërtoj faqe të shpejta dhe të bukura për hotele, restorante dhe biznese lokale. Dizajnin, kodin dhe konfigurimin i bëj vetë, ndaj flet me një person të vetëm.',
-      'about.items': ['Përgjigje brenda një dite, në anglisht ose shqip', 'Çmim fiks: 50% në fillim, 50% kur përfundon', 'Faqja është e jotja. Pa pagesa mujore, përveç nëse zgjedh planin e kujdesit'],
+      'about.items': ['Përgjigje brenda një dite, në anglisht ose shqip', 'Çmim fiks, asgjë paraprakisht: paguan kur të pëlqen', 'Faqja është e jotja. Pa pagesa mujore, përveç nëse zgjedh planin e kujdesit'],
       'faq.tag': 'Pyetje', 'faq.title': 'Pyetje të shpeshta', 'faq.lead': 'Gjithçka që duhet të dish para se të fillojmë.',
-      'faq.q1': 'A ka pagesa mujore pasi faqja del online?', 'faq.a1': 'Me mua nuk ka pagesa mujore të detyruara. Paguan një herë për dizajnin dhe ndërtimin, dhe faqja është 100% e jotja. E vetmja kosto e detyrueshme është domain-i çdo vit (rreth 10–15 € në vit). Nëse do që ndryshimet t\'i bëj unë, ka një plan kujdesi opsional për 25 € në muaj që mund ta ndalosh kur të duash.',
+      'faq.q1': 'A ka pagesa mujore pasi faqja del online?', 'faq.a1': 'Me mua nuk ka pagesa mujore të detyruara. Paguan një herë për dizajnin dhe ndërtimin, dhe faqja është 100% e jotja. E vetmja kosto e detyrueshme është domain-i çdo vit (rreth 10–15€ në vit). Nëse do që ndryshimet t\'i bëj unë, ka një plan kujdesi opsional për 25€ në muaj që mund ta ndalosh kur të duash.',
       'faq.q2': 'Sa zgjat nga fillimi deri në fund?', 'faq.a2': 'Shumica e faqeve dalin online brenda 1 deri 2 javësh. Versionin e parë që funksionon e sheh në telefon brenda 7 ditëve nga telefonata e parë.',
       'faq.q3': "A mund t'i ndryshoj vetë çmimet, fotot ose menunë më vonë?", 'faq.a3': "Po. Kur e nisim, të dërgoj një video të shkurtër që të tregon saktësisht si t'i ndryshosh tekstet, çmimet dhe fotot për pak minuta, pa njohuri teknike.",
       'faq.q4': 'Si më vijnë rezervimet dhe porositë?', 'faq.a4': 'Si të të vijë më lehtë. Kërkesat mund të shkojnë direkt në WhatsApp-in tënd me të dhënat e klientit të plotësuara, në email, ose në një kalendar rezervimesh.',
-      'faq.q5': 'Si bëhet pagesa?', 'faq.a5': '50% për të nisur dizajnin, dhe 50% e mbetur vetëm kur faqja është mbaruar, testuar dhe gati për të dalë online.',
+      'faq.q5': 'Si bëhet pagesa?', 'faq.a5': 'Asgjë paraprakisht. Faqen e ndërtoj dhe e shikon në një lidhje private. Kur të pëlqen, paguan çmimin e plotë dhe pastaj faqja del online në domain-in tënd. Nëse nuk të pëlqen, nuk më detyrohesh asgjë.',
       'faq.q6': 'Kujt i përket domain-i dhe faqja?', 'faq.a6': 'Ty. Domain-i regjistrohet në emrin tënd dhe kodi të dorëzohet ty, ndaj mund ta lëvizësh ose të ndryshosh dizajner kur të duash.',
       'contact.tag': 'Kontakt', 'contact.title': 'Le ta ndërtojmë tëndin', 'contact.lead': 'Më trego për biznesin tënd. Përgjigjem brenda një dite, shqip ose anglisht.',
       'f.name': 'Emri', 'f.business': 'Biznesi (jo i detyrueshëm)', 'f.email': 'Email', 'f.msg': 'Çfarë të duhet?', 'f.send': 'Dërgo',
@@ -234,7 +234,7 @@
   var ql = (location.search.match(/[?&]lang=(en|sq)\b/) || [])[1]; if (ql) lang = ql
   var pageUrl = function () { return location.pathname + (lang === 'sq' ? '?lang=sq' : '') + location.hash }
   var t = function (k) { return T[lang][k] }
-  var money = function (n) { return lang === 'sq' ? n.toLocaleString('de-DE') + ' €' : '€' + n.toLocaleString('en-GB') }
+  var money = function (n) { return n.toLocaleString('de-DE') + '€' } // Joel's format in both languages: 1.190€
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches
   var filter = 'all'
@@ -407,7 +407,7 @@
     tilt.addEventListener('pointerleave', function () { tilt.style.setProperty('--ry', '0deg'); tilt.style.setProperty('--rx', '0deg') })
   }
 
-  // Savings slider: bookings a month × €100 average × 18% commission.
+  // Savings slider: bookings a month × 100€ average × 18% commission.
   var roiR = $('#roi-range')
   function roiSave(n) { return Math.round(n * 100 * 0.18) }
   function renderRoi(animate) {
@@ -557,18 +557,21 @@
 
   // Quote configurator: business, features, then a summary with price, timing and one-tap WhatsApp.
   var Q = { type: 'food', needs: ['booking', 'wa', 'langs'], like: '' }, step = 1
-  // Usual price and launch price per business type. A one-page business that adds booking moves up to the booking package.
-  var USUAL = { stay: 1200, food: 1000, beauty: 1000, trade: 800, other: 800 }
-  var LAUNCH = { stay: 800, food: 600, beauty: 600, trade: 400, other: 400 }
+  // Usual and launch price per package. Premium has no lower launch price, so it shows no "usual" price.
+  // A starter business that picks a business-site feature moves up to the business site.
+  var USUAL = { starter: 800, business: 1000, premium: 1190 }
+  var LAUNCH = { starter: 390, business: 590, premium: 1190 }
+  var PLAN = { stay: 'premium', food: 'business', beauty: 'business', trade: 'starter', other: 'starter' }
+  var UPGRADE = ['booking', 'langs', 'menu', 'google']
   var WEIGHT = { booking: 2, wa: 0, langs: 1, menu: 1, google: 1, gallery: 0, vouchers: 2 } // extra build days per feature
   var CHECK = '<i aria-hidden="true"><svg class="ico"><use href="#i-check"/></svg></i>'
   function quoteFacts() {
     var needs = t('q.needs'), list = Object.keys(needs).filter(function (k) { return Q.needs.indexOf(k) >= 0 }).map(function (k) { return needs[k] })
     var lo = 6 + Q.needs.reduce(function (s, k) { return s + (WEIGHT[k] || 0) }, 0), hi = Math.min(14, lo + 3)
     lo = Math.min(lo, hi - 2)
-    var upgrade = (Q.type === 'trade' || Q.type === 'other') && Q.needs.indexOf('booking') >= 0
-    var usual = upgrade ? 1000 : USUAL[Q.type], price = upgrade ? 600 : LAUNCH[Q.type]
-    return { type: t('q.types')[Q.type], list: list, time: t('q.days').replace('{a}', lo).replace('{b}', hi), usual: usual, price: price }
+    var plan = PLAN[Q.type]
+    if (plan === 'starter' && Q.needs.some(function (k) { return UPGRADE.indexOf(k) >= 0 })) plan = 'business'
+    return { type: t('q.types')[Q.type], list: list, time: t('q.days').replace('{a}', lo).replace('{b}', hi), usual: USUAL[plan], price: LAUNCH[plan] }
   }
   function quoteText(f) {
     return t('q.msg').replace('{type}', f.type.toLowerCase()).replace('{needs}', f.list.length ? f.list.join(', ') : '—')
@@ -595,8 +598,10 @@
     $('#q-o-time').textContent = f.time
     $('#q-like-row').hidden = !Q.like; $('#q-o-like').textContent = Q.like
     $('#q-price').textContent = money(f.price)
-    $('#q-usual').textContent = money(f.usual)
-    $('#q-save').textContent = t('q.save').replace('{x}', money(f.usual - f.price))
+    var off = f.usual > f.price
+    $('#q-usual').textContent = off ? money(f.usual) : ''
+    $('#q-save').textContent = off ? t('q.save').replace('{x}', money(f.usual - f.price)) : ''
+    $('#q-save').style.display = off ? '' : 'none'
     $('#q-send').href = 'https://wa.me/355685727406?text=' + encodeURIComponent(quoteText(f))
     $$('.cfg__steps button').forEach(function (b) {
       var n = +b.dataset.step
