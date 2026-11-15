@@ -3,7 +3,7 @@
    screen) always holds a message with those filled in, so one tap opens WhatsApp ready to send. */
 (function () {
   'use strict';
-  var WA = '355684340615', PRICE = 30, MAX = 24;
+  var WA = '355685727406', PRICE = 30, MAX = 24;
   var form = document.getElementById('qb'); if (!form) return;
   var $ = function (s) { return document.querySelector(s); };
   var TRIPS = {
@@ -33,7 +33,7 @@
     $('#qb-total').append(n + ' × €' + PRICE + ' = ', Object.assign(document.createElement('b'), { textContent: '€' + n * PRICE }), ', paid on the day');
     $('#qb-date-l').hidden = form.elements.qday.value !== 'pick';
     $('#qb-pick-l').textContent = form.elements.qday.value === 'pick' && day ? label(day) : 'pick a date';
-    var msg = 'Hello Adion! I would like to book the ' + trip.name + (trip.time ? ' (' + trip.time + ')' : '') + ' on ' + dayText + ' for ' + who + '.' +
+    var msg = 'Hello! (Vjosa Rafting demo site) I would like to book the ' + trip.name + (trip.time ? ' (' + trip.time + ')' : '') + ' on ' + dayText + ' for ' + who + '.' +
       (trip.time ? '' : ' What start times are free?') + '\nIs there space? (Sent from the Vjosa Rafting website)';
     var url = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
     $('#qb-go').href = url;

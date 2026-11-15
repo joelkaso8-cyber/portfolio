@@ -27,3 +27,23 @@
 @media (max-width:23.5rem){.kb__field{padding:6px 9px}.kb__field span{font-size:.66rem}}
 @media (prefers-reduced-motion:reduce){.kb__field{transition:none}}
 #book form{scroll-margin-top:88px}
+
+/* Keep the hotel name still while the page loads: before book-bar.js swaps the two hero buttons for the quick-booking
+   bar, the buttons' row already takes the bar's height, so nothing above it moves when the bar arrives. The buttons stay
+   visible and usable the whole time. Heights match the bar at each width (measured with the perks line wrapped). */
+.film-intro{--kb-h:112px}
+.js:not(.kb-on) .film-intro .hero__actions{min-height:calc(var(--kb-h) + 4px);align-items:flex-start;align-content:flex-start}
+@media (max-width:48rem){.film-intro{--kb-h:159px}}
+@media (max-width:35.5rem){.film-intro{--kb-h:182px}}
+@media (max-width:24rem){.film-intro{--kb-h:203px}}
+
+/* Cookie choice: never over the hotel name or the booking bar on the first screen. book-bar.js adds .ck-in once the
+   visitor has scrolled, then it slides up from the bottom, solid and compact so the page behind stays readable. */
+.cookies{background:color-mix(in oklab,var(--color-paper-2) 97%,transparent);transition:opacity .3s ease-out,transform .3s ease-out,visibility 0s linear 0s}
+.js:not(.ck-in) .cookies{opacity:0;visibility:hidden;transform:translateY(24px);pointer-events:none;transition:none}
+@media (max-width:48rem){
+  .cookies{gap:10px 12px;padding:12px 14px}
+  .cookies__text{flex-basis:100%;font-size:.82rem;line-height:1.4}
+  .cookies__actions{margin-left:auto}
+}
+@media (prefers-reduced-motion:reduce){.cookies{transform:none!important;transition:none}}
