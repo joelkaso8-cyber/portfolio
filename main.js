@@ -43,8 +43,9 @@
     { id: 'brolin-tattoo', film: true, name: 'Brolin Tattoo', cat: 'local', tag: 'project', where: { en: 'Tattoo studio', sq: 'Studio tatuazhesh' },
       chips: { en: ['Ink film hero', 'Work gallery', 'Dark editorial look'], sq: ['Film me bojë në hyrje', 'Galeri punësh', 'Pamje e errët editoriale'] } },
   ]
-  // Only these show in the portfolio. The other sites stay in work/; add an id here to show it again.
-  var SHOWN = ['ura-coffee', 'balte-studio', 'lule-kitchen', 'kaso-ervehe', 'northline-barbers', 'sage-silk-beauty', 'aurelia-dental', 'vjosa-rafting']
+  // Only these show in the portfolio: the best 6, one per package plus the strongest scroll films. The other sites stay
+  // in work/ (still reachable by their own link); add an id here to show one again.
+  var SHOWN = ['kaso-ervehe', 'ura-coffee', 'vjosa-rafting', 'balte-studio', 'lule-kitchen', 'northline-barbers']
   WORK = WORK.filter(function (w) { return SHOWN.indexOf(w.id) !== -1 })
   // Real client reviews. The section stays hidden while this list is empty. Add one per client, in both languages, only with their permission:
   // { name: 'Arben Hoxha', role: { en: 'Owner, Hotel Example, Berat', sq: 'Pronar, Hotel Example, Berat' },
@@ -52,8 +53,8 @@
   var REVIEWS = []
 
   // Launch spots still open (out of 10). Set a number, for example 7, to show "7 of 10 launch spots left" in the offer band.
-  // Leave it null to hide the line. Lower it each time a client signs. Only show the real number.
-  var SPOTS_LEFT = 3
+  // Leave it null to hide the line. Only show a real, current number (switched off on 2026-11-15).
+  var SPOTS_LEFT = null
 
   // Hotel Kaso Ervehe. Turn KASO_LIVE on only while the hotel's guests really use the site: it badges the card
   // "Live Client Site" and the footer says it is live. Then also update case.lead, case.s2 and case.s3, which say the site launches soon. Turn KASO_QUOTE on only if the hotel said those words and agreed to be quoted.
@@ -73,8 +74,9 @@
   // Counts a button press if analytics.js is on (see the README). Does nothing otherwise.
   function track(name) { try { document.dispatchEvent(new CustomEvent('jk:track', { detail: name })) } catch (e) {} }
 
-  var SHOWCASE = { en: 'Interactive Industry Showcase', sq: 'Model Interaktiv Demonstrimi' }
-  var TAGS = { client: KASO_LIVE ? { en: 'Live Client Site', sq: 'Faqe Reale Live' } : { en: 'Client Site', sq: 'Faqe Klienti' }, demo: SHOWCASE, concept: { en: 'Concept', sq: 'Koncept' }, project: SHOWCASE }
+  // Every site that is not a real client's carries a plain "Demo" tag, so no one mistakes it for a live business.
+  var DEMO = { en: 'Demo', sq: 'Demo' }
+  var TAGS = { client: KASO_LIVE ? { en: 'Live Client Site', sq: 'Faqe Reale Live' } : { en: 'Client Site', sq: 'Faqe Klienti' }, demo: DEMO, concept: DEMO, project: DEMO }
 
   // Every visible text in both languages. index.html carries the English copy; data-i18n keys point here.
   var T = {
@@ -102,19 +104,19 @@
       'case.tag': 'Featured case study', 'case.title': 'Hotel Kaso Ervehe, Përmet', 'case.lead': "My family's hotel in Përmet is my first real project, and its new site launches soon. Here is what it changes.",
       'case.alt': 'Home page of the Hotel Kaso Ervehe website', 'case.pt': 'The problem', 'case.pp': 'Up to 18% of every stay went to booking platforms as commission.',
       'case.st': 'The solution', 'case.items': ['A fast site of its own, in English and Albanian', 'A direct booking calendar', 'Booking alerts on Telegram', 'The route on Google Maps'],
-      'case.s1': 'guest rating on Booking.com', 'case.proof': 'Check the reviews on Booking.com', 'case.s2': 'commission on direct reservations, once it launches', 'case.s3': 'guests can book in English or Albanian', 'case.cta': 'Open the hotel site in the live preview',
+      'case.s1': 'guest rating on Booking.com', 'case.proof': 'Check the reviews on Booking.com', 'case.s2': 'commission on direct reservations, once it launches', 'case.s3': 'guests can book in English or Albanian', 'case.cta': 'Open the hotel site in the preview',
       'cmp.tag': 'Why custom', 'cmp.title': 'Built for you, or rented from a template', 'cmp.c0': 'What matters', 'cmp.c1': 'A custom site by Joel Kaso', 'cmp.c2': 'WordPress, Wix or an agency template',
       'cmp.r1': 'Speed', 'cmp.r1a': 'Hand-built and light, with no plugins. Tested with Google PageSpeed before it goes live.', 'cmp.r1b': 'Heavy themes and plugins often take 3 to 6 seconds to open on a phone.',
       'cmp.r2': 'Monthly fees', 'cmp.r2a': 'No monthly fee required. You own the code and pay only for your domain, about 10–15€ a year. A care plan is there if you want one.', 'cmp.r2b': 'Often 30–100€ a month for plugins, hosting and maintenance.',
       'cmp.r3': 'Security', 'cmp.r3a': 'No database and no plugins, so there is far less to attack and nothing to keep updating.', 'cmp.r3b': 'Plugins need constant updates, and an old one is a common way in.',
       'cmp.r4': 'Enquiries', 'cmp.r4a': 'Bookings and messages reach your WhatsApp or Telegram within seconds.', 'cmp.r4b': 'A generic contact form that often ends up in spam.',
-      'work.tag': 'Live sites', 'work.title': 'Selected work', 'work.all': 'All', 'work.stay': 'Hotels & stays', 'work.food': 'Restaurants & food', 'work.local': 'Local services', 'work.film': 'Scroll film experiences',
+      'work.tag': 'Demo sites', 'work.title': 'Selected work', 'work.all': 'All', 'work.stay': 'Hotels & stays', 'work.food': 'Restaurants & food', 'work.local': 'Local services', 'work.film': 'Scroll film experiences',
       'cta.work': 'Get a site like these', open: 'Open the site →', shot: ', website screenshot', film: '▶ Scroll film',
       'services.tag': 'Packages', 'services.title': 'What you get', 'services.lead': 'Every site is custom-designed for your business, with no monthly lock-in. Take direct bookings with 0% commission through instant WhatsApp requests or a built-in booking calendar, or connect the tools you already use (OpenTable, Fresha, Booksy, Airbnb or Booking.com) whenever you need them.',
       'plan1.name': 'Starter site', 'plan1.for': 'For cafés, barbers and trades that need to be found and contacted.',
       'plan2.name': 'Business site with booking', 'plan2.for': 'For restaurants, salons and clinics that take bookings every day.',
       'plan3.name': 'Premium site', 'plan3.for': 'For hotels, guesthouses and businesses that want everything done for them.',
-      'plan.ask': 'Start with this', 'plan.see': 'See it live', 'footer.film': 'Hero film', 'plan.popular': 'Best value', 'plan.launch': 'launch price',
+      'plan.ask': 'Start with this', 'plan.see': 'See the example', 'footer.film': 'Hero film', 'plan.popular': 'Best value', 'plan.launch': 'launch price',
       'plan1.items': ['Designed for phones first', 'WhatsApp and call buttons', 'Google Maps and opening hours', 'One language', 'Ready in about a week'],
       'plan2.items': ['Everything in the starter site', 'Online booking with a calendar', 'Orders and pre-orders to WhatsApp', 'Menu or price list you can edit', 'Two languages', 'Google listing set up'],
       'plan3.items': ['Everything in the business site', 'Rooms, prices and photo slides', 'Booking requests to WhatsApp or Telegram, with blocked dates you control', 'Guest page with Wi-Fi and tips', '3 months of the care plan included'],
@@ -152,12 +154,12 @@
       'f.note': 'Your message goes to my email through FormSubmit. I use it only to reply.',
       err: { name: 'Write your name.', email: 'Write a full email address.', rate: 'Too many messages in a short time. Wait a minute, or write to me on WhatsApp.' },
       ok: 'Your email app is opening with the message ready. Press send there.', sent: 'Thanks, your message is sent. I reply within a day.', sending: 'Sending…', subject: 'Website enquiry',
-      'case.quote': 'Instead of losing up to 18% on every reservation to third-party platforms, guests finding us on Google can now check rooms in English or Albanian and message us directly on WhatsApp with their exact dates.', 'case.quoteBy': 'Hotel Kaso Ervehe, Përmet', 'footer.live': 'Featured case study Hotel Kaso Ervehe is a live client website. The interactive industry showcases (such as Vjosa Rafting and Ura Coffee Roasters) are custom concept builds made to show how booking and ordering work. Demo photos: Wikimedia Commons, credited on each site.',
-      'footer.note': 'Hotel Kaso Ervehe is a real client: my family’s hotel in Përmet. The interactive industry showcases (such as Vjosa Rafting and Ura Coffee Roasters) are custom concept builds with made-up names, made to show how booking and ordering work. Demo photos: Wikimedia Commons, credited on each site.', 'footer.privacy': 'Privacy policy', 'footer.top': 'Back to top ↑',
+      'case.quote': 'Instead of losing up to 18% on every reservation to third-party platforms, guests finding us on Google can now check rooms in English or Albanian and message us directly on WhatsApp with their exact dates.', 'case.quoteBy': 'Hotel Kaso Ervehe, Përmet', 'footer.live': 'Featured case study Hotel Kaso Ervehe is a live client website. Every site tagged Demo (such as Vjosa Rafting and Ura Coffee Roasters) is a custom demo build made to show how booking and ordering work. Demo photos: Wikimedia Commons, credited on each site.',
+      'footer.note': 'Hotel Kaso Ervehe is a real client: my family’s hotel in Përmet. Every site tagged Demo (such as Vjosa Rafting and Ura Coffee Roasters) is a custom demo build with made-up names, made to show how booking and ordering work. Demo photos: Wikimedia Commons, credited on each site.', 'footer.privacy': 'Privacy policy', 'footer.top': 'Back to top ↑',
       'viewer.desk': 'Desktop', 'viewer.phone': 'Phone', 'viewer.qr': 'Try it on your phone', 'viewer.qrhint': 'Point your phone camera at the code to open this site on your own phone.',
       'viewer.want': 'I want a site like this', 'viewer.open': 'Open in new tab ↗', 'wa.msg': "Hi Joel, I'd like a website.",
       'tier.starter': 'Starter package example · 390€', 'tier.business': 'Business package example · 590€', 'tier.premium': 'Premium package example · 1.190€', 'tier.premiumLive': 'Premium package · live client site · 1.190€',
-      'wall.title': 'Live sites, not mockups', 'wall.lead': 'Tap any screen to try that site the way your customers would.',
+      'wall.title': 'Demo sites you can try', 'wall.lead': 'Tap any screen to try that site the way your customers would.',
       'dome.title': 'Every site, on a phone', 'dome.lead': 'Most of your customers will see your site on a phone. Drag to spin it, tap a screen to open that site.',
       'badge.role': 'Web designer · Albania', 'badge.scan': 'Scan to message me on WhatsApp', 'badge.hint': 'Drag the badge. Tap it to flip.',
       'badge.aria': "Joel Kaso's badge. Press to flip it and show a WhatsApp QR code."
@@ -186,19 +188,19 @@
       'case.tag': 'Projekt i veçantë', 'case.title': 'Hotel Kaso Ervehe, Përmet', 'case.lead': 'Hoteli i familjes sime në Përmet është projekti im i parë real, dhe faqja e re del online së shpejti. Ja çfarë ndryshon.',
       'case.alt': 'Faqja kryesore e website-it të Hotel Kaso Ervehe', 'case.pt': 'Problemi', 'case.pp': 'Deri në 18% e çdo qëndrimi shkonte si komision te platformat e rezervimit.',
       'case.st': 'Zgjidhja', 'case.items': ['Një faqe e shpejtë e vetja, në anglisht dhe shqip', 'Kalendar rezervimi direkt', 'Njoftime rezervimesh në Telegram', 'Rruga në Google Maps'],
-      'case.s1': 'vlerësim i mysafirëve në Booking.com', 'case.proof': 'Shiko vlerësimet në Booking.com', 'case.s2': 'komision për rezervimet direkte, sapo të dalë online', 'case.s3': 'mysafirët mund të rezervojnë në anglisht ose shqip', 'case.cta': 'Hap faqen e hotelit në pamjen live',
+      'case.s1': 'vlerësim i mysafirëve në Booking.com', 'case.proof': 'Shiko vlerësimet në Booking.com', 'case.s2': 'komision për rezervimet direkte, sapo të dalë online', 'case.s3': 'mysafirët mund të rezervojnë në anglisht ose shqip', 'case.cta': 'Hap faqen e hotelit në parapamje',
       'cmp.tag': 'Pse me porosi', 'cmp.title': 'E ndërtuar për ty, apo e marrë me qira nga një shabllon', 'cmp.c0': 'Çfarë ka rëndësi', 'cmp.c1': 'Faqe me porosi nga Joel Kaso', 'cmp.c2': 'WordPress, Wix ose shabllon agjencie',
       'cmp.r1': 'Shpejtësia', 'cmp.r1a': 'E ndërtuar me dorë dhe e lehtë, pa plugin. E testuar me Google PageSpeed para se të dalë online.', 'cmp.r1b': 'Temat dhe plugin-et e rënda shpesh hapen për 3 deri 6 sekonda në telefon.',
       'cmp.r2': 'Pagesat mujore', 'cmp.r2a': 'Asnjë pagesë mujore e detyrueshme. Kodi është yti dhe paguan vetëm domain-in, rreth 10–15€ në vit. Plani i kujdesit është opsional.', 'cmp.r2b': 'Shpesh 30–100€ në muaj për plugin, hosting dhe mirëmbajtje.',
       'cmp.r3': 'Siguria', 'cmp.r3a': "Pa bazë të dhënash dhe pa plugin, ndaj ka shumë më pak për t'u sulmuar dhe asgjë për t'u përditësuar.", 'cmp.r3b': 'Plugin-et duan përditësime të vazhdueshme, dhe një i vjetër është një derë e zakonshme për sulme.',
       'cmp.r4': 'Kërkesat', 'cmp.r4a': 'Rezervimet dhe mesazhet të vijnë në WhatsApp ose Telegram për pak sekonda.', 'cmp.r4b': 'Një formular i zakonshëm që shpesh përfundon te spam-i.',
-      'work.tag': 'Faqe online', 'work.title': 'Punë të zgjedhura', 'work.all': 'Të gjitha', 'work.stay': 'Hotele dhe akomodime', 'work.food': 'Restorante dhe ushqim', 'work.local': 'Shërbime lokale', 'work.film': 'Filma me scroll',
+      'work.tag': 'Faqe demo', 'work.title': 'Punë të zgjedhura', 'work.all': 'Të gjitha', 'work.stay': 'Hotele dhe akomodime', 'work.food': 'Restorante dhe ushqim', 'work.local': 'Shërbime lokale', 'work.film': 'Filma me scroll',
       'cta.work': 'Dua një faqe si këto', open: 'Hap faqen →', shot: ', pamje e faqes', film: '▶ Film me scroll',
       'services.tag': 'Paketat', 'services.title': 'Çfarë merr', 'services.lead': 'Çdo faqe projektohet posaçërisht për biznesin tënd, pa pagesa mujore të detyruara. Merr rezervime direkte me 0% komision, me kërkesa të menjëhershme në WhatsApp ose me kalendar rezervimi brenda faqes. Dhe kur të duhet, faqja lidhet edhe me mjetet që përdor tashmë (OpenTable, Fresha, Booksy, Airbnb ose Booking.com).',
       'plan1.name': 'Faqe Starter', 'plan1.for': 'Për kafene, berberë dhe mjeshtër që duan të gjenden dhe të kontaktohen.',
       'plan2.name': 'Faqe biznesi me rezervim', 'plan2.for': 'Për restorante, sallone dhe klinika që marrin rezervime çdo ditë.',
       'plan3.name': 'Faqe Premium', 'plan3.for': 'Për hotele, bujtina dhe biznese që duan gjithçka gati.',
-      'plan.ask': 'Fillo me këtë', 'plan.see': 'Shiko live', 'footer.film': 'Filmi kryesor', 'plan.popular': 'Vlera më e mirë', 'plan.launch': 'çmim fillimi',
+      'plan.ask': 'Fillo me këtë', 'plan.see': 'Shiko shembullin', 'footer.film': 'Filmi kryesor', 'plan.popular': 'Vlera më e mirë', 'plan.launch': 'çmim fillimi',
       'plan1.items': ['E projektuar fillimisht për telefon', 'Butona WhatsApp dhe telefon', 'Google Maps dhe orari', 'Një gjuhë', 'Gati për rreth një javë'],
       'plan2.items': ['Gjithçka nga faqja Starter', 'Rezervim online me kalendar', 'Porosi dhe porosi paraprake në WhatsApp', 'Menu ose çmime që i ndryshon vetë', 'Dy gjuhë', 'Profili në Google i rregulluar'],
       'plan3.items': ['Gjithçka nga faqja e biznesit', 'Dhoma, çmime dhe foto', 'Kërkesa rezervimi në WhatsApp ose Telegram, me data të zëna që i kontrollon vetë', 'Faqe për mysafirët me Wi-Fi dhe këshilla', '3 muaj plan kujdesi të përfshirë'],
@@ -236,12 +238,12 @@
       'f.note': "Mesazhi shkon në emailin tim përmes FormSubmit. E përdor vetëm për t'u përgjigjur.",
       err: { name: 'Shkruaj emrin.', email: 'Shkruaj një email të plotë.', rate: 'Shumë mesazhe në pak kohë. Prit një minutë, ose më shkruaj në WhatsApp.' },
       ok: 'Po hapet aplikacioni i emailit me mesazhin gati. Shtyp Dërgo atje.', sent: 'Faleminderit, mesazhi u dërgua. Përgjigjem brenda një dite.', sending: 'Po dërgohet…', subject: 'Kërkesë për website',
-      'case.quote': 'Në vend që të humbasim deri në 18% komision për çdo rezervim në platforma ndërmjetëse, turistët që na gjejnë në Google tani shohin dhomat në shqip ose anglisht dhe na dërgojnë kërkesën direkt në WhatsApp me datat e sakta.', 'case.quoteBy': 'Hotel Kaso Ervehe, Përmet', 'footer.live': 'Projekti i veçantë, Hotel Kaso Ervehe, është faqe reale dhe online e një klienti. Modelet interaktive të demonstrimit (si Vjosa Rafting dhe Ura Coffee Roasters) janë ndërtime koncepti, të bëra për të treguar si funksionojnë rezervimet dhe porositë. Fotot e demove: Wikimedia Commons, të përmendura në secilën faqe.',
-      'footer.note': 'Hotel Kaso Ervehe është klient real: hoteli i familjes sime në Përmet. Modelet interaktive të demonstrimit (si Vjosa Rafting dhe Ura Coffee Roasters) janë ndërtime koncepti me emra të shpikur, të bëra për të treguar si funksionojnë rezervimet dhe porositë. Fotot e demove: Wikimedia Commons, të përmendura në secilën faqe.', 'footer.privacy': 'Politika e privatësisë', 'footer.top': 'Kthehu lart ↑',
+      'case.quote': 'Në vend që të humbasim deri në 18% komision për çdo rezervim në platforma ndërmjetëse, turistët që na gjejnë në Google tani shohin dhomat në shqip ose anglisht dhe na dërgojnë kërkesën direkt në WhatsApp me datat e sakta.', 'case.quoteBy': 'Hotel Kaso Ervehe, Përmet', 'footer.live': 'Projekti i veçantë, Hotel Kaso Ervehe, është faqe reale dhe online e një klienti. Çdo faqe me etiketën Demo (si Vjosa Rafting dhe Ura Coffee Roasters) është ndërtim demo, të bëra për të treguar si funksionojnë rezervimet dhe porositë. Fotot e demove: Wikimedia Commons, të përmendura në secilën faqe.',
+      'footer.note': 'Hotel Kaso Ervehe është klient real: hoteli i familjes sime në Përmet. Çdo faqe me etiketën Demo (si Vjosa Rafting dhe Ura Coffee Roasters) është ndërtim demo me emra të shpikur, të bëra për të treguar si funksionojnë rezervimet dhe porositë. Fotot e demove: Wikimedia Commons, të përmendura në secilën faqe.', 'footer.privacy': 'Politika e privatësisë', 'footer.top': 'Kthehu lart ↑',
       'viewer.desk': 'Kompjuter', 'viewer.phone': 'Telefon', 'viewer.qr': 'Provoje në telefon', 'viewer.qrhint': 'Drejtoje kamerën e telefonit te kodi për ta hapur këtë faqe në telefonin tënd.',
       'viewer.want': 'Dua një faqe si kjo', 'viewer.open': 'Hap në skedë të re ↗', 'wa.msg': 'Përshëndetje Joel, dua një website.',
       'tier.starter': 'Shembull i paketës Starter · 390€', 'tier.business': 'Shembull i paketës Biznes · 590€', 'tier.premium': 'Shembull i paketës Premium · 1.190€', 'tier.premiumLive': 'Paketa Premium · faqe klienti live · 1.190€',
-      'wall.title': 'Faqe që punojnë, jo vetëm foto', 'wall.lead': 'Prek çdo ekran dhe provoje faqen si klientët e tu.',
+      'wall.title': 'Faqe demo që mund t’i provosh', 'wall.lead': 'Prek çdo ekran dhe provoje faqen si klientët e tu.',
       'dome.title': 'Çdo faqe, në telefon', 'dome.lead': 'Shumica e klientëve do ta shohin faqen tënde në telefon. Tërhiqe për ta rrotulluar, prek një ekran për ta hapur.',
       'badge.role': 'Dizajner web · Shqipëri', 'badge.scan': 'Skano për të më shkruar në WhatsApp', 'badge.hint': 'Tërhiqe kartën. Prek për ta kthyer.',
       'badge.aria': 'Karta e Joel Kasos. Shtyp për ta kthyer dhe për të parë kodin QR të WhatsApp-it.'
@@ -695,6 +697,13 @@
   toggle.addEventListener('click', function () { setMenu(!nav.classList.contains('is-open')) })
   $('#nav-links').addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false) })
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); toggle.focus() } })
+
+  // Phones: the WhatsApp and chat buttons step aside while the quote calculator is on screen, so they never cover its
+  // options or the Back / Next buttons (style.css, .fab-away). The calculator has its own WhatsApp button.
+  var quoteSec = $('#quote')
+  if (quoteSec && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { document.documentElement.classList.toggle('fab-away', es[0].isIntersecting) }, { rootMargin: '0px 0px -96px 0px' }).observe(quoteSec)
+  }
 
   $('#year').textContent = new Date().getFullYear()
   applyLang()

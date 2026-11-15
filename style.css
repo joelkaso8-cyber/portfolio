@@ -453,6 +453,13 @@ input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offs
 .footer a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink-2); text-underline-offset: 4px; transition: color .2s; }
 .footer a:hover { color: var(--gold-hi); }
 .wa-fab { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 30; }
+/* Phones: while the quote calculator is on screen (main.js adds .fab-away), the WhatsApp and chat buttons slide off to the
+   right so they never sit on its options or its Back / Next buttons. They slide back as soon as the calculator leaves. */
+@media (max-width: 899px) {
+  .wa-fab, .asst__launch { transition: transform .3s var(--ease), opacity .3s var(--ease), visibility 0s linear 0s, background-color .3s, border-color .3s; }
+  .fab-away .wa-fab, .fab-away .asst:not(.is-open) .asst__launch { transform: translateX(calc(100% + 32px)); opacity: 0; visibility: hidden; pointer-events: none; transition: transform .3s var(--ease), opacity .3s var(--ease), visibility 0s linear .3s; }
+}
+@media (max-width: 899px) and (prefers-reduced-motion: reduce) { .wa-fab, .asst__launch, .fab-away .wa-fab, .fab-away .asst:not(.is-open) .asst__launch { transition: none; } }
 
 /* site viewer */
 .viewer { width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: 0; border: 0; background: #07080a; color: var(--ink); }

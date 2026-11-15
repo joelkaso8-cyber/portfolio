@@ -6,6 +6,14 @@
 (function () {
   'use strict'
   if (document.getElementById('kb')) return
+
+  // The cookie choice waits until the visitor scrolls, so it never covers the hotel name or the booking bar on the
+  // first screen (styles in book-bar.css). It does not depend on React, so it works even if hydration is slow.
+  ;(function cookieGate() {
+    var de = document.documentElement
+    function check() { if (scrollY > innerHeight * 0.4) { de.classList.add('ck-in'); removeEventListener('scroll', check) } }
+    addEventListener('scroll', check, { passive: true }); check()
+  })()
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
   var TX = {
     en: {

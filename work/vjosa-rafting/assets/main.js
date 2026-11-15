@@ -708,7 +708,7 @@
     const notesEl = $('#f-notes');
     const notesVal = notesEl ? notesEl.value.trim() : '';
 
-    const waMsg = `Hello Adion! I would like to book a rafting tour with Vjosa Rafting Getaway:\n` +
+    const waMsg = `Hello! I would like to book a rafting tour (Vjosa Rafting demo site):\n` +
       `- Tour Slot: ${tripText}\n` +
       `- Date: ${dateVal}\n` +
       `- Guests: ${adultsVal} adult(s)${+childrenVal > 0 ? ', ' + childrenVal + ' child(ren)' : ''}\n` +
@@ -717,7 +717,7 @@
       `- Email: ${emailVal}` +
       (notesVal ? `\n- Questions/Notes: ${notesVal}` : '');
 
-    const waUrl = `https://wa.me/355684340615?text=${encodeURIComponent(waMsg)}`;
+    const waUrl = `https://wa.me/355685727406?text=${encodeURIComponent(waMsg)}`;
     const mailUrl = `mailto:vjosaraftinggetaway@gmail.com?subject=${encodeURIComponent('Rafting Tour Booking: ' + nameVal)}&body=${encodeURIComponent(waMsg)}`;
 
     const firstName = nameVal.split(' ')[0];
