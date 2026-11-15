@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><title>Casa Alba, 3D hero</title>
+<link rel="canonical" href="https://casaalba.example/3d.html"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Casa Alba is a seven-room boutique hotel in Alfama, Lisbon. Book direct for the best rate.">
+<meta property="og:title" content="Casa Alba, boutique hotel in Alfama, Lisbon"><meta property="og:description" content="Seven rooms above the Tagus. Book direct.">
+<meta property="og:type" content="website"><meta property="og:image" content="/media/poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Hotel","name":"Casa Alba","address":{"@type":"PostalAddress","streetAddress":"Rua das Flores 12","addressLocality":"Lisbon","addressCountry":"PT"},"numberOfRooms":7,"priceRange":"€180–€340"}</script></head><body>
+<nav class="nav" aria-label="Main"><a class="brand" href="/">Casa Alba</a><a href="#book">Book</a></nav>
+<header class="hero" id="hero"><div class="hero-3d" id="stage"><img src="/media/poster.jpg" alt="Warm amber light over Lisbon rooftops at dusk" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" fetchpriority="high" width="1280" height="720"></div>
+<div class="hero-copy"><p class="eyebrow">Boutique hotel · Alfama, Lisbon</p><h1>Seven rooms above the river.</h1><p class="lede">A small hotel in Lisbon’s oldest quarter. Stay a night or a week, and book direct.</p><a class="cta" href="#book">Book your stay</a></div><span class="hint">Scroll</span></header>
+<main id="main">
+<section class="block" id="rooms"><h2>Seven rooms. No two alike.</h2>
+<p class="intro">Casa Alba sits on a quiet street in Alfama, five minutes from the river. Breakfast is baked downstairs and the terrace faces the Tagus.</p>
+<div class="rooms">
+<article class="room a"><h3>The Terrace Suite</h3><p>Corner suite with a private terrace, a stone bath and a view down to the river.</p><span class="price">from €340 / night</span></article>
+<article class="room b"><h3>Garden Room</h3><p>Ground floor, opening onto the courtyard fig tree.</p><span class="price">from €210 / night</span></article>
+<article class="room c"><h3>Attic Room</h3><p>Low beams, a skylight, and the best light at dawn.</p><span class="price">from €180 / night</span></article>
+<article class="room d"><h3>The Library Room</h3><p>Floor-to-ceiling shelves, a reading chair and a deep window seat.</p><span class="price">from €260 / night</span></article>
+</div></section>
+<section class="block book" id="book"><h2>Book your stay</h2>
+<p class="intro">Tell us your dates and we confirm within the hour. Best rate direct, always.</p>
+<form action="mailto:stay@casaalba.example" method="post" enctype="text/plain">
+<label for="n">Name<input id="n" name="name" autocomplete="name" required></label>
+<label for="d">Arrival date<input id="d" name="arrival" type="date" required></label>
+<label for="r">Room<select id="r" name="room"><option>The Terrace Suite</option><option>Garden Room</option><option>Attic Room</option><option>The Library Room</option></select></label>
+<button class="cta" type="submit">Request dates</button></form></section>
+</main>
+<footer>© Casa Alba, Rua das Flores 12, Alfama, Lisbon. Demo site.</footer>
+<script type="module" src="/src/hero3d.js"></script></body></html>

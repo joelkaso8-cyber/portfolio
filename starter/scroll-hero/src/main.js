@@ -24,9 +24,11 @@ if (!reduce && !saver) {
     gsap.to(proxy, {
       t: video.duration - 0.05, ease: 'none',
       onUpdate: () => { video.currentTime = proxy.t },
-      scrollTrigger: { trigger: hero, start: 'top top', end: '+=600', scrub: 0.4 }
+      scrollTrigger: { trigger: hero, start: 'top top', end: '+=600', scrub: 0.4, pin: true }
     })
-    video.style.opacity = 1
+    hero.querySelector('.hero-film').classList.add('ready')
   }, { once: true })
   video.addEventListener('error', () => video.remove()) // film failed: poster stays
 }
+
+addEventListener('scroll', () => hero.querySelector('.hint')?.classList.toggle('gone', scrollY > 20), { passive: true })
