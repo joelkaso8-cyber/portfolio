@@ -44,3 +44,6 @@ section.block{padding:clamp(3rem,8vw,8rem) clamp(1.25rem,5vw,4rem)}
 footer{padding:2rem clamp(1.25rem,5vw,4rem);color:var(--muted);font-size:.9rem}
 @media(max-width:800px){.room.a,.room.b,.room.c,.room.d{grid-column:span 12;min-height:13rem}.hint{display:none}.block{padding-block:3rem}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.nav-r{display:flex;gap:1.5rem}
+.sent{margin:0;color:var(--accent)}
+[hidden]{display:none!important}

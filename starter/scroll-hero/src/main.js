@@ -1,4 +1,5 @@
 // Normal page scroll (no lock). Film time follows scroll via GSAP ScrollTrigger; Lenis only smooths.
+import './form.js'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
@@ -18,7 +19,7 @@ if (!reduce && !saver) {
 
   const phone = matchMedia('(max-width: 900px) and (orientation: portrait)').matches
   video.preload = 'metadata'
-  video.src = phone ? '/media/hero-m.mp4' : '/media/hero.mp4'
+  video.src = phone ? 'media/hero-m.mp4' : 'media/hero.mp4'
   video.addEventListener('loadedmetadata', () => {
     const proxy = { t: 0 }
     gsap.to(proxy, {

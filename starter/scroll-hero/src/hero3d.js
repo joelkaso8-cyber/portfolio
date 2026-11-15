@@ -1,4 +1,5 @@
 // 3D hero: a lit glass-like form turns and the camera glides as the page scrolls (page scrolls normally).
+import './form.js'
 // Reduced motion or no WebGL: the poster image stays, nothing is hidden.
 import * as THREE from 'three'
 import gsap from 'gsap'
