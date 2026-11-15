@@ -1,0 +1,8 @@
+{
+  "name": "scroll-hero-starter",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "vite", "build": "vite build", "film": "bash make-film.sh" },
+  "dependencies": { "gsap": "^3.12.5", "lenis": "^1.1.0", "three": "^0.170.0" },
+  "devDependencies": { "vite": "^5.4.0" }
+}
