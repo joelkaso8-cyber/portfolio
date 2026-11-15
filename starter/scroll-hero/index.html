@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scroll hero starter</title>
+<meta name="description" content="Scroll-driven hero film starter.">
+<meta name="robots" content="noindex">
+<style>
+:root{--bg:#0F1012;--ink:#FAF8F5;--accent:#E8B04B}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,sans-serif}
+.hero{position:relative;min-height:100svh;display:grid;align-items:end;padding:clamp(1.5rem,5vw,4rem)}
+.hero-film{position:absolute;inset:0;overflow:hidden}
+.hero-film img,.hero-film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-film::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,16,18,.85),transparent 60%)}
+.hero-copy{position:relative;max-width:40rem}
+h1{font-size:clamp(2.4rem,7vw,5.5rem);letter-spacing:-.03em;line-height:1;margin:0 0 1rem}
+.cta{display:inline-block;padding:.9rem 1.6rem;background:var(--accent);color:#0F1012;text-decoration:none;font-weight:600;transition:all .3s ease-out}
+.cta:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+section.next{min-height:100svh;padding:clamp(3rem,8vw,8rem) clamp(1.5rem,5vw,4rem)}
+</style>
+</head>
+<body>
+<header class="hero" id="hero">
+  <div class="hero-film">
+    <img src="/media/poster.jpg" alt="" fetchpriority="high" width="1920" height="1080">
+    <video muted playsinline preload="none" poster="/media/poster.jpg" aria-hidden="true"></video>
+  </div>
+  <div class="hero-copy">
+    <h1>Your headline says what and where.</h1>
+    <a class="cta" href="#contact">Book now</a>
+  </div>
+</header>
+<main><section class="next" id="contact"><h2>Next section</h2></section></main>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
