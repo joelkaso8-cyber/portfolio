@@ -25,6 +25,7 @@
     <p class="beat line" data-in="0.5" data-out="0.72"><span class="tc">Scene 2 · Alfama</span>Streets too narrow for cars, stairs older than the city walls.</p>
     <div class="beat line end" data-in="0.8" data-out="1.01"><span class="tc">Scene 3 · The terrace</span><p>Your table is set above the rooftops.</p><a class="cta" href="#book">Book your stay</a></div>
     <span class="hint">Scroll</span>
+    <p class="tap-hint" aria-hidden="true"><span class="h-hover">Move to carry a lantern · click a house to light it</span><span class="h-touch">Tap a house to switch its lights on</span></p>
     <div class="reel" aria-hidden="true"><i></i></div>
   </div>
 </header>
@@ -37,13 +38,15 @@
 <article class="room c"><h3>Attic Room</h3><p>Low beams, a skylight, and the best light at dawn.</p><span class="price">from €180 / night</span></article>
 <article class="room d"><h3>The Library Room</h3><p>Floor-to-ceiling shelves, a reading chair and a deep window seat.</p><span class="price">from €260 / night</span></article>
 </div></section>
-<section class="block book" id="book"><h2>Book your stay</h2>
+<section class="block book" id="book"><div class="book-grid"><div class="book-form"><h2>Book your stay</h2>
 <p class="intro">Tell us your dates and we confirm within the hour. Best rate direct, always.</p>
 <form id="book-form">
 <label for="n">Name<input id="n" name="name" autocomplete="name" required></label>
 <label for="d">Arrival date<input id="d" name="arrival" type="date" required></label>
 <label for="r">Room<select id="r" name="room"><option>The Terrace Suite</option><option>Garden Room</option><option>Attic Room</option><option>The Library Room</option></select></label>
-<button class="cta" type="submit">Request dates</button><p class="sent" id="sent" role="status" hidden>Thanks. In a real site this request goes to the hotel, who confirm within the hour.</p></form></section>
+<button class="cta" type="submit">Request dates</button><p class="sent" id="sent" role="status" hidden>Thanks. In a real site this request goes to the hotel, who confirm within the hour.</p></form></div>
+<figure class="lamp"><canvas id="lamp" tabindex="0" role="img" aria-label="Lava lamp. Drag inside it to stir the wax. Tap it, or press Space, to warm it up." width="240" height="560"></canvas>
+<figcaption>The lounge lamp has been glowing since 1974. Drag to stir the wax, tap to warm it up.</figcaption></figure></div></section>
 </main>
 <footer>© Casa Alba, Rua das Flores 12, Alfama, Lisbon. Demo site. Sky and wall, roof and cobblestone textures from Poly Haven (CC0).</footer>
 <script type="module" src="/src/cinema.js"></script>
