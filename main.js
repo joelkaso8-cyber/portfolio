@@ -40,7 +40,7 @@
       chips: { en: ['Photo slideshow', 'Scroll motion', 'Booking calendar'], sq: ['Slideshow fotosh', 'Lëvizje me scroll', 'Kalendar rezervimi'] } },
     { id: 'vjosa-rafting', film: true, name: 'Vjosa Rafting', cat: 'local', tag: 'project', where: { en: 'Rafting trips · Vjosa river, Albania', sq: 'Rafting · lumi Vjosa, Shqipëri' },
       chips: { en: ['Video hero', 'Price, time and meeting point at a glance', 'Book on WhatsApp in 1 tap', 'Built for phones'], sq: ['Video në hyrje', 'Çmimi, koha dhe pika e takimit me një shikim', 'Rezervo në WhatsApp me 1 prekje', 'E ndërtuar për telefon'] } },
-    // Lives on its own Netlify site (url), so the card and viewer open that. The img/ thumbnails are a title card in the site's colours and copy; swap in real screenshots when available.
+    // Lives on its own Netlify site (url), so the card shows it live (liveShot) and the viewer opens it. The img/ title card is only the poster underneath.
     { id: 'brolin-tattoo', url: 'https://brolin-tattoo.netlify.app/', name: 'Brolin Tattoo', cat: 'local', tag: 'project', where: { en: 'Custom tattoo artist', sq: 'Artist tatuazhesh me porosi' },
       chips: { en: ['Five styles, blackwork to realism', 'Flash designs you can claim', '4-step session guide', 'Tattoo request form'], sq: ['Pesë stile, nga blackwork te realizmi', 'Dizajne flash që i rezervon', 'Seanca në 4 hapa', 'Formular kërkese për tatuazh'] } },
   ]
@@ -274,6 +274,21 @@
     el.addEventListener('pointermove', function (e) { var r = el.getBoundingClientRect(); el.style.setProperty('--mx', (e.clientX - r.left) + 'px'); el.style.setProperty('--my', (e.clientY - r.top) + 'px') })
   }
 
+  // Sites hosted elsewhere (w.url) show the real site live in the card: a desktop and a phone frame, scaled down,
+  // loaded lazily and not clickable (the card link still opens the viewer). The img/ shots stay underneath as the poster.
+  function liveShot(shot, w) {
+    ;[['desk', 1280, 800], ['phone', 390, 844]].forEach(function (k) {
+      var box = document.createElement('div'), f = document.createElement('iframe')
+      box.className = 'live live--' + k[0]; box.setAttribute('aria-hidden', 'true')
+      f.src = w.url; f.title = w.name; f.loading = 'lazy'; f.tabIndex = -1; f.width = k[1]; f.height = k[2]
+      f.setAttribute('sandbox', 'allow-scripts allow-same-origin')
+      box.appendChild(f); shot.appendChild(box)
+      var fit = function () { if (box.clientWidth) box.style.setProperty('--s', box.clientWidth / k[1]) }
+      if (window.ResizeObserver) new ResizeObserver(fit).observe(box); else window.addEventListener('resize', fit)
+      fit()
+    })
+  }
+
   function renderWork() {
     var grid = $('#work-grid'); grid.innerHTML = ''
     WORK.forEach(function (w, i) {
@@ -303,6 +318,7 @@
         e.preventDefault()
         openViewer(w)
       })
+      if (w.url) liveShot(a.querySelector('.item__shot'), w)
       spot(a)
       grid.appendChild(a)
     })
