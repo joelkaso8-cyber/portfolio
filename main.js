@@ -40,7 +40,7 @@
       chips: { en: ['Photo slideshow', 'Scroll motion', 'Booking calendar'], sq: ['Slideshow fotosh', 'Lëvizje me scroll', 'Kalendar rezervimi'] } },
     { id: 'vjosa-rafting', film: true, name: 'Vjosa Rafting', cat: 'local', tag: 'project', where: { en: 'Rafting trips · Vjosa river, Albania', sq: 'Rafting · lumi Vjosa, Shqipëri' },
       chips: { en: ['Video hero', 'Price, time and meeting point at a glance', 'Book on WhatsApp in 1 tap', 'Built for phones'], sq: ['Video në hyrje', 'Çmimi, koha dhe pika e takimit me një shikim', 'Rezervo në WhatsApp me 1 prekje', 'E ndërtuar për telefon'] } },
-    // Lives on its own Netlify site (url), so the card and viewer open that instead of a copy in work/. The thumbnails in img/ are still from the older work/brolin-tattoo build.
+    // Lives on its own Netlify site (url), so the card and viewer open that. The img/ thumbnails are a title card in the site's colours and copy; swap in real screenshots when available.
     { id: 'brolin-tattoo', url: 'https://brolin-tattoo.netlify.app/', name: 'Brolin Tattoo', cat: 'local', tag: 'project', where: { en: 'Custom tattoo artist', sq: 'Artist tatuazhesh me porosi' },
       chips: { en: ['Five styles, blackwork to realism', 'Flash designs you can claim', '4-step session guide', 'Tattoo request form'], sq: ['Pesë stile, nga blackwork te realizmi', 'Dizajne flash që i rezervon', 'Seanca në 4 hapa', 'Formular kërkese për tatuazh'] } },
   ]
