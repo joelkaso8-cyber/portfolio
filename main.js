@@ -40,12 +40,15 @@
       chips: { en: ['Photo slideshow', 'Scroll motion', 'Booking calendar'], sq: ['Slideshow fotosh', 'Lëvizje me scroll', 'Kalendar rezervimi'] } },
     { id: 'vjosa-rafting', film: true, name: 'Vjosa Rafting', cat: 'local', tag: 'project', where: { en: 'Rafting trips · Vjosa river, Albania', sq: 'Rafting · lumi Vjosa, Shqipëri' },
       chips: { en: ['Video hero', 'Price, time and meeting point at a glance', 'Book on WhatsApp in 1 tap', 'Built for phones'], sq: ['Video në hyrje', 'Çmimi, koha dhe pika e takimit me një shikim', 'Rezervo në WhatsApp me 1 prekje', 'E ndërtuar për telefon'] } },
-    { id: 'brolin-tattoo', film: true, name: 'Brolin Tattoo', cat: 'local', tag: 'project', where: { en: 'Tattoo studio', sq: 'Studio tatuazhesh' },
-      chips: { en: ['Ink film hero', 'Work gallery', 'Dark editorial look'], sq: ['Film me bojë në hyrje', 'Galeri punësh', 'Pamje e errët editoriale'] } },
+    // Lives on its own Netlify site (url), so the card and viewer open that instead of a copy in work/. The thumbnails in img/ are still from the older work/brolin-tattoo build.
+    { id: 'brolin-tattoo', url: 'https://brolin-tattoo.netlify.app/', name: 'Brolin Tattoo', cat: 'local', tag: 'project', where: { en: 'Custom tattoo artist', sq: 'Artist tatuazhesh me porosi' },
+      chips: { en: ['Five styles, blackwork to realism', 'Flash designs you can claim', '4-step session guide', 'Tattoo request form'], sq: ['Pesë stile, nga blackwork te realizmi', 'Dizajne flash që i rezervon', 'Seanca në 4 hapa', 'Formular kërkese për tatuazh'] } },
   ]
+  // A site's address: its own url when it is hosted elsewhere, otherwise its copy in work/.
+  var siteUrl = function (w) { return w.url || 'work/' + w.id + '/index.html' }
   // Only these show in the portfolio: the best 6, one per package plus the strongest scroll films. The other sites stay
   // in work/ (still reachable by their own link); add an id here to show one again.
-  var SHOWN = ['kaso-ervehe', 'ura-coffee', 'vjosa-rafting', 'balte-studio', 'lule-kitchen', 'northline-barbers']
+  var SHOWN = ['kaso-ervehe', 'ura-coffee', 'vjosa-rafting', 'brolin-tattoo', 'lule-kitchen', 'northline-barbers']
   WORK = WORK.filter(function (w) { return SHOWN.indexOf(w.id) !== -1 })
   // Real client reviews. The section stays hidden while this list is empty. Add one per client, in both languages, only with their permission:
   // { name: 'Arben Hoxha', role: { en: 'Owner, Hotel Example, Berat', sq: 'Pronar, Hotel Example, Berat' },
@@ -276,7 +279,7 @@
     WORK.forEach(function (w, i) {
       var a = document.createElement('a')
       a.className = 'item spot reveal' + (!matches(w) ? ' is-hidden' : '')
-      a.href = 'work/' + w.id + '/index.html'; a.target = '_blank'; a.rel = 'noopener noreferrer'
+      a.href = siteUrl(w); a.target = '_blank'; a.rel = 'noopener noreferrer'
       a.style.transitionDelay = (i % 2) * 90 + 'ms'
       a.innerHTML = '<div class="item__shot"><img class="desk" loading="lazy" decoding="async" alt=""><img class="phone" loading="lazy" decoding="async" alt=""></div>' +
         '<div class="item__meta"><h3></h3><span class="badge"></span></div><p class="item__where"></p><p class="item__tier" hidden></p><ul class="chips"></ul><span class="item__open"></span>'
@@ -508,11 +511,11 @@
   // QR code of the open site, made in this page (qr.js), so a visitor can try it on a real phone.
   function setQr(open) {
     qrBox.hidden = !open; qrBtn.setAttribute('aria-expanded', String(open))
-    if (open && viewing && window.JKQR) $('#viewer-qr-svg').innerHTML = window.JKQR.svg(new URL('work/' + viewing.id + '/', location.href).href)
+    if (open && viewing && window.JKQR) $('#viewer-qr-svg').innerHTML = window.JKQR.svg(viewing.url || new URL('work/' + viewing.id + '/', location.href).href)
   }
   qrBtn.addEventListener('click', function () { setQr(qrBox.hidden) })
   function openViewer(w) {
-    var url = 'work/' + w.id + '/index.html'
+    var url = siteUrl(w)
     viewing = w
     $('#viewer-title').textContent = w.name
     var vt = $('#viewer-tier'); vt.textContent = tierLabel(w); vt.hidden = !vt.textContent
