@@ -85,7 +85,7 @@
   var T = {
     en: {
       skip: 'Skip to content', title: 'Websites for hotels, restaurants & local businesses · Joel Kaso',
-      desc: 'Joel Kaso designs and builds fast, custom websites for hotels, restaurants and local businesses in Albania and abroad, with direct booking, WhatsApp and English/Albanian. From 390€.',
+      desc: 'Fast, custom websites for hotels, restaurants and local businesses in Albania and abroad: direct booking, WhatsApp, English/Albanian. From 390€.',
       'nav.status': 'Taking new projects', 'nav.work': 'Work', 'nav.services': 'Services', 'nav.process': 'Process', 'nav.faq': 'FAQ', 'nav.contact': 'Contact',
       'hero.eyebrow': 'Web design & engineering studio · Albania → UK, EU & USA', 'hero.t1': 'Websites that turn visitors into', 'hero.t2': 'direct paying customers.',
       'hero.lead': 'Custom, fast websites for hotels, restaurants and local businesses, with a direct booking calendar, WhatsApp, two languages and no monthly platform lock-in.',
@@ -722,6 +722,13 @@
   var quoteSec = $('#quote')
   if (quoteSec && 'IntersectionObserver' in window) {
     new IntersectionObserver(function (es) { document.documentElement.classList.toggle('fab-away', es[0].isIntersecting) }, { rootMargin: '0px 0px -96px 0px' }).observe(quoteSec)
+  }
+
+  // The chat button waits until the hero has scrolled away, so it never covers the hero demo (style.css, .asst-away).
+  var heroSec = $('#top')
+  if (heroSec && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('asst-away')
+    new IntersectionObserver(function (es) { document.documentElement.classList.toggle('asst-away', es[0].isIntersecting) }).observe(heroSec)
   }
 
   $('#year').textContent = new Date().getFullYear()
