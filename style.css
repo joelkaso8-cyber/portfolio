@@ -459,9 +459,13 @@ input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offs
   .wa-fab, .asst__launch { transition: transform .3s var(--ease), opacity .3s var(--ease), visibility 0s linear 0s, background-color .3s, border-color .3s; }
   .fab-away .wa-fab, .fab-away .asst:not(.is-open) .asst__launch { transform: translateX(calc(100% + 32px)); opacity: 0; visibility: hidden; pointer-events: none; transition: transform .3s var(--ease), opacity .3s var(--ease), visibility 0s linear .3s; }
 }
-/* The "Ask a question" button stays hidden over the hero so it never covers the hero demo; main.js toggles .asst-away. */
-.asst-away .asst:not(.is-open) .asst__launch { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .3s var(--ease), visibility 0s linear .3s; }
-@media (prefers-reduced-motion: reduce) { .asst__launch, .asst-away .asst:not(.is-open) .asst__launch { transition: none; } }
+/* Over the hero the chat button (all widths) and the WhatsApp button (desktop) stay hidden so they never cover the hero demo; main.js toggles .on-hero. */
+.on-hero .asst:not(.is-open) .asst__launch { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .3s var(--ease), visibility 0s linear .3s; }
+@media (min-width: 900px) {
+  .wa-fab { transition: opacity .3s var(--ease), visibility 0s linear 0s; }
+  .on-hero .wa-fab { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .3s var(--ease), visibility 0s linear .3s; }
+}
+@media (prefers-reduced-motion: reduce) { .asst__launch, .wa-fab, .on-hero .asst:not(.is-open) .asst__launch, .on-hero .wa-fab { transition: none; } }
 @media (max-width: 899px) and (prefers-reduced-motion: reduce) { .wa-fab, .asst__launch, .fab-away .wa-fab, .fab-away .asst:not(.is-open) .asst__launch { transition: none; } }
 
 /* site viewer */

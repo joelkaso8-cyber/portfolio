@@ -5,7 +5,7 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)) }
   var pad = function (n) { return String(n).padStart(2, '0') }
   var store = { get: function (k) { try { return localStorage.getItem(k) } catch (e) { return null } }, set: function (k, v) { try { localStorage.setItem(k, v) } catch (e) {} } }
-  var WA = '441614960000'
+  var WA = '355685727406' // Joel's WhatsApp: the demo's booking messages come to him as leads
 
   var T = {
     en: {
@@ -28,7 +28,7 @@
       with: 'with', anyBarber: 'the first free barber', at: 'at',
       'err.name': 'Write your name.', 'err.phone': 'Write a mobile number so we can text the confirmation.',
       ok: 'Booked, {name}! {summary}. (Demo: a live site sends this to the shop on Telegram and texts you.)', ok2: 'Booked, {name}. See you soon.',
-      'wa.msg': 'Hi Northline, I would like to book: {summary}. Name: {name}',
+      'wa.msg': 'Hi Joel, I saw your Northline Barbers demo. Its booking form wrote:\n\nHi Northline, I would like to book: {summary}. Name: {name}',
       'work.title': 'Work', 'work.lead': 'Tap to see it bigger.', 'faq.title': 'Good to know',
       'find.title': 'Find us', 'find.addr': 'Oldham Street, Manchester M1 · 3 min from Piccadilly Gardens', 'find.park': 'Parking: Church Street car park, 2 minutes away. Trams: Market Street.',
       'find.maps': 'Directions in Google Maps', 'map.show': 'Show the map', 'map.note': 'Loads Google Maps, which may set cookies.',
@@ -59,7 +59,7 @@
       with: 'me', anyBarber: 'berberin e parë të lirë', at: 'në',
       'err.name': 'Shkruaj emrin.', 'err.phone': 'Shkruaj një numër celulari që të dërgojmë konfirmimin.',
       ok: 'U rezervua, {name}! {summary}. (Demo: faqja e vërtetë ia dërgon dyqanit në Telegram dhe ty me mesazh.)', ok2: 'U rezervua, {name}. Shihemi së shpejti.',
-      'wa.msg': 'Përshëndetje Northline, dua të rezervoj: {summary}. Emri: {name}',
+      'wa.msg': 'Përshëndetje Joel, pashë faqen demo Northline Barbers. Formulari i rezervimit shkroi:\n\nPërshëndetje Northline, dua të rezervoj: {summary}. Emri: {name}',
       'work.title': 'Punët', 'work.lead': 'Prek për ta parë më të madhe.', 'faq.title': 'Mirë ta dish',
       'find.title': 'Na gjej', 'find.addr': 'Oldham Street, Mançester M1 · 3 minuta nga Piccadilly Gardens', 'find.park': 'Parkimi: Church Street, 2 minuta larg. Tramvaji: Market Street.',
       'find.maps': 'Rruga në Google Maps', 'map.show': 'Shfaq hartën', 'map.note': 'Hap Google Maps, që mund të vendosë cookies.',

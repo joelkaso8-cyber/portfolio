@@ -5,7 +5,7 @@
   --brass: #c9a46a; --brass-hi: #dbb983; --brass-ink: #1a150d;
   --display: "Big Shoulders Display", Impact, sans-serif; --sans: "Figtree", system-ui, sans-serif;
   --r: 14px; --gut: clamp(16px, 5vw, 72px);
-  --accent: var(--brass); --accent-hi: var(--brass-hi); --accent-ink: var(--brass-ink); --wa: #2f9e62;
+  --accent: var(--brass); --accent-hi: var(--brass-hi); --accent-ink: var(--brass-ink); --wa: #1f7a49;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
@@ -162,7 +162,7 @@ input:focus { outline: 2px solid var(--brass); outline-offset: 0; }
 .btn { white-space: nowrap; }
 .btn[disabled] { opacity: .55; cursor: progress; transform: none; }
 .btn--wa { background: var(--wa); color: #fff; }
-.btn--wa:hover { background: color-mix(in oklab, var(--wa) 85%, white); }
+.btn--wa:hover { background: color-mix(in oklab, var(--wa) 85%, black); }
 .linklike { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .muted { color: var(--muted); }
 

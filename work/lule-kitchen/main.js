@@ -10,7 +10,7 @@
       'film.2': 'Fire <em>first.</em>', 'film.2s': 'The clay oven is lit at seven every morning, before the first tray of byrek goes in.',
       'film.3': 'Then the <em>grill.</em>', 'film.3s': 'Qofte, lamb and peppers over real wood charcoal, the way it is done back home.',
       'film.4': 'Then your <em>table.</em>', 'book.wa': 'Book via WhatsApp',
-      'wa.msg': 'Hello Lule, I would like to book a table for {g} on {d} at {t}. Name: {n}. {x}',
+      'wa.msg': 'Hi Joel, I saw your Lule Balkan Kitchen demo. Its booking form wrote:\n\nHello Lule, I would like to book a table for {g} on {d} at {t}. Name: {n}. {x}',
       'faq.title': 'Good to know', 'visit.park': 'Street parking after 6:30pm; Finsbury Park car park is 5 minutes away.', 'visit.maps': 'Directions in Google Maps',
       'map.show': 'Show the map', 'map.note': 'Loads Google Maps, which may set cookies.',
       'legal.privacy': 'Privacy policy', 'legal.terms': 'Terms', 'legal.cookies': 'Cookie settings', 'legal.more': 'Read more',
@@ -46,7 +46,7 @@
       'film.2': 'Në fillim <em>zjarri.</em>', 'film.2s': 'Furra prej balte ndizet në shtatë çdo mëngjes, para se të futet tava e parë me byrek.',
       'film.3': 'Pastaj <em>zgara.</em>', 'film.3s': 'Qofte, mish qengji dhe speca mbi qymyr druri, si në shtëpi.',
       'film.4': 'Pastaj <em>tryeza.</em>', 'book.wa': 'Rezervo në WhatsApp',
-      'wa.msg': 'Përshëndetje Lule, dua të rezervoj tavolinë për {g} më {d} në {t}. Emri: {n}. {x}',
+      'wa.msg': 'Përshëndetje Joel, pashë faqen demo Lule Balkan Kitchen. Formulari i rezervimit shkroi:\n\nPërshëndetje Lule, dua të rezervoj tavolinë për {g} më {d} në {t}. Emri: {n}. {x}',
       'faq.title': 'Mirë ta dini', 'visit.park': 'Parkim në rrugë pas orës 18:30; parkimi Finsbury Park është 5 minuta larg.', 'visit.maps': 'Rruga në Google Maps',
       'map.show': 'Shfaq hartën', 'map.note': 'Hap Google Maps, që mund të vendosë cookies.',
       'legal.privacy': 'Privatësia', 'legal.terms': 'Kushtet', 'legal.cookies': 'Cookies', 'legal.more': 'Lexo më shumë',
@@ -265,7 +265,7 @@
   $('#wa-book').addEventListener('click', function () {
     var f = function (k, v) { return t('wa.msg').split('{' + k + '}').join(v) }
     var msg = t('wa.msg').replace('{g}', guests === 8 ? '8+' : guests).replace('{d}', dateInput.value || '-').replace('{t}', form.elements.time.value || '-').replace('{n}', clean(form.elements.name.value, 80) || '-').replace('{x}', (pre.length ? t('pre.msg') + preText() + '. ' : '') + clean(form.elements.notes.value, 300))
-    window.open('https://wa.me/442079460000?text=' + encodeURIComponent(msg.trim()), '_blank', 'noopener')
+    window.open('https://wa.me/355685727406?text=' + encodeURIComponent(msg.trim()), '_blank', 'noopener')
   })
 
   // Pre-order: dishes added on the kitchen belt go into the booking request and the WhatsApp message.

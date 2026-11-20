@@ -724,11 +724,11 @@
     new IntersectionObserver(function (es) { document.documentElement.classList.toggle('fab-away', es[0].isIntersecting) }, { rootMargin: '0px 0px -96px 0px' }).observe(quoteSec)
   }
 
-  // The chat button waits until the hero has scrolled away, so it never covers the hero demo (style.css, .asst-away).
+  // While the hero is on screen the chat button (all widths) and the WhatsApp button (desktop) stay hidden, so they never cover the hero demo (style.css, .on-hero).
   var heroSec = $('#top')
   if (heroSec && 'IntersectionObserver' in window) {
-    document.documentElement.classList.add('asst-away')
-    new IntersectionObserver(function (es) { document.documentElement.classList.toggle('asst-away', es[0].isIntersecting) }).observe(heroSec)
+    document.documentElement.classList.add('on-hero')
+    new IntersectionObserver(function (es) { document.documentElement.classList.toggle('on-hero', es[0].isIntersecting) }).observe(heroSec)
   }
 
   $('#year').textContent = new Date().getFullYear()

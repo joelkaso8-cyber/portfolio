@@ -172,6 +172,7 @@ input:focus { outline: 2px solid var(--accent); outline-offset: 0; }
 
 /* Booking card */
 .bk { position: sticky; top: 96px; }
+.bk fieldset { min-width: 0; } /* fieldsets default to min-content width, which pushed the form 700px+ off screen */
 .bk__head { display: grid; gap: 6px; }
 .bk__head h3 { font-size: clamp(1.7rem, 3vw, 2.2rem); }
 .bk__head p { color: var(--muted); font-size: .95rem; }

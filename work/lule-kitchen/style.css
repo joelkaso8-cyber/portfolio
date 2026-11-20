@@ -5,7 +5,7 @@
   --clay: #d79a6b; --clay-hi: #e6ae82; --clay-ink: #241a13; --olive: #9aa36d;
   --serif: "Fraunces", Georgia, serif; --sans: "Work Sans", system-ui, sans-serif;
   --r: 18px; --gut: clamp(16px, 5vw, 72px);
-  --accent: var(--clay); --accent-hi: var(--clay-hi); --accent-ink: var(--clay-ink); --wa: #2f9e62;
+  --accent: var(--clay); --accent-hi: var(--clay-hi); --accent-ink: var(--clay-ink); --wa: #1f7a49;
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-padding-top: 90px; -webkit-text-size-adjust: 100%; }
@@ -177,7 +177,7 @@ legend { margin-bottom: 8px; font-size: .9rem; font-weight: 500; color: var(--in
 .btn { white-space: nowrap; }
 .btn[disabled] { opacity: .55; cursor: progress; transform: none; }
 .btn--wa { background: var(--wa); color: #fff; }
-.btn--wa:hover { background: color-mix(in oklab, var(--wa) 85%, white); }
+.btn--wa:hover { background: color-mix(in oklab, var(--wa) 85%, black); }
 .linklike { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .muted { color: var(--muted); }
 .faq { display: grid; gap: 8px; max-width: 860px; }
