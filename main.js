@@ -6,8 +6,6 @@
   var BASE = 'https://joelkaso8-cyber.github.io/portfolio/'
 
   var WORK = [
-    { id: 'avull-hammam', film: true, name: 'Avull Hammam & Spa', cat: 'local', tag: 'demo', where: { en: 'Hammam and spa · Stockbridge, Edinburgh', sq: 'Hammam dhe spa · Stockbridge, Edinburgh' },
-      chips: { en: ['Candle film that plays as you scroll', '4-step booking with calendar and live slots', 'Find-your-ritual quiz', 'Gift voucher you can save', 'Quiet-times chart'], sq: ['Film qiriri që luan me scroll', 'Rezervim në 4 hapa me kalendar dhe orare', 'Kuiz për ritualin', 'Kupon dhuratë që ruhet', 'Grafik i orëve të qeta'] } },
     { id: 'ura-coffee', film: true, name: 'Ura Coffee Roasters', cat: 'food', tag: 'demo', where: { en: 'Coffee roastery · Glasgow, UK', sq: 'Furrë kafeje · Glasgow, Skoci' },
       chips: { en: ['Espresso film that plays as you scroll', 'Table booking and pick-up orders on WhatsApp', 'Menu with diet filters', 'Live hours and directions', 'Bean shop with bag'], sq: ['Film espreso që luan me scroll', 'Rezervim tavoline dhe porosi në WhatsApp', 'Menu me filtra diete', 'Orari live dhe rruga', 'Dyqan kafeje me shportë'] } },
     { id: 'balte-studio', film: true, name: 'Baltë Studio', cat: 'local', tag: 'demo', where: { en: 'Pottery studio · Tirana, Albania', sq: 'Studio qeramike · Tiranë, Shqipëri' },
@@ -30,10 +28,6 @@
       chips: { en: ['Scroll film hero', 'Dates and guests on the first screen', 'Booking calendar', 'EN / SQ', 'Route on Google Maps', 'Bookings to Telegram'], sq: ['Film me scroll', 'Datat dhe mysafirët në ekranin e parë', 'Kalendar rezervimi', 'EN / SQ', 'Rruga në Google Maps', 'Rezervime në Telegram'] } },
     { id: 'kala-build', name: 'Kala Build & Renovate', cat: 'local', tag: 'demo', where: { en: 'Renovation company · Birmingham, UK', sq: 'Kompani rinovimi · Birmingham, Angli' },
       chips: { en: ['Before / after slider', 'Price estimator', 'Postcode check', 'Quote form'], sq: ['Para / pas me rrëshqitje', 'Llogaritës çmimi', 'Kontroll i zonës', 'Formular oferte'] } },
-    { id: 'aurelia-dental', name: 'Aurelia Dental Studio', cat: 'local', tag: 'demo', where: { en: 'Dental clinic · Leeds, UK', sq: 'Klinikë dentare · Lids, Angli' },
-      chips: { en: ['Clear price list', 'Monthly payment calculator', 'Online booking', 'Next free appointment'], sq: ['Çmime të qarta', 'Llogaritës pagese mujore', 'Rezervim online', 'Takimi i lirë i radhës'] } },
-    { id: 'sage-silk-beauty', name: 'Sage & Silk', cat: 'local', tag: 'demo', where: { en: 'Beauty studio · Bristol, UK', sq: 'Studio bukurie · Bristol, Angli' },
-      chips: { en: ['Build your visit', 'Time and price add up', 'Gift voucher designer', 'Photo lightbox'], sq: ['Ndërto vizitën', 'Koha dhe çmimi mblidhen', 'Kupon dhurate', 'Galeri'] } },
     { id: 'kalaja-bakehouse', name: 'Kalaja Bakehouse', cat: 'food', tag: 'demo', where: { en: 'Albanian bakery · Bronx, New York', sq: 'Furrë shqiptare · Bronx, Nju Jork' },
       chips: { en: ['Order ahead with a basket', 'Pickup times', "Today's bake times", 'Catering estimate', 'EN / SQ'], sq: ['Porosi me shportë', 'Ora e marrjes', 'Oraret e furrës sot', 'Llogaritje kateringu', 'EN / SQ'] } },
     { id: 'ullishta', name: 'Ullishta', cat: 'stay', tag: 'concept', where: { en: 'Boutique hotel concept', sq: 'Koncept hoteli boutique' },
