@@ -34,15 +34,17 @@
       chips: { en: ['Photo slideshow', 'Scroll motion', 'Booking calendar'], sq: ['Slideshow fotosh', 'Lëvizje me scroll', 'Kalendar rezervimi'] } },
     { id: 'vjosa-rafting', film: true, name: 'Vjosa Rafting', cat: 'local', tag: 'project', where: { en: 'Rafting trips · Vjosa river, Albania', sq: 'Rafting · lumi Vjosa, Shqipëri' },
       chips: { en: ['Video hero', 'Price, time and meeting point at a glance', 'Book on WhatsApp in 1 tap', 'Built for phones'], sq: ['Video në hyrje', 'Çmimi, koha dhe pika e takimit me një shikim', 'Rezervo në WhatsApp me 1 prekje', 'E ndërtuar për telefon'] } },
+    { id: 'boje-tattoo', film: true, name: 'Bojë Tattoo', cat: 'local', tag: 'demo', where: { en: 'Fine-line & blackwork studio · Tirana, Albania', sq: 'Studio tatuazhesh fine-line & blackwork · Tiranë, Shqipëri' },
+      chips: { en: ['Stencil film that plays as you scroll', 'Lift the stencil to see the healed piece', 'Flash wall with WhatsApp claims', 'Honest price guide', 'EN / SQ'], sq: ['Film stencili që luan me scroll', 'Ngri stencilin për të parë punën e shëruar', 'Mur flash me rezervim në WhatsApp', 'Udhëzues i qartë çmimesh', 'EN / SQ'] } },
     // Lives on its own Netlify site (url), so the card shows it live (liveShot) and the viewer opens it. The img/ title card is only the poster underneath.
     { id: 'brolin-tattoo', url: 'https://brolin-tattoo.netlify.app/', name: 'Brolin Tattoo', cat: 'local', tag: 'project', where: { en: 'Custom tattoo artist', sq: 'Artist tatuazhesh me porosi' },
       chips: { en: ['Five styles, blackwork to realism', 'Flash designs you can claim', '4-step session guide', 'Tattoo request form'], sq: ['Pesë stile, nga blackwork te realizmi', 'Dizajne flash që i rezervon', 'Seanca në 4 hapa', 'Formular kërkese për tatuazh'] } },
   ]
   // A site's address: its own url when it is hosted elsewhere, otherwise its copy in work/.
   var siteUrl = function (w) { return w.url || 'work/' + w.id + '/index.html' }
-  // Only these show in the portfolio: the best 6, one per package plus the strongest scroll films. The other sites stay
+  // Only these show in the portfolio: one per package plus the strongest scroll films. The other sites stay
   // in work/ (still reachable by their own link); add an id here to show one again.
-  var SHOWN = ['kaso-ervehe', 'ura-coffee', 'vjosa-rafting', 'brolin-tattoo', 'lule-kitchen', 'northline-barbers']
+  var SHOWN = ['kaso-ervehe', 'ura-coffee', 'vjosa-rafting', 'brolin-tattoo', 'boje-tattoo', 'lule-kitchen', 'northline-barbers']
   WORK = WORK.filter(function (w) { return SHOWN.indexOf(w.id) !== -1 })
   // Real client reviews. The section stays hidden while this list is empty. Add one per client, in both languages, only with their permission:
   // { name: 'Arben Hoxha', role: { en: 'Owner, Hotel Example, Berat', sq: 'Pronar, Hotel Example, Berat' },
@@ -58,15 +60,9 @@
   var KASO_LIVE = false
   var KASO_QUOTE = false
 
-  // Which package each showcase sells. The preview window shows it as a badge, the card names it, and
-  // "I want a site like this" opens the quick quote on that package. Sites not listed here get no badge.
+  // Which package each showcase sells. The preview window shows it as a badge and the card names it.
+  // Sites not listed here get no badge.
   var TIER = { 'vjosa-rafting': 'starter', 'lule-kitchen': 'business', 'kaso-ervehe': 'premium' }
-  // What the quick quote picks for each package (business type and features), so the price matches the badge.
-  var TIER_QUOTE = {
-    starter: { type: 'trade', needs: ['wa', 'gallery'] },
-    business: { type: 'food', needs: ['booking', 'wa', 'menu', 'langs', 'google'] },
-    premium: { type: 'stay', needs: ['booking', 'wa', 'langs', 'gallery', 'google'] }
-  }
 
   // Counts a button press if analytics.js is on (see the README). Does nothing otherwise.
   function track(name) { try { document.dispatchEvent(new CustomEvent('jk:track', { detail: name })) } catch (e) {} }
@@ -135,7 +131,7 @@
       's2.d': 'Within 48 hours', 's2.t': 'Free homepage preview on your phone', 's2.p': 'You test a working first version of your homepage on your own phone, before paying a cent.',
       's3.d': 'Days 3–10', 's3.t': 'Full build and polish', 's3.p': 'Direct booking, WhatsApp, maps and English/Albanian, tested on every screen.',
       's4.d': 'Launch day', 's4.t': 'Live, with a video guide', 's4.p': 'Your own domain, Google listing and a short video on how to edit it.',
-      'g.title': 'Nothing up front. You pay when you are happy.', 'g.text': 'I build your site first. You check it on a private link, on your own phone. You pay only when you are happy with it, and then it goes live on your domain.', 'g.cta': 'Book a free call', 'g.wa': "Hi Joel, I'd like a free call about a website.\nMy business: \nBest time for me: ",
+      'g.title': 'Nothing up front. You pay when you are happy.', 'g.text': 'I build your site first. You check it on a private link, on your own phone. You pay only when you are happy with it, and then it goes live on your domain.', 'g.cta': 'Book a free call',
       'about.tag': 'About', 'about.title': 'Who builds your site',
       'about.p1': "I'm Joel, a web designer from Albania. I build fast, good-looking websites for hotels, restaurants and local businesses. I do the design, the code and the setup myself, so you talk to one person.",
       'about.items': ['I reply within a day, in English or Albanian', 'Fixed price, nothing up front: you pay when you are happy', 'The site is yours. No monthly fees unless you choose the care plan'],
@@ -154,7 +150,7 @@
       'case.quote': 'Instead of losing up to 18% on every reservation to third-party platforms, guests finding us on Google can now check rooms in English or Albanian and message us directly on WhatsApp with their exact dates.', 'case.quoteBy': 'Hotel Kaso Ervehe, Përmet', 'footer.live': 'Featured case study Hotel Kaso Ervehe is a live client website. Every site tagged Demo (such as Vjosa Rafting and Ura Coffee Roasters) is a custom demo build made to show how booking and ordering work. Demo photos: Wikimedia Commons, credited on each site.',
       'footer.note': 'Hotel Kaso Ervehe is a real client: my family’s hotel in Përmet. Every site tagged Demo (such as Vjosa Rafting and Ura Coffee Roasters) is a custom demo build with made-up names, made to show how booking and ordering work. Demo photos: Wikimedia Commons, credited on each site.', 'footer.privacy': 'Privacy policy', 'footer.top': 'Back to top ↑',
       'viewer.desk': 'Desktop', 'viewer.phone': 'Phone', 'viewer.qr': 'Try it on your phone', 'viewer.qrhint': 'Point your phone camera at the code to open this site on your own phone.',
-      'viewer.want': 'I want a site like this', 'viewer.open': 'Open in new tab ↗', 'wa.msg': "Hi Joel, I'd like a website.",
+      'viewer.want': 'I want a site like this', 'viewer.open': 'Open in new tab ↗', 'wa.msg': "Hi Joel, I checked out your portfolio and I'm interested in a website.",
       'tier.starter': 'Starter package example · 390€', 'tier.business': 'Business package example · 590€', 'tier.premium': 'Premium package example · 1.190€', 'tier.premiumLive': 'Premium package · live client site · 1.190€',
       'wall.title': 'Demo sites you can try', 'wall.lead': 'Tap any screen to try that site the way your customers would.',
       'dome.title': 'Your site, on a phone', 'dome.lead': 'Most of your customers will see your site on a phone. Tap this one to try Hotel Kaso Ervehe.',
@@ -218,7 +214,7 @@
       's2.d': 'Brenda 48 orëve', 's2.t': 'Parapamje falas e faqes kryesore në telefon', 's2.p': 'Provon në telefonin tënd versionin e parë të faqes kryesore, para se të paguash asnjë qindarkë.',
       's3.d': 'Ditët 3–10', 's3.t': 'Ndërtimi i plotë', 's3.p': 'Rezervim direkt, WhatsApp, harta dhe shqip/anglisht, të testuara në çdo ekran.',
       's4.d': 'Dita e nisjes', 's4.t': 'Online, me video udhëzuese', 's4.p': 'Domain-i yt, profili në Google dhe një video e shkurtër si ta ndryshosh.',
-      'g.title': 'Asgjë paraprakisht. Paguan kur faqja të pëlqen.', 'g.text': 'Faqen e ndërtoj unë së pari. E shikon në një lidhje private, në telefonin tënd. Paguan vetëm kur të pëlqen, dhe pastaj del online në domain-in tënd.', 'g.cta': 'Rezervo një telefonatë falas', 'g.wa': 'Përshëndetje Joel, dua një telefonatë falas për një faqe interneti.\nBiznesi im: \nOra që më përshtatet: ',
+      'g.title': 'Asgjë paraprakisht. Paguan kur faqja të pëlqen.', 'g.text': 'Faqen e ndërtoj unë së pari. E shikon në një lidhje private, në telefonin tënd. Paguan vetëm kur të pëlqen, dhe pastaj del online në domain-in tënd.', 'g.cta': 'Rezervo një telefonatë falas',
       'about.tag': 'Rreth meje', 'about.title': 'Kush e ndërton faqen tënde',
       'about.p1': 'Jam Joel, dizajner web nga Shqipëria. Ndërtoj faqe të shpejta dhe të bukura për hotele, restorante dhe biznese lokale. Dizajnin, kodin dhe konfigurimin i bëj vetë, ndaj flet me një person të vetëm.',
       'about.items': ['Përgjigje brenda një dite, në anglisht ose shqip', 'Çmim fiks, asgjë paraprakisht: paguan kur të pëlqen', 'Faqja është e jotja. Pa pagesa mujore, përveç nëse zgjedh planin e kujdesit'],
@@ -237,7 +233,7 @@
       'case.quote': 'Në vend që të humbasim deri në 18% komision për çdo rezervim në platforma ndërmjetëse, turistët që na gjejnë në Google tani shohin dhomat në shqip ose anglisht dhe na dërgojnë kërkesën direkt në WhatsApp me datat e sakta.', 'case.quoteBy': 'Hotel Kaso Ervehe, Përmet', 'footer.live': 'Projekti i veçantë, Hotel Kaso Ervehe, është faqe reale dhe online e një klienti. Çdo faqe me etiketën Demo (si Vjosa Rafting dhe Ura Coffee Roasters) është ndërtim demo, të bëra për të treguar si funksionojnë rezervimet dhe porositë. Fotot e demove: Wikimedia Commons, të përmendura në secilën faqe.',
       'footer.note': 'Hotel Kaso Ervehe është klient real: hoteli i familjes sime në Përmet. Çdo faqe me etiketën Demo (si Vjosa Rafting dhe Ura Coffee Roasters) është ndërtim demo me emra të shpikur, të bëra për të treguar si funksionojnë rezervimet dhe porositë. Fotot e demove: Wikimedia Commons, të përmendura në secilën faqe.', 'footer.privacy': 'Politika e privatësisë', 'footer.top': 'Kthehu lart ↑',
       'viewer.desk': 'Kompjuter', 'viewer.phone': 'Telefon', 'viewer.qr': 'Provoje në telefon', 'viewer.qrhint': 'Drejtoje kamerën e telefonit te kodi për ta hapur këtë faqe në telefonin tënd.',
-      'viewer.want': 'Dua një faqe si kjo', 'viewer.open': 'Hap në skedë të re ↗', 'wa.msg': 'Përshëndetje Joel, dua një website.',
+      'viewer.want': 'Dua një faqe si kjo', 'viewer.open': 'Hap në skedë të re ↗', 'wa.msg': 'Përshëndetje Joel, pashë portofolin tënd dhe më intereson një website.',
       'tier.starter': 'Shembull i paketës Starter · 390€', 'tier.business': 'Shembull i paketës Biznes · 590€', 'tier.premium': 'Shembull i paketës Premium · 1.190€', 'tier.premiumLive': 'Paketa Premium · faqe klienti live · 1.190€',
       'wall.title': 'Faqe demo që mund t’i provosh', 'wall.lead': 'Prek çdo ekran dhe provoje faqen si klientët e tu.',
       'dome.title': 'Faqja jote, në telefon', 'dome.lead': 'Shumica e klientëve do ta shohin faqen tënde në telefon. Prek këtë për të provuar Hotel Kaso Ervehe.',
@@ -674,32 +670,11 @@
     track('quote-copy')
     if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fail); else fail()
   })
-  // "Start with this" on a plan picks that business type and that package's features, then moves on to the features.
-  // (With the default features the 390€ plan would open at 590€.)
-  $$('[data-quote]').forEach(function (a) { a.addEventListener('click', function () { var tq = TIER_QUOTE[PLAN[a.dataset.quote]]; Q.type = a.dataset.quote; if (tq) Q.needs = tq.needs.slice(); Q.like = ''; goStep(2) }) })
 
-  // "I want a site like this" in the viewer: closes it and opens the quote summary with that site named.
-  $('#viewer-want').addEventListener('click', function (e) {
-    e.preventDefault()
-    var w = viewing
+  // "I want a site like this" in the viewer opens WhatsApp itself (data-wa); this only counts which site sparked it and closes the viewer.
+  $('#viewer-want').addEventListener('click', function () {
+    if (viewing) track('viewer-want-' + viewing.id)
     closeViewer()
-    if (w) {
-      Q.like = w.name
-      var tq = TIER_QUOTE[TIER[w.id]]
-      // A showcase with a package opens the quote on that package; any other site picks the closest business type.
-      if (tq) { Q.type = tq.type; Q.needs = tq.needs.slice() } else Q.type = { stay: 'stay', food: 'food', local: 'trade' }[w.cat] || 'other'
-      track('viewer-want-' + w.id)
-    }
-    goStep(3)
-    // Closing steps the browser back to the portfolio entry, and that step puts back the old scroll position.
-    // So the scroll to the quote waits for that step (or 500 ms if the browser takes no step).
-    var done = false, go = function () {
-      if (done) return; done = true; removeEventListener('popstate', onPop)
-      requestAnimationFrame(function () { $('#quote').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }) })
-    }
-    var onPop = function () { setTimeout(go, 30) }
-    addEventListener('popstate', onPop)
-    setTimeout(go, 500)
   })
 
   // Phone menu: the button opens the same five links; a link, Escape or a second tap closes it.

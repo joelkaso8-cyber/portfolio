@@ -1,0 +1,636 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-21T19:21:51+00:00",
+  "title": "Design System: Bojë Tattoo",
+  "extensions": {
+    "colorMeta": {
+      "violet": {
+        "role": "primary",
+        "displayName": "Stencil Violet",
+        "canonical": "oklch(46.0% 0.200 281)",
+        "tonalRamp": [
+          "#09002F",
+          "#1E135B",
+          "#362C8C",
+          "#5147BF",
+          "#6D68E9",
+          "#8E90FE",
+          "#B5BAFF",
+          "#E3E8FF"
+        ]
+      },
+      "violet-deep": {
+        "role": "primary",
+        "displayName": "Pressed Carbon",
+        "canonical": "oklch(38.8% 0.176 280)",
+        "tonalRamp": [
+          "#08022B",
+          "#1E1855",
+          "#363183",
+          "#504CB4",
+          "#6D6DDD",
+          "#8F93F3",
+          "#B6BCFF",
+          "#E3E9FF"
+        ]
+      },
+      "violet-soft": {
+        "role": "primary",
+        "displayName": "Line on Ink",
+        "canonical": "oklch(77.9% 0.109 290)",
+        "tonalRamp": [
+          "#0C061E",
+          "#241D41",
+          "#403768",
+          "#5D5391",
+          "#7D72B6",
+          "#9D95D1",
+          "#C3BDEE",
+          "#EDEAFF"
+        ]
+      },
+      "tissue": {
+        "role": "neutral",
+        "displayName": "Thermal Tissue",
+        "canonical": "oklch(94.2% 0.005 298)",
+        "tonalRamp": [
+          "#0B0B0C",
+          "#242425",
+          "#403F42",
+          "#5E5D60",
+          "#7D7D80",
+          "#9E9EA1",
+          "#C4C4C6",
+          "#EEEEF0"
+        ]
+      },
+      "sheet": {
+        "role": "neutral",
+        "displayName": "Tracing Sheet",
+        "canonical": "oklch(97.2% 0.004 301)",
+        "tonalRamp": [
+          "#0B0B0C",
+          "#242425",
+          "#403F41",
+          "#5E5D5F",
+          "#7D7D7F",
+          "#9F9EA0",
+          "#C4C4C5",
+          "#EFEEEF"
+        ]
+      },
+      "flash-sheet": {
+        "role": "neutral",
+        "displayName": "Flash Tissue",
+        "canonical": "oklch(96.3% 0.005 298)",
+        "tonalRamp": [
+          "#0B0B0C",
+          "#242425",
+          "#403F42",
+          "#5E5D60",
+          "#7D7D80",
+          "#9E9EA1",
+          "#C4C4C6",
+          "#EEEEF0"
+        ]
+      },
+      "field": {
+        "role": "neutral",
+        "displayName": "Field Paper",
+        "canonical": "#FCFCFD",
+        "tonalRamp": [
+          "#0B0B0C",
+          "#242425",
+          "#403F41",
+          "#5E5D5F",
+          "#7D7D7F",
+          "#9F9EA0",
+          "#C4C4C5",
+          "#EFEEEF"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink Violet-Black",
+        "canonical": "oklch(20.2% 0.016 296)",
+        "tonalRamp": [
+          "#0B0B0E",
+          "#242328",
+          "#403E46",
+          "#5E5C65",
+          "#7E7C85",
+          "#9F9DA6",
+          "#C4C3CA",
+          "#EFEDF3"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink Wash",
+        "canonical": "oklch(34.1% 0.023 296)",
+        "tonalRamp": [
+          "#0B0A0F",
+          "#24232A",
+          "#403E48",
+          "#5E5B68",
+          "#7E7B89",
+          "#9F9CA9",
+          "#C5C2CD",
+          "#EFEDF5"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "oklch(46.6% 0.026 297)",
+        "tonalRamp": [
+          "#0C0A10",
+          "#25232B",
+          "#413E49",
+          "#5F5B6A",
+          "#7E7A8B",
+          "#9F9CAA",
+          "#C5C2CE",
+          "#EFEDF6"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Pencil Line",
+        "canonical": "rgba(23, 21, 29, .12)",
+        "tonalRamp": [
+          "#0B0B0E",
+          "#242328",
+          "#403E46",
+          "#5E5C65",
+          "#7E7C85",
+          "#9F9DA6",
+          "#C4C3CA",
+          "#EFEDF3"
+        ]
+      },
+      "line-soft": {
+        "role": "neutral",
+        "displayName": "Faint Pencil",
+        "canonical": "rgba(23, 21, 29, .07)",
+        "tonalRamp": [
+          "#0B0B0E",
+          "#242328",
+          "#403E46",
+          "#5E5C65",
+          "#7E7C85",
+          "#9F9DA6",
+          "#C4C3CA",
+          "#EFEDF3"
+        ]
+      },
+      "on-violet": {
+        "role": "neutral",
+        "displayName": "Paper White on Violet",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "#0B0B0C",
+          "#242425",
+          "#403F41",
+          "#5E5D5F",
+          "#7D7D7F",
+          "#9F9EA0",
+          "#C4C4C5",
+          "#EFEEEF"
+        ]
+      },
+      "tape": {
+        "role": "tertiary",
+        "displayName": "Masking Tape",
+        "canonical": "rgba(212, 199, 160, .6)",
+        "tonalRamp": [
+          "#0F0B02",
+          "#2A2411",
+          "#473F26",
+          "#685D3D",
+          "#887D5A",
+          "#A89E80",
+          "#CCC4AC",
+          "#F4EEDC"
+        ]
+      },
+      "on-ink": {
+        "role": "neutral",
+        "displayName": "Tissue on Ink",
+        "canonical": "oklch(94.2% 0.005 298)",
+        "tonalRamp": [
+          "#0B0B0C",
+          "#242425",
+          "#403F42",
+          "#5E5D60",
+          "#7D7D80",
+          "#9E9EA1",
+          "#C4C4C6",
+          "#EEEEF0"
+        ]
+      },
+      "on-ink-2": {
+        "role": "neutral",
+        "displayName": "Grey on Ink",
+        "canonical": "oklch(78.1% 0.021 298)",
+        "tonalRamp": [
+          "#0C0A0F",
+          "#25232A",
+          "#413E47",
+          "#5F5B67",
+          "#7E7B88",
+          "#9F9CA8",
+          "#C5C2CC",
+          "#EFEDF4"
+        ]
+      },
+      "film-ground": {
+        "role": "neutral",
+        "displayName": "Film Ground",
+        "canonical": "oklch(22.5% 0.018 300)",
+        "tonalRamp": [
+          "#0C0A0E",
+          "#252329",
+          "#413E46",
+          "#5F5C66",
+          "#7F7B86",
+          "#A09DA6",
+          "#C5C3CA",
+          "#EFEDF3"
+        ]
+      },
+      "error": {
+        "role": "error",
+        "displayName": "Needle Red",
+        "canonical": "oklch(47.4% 0.161 23)",
+        "tonalRamp": [
+          "#220000",
+          "#48050C",
+          "#721B1F",
+          "#9F3135",
+          "#C85151",
+          "#E37C79",
+          "#FFAAA6",
+          "#FFDCD8"
+        ]
+      },
+      "error-text": {
+        "role": "error",
+        "displayName": "Needle Red Text",
+        "canonical": "#8A1F27",
+        "tonalRamp": [
+          "#220000",
+          "#48050C",
+          "#721B1F",
+          "#9F3135",
+          "#C85151",
+          "#E37C79",
+          "#FFAAA6",
+          "#FFDCD8"
+        ]
+      },
+      "error-surface": {
+        "role": "error",
+        "displayName": "Error Wash",
+        "canonical": "#FBEFF0",
+        "tonalRamp": [
+          "#220000",
+          "#48050C",
+          "#721B1F",
+          "#9F3135",
+          "#C85151",
+          "#E37C79",
+          "#FFAAA6",
+          "#FFDCD8"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The hero H1 on its taped slip only; place name in violet, upright."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section H2s, balanced wrapping."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "H3s on sheets: steps, artists, prices, visit, flash names (scaled per context)."
+      },
+      "quote": {
+        "displayName": "Quote",
+        "purpose": "Review text in the display face."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Violet process step numbers."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Paragraph under a section headline, max 58ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, 46-54ch on sheets, ss01 on."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, chips, form labels, artist style line."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Every euro figure, tabular."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Fine print, credits, hints, ribbon; footer column heads uppercase at 0.08em."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sheet-rest",
+        "value": "0 1px 1px rgba(23, 21, 29, .05), 0 18px 34px -22px rgba(23, 21, 29, .45)",
+        "purpose": "Every paper sheet on the tissue ground (--shadow-sheet)."
+      },
+      {
+        "name": "sheet-on-ink",
+        "value": "0 2px 2px rgba(0, 0, 0, .18), 0 26px 40px -26px rgba(0, 0, 0, .9)",
+        "purpose": "Flash sheets on the ink wall."
+      },
+      {
+        "name": "sheet-on-ink-hover",
+        "value": "0 2px 2px rgba(0, 0, 0, .18), 0 40px 50px -28px rgba(0, 0, 0, .95)",
+        "purpose": "Flash sheet raised 6px on hover."
+      },
+      {
+        "name": "hero-slip",
+        "value": "0 2px 2px rgba(23, 21, 29, .06), 0 40px 70px -34px rgba(0, 0, 0, .7)",
+        "purpose": "Headline slip over the film."
+      },
+      {
+        "name": "tissue-lifted",
+        "value": "0 28px 40px -26px rgba(23, 21, 29, .55)",
+        "purpose": "Artist tissue folded up on its hinge."
+      },
+      {
+        "name": "sheet-fall",
+        "value": "0 30px 60px -30px rgba(0, 0, 0, .55)",
+        "purpose": "Hero tissue sheet and mobile drawer (drawer uses ink at .55)."
+      },
+      {
+        "name": "tape",
+        "value": "0 1px 1.5px rgba(23, 21, 29, .08)",
+        "purpose": "Masking tape contact edge."
+      },
+      {
+        "name": "action",
+        "value": "0 1px 0 rgba(255, 255, 255, .18) inset, 0 10px 20px -14px rgba(58, 43, 158, .9)",
+        "purpose": "Primary violet button at rest."
+      },
+      {
+        "name": "action-hover",
+        "value": "0 1px 0 rgba(255, 255, 255, .18) inset, 0 14px 26px -14px rgba(58, 43, 158, .95)",
+        "purpose": "Primary violet button on hover."
+      },
+      {
+        "name": "thumb-bar",
+        "value": "0 18px 34px -16px rgba(23, 21, 29, .7)",
+        "purpose": "Fixed phone booking bar."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 2px solid #4C3BC2; outline-offset: 3px",
+        "purpose": "Global focus-visible; violet-soft on ink grounds."
+      },
+      {
+        "name": "field-focus",
+        "value": "0 0 0 3px rgba(76, 59, 194, .2)",
+        "purpose": "Input focus ring with violet border."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.22, .8, .24, 1)",
+        "purpose": "Standard easing for all state changes, 0.3s."
+      },
+      {
+        "name": "paper-ease",
+        "value": "cubic-bezier(.16, .84, .3, 1)",
+        "purpose": "Paper peeling and settling: lift, reveal, drawer drop, thumb bar."
+      },
+      {
+        "name": "state",
+        "value": "300ms",
+        "purpose": "Hover, color and border transitions on every control."
+      },
+      {
+        "name": "sheet-hover",
+        "value": "450ms",
+        "purpose": "Flash sheet raise."
+      },
+      {
+        "name": "lift",
+        "value": "950ms",
+        "purpose": "Artist tissue lift on its tape hinge."
+      },
+      {
+        "name": "reveal",
+        "value": "1000ms",
+        "purpose": "Sheets translate 26px into place; text never hidden."
+      },
+      {
+        "name": "drawer-drop",
+        "value": "500ms",
+        "purpose": "Drawer drops with perspective rotateX(-18deg)."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Transitions collapse to 0.01ms; hero is a still poster with the sheet resting half-lifted (translateY(-6%) rotateX(22deg), opacity .72); artist tissue rests half-lifted (translateY(-2%) rotateX(-34deg), opacity .62) and the lift toggle still folds it fully up; reveals do not move."
+      },
+      {
+        "name": "hero-peel",
+        "value": "scroll-linked --peel 0-1",
+        "purpose": "Hero sheet: translateY up to -34%, rotateX up to 64deg, opacity to 0.1, film scale 1.06 to 1."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "520px"
+      },
+      {
+        "name": "sm",
+        "value": "560px"
+      },
+      {
+        "name": "phone-lg",
+        "value": "640px"
+      },
+      {
+        "name": "phone",
+        "value": "760px"
+      },
+      {
+        "name": "tablet",
+        "value": "900px"
+      },
+      {
+        "name": "tablet-lg",
+        "value": "980px"
+      },
+      {
+        "name": "nav",
+        "value": "1080px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Violet stamp for the WhatsApp consultation and every primary action.",
+      "html": "<button class=\"ds-btn-primary\"><svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M4 20l1.3-3.9A8 8 0 1 1 8 19l-4 1z\"/></svg>Book a consultation on WhatsApp</button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:.6em;min-height:50px;padding:0 1.3em;border:1px solid transparent;border-radius:6px;background:#4C3BC2;color:#fff;font:600 1rem/1.1 'Hanken Grotesk',system-ui,sans-serif;letter-spacing:.005em;cursor:pointer;box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 10px 20px -14px rgba(58,43,158,.9);transition:background-color .3s cubic-bezier(.22,.8,.24,1),transform .3s cubic-bezier(.22,.8,.24,1),box-shadow .3s cubic-bezier(.22,.8,.24,1)}.ds-btn-primary:hover{background:#3A2B9E;transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,.18) inset,0 14px 26px -14px rgba(58,43,158,.95)}.ds-btn-primary:active{transform:none}.ds-btn-primary:focus-visible{outline:2px solid #4C3BC2;outline-offset:3px}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action on paper.",
+      "html": "<button class=\"ds-btn-ghost\">See the artists</button>",
+      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;min-height:50px;padding:0 1.3em;border:1px solid rgba(23,21,29,.22);border-radius:6px;background:transparent;color:#17151D;font:600 1rem/1.1 'Hanken Grotesk',system-ui,sans-serif;cursor:pointer;transition:border-color .3s cubic-bezier(.22,.8,.24,1),color .3s cubic-bezier(.22,.8,.24,1)}.ds-btn-ghost:hover{border-color:#4C3BC2;color:#4C3BC2}.ds-btn-ghost:focus-visible{outline:2px solid #4C3BC2;outline-offset:3px}"
+    },
+    {
+      "name": "Link Arrow",
+      "kind": "button",
+      "refersTo": "link-arrow",
+      "description": "Tertiary violet link whose arrow drifts away on hover.",
+      "html": "<a class=\"ds-link-arrow\" href=\"#\">See flash &amp; prices<svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-link-arrow{display:inline-flex;align-items:center;gap:.5em;min-height:44px;font:600 1rem/1.2 'Hanken Grotesk',system-ui,sans-serif;color:#4C3BC2;text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:rgba(76,59,194,.35);text-underline-offset:.3em;transition:gap .3s cubic-bezier(.22,.8,.24,1),text-decoration-color .3s,color .3s}.ds-link-arrow:hover{gap:.8em;text-decoration-color:currentColor;color:#3A2B9E}.ds-link-arrow:focus-visible{outline:2px solid #4C3BC2;outline-offset:3px;border-radius:3px}"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Gallery style filter; pressed fills violet.",
+      "html": "<div style=\"display:flex;gap:8px\"><button class=\"ds-chip\" aria-pressed=\"true\">All</button><button class=\"ds-chip\" aria-pressed=\"false\">Fine-line</button><button class=\"ds-chip\" aria-pressed=\"false\">Blackwork</button></div>",
+      "css": ".ds-chip{min-height:42px;padding:0 16px;border:1px solid rgba(23,21,29,.12);border-radius:6px;background:#F6F5F8;color:#393643;font:600 .9375rem/1 'Hanken Grotesk',system-ui,sans-serif;cursor:pointer;transition:background-color .3s cubic-bezier(.22,.8,.24,1),color .3s,border-color .3s}.ds-chip:hover{border-color:#4C3BC2;color:#4C3BC2}.ds-chip[aria-pressed=\"true\"]{background:#4C3BC2;border-color:#4C3BC2;color:#fff}.ds-chip:focus-visible{outline:2px solid #4C3BC2;outline-offset:3px}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Labelled field on a paper form sheet.",
+      "html": "<label class=\"ds-field\"><span>Name</span><input placeholder=\"Your name\"></label>",
+      "css": ".ds-field{display:grid;gap:7px;font:600 .9375rem/1.3 'Hanken Grotesk',system-ui,sans-serif;color:#17151D}.ds-field input{min-height:50px;padding:12px 14px;border:1px solid rgba(23,21,29,.2);border-radius:6px;background:#FCFCFD;font:400 1rem/1.4 'Hanken Grotesk',system-ui,sans-serif;color:#17151D;transition:border-color .3s cubic-bezier(.22,.8,.24,1),box-shadow .3s}.ds-field input::placeholder{color:#6E6A79}.ds-field input:hover{border-color:rgba(23,21,29,.38)}.ds-field input:focus{outline:none;border-color:#4C3BC2;box-shadow:0 0 0 3px rgba(76,59,194,.2)}.ds-field input[aria-invalid=\"true\"]{border-color:#A3262E;box-shadow:0 0 0 3px rgba(163,38,46,.14)}"
+    },
+    {
+      "name": "Tissue Header",
+      "kind": "nav",
+      "refersTo": "lang-toggle-active",
+      "description": "Blurred tissue strip with Gloock wordmark, underline-drawing links and the EN/SQ toggle.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\">Bojë<i></i></a><div class=\"ds-links\"><a href=\"#\" aria-current=\"true\">Process</a><a href=\"#\">Artists</a><a href=\"#\">Flash</a></div><div class=\"ds-lang\"><button aria-pressed=\"true\">EN</button><button aria-pressed=\"false\">SQ</button></div></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;padding:0 24px;background:rgba(236,235,239,.76);backdrop-filter:blur(16px) saturate(1.15);border-bottom:1px solid rgba(23,21,29,.07)}.ds-brand{display:inline-flex;align-items:baseline;gap:6px;font:400 1.75rem/1 Gloock,'Times New Roman',serif;letter-spacing:-.03em;color:#17151D;text-decoration:none}.ds-brand i{width:7px;height:7px;border-radius:50%;background:#4C3BC2}.ds-links{display:flex;gap:24px}.ds-links a{position:relative;padding:10px 0;font:500 .9375rem/1 'Hanken Grotesk',system-ui,sans-serif;color:#393643;text-decoration:none;transition:color .3s cubic-bezier(.22,.8,.24,1)}.ds-links a::after{content:'';position:absolute;left:0;right:0;bottom:4px;height:1px;background:#4C3BC2;transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.22,.8,.24,1)}.ds-links a:hover,.ds-links a[aria-current=\"true\"]{color:#4C3BC2}.ds-links a:hover::after,.ds-links a[aria-current=\"true\"]::after{transform:scaleX(1)}.ds-links a:focus-visible{outline:2px solid #4C3BC2;outline-offset:3px}.ds-lang{display:inline-flex;padding:3px;border:1px solid rgba(23,21,29,.12);border-radius:6px;background:rgba(246,245,248,.7)}.ds-lang button{min-width:40px;min-height:36px;border:0;border-radius:4px;background:transparent;font:600 .8125rem/1 'Hanken Grotesk',system-ui,sans-serif;letter-spacing:.04em;color:#5B5767;cursor:pointer;transition:background-color .3s,color .3s}.ds-lang button:hover{color:#4C3BC2}.ds-lang button[aria-pressed=\"true\"]{background:#17151D;color:#ECEBEF}"
+    },
+    {
+      "name": "Paper Sheet",
+      "kind": "card",
+      "refersTo": "paper-sheet",
+      "description": "The universal container: square, taped, tilted, with the resting paper shadow.",
+      "html": "<div class=\"ds-paper\"><span class=\"ds-tape\"></span><h3>Consultation</h3><p>A short chat about placement, size and reference before anything is drawn.</p></div>",
+      "css": ".ds-paper{position:relative;max-width:420px;padding:32px 34px;background:#F6F5F8;border:1px solid rgba(23,21,29,.07);box-shadow:0 1px 1px rgba(23,21,29,.05),0 18px 34px -22px rgba(23,21,29,.45);rotate:-.5deg;color:#17151D;font:400 1.0625rem/1.6 'Hanken Grotesk',system-ui,sans-serif}.ds-paper h3{margin:0 0 8px;font:400 1.75rem/1.04 Gloock,'Times New Roman',serif;letter-spacing:-.02em}.ds-paper p{margin:0;color:#393643}.ds-tape{position:absolute;top:-11px;left:18px;width:86px;height:24px;rotate:-5deg;background:linear-gradient(90deg,rgba(212,199,160,.42),rgba(212,199,160,.6) 14%,rgba(212,199,160,.6) 86%,rgba(212,199,160,.42));box-shadow:0 1px 1.5px rgba(23,21,29,.08)}"
+    },
+    {
+      "name": "Flash Sheet",
+      "kind": "custom",
+      "refersTo": "flash-sheet",
+      "description": "Tissue sheet pinned on the ink wall with a reference plate, tabular price and a claim strip.",
+      "html": "<div class=\"ds-wall\"><div class=\"ds-flash\"><span class=\"ds-flash-tape\"></span><span class=\"ds-ref\">Ref. 01</span><svg viewBox=\"0 0 200 160\" class=\"ds-flash-art\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\" aria-hidden=\"true\"><path d=\"M40 130 C80 100 110 70 160 30\"/><path d=\"M80 104c-14-6-22-18-20-30 14 2 22 14 20 30zM110 78c-2-14 4-26 16-32 4 14-2 26-16 32zM135 55c12-8 26-8 34 0-10 8-24 8-34 0z\"/></svg><div class=\"ds-flash-meta\"><h3>Olive sprig</h3><p><span>8 cm · forearm or ribs</span><b>€80</b></p></div><a class=\"ds-claim\" href=\"#\">Claim on WhatsApp<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\"/></svg></a></div></div>",
+      "css": ".ds-wall{padding:40px;background:#17151D}.ds-flash{position:relative;display:flex;flex-direction:column;width:240px;background:#F3F2F6;color:#17151D;rotate:-1.2deg;box-shadow:0 2px 2px rgba(0,0,0,.18),0 26px 40px -26px rgba(0,0,0,.9);transition:transform .45s cubic-bezier(.22,.8,.24,1),box-shadow .45s cubic-bezier(.22,.8,.24,1)}.ds-flash:hover{transform:translateY(-6px);box-shadow:0 2px 2px rgba(0,0,0,.18),0 40px 50px -28px rgba(0,0,0,.95)}.ds-flash-tape{position:absolute;top:-11px;left:18px;width:86px;height:24px;rotate:-5deg;background:rgba(212,199,160,.6)}.ds-ref{position:absolute;top:24px;right:14px;padding:3px 7px;border:1px solid rgba(76,59,194,.35);font:600 .75rem/1 'Hanken Grotesk',system-ui,sans-serif;letter-spacing:.03em;color:#3A2B9E;font-variant-numeric:tabular-nums}.ds-flash-art{width:100%;padding:28px 14px 0;color:#4C3BC2}.ds-flash-meta{display:grid;gap:4px;padding:6px 18px 14px}.ds-flash-meta h3{margin:0;font:400 1.375rem/1.1 Gloock,'Times New Roman',serif;letter-spacing:-.01em}.ds-flash-meta p{margin:0;display:flex;justify-content:space-between;align-items:baseline;gap:10px;font:400 .875rem/1.4 'Hanken Grotesk',system-ui,sans-serif;color:#5B5767}.ds-flash-meta b{font:650 1.1875rem/1 'Hanken Grotesk',system-ui,sans-serif;letter-spacing:-.01em;color:#17151D;font-variant-numeric:tabular-nums}.ds-claim{display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:0 18px;border-top:1px dashed rgba(23,21,29,.18);font:600 .9375rem/1 'Hanken Grotesk',system-ui,sans-serif;color:#4C3BC2;text-decoration:none;transition:background-color .3s,color .3s}.ds-claim:hover{background:#4C3BC2;color:#fff}.ds-claim:focus-visible{outline:2px solid #4C3BC2;outline-offset:2px}@media (max-width:760px){.ds-flash-art{padding:36px 8px 0}.ds-ref{top:12px;right:10px;padding:2px 6px;font-size:.6875rem}}"
+    },
+    {
+      "name": "Lift the Sheet",
+      "kind": "custom",
+      "refersTo": "paper-sheet",
+      "description": "Artist mount: a stencil tissue that folds up on its tape hinge to show the healed piece; rests half-lifted under reduced motion.",
+      "html": "<figure class=\"ds-lift\" tabindex=\"0\"><div class=\"ds-photo\"></div><div class=\"ds-tissue\"><svg viewBox=\"0 0 100 120\" fill=\"none\" stroke=\"#4C3BC2\" stroke-width=\"1\" aria-hidden=\"true\"><path d=\"M50 15c-18 20-18 60 0 90 18-30 18-70 0-90zM50 30v70\"/></svg></div><button class=\"ds-lift-btn\" aria-pressed=\"false\">Lift the stencil</button></figure>",
+      "css": ".ds-lift{position:relative;width:260px;margin:0;padding:10px;background:#F6F5F8;border:1px solid rgba(23,21,29,.07);box-shadow:0 1px 1px rgba(23,21,29,.05),0 18px 34px -22px rgba(23,21,29,.45);perspective:1400px;rotate:-.7deg}.ds-photo{aspect-ratio:4/5;background:linear-gradient(160deg,#5B5767,#17151D)}.ds-tissue{position:absolute;inset:10px;display:grid;place-items:center;background:rgba(240,239,244,.86);backdrop-filter:blur(2.5px) saturate(.6);border:1px solid rgba(255,255,255,.5);transform-origin:50% 0;transition:transform .95s cubic-bezier(.16,.84,.3,1),opacity .95s cubic-bezier(.16,.84,.3,1),box-shadow .95s cubic-bezier(.16,.84,.3,1)}.ds-tissue svg{width:60%}.ds-lift:hover .ds-tissue,.ds-lift:focus-visible .ds-tissue{transform:translateY(-3%) rotateX(-64deg);opacity:.5;box-shadow:0 28px 40px -26px rgba(23,21,29,.55)}.ds-lift:focus-visible{outline:2px solid #4C3BC2;outline-offset:3px}.ds-lift-btn{position:absolute;z-index:4;left:22px;bottom:22px;min-height:40px;padding:0 14px;border:1px solid rgba(23,21,29,.14);border-radius:6px;background:rgba(246,245,248,.94);font:600 .875rem/1 'Hanken Grotesk',system-ui,sans-serif;color:#17151D;cursor:pointer;transition:background-color .3s,color .3s}.ds-lift-btn:hover{color:#4C3BC2}.ds-lift-btn[aria-pressed=\"true\"]{background:#4C3BC2;border-color:#4C3BC2;color:#fff}@media (prefers-reduced-motion:reduce){.ds-tissue{transition-duration:.01ms;transform:translateY(-2%) rotateX(-34deg);opacity:.62}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Stencil Sheet",
+    "overview": "The studio's own working material is the interface. Every piece of a tattoo begins as violet carbon line on translucent thermal tissue, taped to the table and nudged into place before a needle touches skin; this system is built from exactly those materials. The ground is a cool tissue grey, every container is a sheet of paper held down by masking tape and set a fraction of a degree off-square, and the one saturated colour on the page is stencil violet, the colour of the transfer line. Strip out all copy and photography and the tissue, the tape and the violet line still say which studio this is.\n\nDensity is calm and editorial: large Gloock headlines, generous section padding, asymmetric two- and three-column grids where columns are staggered vertically rather than aligned in rows. Depth comes from paper physics, not from interface chrome: long soft shadows that fall below a lifted sheet, translucent tissue with a light backdrop blur over photographs, and motion that peels and settles with a paper-like ease. Inversions to ink (the flash wall, the footer, the lightbox) read as a dark corkboard on which tissue sheets are pinned.\n\nThe world was chosen against the tattoo-category default it refuses: a black screen of full-bleed photographs, neon or gold calls to action and an Instagram grid.",
+    "keyCharacteristics": [
+      "Cool tissue ground (60), ink type and ink walls (30), stencil violet only for line, primary action and active state (10).",
+      "Every content container is a square-cornered paper sheet with a 1px edge, a long paper shadow and a slight rotation.",
+      "Masking-tape tabs hold sheets down; they are a structural mark of the world, not decoration.",
+      "Translucent tissue over photography: the hero peels away on scroll, artist sheets lift on a tape hinge.",
+      "One serif (Gloock, always 400) over one grotesque (Hanken Grotesk); figures are tabular.",
+      "Reference-plate labels (\"Ref. 01\") tie flash sheets back to the hero's stencil plate."
+    ],
+    "rules": [
+      {
+        "name": "The Carbon Line Rule",
+        "body": "Stencil violet is the only saturated colour on any screen. It marks the line itself, the primary action and the active state; nothing else is violet, and no second accent is ever introduced.",
+        "section": "colors"
+      },
+      {
+        "name": "The Inverted Line Rule",
+        "body": "On the ink ground, violet becomes violet-soft for every hover, link and focus ring; full-strength violet survives on ink only inside a paper sheet.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tape Is Warm Rule",
+        "body": "The masking-tape buff is the system's only warm colour and appears only as tape.",
+        "section": "colors"
+      },
+      {
+        "name": "The Single Cut Rule",
+        "body": "Gloock is always weight 400 and never italic; emphasis inside a headline is violet colour, not style.",
+        "section": "typography"
+      },
+      {
+        "name": "The Honest Figures Rule",
+        "body": "Every price, size and reference number is set in tabular figures so ranges line up down a sheet.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper Shadow Rule",
+        "body": "Shadows are soft, long and negatively spread, falling below the sheet; never a hard offset block and never an even glow around all sides.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Tissue Over Rule",
+        "body": "Translucency is reserved for tissue laid over imagery and for the header strip; solid sheets stay opaque.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Square Paper Rule",
+        "body": "If it is paper it has square corners and a slight tilt; if it is a control it has a 6px radius and sits level.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do keep violet to the line, the primary action and the active state, at roughly a tenth of any screen (The Carbon Line Rule).",
+      "Do make every new container a square paper sheet with a 1px faint-pencil edge, the resting-sheet shadow and a tilt between -1.3 and 1.3 degrees.",
+      "Do hold sheets down with tape tabs (86x24px, rotated 2-5 degrees) at a top corner or centre.",
+      "Do swap violet for violet-soft on hovers, links and focus rings on the ink ground.",
+      "Do animate paper with the paper ease (`cubic-bezier(.16,.84,.3,1)`) and state changes with the standard ease at 0.3s; reveals only move sheets 26px into place and never hide text.",
+      "Do set every price and reference number in tabular figures.",
+      "Do keep icons as inline SVG from the sprite, sized 1.15em."
+    ],
+    "donts": [
+      "Don't introduce a second saturated hue, gold, or neon; the tape buff is the only warm colour.",
+      "Don't round the corners of a sheet, or give a control a tilt.",
+      "Don't use a hard offset shadow or an all-round glow; shadows fall below the paper.",
+      "Don't set Gloock bold or italic.",
+      "Don't build a black screen of full-bleed photos with an Instagram-style grid; photography always sits mounted on paper or under tissue.",
+      "Don't make flash sheets lift; the lift belongs to artist work that has a healed piece to show.",
+      "Don't put full-strength violet text directly on the ink ground."
+    ]
+  }
+}
