@@ -718,7 +718,7 @@
       (notesVal ? `\n- Questions/Notes: ${notesVal}` : '');
 
     const waUrl = `https://wa.me/355685727406?text=${encodeURIComponent(waMsg)}`;
-    const mailUrl = `mailto:vjosaraftinggetaway@gmail.com?subject=${encodeURIComponent('Rafting Tour Booking: ' + nameVal)}&body=${encodeURIComponent(waMsg)}`;
+    const mailUrl = `mailto:joelkaso8@gmail.com?subject=${encodeURIComponent('Rafting Tour Booking: ' + nameVal)}&body=${encodeURIComponent(waMsg)}`;
 
     const firstName = nameVal.split(' ')[0];
     $('#doneTitle').textContent = `Booking request ready, ${firstName}!`;

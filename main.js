@@ -60,7 +60,7 @@
 
   // Which package each showcase sells. The preview window shows it as a badge, the card names it, and
   // "I want a site like this" opens the quick quote on that package. Sites not listed here get no badge.
-  var TIER = { 'vjosa-rafting': 'starter', 'ura-coffee': 'business', 'kaso-ervehe': 'premium' }
+  var TIER = { 'vjosa-rafting': 'starter', 'lule-kitchen': 'business', 'kaso-ervehe': 'premium' }
   // What the quick quote picks for each package (business type and features), so the price matches the badge.
   var TIER_QUOTE = {
     starter: { type: 'trade', needs: ['wa', 'gallery'] },

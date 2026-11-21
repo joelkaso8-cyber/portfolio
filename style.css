@@ -40,7 +40,7 @@ button { font: inherit; }
 .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 .ico { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .ico--fill { fill: currentColor; stroke: none; }
-.gradient-text { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; padding-right: .08em; color: var(--gold); background: linear-gradient(100deg, #f6dfae 0%, var(--gold) 45%, var(--amber) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.gradient-text { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; padding-right: .08em; color: var(--gold); }
 h1 .gradient-text { font-size: 1.1em; line-height: 1; }
 .tag { display: inline-flex; align-items: center; gap: 8px; font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .tag--gold { color: var(--gold); }
@@ -459,11 +459,11 @@ input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offs
   .wa-fab, .asst__launch { transition: transform .3s var(--ease), opacity .3s var(--ease), visibility 0s linear 0s, background-color .3s, border-color .3s; }
   .fab-away .wa-fab, .fab-away .asst:not(.is-open) .asst__launch { transform: translateX(calc(100% + 32px)); opacity: 0; visibility: hidden; pointer-events: none; transition: transform .3s var(--ease), opacity .3s var(--ease), visibility 0s linear .3s; }
 }
-/* Over the hero the chat button (all widths) and the WhatsApp button (desktop) stay hidden so they never cover the hero demo; main.js toggles .on-hero. */
-.on-hero .asst:not(.is-open) .asst__launch { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .3s var(--ease), visibility 0s linear .3s; }
+/* Over the hero the chat and WhatsApp buttons stay hidden at every width, so they never cover the hero demo or the
+   savings slider on phones (the hero has its own buttons); main.js toggles .on-hero. */
+.on-hero .asst:not(.is-open) .asst__launch, .on-hero .wa-fab { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .3s var(--ease), visibility 0s linear .3s; }
 @media (min-width: 900px) {
   .wa-fab { transition: opacity .3s var(--ease), visibility 0s linear 0s; }
-  .on-hero .wa-fab { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .3s var(--ease), visibility 0s linear .3s; }
 }
 @media (prefers-reduced-motion: reduce) { .asst__launch, .wa-fab, .on-hero .asst:not(.is-open) .asst__launch, .on-hero .wa-fab { transition: none; } }
 @media (max-width: 899px) and (prefers-reduced-motion: reduce) { .wa-fab, .asst__launch, .fab-away .wa-fab, .fab-away .asst:not(.is-open) .asst__launch { transition: none; } }
