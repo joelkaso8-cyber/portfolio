@@ -1,4 +1,4 @@
 {
-  "prompt": "Derived, not generated: smoothed contour trace (blurred ink mask, specks under 260px removed, edge recoloured #4C3BC2) of the Unsplash photo used for img/dren-1200.webp.",
-  "createdAt": "2026-11-21T19:16:33.888Z"
+  "prompt": "Derived, not generated: smoothed contour trace (ink mask blurred 4.2px, components under 900px and edges under 320px removed, upper back only) of the Unsplash photo used for img/dren-1200.webp, recoloured #4C3BC2.",
+  "createdAt": "2026-11-21T19:18:29.942Z"
 }

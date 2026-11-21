@@ -10,14 +10,14 @@ window.BOJE = {
   msg: {
     en: {
       hello: "Hi Bojë, I'd like a tattoo consultation.",
-      flashday: 'Hi Bojë, please save me a spot on the next flash day.',
+      flashday: 'Hi Bojë, when is the next flash day?',
       artist: "Hi Bojë, I'd like a consultation with {name}.",
       flash: "Hi Bojë, I'd like to claim flash № {n} ({title}).",
       form: "Hi Bojë, I'd like a tattoo consultation.\nName: {name}\nArtist: {artist}\nPreferred date: {date}\nPlacement & size: {placement}\nIdea: {message}"
     },
     sq: {
       hello: 'Përshëndetje Bojë, dua një konsultë për tatuazh.',
-      flashday: 'Përshëndetje Bojë, më ruani një vend për ditën e ardhshme të flash-it.',
+      flashday: 'Përshëndetje Bojë, kur është dita e ardhshme e flash-it?',
       artist: 'Përshëndetje Bojë, dua një konsultë me {name}.',
       flash: 'Përshëndetje Bojë, dua të rezervoj flash-in № {n} ({title}).',
       form: 'Përshëndetje Bojë, dua një konsultë për tatuazh.\nEmri: {name}\nArtisti: {artist}\nData e preferuar: {date}\nVendi & madhësia: {placement}\nIdeja: {message}'
@@ -71,7 +71,7 @@ window.BOJE = {
       'price.r4': 'Blackwork & large pieces', 'price.r4s': 'half day / full day session',
       'price.r5': 'Deposit', 'price.r5s': 'holds your date, comes off the price',
       'price.r6': 'Touch-up', 'price.r6s': 'within 3 months of your session', 'price.free': 'Free',
-      'price.cta': 'Save a spot on flash day',
+      'price.cta': 'Ask for the next flash day date',
       'flashday.title': 'Flash day · first Saturday of the month',
       'flashday.p': 'Sara draws a new sheet of small designs, €60 each, first come first served from 12:00. Bring ID; we stop taking names at 18:00.',
       'work.title': 'Healed work, and the sessions behind it',
@@ -162,7 +162,7 @@ window.BOJE = {
       'price.r4': 'Blackwork & punë të mëdha', 'price.r4s': 'seancë gjysmë dite / ditë e plotë',
       'price.r5': 'Paradhënie', 'price.r5s': 'mban datën, zbritet nga çmimi',
       'price.r6': 'Ritokim', 'price.r6s': 'brenda 3 muajve nga seanca', 'price.free': 'Falas',
-      'price.cta': 'Zë një vend për ditën e flash-it',
+      'price.cta': 'Pyet për datën e ditës së ardhshme të flash-it',
       'flashday.title': 'Dita e flash-it · e shtuna e parë e muajit',
       'flashday.p': 'Sara vizaton një fletë të re me dizajne të vogla, 60 € secili, me radhë nga ora 12:00. Merr me vete dokumentin; emrat i mbyllim në 18:00.',
       'work.title': 'Punë të shëruara, dhe seancat pas tyre',
