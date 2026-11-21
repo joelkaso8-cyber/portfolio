@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "work/boje-tattoo/index.html"
+        ],
+        "createdAt": "2026-11-21T19:07:29.358Z",
+        "reason": "Claude, after inspecting renders: flagged children are absolutely positioned tape strips and step numerals; real padding 22-56px verified in desktop/mobile captures"
+      }
+    ]
+  }
+}
