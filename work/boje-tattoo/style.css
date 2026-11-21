@@ -457,5 +457,7 @@ h2 { font-size: clamp(2.2rem, 1.4rem + 3vw, 4.25rem); }
   .hero { height: 100svh; }
   .hero__sheet { transform: perspective(1800px) translateY(-6%) rotateX(22deg) rotate(.8deg); opacity: .72; }
   .hero__film img { transform: none; }
+  .lift__tissue { transform: translateY(-2%) rotateX(-34deg); opacity: .62; }
+  .lift.is-up .lift__tissue { transform: translateY(-3%) rotateX(-64deg); opacity: .5; }
   .js .reveal { translate: none; }
 }
