@@ -41,7 +41,7 @@ Launch prices: €400 one-page, €600 business site with booking, €800 hotel 
 
 ## Which package each showcase sells
 
-In `main.js`, `TIER` names the package each showcase sells: Vjosa Rafting the starter site, Lule Balkan Kitchen the business site, Hotel Kaso Ervehe the premium site. Those three get a badge on their card and in the preview window ("Starter package example · 390€"), and "I want a site like this" opens the quick quote on that package with its features ticked (`TIER_QUOTE`). Add an id to `TIER` to badge another site. While `KASO_LIVE` is off, the hotel's badge says "example"; once it is on, it says "live client site".
+In `main.js`, `TIER` names the package each showcase sells: Vjosa Rafting the starter site, Lule Balkan Kitchen the business site, Hotel Kaso Ervehe the premium site. Those three get a badge on their card and in the preview window ("Starter package example · 390€"). Add an id to `TIER` to badge another site. While `KASO_LIVE` is off, the hotel's badge says "example"; once it is on, it says "live client site".
 
 ## Launch spots left
 
@@ -77,7 +77,7 @@ var REVIEWS = [
 2. In `analytics.js`, set `var CODE = 'joelkaso'` and push.
 3. See the numbers at `https://joelkaso.goatcounter.com`.
 
-Besides page visits it counts these events: `whatsapp-<where>` (which WhatsApp button: hero, contact, dock…), `call-<where>`, `email-<where>`, `plan-<type>` ("Start with this"), `quote-sent-whatsapp`, `quote-copy`, `form-sent`, `want-site-like-this`, `open-site-<id>`, `language-<en|sq>` and `go-quote-from-<where>`. It does nothing on localhost.
+Besides page visits it counts these events: `whatsapp-<where>` (which WhatsApp button: hero, contact, dock…), `call-<where>`, `email-<where>`, `quote-sent-whatsapp`, `quote-copy`, `form-sent`, `want-site-like-this`, `open-site-<id>`, `language-<en|sq>` and `go-quote-from-<where>`. It does nothing on localhost.
 
 ## Show, hide or add a site
 
@@ -89,6 +89,8 @@ Besides page visits it counts these events: `whatsapp-<where>` (which WhatsApp b
 Replace the file in `img/` or `media/` with one of the same name, size and format. Keep the width and height the same, or also change the `width` and `height` numbers next to it.
 
 ## Phone, WhatsApp, email
+
+Every contact button on the main page (Contact, Get a quote, Claim a spot, Get a site like these, Start with this, the care plan, the free preview, I want a site like this, the WhatsApp buttons and the footer link) opens WhatsApp with the message in `wa.msg` in `main.js`: "Hi Joel, I checked out your portfolio and I'm interested in a website." in English, and the Albanian version for SQ visitors. They carry `data-wa`, and `main.js` writes the link from that one text, so change the message there. The quick quote further down still sends its own detailed brief.
 
 Search all files for `355685727406` and `joelkaso8@gmail.com` and change every match. The form sends to the address in `EMAIL` at the top of `main.js`.
 
