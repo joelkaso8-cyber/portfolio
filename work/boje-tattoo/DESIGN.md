@@ -320,10 +320,10 @@ Confident and inked, like a stamp on a paper slip.
 The film plays full-bleed behind a large taped tissue sheet carrying violet linework, registration crosses and a reference-plate note. Scrolling peels the sheet up and back on a top hinge (up to 64deg) while it fades and the film scrubs forward; scrolling up reverses it. A taped headline slip, tilted -0.6deg, stays pinned bottom-left (bottom on phones) with the H1, lede and actions, and a 2px violet-soft progress bar runs along the stage foot. Reduced motion or no film: a still poster with the sheet resting half-lifted.
 
 ### Lift the Sheet (signature)
-Artist portfolios are mounted photos covered by a tissue sheet showing the stencil. Hover (fine pointers), tap or the "lift" toggle folds the tissue up on its tape hinge (-64deg, 0.95s paper ease) to show the healed piece; the toggle fills violet when pressed. Flash sheets never lift: a flash design has no healed piece yet.
+Artist portfolios are mounted photos covered by a tissue sheet showing the stencil. Hover (fine pointers), tap or the "lift" toggle folds the tissue up on its tape hinge (-64deg, 0.95s paper ease) to show the healed piece; the toggle fills violet when pressed. Under reduced motion the tissue rests half-lifted (translateY(-2%) rotateX(-34deg), 62% opacity) so the healed piece is never fully hidden, and the toggle still folds it fully up. Flash sheets never lift: a flash design has no healed piece yet.
 
 ### Flash Sheet (signature)
-A tissue sheet pinned on the ink wall: taped corner, violet line drawing, a violet "Ref. 0X" plate in the top corner opposite the tape (so tape and plate never collide), name in Gloock, size and placement in graphite, the price in tabular 650, and a full-width claim strip below a dashed tear line that fills violet on hover.
+A tissue sheet pinned on the ink wall: taped corner, violet line drawing, a violet "Ref. 0X" plate in the top corner opposite the tape (so tape and plate never collide); at 760px and below the drawing drops 36px so the plate (.6875rem, 2px/6px padding, 12px from the top) gets its own band above it, name in Gloock, size and placement in graphite, the price in tabular 650, and a full-width claim strip below a dashed tear line that fills violet on hover.
 
 ## Do's and Don'ts
 
