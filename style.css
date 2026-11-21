@@ -585,7 +585,7 @@ input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offs
   .asst__launch { transition: none; }
 }
 
-/* ---------- 3D pieces (depth.js): screenshot wall, phone dome, name badge ---------- */
+/* ---------- 3D pieces (depth.js): screenshot wall, Kaso phone ---------- */
 /* Wall: real site screenshots on a tilted plane, columns drifting up and down. Plain CSS 3D, no WebGL. */
 .wall { position: relative; display: grid; align-items: end; min-height: clamp(480px, 56vw, 700px); overflow: hidden; overflow: clip; background: var(--surface); border-block: 1px solid var(--line); isolation: isolate; }
 .wall__view { position: absolute; inset: 0; z-index: -2; display: flex; align-items: center; justify-content: center; }
@@ -610,50 +610,20 @@ input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offs
 }
 @media (min-width: 1240px) { .wall__plane { transform: scale(.95); } }
 
-/* Dome: phone screenshots on the outside of a sphere. depth.js sets --R (radius), --u (angle per unit) and --ua (arc per unit). */
+/* One phone showing Hotel Kaso Ervehe, resting at a slight angle. depth.js adds a small mouse tilt on desktop (--rx/--ry). */
 .domeband { position: relative; isolation: isolate; padding-top: clamp(72px, 8vw, 112px); }
 /* Full-width backdrop: 9 of the site screenshots, blurred and darkened (img/dome-bg.webp, 3 KB), fading into the page above and below. */
 .domeband::before { content: ''; position: absolute; z-index: -1; inset: 0 calc(50% - 50vw); background: linear-gradient(180deg, var(--bg) 0%, rgba(9, 10, 12, .34) 9%, rgba(9, 10, 12, .34) 36%, rgba(9, 10, 12, 0) 50%, rgba(9, 10, 12, 0) 88%, var(--bg) 100%), linear-gradient(90deg, rgba(9, 10, 12, .5) 0%, rgba(9, 10, 12, .15) 55%, rgba(9, 10, 12, 0) 80%), url(img/dome-bg.webp) center / cover no-repeat; }
 .domeband .head { margin-bottom: clamp(12px, 2vw, 24px); }
-.dome { --R: 600px; --u: 6.4deg; --ua: 67px; position: relative; height: clamp(440px, 50vw, 640px); margin-inline: calc(var(--gut) * -1); overflow: hidden; overflow: clip; cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; }
-.dome.is-grab { cursor: grabbing; }
-.dome__stage { position: absolute; inset: 0; perspective: calc(var(--R) * 2); }
-.dome__sphere { position: absolute; left: 50%; top: 50%; transform-style: preserve-3d; }
-.dome__tile { position: absolute; left: calc(var(--ua) * -1); top: calc(var(--ua) * -1.5); width: calc(var(--ua) * 2); height: calc(var(--ua) * 3); padding: 5px; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: rotateY(calc(var(--u) * var(--x))) rotateX(calc(var(--u) * var(--y) * -1)) translateZ(var(--R)); }
-.dome__tile img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 10px; background: var(--surface-2); box-shadow: 0 0 0 1px var(--line-2); pointer-events: none; transition: box-shadow .25s var(--ease); }
-@media (hover: hover) { .dome__tile:hover img { box-shadow: 0 0 0 2px var(--gold); } }
-/* Soft edges by mask (not a colour overlay), so the tiles fade into the backdrop instead of into black. */
-.dome { -webkit-mask-image: radial-gradient(ellipse 54% 52% at 50% 50%, #000 60%, transparent 100%); mask-image: radial-gradient(ellipse 54% 52% at 50% 50%, #000 60%, transparent 100%); }
+.phone-hold { display: grid; justify-items: center; padding: clamp(20px, 4vw, 48px) 0 clamp(12px, 3vw, 32px); perspective: 1400px; }
+.phone3d { --rx: 2deg; --ry: -5deg; display: block; width: min(300px, 70vw); aspect-ratio: 390 / 844; padding: 11px; border-radius: 46px;
+  background: linear-gradient(155deg, #4a4b52 0%, #1b1c20 38%, #0c0d0f 70%, #2c2d33 100%);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .16), inset 0 0 0 1px rgba(255, 255, 255, .10), 0 0 0 7px rgba(9, 10, 12, .55), 0 44px 90px -30px rgba(0, 0, 0, .95), 0 0 80px -12px rgba(229, 184, 105, .22);
+  transform: rotateX(var(--rx)) rotateY(var(--ry)); transition: transform .7s cubic-bezier(.22, 1, .36, 1), box-shadow .3s; }
+.phone3d.is-tilt { transition-duration: .18s, .3s; }
+.phone3d img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 36px; background: var(--surface-2); }
+.phone3d:focus-visible { outline: 2px solid var(--gold); outline-offset: 8px; }
+@media (hover: hover) { .phone3d:hover { box-shadow: 0 0 0 1px rgba(229, 184, 105, .55), inset 0 0 0 1px rgba(255, 255, 255, .10), 0 0 0 7px rgba(9, 10, 12, .55), 0 44px 90px -30px rgba(0, 0, 0, .95), 0 0 90px -10px rgba(229, 184, 105, .32); } }
+@media (prefers-reduced-motion: reduce) { .phone3d { transition: none; } }
 
-/* Badge on a strap. Without JS it hangs straight; depth.js adds .is-live and moves it. */
-.lanyard { --rope: 150px; --bw: 212px; --bh: 300px; position: relative; z-index: 3; height: calc(var(--rope) + var(--bh) + 76px); margin-top: 32px; }
-.lanyard__strap { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
-.lanyard__strap path { fill: none; stroke: var(--gold); stroke-width: 15; stroke-linecap: round; stroke-linejoin: round; }
-.lanyard__strap text { font: 600 8px/1 var(--sans); letter-spacing: .24em; fill: var(--gold-ink); dominant-baseline: central; }
-.lanyard__pin { fill: var(--surface-2); stroke: var(--line-2); stroke-width: 2; }
-.lanyard:not(.is-live) .lanyard__strap { display: none; }
-.lanyard:not(.is-live)::before { content: ''; position: absolute; left: calc(50% - 7px); top: 0; width: 15px; height: calc(var(--rope) + 4px); border-radius: 4px; background: var(--gold); }
-.badge3d { position: absolute; left: 0; top: 0; width: var(--bw); height: calc(var(--bh) + 20px); padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: center; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; transform-origin: 50% 0; perspective: 900px; }
-.lanyard:not(.is-live) .badge3d { left: calc(50% - var(--bw) / 2); top: var(--rope); }
-.badge3d.is-grab { cursor: grabbing; }
-.badge3d:focus-visible { outline: none; }
-.badge3d:focus-visible .badge3d__face { box-shadow: inset 0 0 0 2px var(--gold), 0 24px 40px -24px rgba(0, 0, 0, .9); }
-.badge3d__clip { position: absolute; left: 50%; top: 0; z-index: 1; width: 30px; height: 26px; margin-left: -15px; border-radius: 7px 7px 4px 4px; background: linear-gradient(180deg, #e4e4e7, #8e9097); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .4), 0 2px 4px rgba(0, 0, 0, .5); }
-.badge3d__clip::after { content: ''; position: absolute; left: 8px; right: 8px; top: 6px; height: 6px; border-radius: 3px; background: #3a3b40; }
-.badge3d__card { position: absolute; left: 0; right: 0; top: 20px; bottom: 0; transform-style: preserve-3d; }
-.badge3d__face { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 36px 18px 22px; border-radius: 18px; background: linear-gradient(165deg, #1e1f25 0%, #111216 70%); box-shadow: inset 0 0 0 1px var(--line-2), 0 24px 40px -24px rgba(0, 0, 0, .9); overflow: hidden; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-.badge3d__face::before { content: ''; position: absolute; left: 50%; top: 13px; width: 46px; height: 8px; margin-left: -23px; border-radius: 4px; background: var(--bg); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .9); }
-.badge3d__face::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(110deg, transparent 38%, rgba(255, 255, 255, .09) 50%, transparent 62%) var(--sx, 50%) 0 / 260% 100% no-repeat; }
-.badge3d__back { transform: rotateY(180deg); }
-.badge3d__front img { width: 64px; height: 64px; }
-.badge3d__name { font: 400 2.1rem/1 var(--serif); color: var(--ink); letter-spacing: -0.01em; }
-.badge3d__role { font-size: .6875rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); text-wrap: balance; }
-.badge3d__status { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--line); font-size: .8125rem; line-height: 1.35; color: var(--ink-2); }
-.badge3d__status span { text-wrap: balance; }
-.badge3d__status i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--emerald); box-shadow: 0 0 0 3px rgba(16, 185, 129, .22); }
-.badge3d__qr { width: 132px; padding: 8px; border-radius: 10px; background: #fff; }
-.badge3d__qr svg { display: block; width: 100%; height: auto; }
-.badge3d__scan { max-width: 17ch; font-size: .875rem; line-height: 1.35; color: var(--ink); }
-.lanyard__hint { position: absolute; left: 0; right: 0; bottom: 0; font-size: .8125rem; color: var(--muted); text-align: center; }
-@media (max-width: 639px) { .lanyard { --rope: 104px; --bw: 188px; --bh: 268px; } .badge3d__name { font-size: 1.85rem; } }
 @media (prefers-reduced-motion: reduce) { .wall__col { animation: none; } .wall__col a { transition: none; } }

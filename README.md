@@ -41,7 +41,7 @@ Launch prices: €400 one-page, €600 business site with booking, €800 hotel 
 
 ## Which package each showcase sells
 
-In `main.js`, `TIER` names the package each showcase sells: Vjosa Rafting the starter site, Ura Coffee Roasters the business site, Hotel Kaso Ervehe the premium site. Those three get a badge on their card and in the preview window ("Starter package example · 390€"), and "I want a site like this" opens the quick quote on that package with its features ticked (`TIER_QUOTE`). Add an id to `TIER` to badge another site. While `KASO_LIVE` is off, the hotel's badge says "example"; once it is on, it says "live client site".
+In `main.js`, `TIER` names the package each showcase sells: Vjosa Rafting the starter site, Lule Balkan Kitchen the business site, Hotel Kaso Ervehe the premium site. Those three get a badge on their card and in the preview window ("Starter package example · 390€"), and "I want a site like this" opens the quick quote on that package with its features ticked (`TIER_QUOTE`). Add an id to `TIER` to badge another site. While `KASO_LIVE` is off, the hotel's badge says "example"; once it is on, it says "live client site".
 
 ## Launch spots left
 

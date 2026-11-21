@@ -157,9 +157,8 @@
       'viewer.want': 'I want a site like this', 'viewer.open': 'Open in new tab ↗', 'wa.msg': "Hi Joel, I'd like a website.",
       'tier.starter': 'Starter package example · 390€', 'tier.business': 'Business package example · 590€', 'tier.premium': 'Premium package example · 1.190€', 'tier.premiumLive': 'Premium package · live client site · 1.190€',
       'wall.title': 'Demo sites you can try', 'wall.lead': 'Tap any screen to try that site the way your customers would.',
-      'dome.title': 'Every site, on a phone', 'dome.lead': 'Most of your customers will see your site on a phone. Drag to spin it, tap a screen to open that site.',
-      'badge.role': 'Web designer · Albania', 'badge.scan': 'Scan to message me on WhatsApp', 'badge.hint': 'Drag the badge. Tap it to flip.',
-      'badge.aria': "Joel Kaso's badge. Press to flip it and show a WhatsApp QR code."
+      'dome.title': 'Your site, on a phone', 'dome.lead': 'Most of your customers will see your site on a phone. Tap this one to try Hotel Kaso Ervehe.',
+      'dome.aria': 'Open the Hotel Kaso Ervehe site in the preview'
     },
     sq: {
       skip: 'Kalo te përmbajtja', title: 'Faqe interneti për hotele, restorante dhe biznese · Joel Kaso',
@@ -241,9 +240,8 @@
       'viewer.want': 'Dua një faqe si kjo', 'viewer.open': 'Hap në skedë të re ↗', 'wa.msg': 'Përshëndetje Joel, dua një website.',
       'tier.starter': 'Shembull i paketës Starter · 390€', 'tier.business': 'Shembull i paketës Biznes · 590€', 'tier.premium': 'Shembull i paketës Premium · 1.190€', 'tier.premiumLive': 'Paketa Premium · faqe klienti live · 1.190€',
       'wall.title': 'Faqe demo që mund t’i provosh', 'wall.lead': 'Prek çdo ekran dhe provoje faqen si klientët e tu.',
-      'dome.title': 'Çdo faqe, në telefon', 'dome.lead': 'Shumica e klientëve do ta shohin faqen tënde në telefon. Tërhiqe për ta rrotulluar, prek një ekran për ta hapur.',
-      'badge.role': 'Dizajner web · Shqipëri', 'badge.scan': 'Skano për të më shkruar në WhatsApp', 'badge.hint': 'Tërhiqe kartën. Prek për ta kthyer.',
-      'badge.aria': 'Karta e Joel Kasos. Shtyp për ta kthyer dhe për të parë kodin QR të WhatsApp-it.'
+      'dome.title': 'Faqja jote, në telefon', 'dome.lead': 'Shumica e klientëve do ta shohin faqen tënde në telefon. Prek këtë për të provuar Hotel Kaso Ervehe.',
+      'dome.aria': 'Hap faqen e Hotel Kaso Ervehe në parapamje'
     }
   }
 
@@ -557,7 +555,7 @@
     // The portfolio stays one step back in history, so the browser's Back button closes the site instead of leaving the portfolio.
     try { history.replaceState(null, '', pageUrl()); history.pushState({ site: w.id }, '', location.pathname + '?site=' + w.id + location.hash) } catch (e) {}
   }
-  // For depth.js (3D wall, dome, badge): the site list and the viewer.
+  // For depth.js (3D wall): the site list and the viewer.
   window.JK = { work: WORK, open: function (id) { var w = WORK.find(function (x) { return x.id === id }); if (w) openViewer(w) } }
   window.addEventListener('popstate', function () {
     var id = history.state && history.state.site, w = id && WORK.find(function (x) { return x.id === id })
