@@ -289,6 +289,7 @@ input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offs
 .badge--client { border-color: rgba(229, 184, 105, .4); color: var(--gold); }
 .badge--project { border-color: rgba(16, 185, 129, .35); color: var(--mint); }
 .item__where { padding: 4px 6px 0; color: var(--muted); font-size: .9375rem; }
+.item__outcome { padding: 10px 6px 0; max-width: 60ch; color: var(--ink-2); font-size: .9375rem; line-height: 1.55; }
 .item__tier { padding: 6px 6px 0; color: var(--gold-hi); font-size: .875rem; font-weight: 600; letter-spacing: .01em; }
 .item__tier[hidden] { display: none; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 14px 6px 0; }
@@ -307,7 +308,8 @@ input[type="range"]:focus-visible { outline: 2px solid var(--gold); outline-offs
 .plan--main { border-color: rgba(229, 184, 105, .42); background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(229, 184, 105, .13), transparent 70%), var(--surface); box-shadow: 0 40px 80px -45px rgba(229, 184, 105, .35); }
 .price b { color: var(--ink); font-size: 2.4rem; letter-spacing: -0.03em; }
 .price s { margin-left: 6px; color: var(--muted); }
-.price small { display: block; color: var(--gold); font-size: .8125rem; font-weight: 600; letter-spacing: .06em; }
+.price small { display: block; margin-bottom: 4px; color: var(--gold); font-size: .8125rem; font-weight: 600; letter-spacing: .06em; }
+.plans__note { max-width: 70ch; margin: 22px auto 0; text-align: center; color: var(--muted); font-size: .9375rem; line-height: 1.6; }
 
 /* quote configurator */
 .cfg { max-width: 1000px; padding: clamp(18px, 4vw, 40px); }
