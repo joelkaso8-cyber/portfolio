@@ -30,6 +30,7 @@
     $$('.lang__btn').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === lang)) })
     // WhatsApp links speak the visitor's language
     $$('[data-wa]').forEach(function (a) { a.href = wa(B.msg[lang].hello) })
+    $$('[data-wa-flashday]').forEach(function (a) { a.href = wa(B.msg[lang].flashday) })
     $$('[data-wa-artist]').forEach(function (a) { a.href = wa(fill(B.msg[lang].artist, { name: a.dataset.waArtist })) })
     $$('.sheet').forEach(function (li) {
       var n = li.dataset.flash, a = $('.sheet__claim', li)
@@ -41,10 +42,14 @@
   $$('.lang__btn').forEach(function (b) { b.addEventListener('click', function () { applyLang(b.dataset.lang, true) }) })
 
   // ── Header: menu drawer + current section ─────────────────────
-  var menuBtn = $('.nav__menu'), drawer = $('#drawer')
+  var menuBtn = $('.nav__menu'), drawer = $('#drawer'), scrim = $('#scrim')
+  var behind = ['main', '.foot', '.thumb-cta']
   function setMenu(open) {
     menuBtn.setAttribute('aria-expanded', String(open))
     drawer.hidden = !open
+    scrim.hidden = !open
+    // the page behind the open menu can't be tabbed into or clicked
+    behind.forEach(function (s) { var el = $(s); if (el) el.inert = open })
     $('.sr', menuBtn).textContent = t(open ? 'nav.close' : 'nav.menu')
     if (open) { var first = $('a', drawer); if (first) first.focus() }
   }
@@ -157,19 +162,27 @@
   var form = $('#form'), err = $('#form-err'), send = $('#form-send'), done = $('#form-done')
   var val = function (n) { return (form.elements[n].value || '').trim() }
   var looksLikeContact = function (s) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s) || /^\+?[\d\s()-]{7,}$/.test(s) }
-  function showErr(key, field) {
-    err.textContent = t(key); err.hidden = false
-    if (field) { field.setAttribute('aria-invalid', 'true'); field.focus() }
+  // Each field's error sits right under it (linked with aria-describedby); the box above the buttons only says that several need a look.
+  var ERR = { name: 'err.name', contact: 'err.contact', message: 'err.msg' }
+  var errEl = function (f) { return $('#' + f.id + '-err') }
+  function fieldErr(f, key) {
+    f.setAttribute('aria-invalid', 'true')
+    var e = errEl(f); if (e) { e.textContent = t(key); e.hidden = false }
   }
-  function clearErr() { err.hidden = true; $$('[aria-invalid]', form).forEach(function (f) { f.removeAttribute('aria-invalid') }) }
+  function clearField(f) { f.removeAttribute('aria-invalid'); var e = errEl(f); if (e) { e.hidden = true; e.textContent = '' } }
+  function showErr(key) { err.textContent = t(key); err.hidden = false }
+  function clearErr() { err.hidden = true; $$('[aria-invalid]', form).forEach(clearField) }
   function check() {
     clearErr()
-    var missing = ['name', 'contact', 'message'].filter(function (n) { return !val(n) })
-    if (missing.length) { missing.forEach(function (n) { form.elements[n].setAttribute('aria-invalid', 'true') }); showErr('form.errReq', form.elements[missing[0]]); return false }
-    if (!looksLikeContact(val('contact'))) { showErr('form.errContact', form.elements.contact); return false }
-    return true
+    var bad = []
+    Object.keys(ERR).forEach(function (n) { if (!val(n)) { fieldErr(form.elements[n], ERR[n]); bad.push(form.elements[n]) } })
+    if (val('contact') && !looksLikeContact(val('contact'))) { fieldErr(form.elements.contact, 'form.errContact'); bad.push(form.elements.contact) }
+    if (!bad.length) return true
+    if (bad.length > 1) showErr('form.errReq')
+    bad.sort(function (a, b) { return a.compareDocumentPosition(b) & 4 ? -1 : 1 })[0].focus()
+    return false
   }
-  $$('input, textarea', form).forEach(function (f) { f.addEventListener('input', function () { if (f.hasAttribute('aria-invalid') && f.value.trim()) f.removeAttribute('aria-invalid') }) })
+  $$('input, textarea', form).forEach(function (f) { f.addEventListener('input', function () { if (f.hasAttribute('aria-invalid') && f.value.trim()) clearField(f) }) })
 
   form.addEventListener('submit', function (e) {
     e.preventDefault()
