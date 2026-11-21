@@ -29,19 +29,22 @@ The English texts are also written in `index.html` (it is what shows before Java
 
 ## Change a price
 
-Launch prices: €400 one-page, €600 business site with booking, €800 hotel and guesthouse. Usual prices: €800, €1,000, €1,200. Change all of these together:
+Packages: **Essential Landing** from 150–200€, **Business Pro** from 300–450€ (marked "Most popular"), **Custom Signature** from 600€+. Terms: 50% deposit to start, 50% upon launch; the domain (~15€/year) is billed separately in the client's name. Change all of these together:
 
-- Plan prices: in `index.html`, inside each `<p class="price">`.
-- The offer band: `offer.text` in `main.js` (both languages) and the same sentence in `index.html` (`offer__text`). The `€400` in `offer__title` is the "from" price.
-- Quick quote: `USUAL` and `LAUNCH` in `main.js`. A one-page business that ticks "booking" moves up to the booking price, €600 (in `quoteFacts`).
+- Package prices: in `index.html`, inside each `<p class="price"><b>` in the Packages & Pricing section (`#services`).
+- Package names, who they are for and what they include: `plan1.*`, `plan2.*`, `plan3.*` in `main.js` (both languages), and the same English text in `index.html`.
+- The terms line under the packages: `plan.note` in `main.js` (both languages) and in `index.html`. The payment answer `faq.a5`, the guarantee `g.title` / `g.text` and `q.note` say the same thing.
+- Each package button opens WhatsApp with its own message: `pkg1.wa`, `pkg2.wa`, `pkg3.wa` in `main.js`.
+- The offer band: `offer.text` in `main.js` (both languages) and the same sentence in `index.html`. The `150€` in `offer__title` is the "from" price.
+- Quick quote: `FROM` (starting price) and `DAYS` (delivery) per package in `main.js`. A business that picks booking, two languages, an editable menu or the Google profile moves up from Essential Landing to Business Pro.
 - Care plan (€25 a month): `care.title`, `care.text` and `faq.a1` in `main.js` (both languages), and the same texts in `index.html`.
-- The chat assistant: the prices in `assistant-kb.json` (facts and the `price`, `packages` and `monthly` answers).
-- Google's copy of the prices: `makesOffer` and `priceRange` in the `application/ld+json` line in `index.html`.
+- The chat assistant: the prices in `assistant-kb.json` (facts and the `price`, `packages`, `time` and `payment` answers).
+- Google's copy of the prices: `makesOffer` and `priceRange` in the `application/ld+json` line in `index.html`, and the "From 150€" in the meta descriptions (`index.html`, and `desc` in `main.js`).
 - The package badges on the showcases: `tier.*` in `main.js` (both languages).
 
 ## Which package each showcase sells
 
-In `main.js`, `TIER` names the package each showcase sells: Vjosa Rafting the starter site, Lule Balkan Kitchen the business site, Hotel Kaso Ervehe the premium site. Those three get a badge on their card and in the preview window ("Starter package example · 390€"). Add an id to `TIER` to badge another site. While `KASO_LIVE` is off, the hotel's badge says "example"; once it is on, it says "live client site".
+In `main.js`, `TIER` names the package each showcase sells: Vjosa Rafting the Essential Landing, Lule Balkan Kitchen the Business Pro site, Hotel Kaso Ervehe the Custom Signature site. Those three get a badge on their card and in the preview window ("Essential Landing example · from 150€"). Add an id to `TIER` to badge another site. While `KASO_LIVE` is off, the hotel's badge says "example"; once it is on, it says "live client site".
 
 ## Launch spots left
 
@@ -82,7 +85,8 @@ Besides page visits it counts these events: `whatsapp-<where>` (which WhatsApp b
 ## Show, hide or add a site
 
 - Show or hide: edit the `SHOWN` list in `main.js`. A site not in the list stays in `work/` but is not on the page.
-- Add: put the site in `work/<id>/`, add one entry to `WORK` in `main.js` (name, category, tag, place, chips in both languages), add `<id>` to `SHOWN`, and add four screenshots to `img/`: desktop 1200×750 and 600×375, phone 390×844 and 260×563, all WebP.
+- Add: put the site in `work/<id>/`, add one entry to `WORK` in `main.js` (name, category, tag, place, a two-line `outcome` and chips, all in both languages), add `<id>` to `SHOWN`, and add four screenshots to `img/`: desktop 1200×750 and 600×375, phone 390×844 and 260×563, all WebP.
+- Cards link to `./work/<id>/` (relative, so the same links work locally and on GitHub Pages). Sites hosted elsewhere set `url` instead.
 
 ## Change a picture
 
