@@ -90,11 +90,11 @@
 
   function localAnswer(q, lang) {
     var r = rank(q), L = UI[lang]
-    if (!r.length) return { text: L.unsure, actions: [{ label: L.wa, href: waHref(q), wa: true }, { label: L.quote, href: '#quote' }] }
+    if (!r.length) return { text: L.unsure, actions: [{ label: L.wa, href: waHref(q), wa: true }, { label: L.quote, href: '#contact' }] }
     var t = r[0].t, text = t[lang] || t.en, acts = []
     // A two-part question ("how long, and how do I pay?") gets both answers when the second part is a clear hit.
     if (r[1] && r[1].score >= 2) text += '\n\n' + (r[1].t[lang] || r[1].t.en)
-    if (t.go) acts.push({ label: t.go === '#quote' ? L.quote : L.go, href: t.go })
+    if (t.go) acts.push({ label: t.go === '#contact' ? L.quote : L.go, href: t.go })
     if (t.id === 'contact' || t.id === 'start') acts.push({ label: L.wa, href: waHref(q), wa: true })
     return { text: text, actions: acts }
   }
@@ -133,7 +133,7 @@
 
     if (AI_URL) {
       askAi(lang).then(function (reply) {
-        var t = match(q), acts = t && t.go ? [{ label: t.go === '#quote' ? UI[lang].quote : UI[lang].go, href: t.go }] : []
+        var t = match(q), acts = t && t.go ? [{ label: t.go === '#contact' ? UI[lang].quote : UI[lang].go, href: t.go }] : []
         done(reply, acts)
       }).catch(fallback)
     } else {

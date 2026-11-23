@@ -30,11 +30,9 @@
   <meta name="twitter:image:alt" content="Joel Kaso, web design: websites for hotels, restaurants and local businesses" />
   <meta name="theme-color" content="#090a0c" />
   <meta name="color-scheme" content="dark" />
-  <link rel="preload" as="image" href="media/hero-m.webp" media="(max-width: 900px) and (orientation: portrait)" fetchpriority="high" />
-  <link rel="preload" as="image" href="media/hero.webp" media="(min-width: 901px), (orientation: landscape)" fetchpriority="high" />
+  <link rel="preload" as="image" href="img/kaso-ervehe-phone-260.webp" imagesrcset="img/kaso-ervehe-phone-260.webp 260w, img/kaso-ervehe-phone.webp 390w" imagesizes="(min-width: 900px) 300px, 240px" fetchpriority="high" />
   <link rel="preload" as="font" type="font/woff2" href="gfonts/3c512d8e381c.woff2" crossorigin />
-  <link rel="preload" as="font" type="font/woff2" href="gfonts/253e49fe3970.woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=20261123-2" />
+  <link rel="stylesheet" href="style.css?v=20261123-3" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
@@ -64,124 +62,70 @@
     <p class="status"><i aria-hidden="true"></i><span data-i18n="nav.status">Taking new projects</span></p>
     <nav class="nav__links" id="nav-links" aria-label="Main" data-i18n-aria="a.main">
       <a href="#work" data-i18n="nav.work">Work</a>
-      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#services" data-i18n="nav.services">Pricing</a>
       <a href="#process" data-i18n="nav.process">Process</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
-      <a data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer" data-i18n="nav.contact">Contact</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="lang" role="group" aria-label="Language" data-i18n-aria="a.lang">
       <button type="button" data-lang="en" aria-pressed="true">EN</button>
       <button type="button" data-lang="sq" aria-pressed="false">SQ</button>
     </div>
-    <a class="btn btn--sm nav__cta" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer" data-i18n="hero.quote">Get a quote</a>
+    <a class="btn btn--sm nav__cta" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer" data-i18n="hero.cta">Get a free quote</a>
     <button type="button" class="nav__toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu" data-i18n-aria="a.menu"><span></span></button>
   </header>
 
   <main id="main">
-    <section class="hero" id="top">
-      <div class="hero__stage">
-        <div class="hero-film" aria-hidden="true">
-          <video muted playsinline preload="none" disablepictureinpicture></video>
-          <div class="tint"></div>
-          <div class="shade"></div>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero__inner">
+        <div class="hero__text">
+          <h1 id="hero-title" data-i18n="hero.h1">Websites for hotels and local businesses that bring direct bookings</h1>
+          <p class="lead" data-i18n="hero.sub">No platform commission on direct bookings. Bilingual, mobile-first, ready in 3–14 days.</p>
+          <ul class="badges">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-bolt"/></svg><span data-i18n="proof.1t">Fast on phones</span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-percent"/></svg><span data-i18n="proof.2t">0% commission on direct bookings</span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="proof.3t">3–14 days</span></li>
+          </ul>
+          <a class="btn btn--lg hero__cta" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="hero.cta">Get a free quote</span></a>
+          <p class="hero__proof"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="hero.proof">Real client: Hotel Kaso Ervehe, Përmet</span></p>
         </div>
-        <div class="hero__inner">
-          <div class="hero__text">
-            <p class="tag" data-i18n="hero.eyebrow">Web design &amp; development · Albania → UK, EU &amp; USA</p>
-            <h1><span data-i18n="hero.t1">Websites that turn visitors into</span> <em class="gradient-text" data-i18n="hero.t2">direct paying customers.</em></h1>
-            <p class="lead" data-i18n="hero.lead">Custom, fast websites for hotels, restaurants and local businesses, with a direct booking calendar, WhatsApp, two languages and no monthly platform lock-in.</p>
-            <ul class="proof">
-              <li><svg class="ico" aria-hidden="true"><use href="#i-bolt"/></svg><b data-i18n="proof.1t">Fast on phones</b> <span data-i18n="proof.1p">hand-built, no page builders</span></li>
-              <li><svg class="ico" aria-hidden="true"><use href="#i-percent"/></svg><b data-i18n="proof.2t">0% commission</b> <span data-i18n="proof.2p">on bookings that come direct</span></li>
-              <li><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><b data-i18n="proof.3t">3–14 days</b> <span data-i18n="proof.3p">from first call to live site</span></li>
-            </ul>
-            <div class="roi glass" id="roi">
-              <label class="roi__label" for="roi-range"><span data-i18n="roi.label">Your bookings a month</span> <output id="roi-n" for="roi-range">60</output></label>
-              <input type="range" id="roi-range" min="10" max="300" step="5" value="60" />
-              <p class="roi__out"><span data-i18n="roi.pre">You keep about</span> <b id="roi-save">1.080€</b> <span data-i18n="roi.post">a month when those bookings come direct.</span></p>
-              <p class="roi__note" data-i18n="roi.note">An estimate, worked out with an average booking of 100€ and an 18% platform commission.</p>
-            </div>
-            <div class="actions">
-              <a class="btn" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer" data-i18n="hero.quote">Get a quote</a>
-              <a class="btn btn--line" href="#work" data-i18n="hero.work">See the work</a>
-            </div>
-          </div>
-
-          <div class="sim" id="sim">
-            <div class="sim__tabs" role="group" aria-label="Try a live example" data-i18n-aria="sim.aria">
-              <button type="button" data-sim="hotel" aria-pressed="true"><svg class="ico" aria-hidden="true"><use href="#i-bed"/></svg><span>Hotel Kaso</span></button>
-              <button type="button" data-sim="coffee" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-cup"/></svg><span>Ura Roasters</span></button>
-              <button type="button" data-sim="food" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-fork"/></svg><span>Lule Kitchen</span></button>
-            </div>
-            <div class="sim__tilt" id="sim-tilt">
-              <div class="device">
-                <div class="device__top" aria-hidden="true"><i></i><i></i><i></i><span id="sim-url">hotelkasoervehe</span></div>
-                <div class="device__screen" id="sim-screen" aria-live="polite">
-                  <img id="sim-img" src="img/kaso-ervehe-desk-600.webp" width="600" height="375" alt="" decoding="async" />
-                  <div class="device__body">
-                    <p class="device__title" id="sim-title"></p>
-                    <p class="device__label" id="sim-l1"></p>
-                    <div class="device__opts" id="sim-o1" role="group" aria-labelledby="sim-l1"></div>
-                    <p class="device__label" id="sim-l2"></p>
-                    <div class="device__opts" id="sim-o2" role="group" aria-labelledby="sim-l2"></div>
-                    <button type="button" class="btn btn--wa device__cta" id="sim-cta" disabled><svg class="ico ico--fill" aria-hidden="true"><use href="#i-wa"/></svg><span id="sim-cta-t"></span></button>
-                  </div>
-                  <p class="toast" id="sim-toast" role="status"></p>
-                </div>
-              </div>
-            </div>
-            <p class="sim__hint" data-i18n="sim.hint">A working demo. Tap two choices, then the green button.</p>
-          </div>
-        </div>
-        <div class="hero-hint" aria-hidden="true">
-          <span data-i18n="hero.scroll">Scroll</span>
-          <svg viewBox="0 0 14 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1v16M2 12l5 5 5-5"/></svg>
-        </div>
-        <div class="hero-progress" aria-hidden="true"><i></i></div>
+        <figure class="hero__media">
+          <a class="hero-phone" href="?site=kaso-ervehe" data-open="kaso-ervehe" aria-label="Open the Hotel Kaso Ervehe site in the preview" data-i18n-aria="hero.imgAria">
+            <img src="img/kaso-ervehe-phone.webp" srcset="img/kaso-ervehe-phone-260.webp 260w, img/kaso-ervehe-phone.webp 390w" sizes="(min-width: 900px) 300px, 240px" width="390" height="844" alt="The Hotel Kaso Ervehe website on a phone" data-i18n-alt="hero.imgAlt" fetchpriority="high" decoding="async" />
+          </a>
+        </figure>
       </div>
     </section>
 
-    <section class="offer reveal" aria-labelledby="offer-title">
-      <p class="tag tag--gold" data-i18n="offer.tag">Fixed packages</p>
-      <p class="offer__spots" id="offer-spots" hidden></p>
-      <h2 class="offer__title" id="offer-title"><span data-i18n="offer.t1">Websites from</span> <em class="gradient-text" data-money="150">150€</em></h2>
-      <p class="offer__text" data-i18n="offer.text">Essential Landing from 150€, Business Pro with two languages and a booking form from 300€, Custom Signature with scroll film and automated lead routing at 600€+. Every site comes with phone and desktop design, WhatsApp and a map.</p>
-      <a class="btn" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer" data-i18n="offer.cta">Start a project</a>
-      <div class="offer__preview">
-        <p><b data-i18n="preview.t">Not sure yet? Get a free preview.</b> <span data-i18n="preview.p">Send me your business name and a few photos. Within 48 hours I show you your own homepage on your phone. You pay nothing unless you want the full site.</span></p>
-        <a class="btn btn--wa" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="preview.cta">Get my free preview</span></a>
-      </div>
-    </section>
-
-    <!-- 3D wall of site screenshots (filled by depth.js from the shown sites), drifting; a click opens that site in the viewer -->
-    <section class="wall" aria-labelledby="wall-title">
-      <div class="wall__view" aria-hidden="true">
-        <div class="wall__plane">
-          <div class="wall__grid"></div>
+    <section class="section band" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="head reveal">
+          <p class="tag" data-i18n="work.tag">Client sites and demos</p>
+          <h2 id="work-title" data-i18n="work.title">Selected work</h2>
+          <p data-i18n="work.lead">A featured client project first, then more work. Real clients are marked; demo sites have made-up names and show how booking and ordering work.</p>
         </div>
-      </div>
-      <div class="wall__copy reveal">
-        <h2 id="wall-title" data-i18n="wall.title">Demo sites you can try</h2>
-        <p data-i18n="wall.lead">Tap any screen to try that site the way your customers would.</p>
-        <a class="btn btn--line" href="#work" data-i18n="hero.work">See the work</a>
-      </div>
-    </section>
 
-    <section class="section case" id="case" aria-labelledby="case-title">
-      <div class="head reveal">
-        <p class="tag" data-i18n="case.tag">Featured case study</p>
-        <h2 id="case-title" data-i18n="case.title">Hotel Kaso Ervehe, Përmet</h2>
-        <p data-i18n="case.lead">My family's hotel in Përmet is my first real client project. Its new site launches soon.</p>
-      </div>
-      <div class="bento">
-        <article class="card spot bento__main reveal">
-          <img src="img/kaso-ervehe-desk.webp" srcset="img/kaso-ervehe-desk-600.webp 600w, img/kaso-ervehe-desk.webp 1200w" sizes="(min-width: 1000px) 46vw, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Hotel Kaso Ervehe website on a laptop screen" data-i18n-alt="case.alt" />
-          <div class="bento__copy">
-            <div><h3 data-i18n="case.pt">Problem</h3><p data-i18n="case.pp">Up to 18% of every stay went to booking platforms as commission.</p></div>
-            <div><h3 data-i18n="case.st">Solution</h3><p data-i18n="case.sp">A fast site of the hotel's own, where guests check the rooms and send a booking request straight to the hotel, in English or Albanian.</p></div>
-            <div class="case__built"><h3 data-i18n="case.bt">What we built</h3><ul class="ticks" data-list="case.items"></ul></div>
+        <article class="feature card reveal" id="case" aria-labelledby="case-title">
+          <a class="feature__shot" href="?site=kaso-ervehe" data-open="kaso-ervehe" tabindex="-1" aria-hidden="true">
+            <img src="img/kaso-ervehe-desk.webp" srcset="img/kaso-ervehe-desk-600.webp 600w, img/kaso-ervehe-desk.webp 1200w" sizes="(min-width: 1000px) 560px, 92vw" width="1200" height="750" loading="lazy" decoding="async" alt="Home page of the Hotel Kaso Ervehe website" data-i18n-alt="case.alt" />
+          </a>
+          <div class="feature__body">
+            <p class="feature__kicker"><span class="badge badge--client" data-tag="client">Real client</span> <span data-i18n="case.tag">Featured case study</span></p>
+            <h3 id="case-title" data-i18n="case.title">Hotel Kaso Ervehe, Përmet</h3>
+            <p class="feature__lead" data-i18n="case.lead">My family's hotel in Përmet is my first real client project. Its new site launches soon.</p>
+            <div class="feature__ps">
+              <div><h4 data-i18n="case.pt">Problem</h4><p data-i18n="case.pp">Up to 18% of every stay went to booking platforms as commission.</p></div>
+              <div><h4 data-i18n="case.st">Solution</h4><p data-i18n="case.sp">A fast site of the hotel's own, where guests check the rooms and send a booking request straight to the hotel, in English or Albanian.</p></div>
+            </div>
+            <div class="case__built"><h4 data-i18n="case.bt">What we built</h4><ul class="ticks" data-list="case.items"></ul></div>
+            <dl class="stats">
+              <div><dt data-i18n="case.s1">guest rating on Booking.com</dt><dd>9.0<small>/10</small></dd></div>
+              <div><dt data-i18n="case.s2">commission on direct bookings</dt><dd>0€</dd></div>
+              <div><dt data-i18n="case.s3">guests can book in English or Albanian</dt><dd>EN · SQ</dd></div>
+            </dl>
+            <p class="stats__src"><span id="case-src">Source: Booking.com</span> · <a href="https://www.booking.com/hotel/al/kaso-ervehe.html" target="_blank" rel="noopener noreferrer"><span data-i18n="case.proof">Check the reviews on Booking.com</span> ↗</a></p>
             <div class="case__results" id="case-results" hidden>
-              <h3 data-i18n="case.rt">Results</h3>
+              <h4 data-i18n="case.rt">Results</h4>
               <p class="case__rnote" data-i18n="case.rnote">Measured after launch.</p>
               <dl class="results">
                 <div class="results__slot"><dt data-i18n="case.r1">Bookings a month, before</dt><dd id="case-r1"></dd></div>
@@ -190,217 +134,169 @@
               </dl>
             </div>
             <figure class="case__quote" id="case-quote" hidden><blockquote><p data-i18n="case.quote">Instead of losing up to 18% on every reservation to third-party platforms, guests finding us on Google can now check rooms in English or Albanian and message us directly on WhatsApp with their exact dates.</p></blockquote><figcaption data-i18n="case.quoteBy">Hotel Kaso Ervehe, Përmet</figcaption></figure>
+            <a class="btn btn--line" href="?site=kaso-ervehe" data-open="kaso-ervehe"><span data-i18n="case.cta">Open the hotel site in the preview</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </article>
-        <article class="card spot bento__stat reveal"><b>9.0<small>/10</small></b> <span data-i18n="case.s1">guest rating on Booking.com</span> <span class="bento__src" id="case-src">Source: Booking.com</span><a class="proof" href="https://www.booking.com/hotel/al/kaso-ervehe.html" target="_blank" rel="noopener noreferrer"><span data-i18n="case.proof">Check the reviews on Booking.com</span> ↗</a></article>
-        <article class="card spot bento__stat reveal"><b class="is-emerald">0€</b> <span data-i18n="case.s2">commission on direct bookings</span></article>
-        <article class="card spot bento__stat reveal"><b>EN · SQ</b> <span data-i18n="case.s3">guests can book in English or Albanian</span></article>
-        <a class="card spot bento__cta reveal" href="?site=kaso-ervehe" data-open="kaso-ervehe"><span data-i18n="case.cta">Open the hotel site in the preview</span><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      </div>
-    </section>
 
-    <section class="section reviews" id="reviews" aria-labelledby="reviews-title" hidden>
-      <div class="head reveal">
-        <p class="tag" data-i18n="rev.tag">Client words</p>
-        <h2 id="reviews-title" data-i18n="rev.title">What clients say</h2>
-      </div>
-      <div class="reviews__list" id="reviews-list"></div>
-    </section>
-
-    <section class="section compare" id="compare" aria-labelledby="compare-title">
-      <div class="head reveal">
-        <p class="tag" data-i18n="cmp.tag">Why custom</p>
-        <h2 id="compare-title" data-i18n="cmp.title">Built for you, or rented from a template</h2>
-      </div>
-      <div class="cmp reveal" role="table" aria-labelledby="compare-title">
-        <div class="cmp__row cmp__head" role="row">
-          <span role="columnheader" class="cmp__c0" data-i18n="cmp.c0">What matters</span>
-          <span role="columnheader" class="cmp__me" data-i18n="cmp.c1">A custom site by Joel Kaso</span>
-          <span role="columnheader" data-i18n="cmp.c2">WordPress, Wix or an agency template</span>
+        <div class="work-bar reveal">
+          <h3 class="work-bar__title" data-i18n="work.demos">More work</h3>
+          <div class="filters" role="group" aria-label="Filter work" data-i18n-aria="a.filter">
+            <button type="button" aria-pressed="true" data-f="all" data-i18n="work.all">All</button>
+            <button type="button" aria-pressed="false" data-f="stay" data-i18n="work.stay">Hotels &amp; stays</button>
+            <button type="button" aria-pressed="false" data-f="food" data-i18n="work.food">Restaurants &amp; food</button>
+            <button type="button" aria-pressed="false" data-f="local" data-i18n="work.local">Local services</button>
+            <button type="button" aria-pressed="false" data-f="film" data-i18n="work.film">Scroll film experiences</button>
+          </div>
         </div>
-        <div class="cmp__row" role="row"><span role="rowheader" data-i18n="cmp.r1">Speed</span><span role="cell" class="cmp__me"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="cmp.r1a">Hand-built and light, with no plugins. Tested with Google PageSpeed before it goes live.</span></span><span role="cell"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="cmp.r1b">Heavy themes and plugins can make pages slow to open on a phone.</span></span></div>
-        <div class="cmp__row" role="row"><span role="rowheader" data-i18n="cmp.r2">Monthly fees</span><span role="cell" class="cmp__me"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="cmp.r2a">No monthly fee required. You own the code, and a care plan is there if you want one.</span></span><span role="cell"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="cmp.r2b">Paid plugins, hosting and maintenance often add a monthly bill.</span></span></div>
-        <div class="cmp__row" role="row"><span role="rowheader" data-i18n="cmp.r3">Security</span><span role="cell" class="cmp__me"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="cmp.r3a">No database and no plugins, so there is far less to attack and nothing to keep updating.</span></span><span role="cell"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="cmp.r3b">Plugins need constant updates, and an old one is a common way in.</span></span></div>
-        <div class="cmp__row" role="row"><span role="rowheader" data-i18n="cmp.r4">Enquiries</span><span role="cell" class="cmp__me"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="cmp.r4a">Bookings and messages reach your WhatsApp or Telegram within seconds.</span></span><span role="cell"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg><span data-i18n="cmp.r4b">A generic contact form, where messages can end up in spam.</span></span></div>
+        <div class="work" id="work-grid"></div>
       </div>
     </section>
 
-    <section class="section" id="work">
-      <div class="head head--row reveal">
-        <div><p class="tag" data-i18n="work.tag">Client sites and demos</p><h2 data-i18n="work.title">Selected work</h2></div>
-        <div class="filters" role="group" aria-label="Filter work" data-i18n-aria="a.filter">
-          <button aria-pressed="true" data-f="all" data-i18n="work.all">All</button>
-          <button aria-pressed="false" data-f="stay" data-i18n="work.stay">Hotels &amp; stays</button>
-          <button aria-pressed="false" data-f="food" data-i18n="work.food">Restaurants &amp; food</button>
-          <button aria-pressed="false" data-f="local" data-i18n="work.local">Local services</button>
-          <button aria-pressed="false" data-f="film" data-i18n="work.film">Scroll film experiences</button>
+    <section class="section" id="services" aria-labelledby="services-title">
+      <div class="wrap">
+        <div class="head reveal"><p class="tag" data-i18n="services.tag">Fixed prices</p><h2 id="services-title" data-i18n="services.title">Packages &amp; Pricing</h2><p data-i18n="services.lead">Every site is custom-designed for your business, with no monthly lock-in. Take direct bookings with 0% commission through instant WhatsApp requests or a built-in booking calendar, or connect the tools you already use (OpenTable, Fresha, Booksy, Airbnb or Booking.com) whenever you need them.</p><p class="offer__spots" id="offer-spots" hidden></p></div>
+        <div class="plans">
+          <article class="plan card reveal">
+            <h3 data-i18n="plan1.name">Essential Landing</h3>
+            <p data-i18n="plan1.for">One clear page for cafés, barbers, trades and events that need to be found and contacted.</p>
+            <p class="price"><small data-i18n="plan.from">from</small> <b>150€</b></p>
+            <ul class="ticks" data-list="plan1.items"></ul>
+            <a class="plan__demo" href="?site=vjosa-rafting" data-open="vjosa-rafting"><span data-i18n="plan.see">See the example</span>: Vjosa Rafting → <span class="badge badge--project" data-tag="project">Demo</span></a>
+            <a class="btn btn--line" data-wa="pkg1.wa" href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%27m%20interested%20in%20the%20Essential%20Landing%20website%20package." target="_blank" rel="noopener noreferrer" data-i18n="plan.ask">Start with this</a>
+          </article>
+          <article class="plan plan--main card reveal">
+            <p class="tag tag--gold" data-i18n="plan.popular">Recommended</p>
+            <h3 data-i18n="plan2.name">Business Pro</h3>
+            <p data-i18n="plan2.for">For restaurants, salons, clinics and studios that take enquiries and bookings every day.</p>
+            <p class="price"><small data-i18n="plan.from">from</small> <b>300€</b></p>
+            <ul class="ticks" data-list="plan2.items"></ul>
+            <a class="plan__demo" href="?site=lule-kitchen" data-open="lule-kitchen"><span data-i18n="plan.see">See the example</span>: Lule Balkan Kitchen → <span class="badge badge--demo" data-tag="demo">Demo</span></a>
+            <a class="btn" data-wa="pkg2.wa" href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%27m%20interested%20in%20the%20Business%20Pro%20website%20package." target="_blank" rel="noopener noreferrer" data-i18n="plan.ask">Start with this</a>
+          </article>
+          <article class="plan card reveal">
+            <h3 data-i18n="plan3.name">Custom Signature</h3>
+            <p data-i18n="plan3.for">For hotels and brands that want a one-of-a-kind site, with motion and enquiries routed automatically.</p>
+            <p class="price"><b>600€+</b></p>
+            <ul class="ticks" data-list="plan3.items"></ul>
+            <a class="plan__demo" href="?site=kaso-ervehe" data-open="kaso-ervehe"><span data-i18n="plan.see">See the example</span>: Hotel Kaso Ervehe → <span class="badge badge--client" data-tag="client">Real client</span></a>
+            <a class="btn btn--line" data-wa="pkg3.wa" href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%27m%20interested%20in%20the%20Custom%20Signature%20website%20package." target="_blank" rel="noopener noreferrer" data-i18n="plan.ask">Start with this</a>
+          </article>
         </div>
-      </div>
-      <div class="work" id="work-grid"></div>
-      <p class="cta-row reveal"><a class="btn" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer" data-i18n="cta.work">Get a site like these</a></p>
-    </section>
-
-    <!-- Hotel Kaso Ervehe on a phone: still, slight angle; desktop mouse adds a small tilt (depth.js) -->
-    <section class="section domeband" id="dome-band" aria-labelledby="dome-title">
-      <div class="head reveal">
-        <h2 id="dome-title" data-i18n="dome.title">Your site, on a phone</h2>
-        <p data-i18n="dome.lead">Many of your customers will see your site on a phone. Tap this one to try Hotel Kaso Ervehe.</p>
-      </div>
-      <div class="phone-hold">
-        <a class="phone3d" href="?site=kaso-ervehe" data-open="kaso-ervehe" aria-label="Open the Hotel Kaso Ervehe site in the preview" data-i18n-aria="dome.aria">
-          <img src="img/kaso-ervehe-phone.webp" width="390" height="844" alt="" loading="lazy" decoding="async" />
-        </a>
-      </div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="head reveal"><p class="tag" data-i18n="services.tag">Fixed prices</p><h2 data-i18n="services.title">Packages &amp; Pricing</h2><p data-i18n="services.lead">Every site is custom-designed for your business, with no monthly lock-in. Take direct bookings with 0% commission through instant WhatsApp requests or a built-in booking calendar, or connect the tools you already use (OpenTable, Fresha, Booksy, Airbnb or Booking.com) whenever you need them.</p></div>
-      <div class="plans">
-        <article class="plan card spot reveal">
-          <h3 data-i18n="plan1.name">Essential Landing</h3>
-          <p data-i18n="plan1.for">One clear page for cafés, barbers, trades and events that need to be found and contacted.</p>
-          <p class="price"><small data-i18n="plan.from">from</small> <b>150€</b></p>
-          <ul class="ticks" data-list="plan1.items"></ul>
-          <a class="plan__demo" href="?site=vjosa-rafting" data-open="vjosa-rafting"><span data-i18n="plan.see">See the example</span>: Vjosa Rafting → <span class="badge badge--project" data-tag="project">Demo</span></a>
-          <a class="btn btn--line" data-wa="pkg1.wa" href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%27m%20interested%20in%20the%20Essential%20Landing%20website%20package." target="_blank" rel="noopener noreferrer" data-i18n="plan.ask">Start with this</a>
-        </article>
-        <article class="plan plan--main card spot reveal">
-          <p class="tag tag--gold" data-i18n="plan.popular">Recommended</p>
-          <h3 data-i18n="plan2.name">Business Pro</h3>
-          <p data-i18n="plan2.for">For restaurants, salons, clinics and studios that take enquiries and bookings every day.</p>
-          <p class="price"><small data-i18n="plan.from">from</small> <b>300€</b></p>
-          <ul class="ticks" data-list="plan2.items"></ul>
-          <a class="plan__demo" href="?site=lule-kitchen" data-open="lule-kitchen"><span data-i18n="plan.see">See the example</span>: Lule Balkan Kitchen →<span class="badge badge--demo" data-tag="demo">Demo</span></a>
-          <a class="btn" data-wa="pkg2.wa" href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%27m%20interested%20in%20the%20Business%20Pro%20website%20package." target="_blank" rel="noopener noreferrer" data-i18n="plan.ask">Start with this</a>
-        </article>
-        <article class="plan card spot reveal">
-          <h3 data-i18n="plan3.name">Custom Signature</h3>
-          <p data-i18n="plan3.for">For hotels and brands that want a one-of-a-kind site, with motion and enquiries routed automatically.</p>
-          <p class="price"><b>600€+</b></p>
-          <ul class="ticks" data-list="plan3.items"></ul>
-          <a class="plan__demo" href="?site=kaso-ervehe" data-open="kaso-ervehe"><span data-i18n="plan.see">See the example</span>: Hotel Kaso Ervehe → <span class="badge badge--client" data-tag="client">Client Site</span></a>
-          <a class="btn btn--line" data-wa="pkg3.wa" href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%27m%20interested%20in%20the%20Custom%20Signature%20website%20package." target="_blank" rel="noopener noreferrer" data-i18n="plan.ask">Start with this</a>
-        </article>
-      </div>
-      <p class="plans__note reveal" data-i18n="plan.note">50% deposit to start, 50% at launch.</p>
-      <aside class="care card spot reveal" aria-labelledby="care-title">
-        <div>
-          <p class="tag tag--gold" data-i18n="care.tag">Optional, after launch</p>
-          <h3 id="care-title" data-i18n="care.title">Care plan · 25€ a month</h3>
-          <p data-i18n="care.text">Send me your text, price and photo changes and I make them, usually within two days. Every month I check that the site, the booking and your Google listing work. Stop any time: the site stays yours.</p>
+        <div class="plans__foot reveal">
+          <p class="plans__note" data-i18n="plan.note">50% deposit to start, 50% at launch.</p>
+          <p class="trust"><i aria-hidden="true"></i><span data-i18n="trust">Taking new projects · Reply within 24 hours</span></p>
+          <a class="btn" href="#contact" data-i18n="plan.quote">Not sure which one? Get a free quote</a>
         </div>
-        <a class="btn btn--line" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer" data-i18n="care.cta">Ask about the care plan</a>
-      </aside>
+
+        <div class="extras">
+          <div class="roi card reveal" id="roi">
+            <h3 data-i18n="roi.title">What direct bookings are worth</h3>
+            <label class="roi__label" for="roi-range"><span data-i18n="roi.label">Your bookings a month</span> <output id="roi-n" for="roi-range">60</output></label>
+            <input type="range" id="roi-range" min="10" max="300" step="5" value="60" />
+            <p class="roi__out"><span data-i18n="roi.pre">You keep about</span> <b id="roi-save">1.080€</b> <span data-i18n="roi.post">a month when those bookings come direct.</span></p>
+            <p class="roi__note" data-i18n="roi.note">An estimate, worked out with an average booking of 100€ and an 18% platform commission.</p>
+          </div>
+          <div class="preview card reveal">
+            <h3 data-i18n="preview.t">Not sure yet? Get a free preview.</h3>
+            <p data-i18n="preview.p">Send me your business name and a few photos. Within 48 hours I show you your own homepage on your phone. You pay nothing unless you want the full site.</p>
+            <a class="btn btn--line" data-wa="preview.wa" href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%27d%20like%20a%20free%20preview%20of%20my%20website." target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="preview.cta">Get my free preview</span></a>
+          </div>
+        </div>
+
+        <aside class="care card reveal" aria-labelledby="care-title">
+          <div>
+            <p class="tag tag--gold" data-i18n="care.tag">Optional, after launch</p>
+            <h3 id="care-title" data-i18n="care.title">Care plan · 25€ a month</h3>
+            <p data-i18n="care.text">Send me your text, price and photo changes and I make them, usually within two days. Every month I check that the site, the booking and your Google listing work. Stop any time: the site stays yours.</p>
+          </div>
+          <a class="btn btn--line" data-wa="care.wa" href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%27d%20like%20to%20know%20more%20about%20the%20care%20plan." target="_blank" rel="noopener noreferrer" data-i18n="care.cta">Ask about the care plan</a>
+        </aside>
+      </div>
     </section>
 
-    <section class="section quote" id="quote" aria-labelledby="quote-title">
-      <div class="head reveal">
-        <p class="tag" data-i18n="q.tag">Quick quote</p>
-        <h2 id="quote-title" data-i18n="q.title">Plan your site in three steps</h2>
-        <p data-i18n="q.lead">Pick your business and what you need. You get the price and the timing straight away, and one tap sends it to me.</p>
-      </div>
-      <div class="cfg card reveal" id="cfg">
-        <ol class="cfg__steps">
-          <li><button type="button" data-step="1" aria-current="step"><b>1</b> <span data-i18n="q.s1">Your business</span></button></li>
-          <li><button type="button" data-step="2"><b>2</b> <span data-i18n="q.s2">Features</span></button></li>
-          <li><button type="button" data-step="3"><b>3</b> <span data-i18n="q.s3">Summary</span></button></li>
+    <section class="section band process" id="process" aria-labelledby="process-title">
+      <div class="wrap">
+        <div class="head reveal"><p class="tag" data-i18n="process.tag">How it works</p><h2 id="process-title" data-i18n="process.title">From a call to a live site</h2></div>
+        <ol class="timeline">
+          <li class="reveal"><small data-i18n="s1.d">20 minutes</small> <b data-i18n="s1.t">Quick call or WhatsApp chat</b> <span data-i18n="s1.p">We talk about your business, your rooms or services, and your goals.</span></li>
+          <li class="reveal"><small data-i18n="s2.d">Within 48 hours</small> <b data-i18n="s2.t">Free homepage preview on your phone</b> <span data-i18n="s2.p">You test a working first version of your homepage on your own phone, before paying a cent.</span></li>
+          <li class="reveal"><small data-i18n="s3.d">Days 3–14</small> <b data-i18n="s3.t">Full build and polish</b> <span data-i18n="s3.p">Direct booking, WhatsApp, maps and English/Albanian, tested on every screen.</span></li>
+          <li class="reveal"><small data-i18n="s4.d">Launch day</small> <b data-i18n="s4.t">Live, with a video guide</b> <span data-i18n="s4.p">Your own domain, Google listing and a short video on how to edit it.</span></li>
         </ol>
-        <div class="cfg__bar" aria-hidden="true"><i></i></div>
-        <div class="cfg__panel" data-panel="1">
-          <h3 id="q-type-l" data-i18n="q.type">What kind of business is it?</h3>
-          <div class="opts" id="q-type" role="group" aria-labelledby="q-type-l"></div>
+        <div class="guarantee card reveal">
+          <svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>
+          <div><h3 data-i18n="g.title">Half to start, half at launch.</h3><p data-i18n="g.text">You see a free preview of your homepage first. A 50% deposit starts the build, and the other 50% is due at launch, after you have checked the finished site on a private link on your own phone.</p><a class="btn btn--line" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="g.cta">Book a free call</span></a></div>
         </div>
-        <div class="cfg__panel" data-panel="2" hidden>
-          <h3 id="q-need-l" data-i18n="q.need">What should the site do?</h3>
-          <div class="opts opts--multi" id="q-need" role="group" aria-labelledby="q-need-l"></div>
-        </div>
-        <div class="cfg__panel" data-panel="3" hidden>
-          <h3 data-i18n="q.sum">Your project</h3>
-          <dl class="sum">
-            <div><dt data-i18n="q.d1">Business</dt><dd id="q-o-type"></dd></div>
-            <div><dt data-i18n="q.d2">Features</dt><dd id="q-o-needs"></dd></div>
-            <div id="q-like-row" hidden><dt data-i18n="q.d5">In the style of</dt><dd id="q-o-like"></dd></div>
-            <div><dt data-i18n="q.d3">Estimated turnaround</dt><dd id="q-o-time"></dd></div>
-            <div class="sum__price"><dt data-i18n="q.price">Package</dt><dd><b id="q-price">Business Pro · from 300€</b></dd></div>
-          </dl>
-          <p class="quote__note" data-i18n="q.note">Everything you pick is included. 50% deposit to start, 50% at launch, and no monthly fees.</p>
-          <div class="actions">
-            <a class="btn btn--wa" id="q-send" href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I'd%20like%20a%20website%20quote.%20Business%3A%20___%2C%20what%20I%20need%3A%20___" target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="q.send">Send spec on WhatsApp</span></a>
-            <button type="button" class="btn btn--line" id="q-copy" data-i18n="q.copy">Copy project brief</button>
-          </div>
-          <p class="form-status" id="q-status" role="status"></p>
-        </div>
-        <div class="cfg__nav">
-          <button type="button" class="btn btn--line btn--sm" id="q-back" data-i18n="q.back" disabled>Back</button>
-          <button type="button" class="btn btn--sm" id="q-next" data-i18n="q.next">Next</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="section process" id="process" aria-labelledby="process-title">
-      <div class="head reveal"><p class="tag" data-i18n="process.tag">How it works</p><h2 id="process-title" data-i18n="process.title">From a call to a live site</h2></div>
-      <ol class="timeline">
-        <li class="reveal"><small data-i18n="s1.d">20 minutes</small> <b data-i18n="s1.t">Quick call or WhatsApp chat</b> <span data-i18n="s1.p">We talk about your business, your rooms or services, and your goals.</span></li>
-        <li class="reveal"><small data-i18n="s2.d">Within 48 hours</small> <b data-i18n="s2.t">Free homepage preview on your phone</b> <span data-i18n="s2.p">You test a working first version of your homepage on your own phone, before paying a cent.</span></li>
-        <li class="reveal"><small data-i18n="s3.d">Days 3–14</small> <b data-i18n="s3.t">Full build and polish</b> <span data-i18n="s3.p">Direct booking, WhatsApp, maps and English/Albanian, tested on every screen.</span></li>
-        <li class="reveal"><small data-i18n="s4.d">Launch day</small> <b data-i18n="s4.t">Live, with a video guide</b> <span data-i18n="s4.p">Your own domain, Google listing and a short video on how to edit it.</span></li>
-      </ol>
-      <div class="guarantee card spot reveal">
-        <svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>
-        <div><h3 data-i18n="g.title">Half to start, half at launch.</h3><p data-i18n="g.text">You see a free preview of your homepage first. A 50% deposit starts the build, and the other 50% is due at launch, after you have checked the finished site on a private link on your own phone.</p><a class="btn btn--line" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="g.cta">Book a free call</span></a></div>
       </div>
     </section>
 
     <section class="section about" id="about" aria-labelledby="about-title">
-      <div class="about__text reveal">
-        <p class="tag" data-i18n="about.tag">About</p>
-        <h2 id="about-title" data-i18n="about.title">Who builds your site</h2>
-        <p data-i18n="about.p1">I'm Joel, a web designer from Albania. I build fast, good-looking websites for hotels, restaurants and local businesses. I do the design, the code and the setup myself, so you talk to one person.</p>
+      <div class="wrap about__grid">
+        <div class="about__text reveal">
+          <p class="tag" data-i18n="about.tag">About</p>
+          <h2 id="about-title" data-i18n="about.title">Who builds your site</h2>
+          <p data-i18n="about.p1">I'm Joel, a web designer from Albania. I build fast, good-looking websites for hotels, restaurants and local businesses. I do the design, the code and the setup myself, so you talk to one person.</p>
+        </div>
+        <ul class="about__facts card ticks reveal" data-list="about.items"></ul>
       </div>
-      <ul class="about__facts ticks reveal" data-list="about.items"></ul>
     </section>
 
-    <section class="section faq" id="faq" aria-labelledby="faq-title">
-      <div class="head reveal">
-        <p class="tag" data-i18n="faq.tag">FAQ</p>
-        <h2 id="faq-title" data-i18n="faq.title">Common questions</h2>
-        <p data-i18n="faq.lead">Everything you need to know before we start.</p>
-      </div>
-      <div class="acc reveal" id="acc">
-        <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa1" id="fq1"><span data-i18n="faq.q1">Are there any monthly fees after the site goes live?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa1" role="region" aria-labelledby="fq1"><div><p data-i18n="faq.a1">No monthly fees from me, unless you choose the optional care plan at 25€ a month, which you can stop any time. You pay once for the design and build, and the website is 100% yours. Your domain is registered in your own name and account, so you own it directly.</p></div></div></div>
-        <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa2" id="fq2"><span data-i18n="faq.q2">How long does it take from start to finish?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa2" role="region" aria-labelledby="fq2"><div><p data-i18n="faq.a2">Essential Landing takes 3–4 days, Business Pro 5–10 days and Custom Signature 10–14 days. Within 48 hours of our first call you get a free preview of your homepage on your phone, and the full site follows.</p></div></div></div>
-        <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa3" id="fq3"><span data-i18n="faq.q3">Can I change prices, photos, or menus myself later?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa3" role="region" aria-labelledby="fq3"><div><p data-i18n="faq.a3">Yes. When we launch, I send you a short video showing you exactly how to update your text, prices and photos in minutes, with no technical skills needed.</p></div></div></div>
-        <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa4" id="fq4"><span data-i18n="faq.q4">How do bookings and orders reach me?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa4" role="region" aria-labelledby="fq4"><div><p data-i18n="faq.a4">Whichever way is easiest for you. Requests can go straight to your WhatsApp, already filled in with the customer's details, to your email, or into a booking calendar.</p></div></div></div>
-        <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa5" id="fq5"><span data-i18n="faq.q5">How does payment work?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa5" role="region" aria-labelledby="fq5"><div><p data-i18n="faq.a5">50% deposit to start, 50% when the site launches. Before you pay anything you get a free homepage preview, and you check the finished site on a private link before the second payment.</p></div></div></div>
-        <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa6" id="fq6"><span data-i18n="faq.q6">Who owns the domain and the website?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa6" role="region" aria-labelledby="fq6"><div><p data-i18n="faq.a6">You do. The domain is registered in your name and the code is handed over to you, so you can move it or change designer whenever you like.</p></div></div></div>
-        <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa7" id="fq7"><span data-i18n="faq.q7">Can I see my website before I pay?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa7" role="region" aria-labelledby="fq7"><div><p data-i18n="faq.a7">Yes. Send me your business name and a few photos, and within 48 hours I show you a free preview of your homepage. If you want the full site, a 50% deposit starts the build and the rest is due at launch.</p></div></div></div>
+    <section class="section band faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="head reveal">
+          <p class="tag" data-i18n="faq.tag">FAQ</p>
+          <h2 id="faq-title" data-i18n="faq.title">Common questions</h2>
+          <p data-i18n="faq.lead">Everything you need to know before we start.</p>
+        </div>
+        <div class="acc reveal" id="acc">
+          <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa1" id="fq1"><span data-i18n="faq.q1">Are there any monthly fees after the site goes live?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa1" role="region" aria-labelledby="fq1"><div><p data-i18n="faq.a1">No monthly fees from me, unless you choose the optional care plan at 25€ a month, which you can stop any time. You pay once for the design and build, and the website is 100% yours. Your domain is registered in your own name and account, so you own it directly.</p></div></div></div>
+          <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa2" id="fq2"><span data-i18n="faq.q2">How long does it take from start to finish?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa2" role="region" aria-labelledby="fq2"><div><p data-i18n="faq.a2">Essential Landing takes 3–4 days, Business Pro 5–10 days and Custom Signature 10–14 days. Within 48 hours of our first call you get a free preview of your homepage on your phone, and the full site follows.</p></div></div></div>
+          <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa8" id="fq8"><span data-i18n="faq.q8">Why a custom site instead of WordPress, Wix or a template?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa8" role="region" aria-labelledby="fq8"><div><p data-i18n="faq.a8">Speed: it is hand-built and light, with no plugins, and tested with Google PageSpeed before it goes live, while heavy themes and plugins can make pages slow on a phone. Fees: no monthly fee is required and you own the code, while paid plugins, hosting and maintenance often add a monthly bill. Security: there is no database and no plugins, so there is far less to attack and nothing to keep updating. Enquiries: bookings and messages reach your WhatsApp or Telegram within seconds, instead of a generic contact form where messages can end up in spam.</p></div></div></div>
+          <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa3" id="fq3"><span data-i18n="faq.q3">Can I change prices, photos, or menus myself later?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa3" role="region" aria-labelledby="fq3"><div><p data-i18n="faq.a3">Yes. When we launch, I send you a short video showing you exactly how to update your text, prices and photos in minutes, with no technical skills needed.</p></div></div></div>
+          <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa4" id="fq4"><span data-i18n="faq.q4">How do bookings and orders reach me?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa4" role="region" aria-labelledby="fq4"><div><p data-i18n="faq.a4">Whichever way is easiest for you. Requests can go straight to your WhatsApp, already filled in with the customer's details, to your email, or into a booking calendar.</p></div></div></div>
+          <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa5" id="fq5"><span data-i18n="faq.q5">How does payment work?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa5" role="region" aria-labelledby="fq5"><div><p data-i18n="faq.a5">50% deposit to start, 50% when the site launches. Before you pay anything you get a free homepage preview, and you check the finished site on a private link before the second payment.</p></div></div></div>
+          <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa6" id="fq6"><span data-i18n="faq.q6">Who owns the domain and the website?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa6" role="region" aria-labelledby="fq6"><div><p data-i18n="faq.a6">You do. The domain is registered in your name and the code is handed over to you, so you can move it or change designer whenever you like.</p></div></div></div>
+          <div class="acc__item"><h3><button type="button" aria-expanded="false" aria-controls="fa7" id="fq7"><span data-i18n="faq.q7">Can I see my website before I pay?</span><i aria-hidden="true"></i></button></h3><div class="acc__panel" id="fa7" role="region" aria-labelledby="fq7"><div><p data-i18n="faq.a7">Yes. Send me your business name and a few photos, and within 48 hours I show you a free preview of your homepage. If you want the full site, a 50% deposit starts the build and the rest is due at launch.</p></div></div></div>
+        </div>
       </div>
     </section>
 
     <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <div class="contact__text reveal">
-        <p class="tag" data-i18n="contact.tag">Contact</p>
-        <h2 id="contact-title" data-i18n="contact.title">Let's build yours</h2>
-        <p data-i18n="contact.lead">Tell me about your business, in English or Albanian. I reply within 24 hours.</p>
-        <p class="mail"><a href="mailto:joelkaso8@gmail.com">joelkaso8@gmail.com</a></p>
-        <p class="phone-links">
-          <a class="btn btn--wa" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
-          <a class="btn btn--line" href="tel:+355685727406">+355 68 57 27 406</a>
-        </p>
-      </div>
-      <form class="card form reveal" id="contact-form" novalidate>
-        <div class="row">
-          <label class="fl"><input name="name" autocomplete="name" required maxlength="80" placeholder=" " aria-describedby="e-name" /><span data-i18n="f.name">Name</span><small class="fl__err" id="e-name"></small></label>
-          <label class="fl"><input name="business" autocomplete="organization" maxlength="100" placeholder=" " /><span data-i18n="f.business">Business (optional)</span></label>
+      <div class="wrap contact__grid">
+        <div class="contact__text reveal">
+          <p class="tag" data-i18n="contact.tag">Contact</p>
+          <h2 id="contact-title" data-i18n="contact.title">Let's build yours</h2>
+          <p data-i18n="contact.lead">Tell me about your business, in English or Albanian. Pick what you need and you see the package and timing straight away.</p>
+          <p class="trust"><i aria-hidden="true"></i><span data-i18n="trust">Taking new projects · Reply within 24 hours</span></p>
+          <p class="phone-links">
+            <a class="btn" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+            <a class="btn btn--line" href="tel:+355685727406">+355 68 57 27 406</a>
+          </p>
+          <p class="mail"><a href="mailto:joelkaso8@gmail.com">joelkaso8@gmail.com</a></p>
+          <div class="reviews" id="reviews" hidden><div class="reviews__list" id="reviews-list"></div></div>
         </div>
-        <label class="fl"><input name="email" type="email" autocomplete="email" required maxlength="120" placeholder=" " aria-describedby="e-email" /><span data-i18n="f.email">Email</span><small class="fl__err" id="e-email"></small></label>
-        <label class="fl"><textarea name="msg" rows="4" required maxlength="1000" placeholder=" " aria-describedby="e-msg"></textarea><span data-i18n="f.msg">What do you need?</span><small class="fl__err" id="e-msg"></small></label>
-        <!-- Honeypot: hidden from people and screen readers. Bots fill it in; main.js then drops the message, and FormSubmit drops it too (_honey). -->
-        <div class="trap" aria-hidden="true"><label>Leave this field empty<input name="_honey" tabindex="-1" autocomplete="off" /></label></div>
-        <button class="btn" type="submit" data-i18n="f.send">Send</button>
-        <p class="form-status" id="contact-status" role="status"></p>
-        <p class="form-note"><span data-i18n="f.note">Your message goes to my email through FormSubmit. I use it only to reply.</span> <a href="privacy.html" data-privacy data-i18n="footer.privacy">Privacy policy</a> · <a href="terms.html" data-terms data-i18n="footer.terms">Terms of service</a></p>
-      </form>
+        <form class="card form reveal" id="contact-form" novalidate>
+          <div class="row">
+            <label class="fl"><input name="name" autocomplete="name" required maxlength="80" placeholder=" " aria-describedby="e-name" /><span data-i18n="f.name">Name</span><small class="fl__err" id="e-name"></small></label>
+            <label class="fl"><input name="email" type="email" autocomplete="email" required maxlength="120" placeholder=" " aria-describedby="e-email" /><span data-i18n="f.email">Email</span><small class="fl__err" id="e-email"></small></label>
+          </div>
+          <label class="fl fl--select"><select name="type" id="q-type"></select><span data-i18n="f.type">Type of business</span></label>
+          <fieldset class="needs">
+            <legend data-i18n="f.needs">What should the site do? (optional)</legend>
+            <div class="opts" id="q-need"></div>
+          </fieldset>
+          <p class="estimate" id="q-est" aria-live="polite"><span data-i18n="f.est">Suggested package</span>: <b id="q-price">Business Pro · from 300€</b> · <span id="q-time">5–10 days</span></p>
+          <label class="fl"><textarea name="msg" rows="3" maxlength="1000" placeholder=" "></textarea><span data-i18n="f.msg">Business name, city, anything else (optional)</span></label>
+          <!-- Honeypot: hidden from people and screen readers. Bots fill it in; main.js then drops the message, and FormSubmit drops it too (_honey). -->
+          <div class="trap" aria-hidden="true"><label>Leave this field empty<input name="_honey" tabindex="-1" autocomplete="off" /></label></div>
+          <div class="form__actions">
+            <a class="btn" id="q-send" href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%27d%20like%20a%20website%20quote." target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="q.send">Send on WhatsApp</span></a>
+            <button class="btn btn--line" type="submit" data-i18n="f.send">Send by email</button>
+          </div>
+          <p class="form-status" id="contact-status" role="status"></p>
+          <p class="form-note"><span data-i18n="f.note">The email goes to my inbox through FormSubmit. I use it only to reply.</span> <a href="privacy.html" data-privacy data-i18n="footer.privacy">Privacy policy</a> · <a href="terms.html" data-terms data-i18n="footer.terms">Terms of service</a></p>
+        </form>
+      </div>
     </section>
   </main>
 
@@ -409,7 +305,7 @@
     <p id="footer-note" data-i18n="footer.note">Hotel Kaso Ervehe (my family&rsquo;s hotel in Përmet) and Brolin Tattoo (a tattoo artist in Athens) are real clients. Every site tagged Demo (such as Vjosa Rafting and Ura Coffee Roasters) is a custom demo build with made-up names, made to show how booking and ordering work. Demo photos: Wikimedia Commons, credited on each site.</p>
     <p class="footer__links"><a href="privacy.html" data-privacy data-i18n="footer.privacy">Privacy policy</a> · <a href="terms.html" data-terms data-i18n="footer.terms">Terms of service</a> · <a href="#top" data-i18n="footer.top">Back to top ↑</a></p>
   </footer>
-  <a class="btn btn--wa wa-fab" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+  <a class="wa-fab" data-wa href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20checked%20out%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener noreferrer"><svg class="ico ico--fill" aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
 
   <dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
     <div class="viewer__bar">
@@ -432,11 +328,9 @@
     </div>
   </dialog>
   <script src="qr.js?v=20261114-2" defer></script>
-  <script src="main.js?v=20261123-2" defer></script>
-  <script src="hero-film.js?v=20261114-2" defer></script>
-  <script src="assistant.js?v=20261123-2" defer></script>
+  <script src="main.js?v=20261123-3" defer></script>
+  <script src="assistant.js?v=20261123-3" defer></script>
   <script src="form-guard.js?v=20261114-2" defer></script>
   <script src="analytics.js?v=20261123-2" defer></script>
-  <script src="depth.js?v=20261121" defer></script>
 </body>
 </html>

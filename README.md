@@ -10,9 +10,9 @@ Plain HTML, CSS and JavaScript. No build step: edit a file, check it locally, pu
 | File | What it is |
 | --- | --- |
 | `index.html` | The page: sections, headings, the contact form |
-| `main.js` | All texts in English and Albanian, the list of sites, the quick quote, the form |
+| `main.js` | All texts in English and Albanian, the list of sites, the savings calculator, the contact form with the quick quote built in |
 | `style.css` | Colours, fonts, sizes, layout |
-| `hero-film.js` | The film behind the first screen that plays as you scroll |
+| `hero-film.js`, `depth.js` | Not loaded any more (hero film and 3D wall/phone removed on 2026-11-23); kept for reference, safe to delete with `media/` |
 | `form-guard.js` | Spam protection for the form |
 | `analytics.js` | Visit and click counting (GoatCounter, off until you add your code) |
 | `assistant.js`, `assistant-kb.json` | The chat assistant and the answers it gives |
@@ -37,8 +37,7 @@ Packages: **Essential Landing** from 150€ (3–4 days), **Business Pro** from 
 - Package names, who they are for and what they include: `plan1.*`, `plan2.*`, `plan3.*` in `main.js` (both languages), and the same English text in `index.html`.
 - The terms line under the packages: `plan.note` in `main.js` (both languages) and in `index.html`. The payment answer `faq.a5`, the guarantee `g.title` / `g.text` and `q.note` say the same thing.
 - Each package button opens WhatsApp with its own message: `pkg1.wa`, `pkg2.wa`, `pkg3.wa` in `main.js`.
-- The offer band: `offer.text` in `main.js` (both languages) and the same sentence in `index.html`. The `150€` in `offer__title` is the "from" price.
-- Quick quote: `FROM` (starting price) and `DAYS` (delivery) per package in `main.js`. A business that picks booking, two languages, an editable menu or the Google profile moves up from Essential Landing to Business Pro.
+- Quick quote (inside the contact form): `FROM` (starting price) and `DAYS` (delivery) per package in `main.js`. A business that picks booking, two languages, an editable menu or the Google profile moves up from Essential Landing to Business Pro.
 - Care plan (€25 a month): `care.title`, `care.text` and `faq.a1` in `main.js` (both languages), and the same texts in `index.html`.
 - The chat assistant: the prices in `assistant-kb.json` (facts and the `price`, `packages`, `time` and `payment` answers).
 - Google's copy of the prices: `makesOffer` and `priceRange` in the `application/ld+json` line in `index.html`, and the "From 150€" in the meta descriptions (`index.html`, and `desc` in `main.js`).
@@ -50,11 +49,11 @@ In `main.js`, `TIER` names the package each showcase sells: Vjosa Rafting the Es
 
 ## Launch spots left
 
-In `main.js`, set `SPOTS_LEFT` to the real number of launch spots still open, for example `var SPOTS_LEFT = 7`. The offer band then says "7 of 10 launch spots left". Lower it each time a client signs. `null` hides the line.
+In `main.js`, set `SPOTS_LEFT` to the real number of launch spots still open, for example `var SPOTS_LEFT = 7`. The Packages section then says "7 of 10 launch spots left". Lower it each time a client signs. `null` hides the line.
 
 ## Free preview
 
-The offer band offers a free homepage preview within 48 hours. The texts are `preview.*` and `faq.q7`/`faq.a7` in `main.js` (both languages), the same English text in `index.html`, and the `preview` answer in `assistant-kb.json`. To stop offering it, delete the `offer__preview` block in `index.html` and the 7th FAQ item.
+The Packages section offers a free homepage preview within 48 hours (the card next to the savings calculator). The texts are `preview.*` and `faq.q7`/`faq.a7` in `main.js` (both languages), the same English text in `index.html`, and the `preview` answer in `assistant-kb.json`. To stop offering it, delete the `preview` card in `index.html` and the 7th FAQ item.
 
 ## Google Search Console
 
@@ -62,7 +61,7 @@ To see what people search on Google before they find the site: open https://sear
 
 ## Add a client review
 
-Open `main.js` and find `REVIEWS`. While the list is empty, the "What clients say" section is hidden. Add one entry per client, in both languages, and only with their permission:
+Open `main.js` and find `REVIEWS`. Reviews show in the Contact section, under the WhatsApp button. While the list is empty and `REVIEW_PLACEHOLDER` is true, one card says `[TODO: client testimonial]`; set it to false to hide it. Add one entry per client, in both languages, and only with their permission:
 
 ```js
 var REVIEWS = [
@@ -96,7 +95,7 @@ Replace the file in `img/` or `media/` with one of the same name, size and forma
 
 ## Phone, WhatsApp, email
 
-Every contact button on the main page (Contact, Get a quote, Claim a spot, Get a site like these, Start with this, the care plan, the free preview, I want a site like this, the WhatsApp buttons and the footer link) opens WhatsApp with the message in `wa.msg` in `main.js`: "Hi Joel, I checked out your portfolio and I'm interested in a website." in English, and the Albanian version for SQ visitors. They carry `data-wa`, and `main.js` writes the link from that one text, so change the message there. The quick quote further down still sends its own detailed brief.
+Every contact button on the main page (Get a free quote in the hero and nav, Start with this, the care plan, the free preview, I want a site like this, the WhatsApp buttons and the footer link) opens WhatsApp with the message in `wa.msg` in `main.js`: "Hi Joel, I checked out your portfolio and I'm interested in a website." in English, and the Albanian version for SQ visitors. They carry `data-wa`, and `main.js` writes the link from that one text, so change the message there. The "Send on WhatsApp" button in the contact form sends its own brief (name, business type, features, suggested package).
 
 Search all files for `355685727406` and `joelkaso8@gmail.com` and change every match. The form sends to the address in `EMAIL` at the top of `main.js`.
 
@@ -117,6 +116,6 @@ Copy the changed files to the git copy, commit, and push to `main`. GitHub Pages
 - Hotel Kaso Ervehe is the real client site. The other sites are interactive industry showcases with made-up business names. Demo photos come from Wikimedia Commons and are credited on each site.
 - Switches at the top of `main.js`: `SPOTS_LEFT` (launch spots badge), `KASO_LIVE` ("Live Client Site" badge and footer line) and `KASO_QUOTE` (the hotel quote in the case study). Turn each on only when it is true.
 - Case study results: `KASO_RESULTS` in `main.js` holds the three numbers (bookings a month before, after, and the share made direct). Fill them in only with real, measured numbers. The Results block stays hidden until at least one number is set (`RESULTS_PLACEHOLDER = true` would show dashed placeholders for the empty ones instead). `KASO_RATING_DATE` is the date the Booking.com rating was last checked; while it is empty the card says only "Source: Booking.com".
-- The contact form needs FormSubmit's one-time activation: the first message sent from the live site makes FormSubmit email an activation link to the address in `EMAIL`. Click it once. Until then the form shows an error and opens the visitor's email app instead. See the `[TODO: FormSubmit activation]` comment in `main.js`. `REVIEW_PLACEHOLDER` shows one TODO card in "What clients say" while `REVIEWS` is empty; add a real review or set it to false before going live.
+- The contact form needs FormSubmit's one-time activation: the first message sent from the live site makes FormSubmit email an activation link to the address in `EMAIL`. Click it once. Until then the form shows an error and opens the visitor's email app instead. See the `[TODO: FormSubmit activation]` comment in `main.js`. `REVIEW_PLACEHOLDER` shows one `[TODO: client testimonial]` card in Contact while `REVIEWS` is empty; add a real review or set it to false before going live.
 - The form is delivered by FormSubmit to the email in `main.js`. No keys or passwords are stored in this code, and none should ever be added to it.
 - GitHub Pages cannot send security headers. `_headers` is ready for Netlify or Cloudflare Pages if the site moves there.
