@@ -6,7 +6,7 @@
 // The demos and the portfolio share one saved language, so the choice follows the visitor.
 
 const JOEL_WA = '355685727406' // Joel's WhatsApp, the same number as on the portfolio
-// Same FormSubmit address as the portfolio's contact form (already activated there).
+// Same FormSubmit address as the portfolio's contact form (one activation covers both; Joel activated it on 2026-11-23).
 const JOEL_FORM = 'https://formsubmit.co/ajax/joelkaso8@gmail.com'
 
 export const $ = (s, r = document) => r.querySelector(s)
