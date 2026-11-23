@@ -29,7 +29,7 @@ The English texts are also written in `index.html` (it is what shows before Java
 
 ## Change a price
 
-Packages: **Essential Landing** from 150–200€, **Business Pro** from 300–450€ (marked "Most popular"), **Custom Signature** from 600€+. Terms: 50% deposit to start, 50% upon launch; the domain (~15€/year) is billed separately in the client's name. Change all of these together:
+Packages: **Essential Landing** from 150€ (3–4 days), **Business Pro** from 300€ (5–10 days, marked "Most popular"), **Custom Signature** 600€+ (10–14 days). Terms: 50% deposit to start, 50% at launch. Care plan 25€/month, optional. Reply promise everywhere: "I reply within 24 hours" / "Përgjigjem brenda 24 orëve" (the chat assistant says "Joel replies within 24 hours"). Change all of these together:
 
 - Package prices: in `index.html`, inside each `<p class="price"><b>` in the Packages & Pricing section (`#services`).
 - Package names, who they are for and what they include: `plan1.*`, `plan2.*`, `plan3.*` in `main.js` (both languages), and the same English text in `index.html`.
@@ -113,6 +113,6 @@ Copy the changed files to the git copy, commit, and push to `main`. GitHub Pages
 ## Good to know
 
 - Hotel Kaso Ervehe is the real client site. The other sites are interactive industry showcases with made-up business names. Demo photos come from Wikimedia Commons and are credited on each site.
-- Switches at the top of `main.js`: `SPOTS_LEFT` (launch spots badge), `KASO_LIVE` ("Live Client Site" badge and footer line) and `KASO_QUOTE` (the hotel quote in the case study). Turn each on only when it is true.
+- Switches at the top of `main.js`: `SPOTS_LEFT` (launch spots badge), `KASO_LIVE` ("Live Client Site" badge and footer line) and `KASO_QUOTE` (the hotel quote in the case study). Turn each on only when it is true. `REVIEW_PLACEHOLDER` shows one TODO card in "What clients say" while `REVIEWS` is empty; add a real review or set it to false before going live.
 - The form is delivered by FormSubmit to the email in `main.js`. No keys or passwords are stored in this code, and none should ever be added to it.
 - GitHub Pages cannot send security headers. `_headers` is ready for Netlify or Cloudflare Pages if the site moves there.

@@ -12,7 +12,7 @@
       hi: "Hi! I answer questions about Joel's websites: prices, timing, payment, what you get and his work. What would you like to know?",
       ph: 'Type your question…', send: 'Send', close: 'Close',
       note: 'Automatic answers, can be wrong. For a firm quote, message Joel.',
-      unsure: "I'm not sure about that one. Joel can answer it himself, he replies within a day in English or Albanian.",
+      unsure: "I'm not sure about that one. Joel can answer it himself, and he replies within 24 hours, in English or Albanian.",
       wa: 'Ask Joel on WhatsApp', go: 'Show me', quote: 'Get a quote', waMsg: 'Hi Joel, I have a question about a website: ',
       chips: { price: 'How much?', time: 'How long?', payment: 'Payment', work: 'See the work', own: 'Do I own it?' }
     },
@@ -21,7 +21,7 @@
       hi: 'Përshëndetje! Përgjigjem për faqet e Joelit: çmimet, kohën, pagesën, çfarë përfshihet dhe punët e tij. Çfarë do të dish?',
       ph: 'Shkruaj pyetjen…', send: 'Dërgo', close: 'Mbyll',
       note: 'Përgjigje automatike, mund të kenë gabime. Për ofertë të saktë, shkruaji Joelit.',
-      unsure: 'Për këtë nuk jam i sigurt. Joeli të përgjigjet vetë, brenda një dite, në shqip ose anglisht.',
+      unsure: 'Për këtë nuk jam i sigurt. Joeli ta jep vetë përgjigjen, brenda 24 orëve, në shqip ose anglisht.',
       wa: 'Pyet Joelin në WhatsApp', go: 'Më trego', quote: 'Merr ofertë', waMsg: 'Përshëndetje Joel, kam një pyetje për një faqe: ',
       chips: { price: 'Sa kushton?', time: 'Sa zgjat?', payment: 'Pagesa', work: 'Punët', own: 'E kujt është?' }
     }
