@@ -1,6 +1,8 @@
 // Visit and click counting with GoatCounter: no cookies, nothing stored in the browser, no personal data.
-// Off until CODE is set. To turn it on: make a free account at goatcounter.com, pick a code (for example
-// "joelkaso"), write it below, push. The numbers then show at https://<code>.goatcounter.com.
+// CODE is the GoatCounter site ID: the numbers show at https://<CODE>.goatcounter.com.
+// While CODE is empty nothing is loaded or sent. It also stays off on localhost.
+// [TODO: analytics site ID] 'joelkaso' is the account found on 2026-11-23 (joelkaso.goatcounter.com exists).
+// Confirm it is yours and that you can log in; otherwise set CODE = '' to switch analytics off.
 ;(function () {
   var CODE = 'joelkaso'
   if (!CODE || !navigator.sendBeacon || /^(localhost|127\.|0\.0\.0\.0|\[::1\])/.test(location.hostname)) return

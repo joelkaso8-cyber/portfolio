@@ -16,7 +16,9 @@ Plain HTML, CSS and JavaScript. No build step: edit a file, check it locally, pu
 | `form-guard.js` | Spam protection for the form |
 | `analytics.js` | Visit and click counting (GoatCounter, off until you add your code) |
 | `assistant.js`, `assistant-kb.json` | The chat assistant and the answers it gives |
-| `privacy.html`, `404.html` | Privacy policy (EN + SQ) and the "page not found" page |
+| `privacy.html`, `terms.html`, `404.html` | Privacy policy and terms of service (EN + SQ) and the "page not found" page |
+| `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `logo.svg` | The JK mark in the gold accent (`#e5b869`); `logo.svg` is the mark plus the "Joel Kaso" wordmark (the nav has the same drawing inline) |
+| `img/og-image.png` | The 1200×630 share picture for WhatsApp, Facebook, LinkedIn and X |
 | `img/` | Screenshots on the cards: `<id>-desk.webp`, `<id>-desk-600.webp`, `<id>-phone.webp`, `<id>-phone-260.webp` |
 | `media/` | The hero film and its still pictures |
 | `work/<id>/` | Each demo or client site |
@@ -29,7 +31,7 @@ The English texts are also written in `index.html` (it is what shows before Java
 
 ## Change a price
 
-Packages: **Essential Landing** from 150€ (3–4 days), **Business Pro** from 300€ (5–10 days, marked "Most popular"), **Custom Signature** 600€+ (10–14 days). Terms: 50% deposit to start, 50% at launch. Care plan 25€/month, optional. Reply promise everywhere: "I reply within 24 hours" / "Përgjigjem brenda 24 orëve" (the chat assistant says "Joel replies within 24 hours"). Change all of these together:
+Packages: **Essential Landing** from 150€ (3–4 days), **Business Pro** from 300€ (5–10 days, marked "Recommended"), **Custom Signature** 600€+ (10–14 days). Terms: 50% deposit to start, 50% at launch. Care plan 25€/month, optional. Reply promise everywhere: "I reply within 24 hours" / "Përgjigjem brenda 24 orëve" (the chat assistant says "Joel replies within 24 hours"). Change all of these together:
 
 - Package prices: in `index.html`, inside each `<p class="price"><b>` in the Packages & Pricing section (`#services`).
 - Package names, who they are for and what they include: `plan1.*`, `plan2.*`, `plan3.*` in `main.js` (both languages), and the same English text in `index.html`.
@@ -74,7 +76,7 @@ var REVIEWS = [
 
 ## Visit and click counting
 
-`analytics.js` counts visits and button presses with GoatCounter: no cookies and no personal data, and the privacy policy already describes it. It is on, with the code `joelkaso`. To move it to another account:
+`analytics.js` counts visits and button presses with GoatCounter: no cookies and no personal data, and the privacy policy already describes it. It is on, with the code `joelkaso` (`CODE` in `analytics.js`; an empty `CODE` switches it off and nothing is loaded). To move it to another account:
 
 1. Make a free account at https://www.goatcounter.com and pick a code, for example `joelkaso`.
 2. In `analytics.js`, set `var CODE = 'joelkaso'` and push.
@@ -113,6 +115,8 @@ Copy the changed files to the git copy, commit, and push to `main`. GitHub Pages
 ## Good to know
 
 - Hotel Kaso Ervehe is the real client site. The other sites are interactive industry showcases with made-up business names. Demo photos come from Wikimedia Commons and are credited on each site.
-- Switches at the top of `main.js`: `SPOTS_LEFT` (launch spots badge), `KASO_LIVE` ("Live Client Site" badge and footer line) and `KASO_QUOTE` (the hotel quote in the case study). Turn each on only when it is true. `REVIEW_PLACEHOLDER` shows one TODO card in "What clients say" while `REVIEWS` is empty; add a real review or set it to false before going live.
+- Switches at the top of `main.js`: `SPOTS_LEFT` (launch spots badge), `KASO_LIVE` ("Live Client Site" badge and footer line) and `KASO_QUOTE` (the hotel quote in the case study). Turn each on only when it is true.
+- Case study results: `KASO_RESULTS` in `main.js` holds the three numbers (bookings a month before, after, and the share made direct). Fill them in only with real, measured numbers. The Results block stays hidden until at least one number is set (`RESULTS_PLACEHOLDER = true` would show dashed placeholders for the empty ones instead). `KASO_RATING_DATE` is the date the Booking.com rating was last checked; while it is empty the card says only "Source: Booking.com".
+- The contact form needs FormSubmit's one-time activation: the first message sent from the live site makes FormSubmit email an activation link to the address in `EMAIL`. Click it once. Until then the form shows an error and opens the visitor's email app instead. See the `[TODO: FormSubmit activation]` comment in `main.js`. `REVIEW_PLACEHOLDER` shows one TODO card in "What clients say" while `REVIEWS` is empty; add a real review or set it to false before going live.
 - The form is delivered by FormSubmit to the email in `main.js`. No keys or passwords are stored in this code, and none should ever be added to it.
 - GitHub Pages cannot send security headers. `_headers` is ready for Netlify or Cloudflare Pages if the site moves there.

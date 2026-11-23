@@ -15,7 +15,7 @@
     { id: 'kaso-ervehe', name: 'Hotel Kaso Ervehe', isReal: true, link: './work/kaso-ervehe/', image: 'img/kaso-ervehe-desk.webp', category: 'stay', tag: 'client', where: { en: 'Family hotel · Përmet, Albania', sq: 'Hotel familjar · Përmet, Shqipëri' },
       description: { en: 'Guests pick dates on the first screen and book direct, with 0% OTA commission. Requests reach WhatsApp and Telegram, in EN or SQ.', sq: 'Mysafirët zgjedhin datat në ekranin e parë dhe rezervojnë direkt, me 0% komision OTA. Kërkesat vijnë në WhatsApp dhe Telegram, EN ose SQ.' },
       chips: { en: ['Scroll film hero', 'Dates and guests on the first screen', 'Booking calendar', 'EN / SQ', 'Route on Google Maps', 'Bookings to Telegram'], sq: ['Film me scroll', 'Datat dhe mysafirët në ekranin e parë', 'Kalendar rezervimi', 'EN / SQ', 'Rruga në Google Maps', 'Rezervime në Telegram'] } },
-    { id: 'ura-coffee', film: true, name: 'Ura Coffee Roasters', isReal: false, link: './work/ura-coffee/', image: 'img/ura-coffee-desk.webp', category: 'food', tag: 'demo', where: { en: 'Coffee roastery · Glasgow, UK', sq: 'Furrë kafeje · Glasgow, Skoci' },
+    { id: 'ura-coffee', film: true, name: 'Ura Coffee Roasters', isReal: false, link: './work/ura-coffee/', image: 'img/ura-coffee-desk.webp', category: 'food', tag: 'demo', where: { en: 'Coffee roastery · Glasgow, UK', sq: 'Pjekëse kafeje · Glasgow, Skoci' },
       description: { en: 'Table bookings and pick-up orders land on WhatsApp, with no delivery-app cut. Diet filters get guests to the right drink fast.', sq: 'Rezervimet dhe porositë për marrje vijnë në WhatsApp, pa komision aplikacioni. Filtrat e dietës i çojnë shpejt te pija e duhur.' },
       chips: { en: ['Espresso film that plays as you scroll', 'Table booking and pick-up orders on WhatsApp', 'Menu with diet filters', 'Live hours and directions', 'Bean shop with bag'], sq: ['Film espreso që luan me scroll', 'Rezervim tavoline dhe porosi në WhatsApp', 'Menu me filtra diete', 'Orari live dhe rruga', 'Dyqan kafeje me shportë'] } },
     { id: 'balte-studio', film: true, name: 'Baltë Studio', isReal: false, link: './work/balte-studio/', image: 'img/balte-studio-desk.webp', category: 'local', tag: 'demo', where: { en: 'Pottery studio · Tirana, Albania', sq: 'Studio qeramike · Tiranë, Shqipëri' },
@@ -56,6 +56,12 @@
   // "Live Client Site" and the footer says it is live. Then also update case.lead, case.s2 and case.s3, which say the site launches soon. Turn KASO_QUOTE on only if the hotel said those words and agreed to be quoted.
   var KASO_LIVE = false
   var KASO_QUOTE = false
+  // Case study results. Fill in real, measured numbers only, as text, for example before: '24', after: '41', share: '63%'.
+  // While a value is empty its slot shows a marked placeholder. Set RESULTS_PLACEHOLDER to false to hide the Results block until there are numbers.
+  var KASO_RESULTS = { before: '', after: '', share: '' } // [TODO: bookings before] [TODO: bookings after] [TODO: direct booking share]
+  var RESULTS_PLACEHOLDER = false
+  // The date the Booking.com rating (9.0/10) was last checked, for example '23 Nov 2026'. Empty: the card says only "Source: Booking.com".
+  var KASO_RATING_DATE = ''
 
   // Which package each showcase sells. The preview window shows it as a badge and the card names it.
   // Sites not listed here get no badge.
@@ -72,14 +78,15 @@
   var T = {
     en: {
       skip: 'Skip to content', title: 'Websites for hotels, restaurants & local businesses · Joel Kaso',
-      desc: 'Fast, custom websites for hotels, restaurants and local businesses in Albania and abroad: direct WhatsApp booking with no commission, English/Albanian. From 150€.',
+      desc: 'Custom websites for hotels, restaurants and local businesses: direct WhatsApp bookings with 0% commission, in English and Albanian. From 150€.',
+      'a.main': 'Main', 'a.lang': 'Language', 'a.menu': 'Menu', 'a.filter': 'Filter work', 'a.modes': 'Screen size', 'a.close': 'Close', 'a.frame': 'Website preview', 'a.logo': 'Joel Kaso, back to the top',
       'nav.status': 'Taking new projects', 'nav.work': 'Work', 'nav.services': 'Services', 'nav.process': 'Process', 'nav.faq': 'FAQ', 'nav.contact': 'Contact',
-      'hero.eyebrow': 'Web design & engineering studio · Albania → UK, EU & USA', 'hero.t1': 'Websites that turn visitors into', 'hero.t2': 'direct paying customers.',
+      'hero.eyebrow': 'Web design & development · Albania → UK, EU & USA', 'hero.t1': 'Websites that turn visitors into', 'hero.t2': 'direct paying customers.',
       'hero.lead': 'Custom, fast websites for hotels, restaurants and local businesses, with a direct booking calendar, WhatsApp, two languages and no monthly platform lock-in.',
       'hero.quote': 'Get a quote', 'hero.work': 'See the work', 'hero.scroll': 'Scroll',
       'proof.1t': 'Fast on phones', 'proof.1p': 'hand-built, no page builders', 'proof.2t': '0% commission', 'proof.2p': 'on bookings that come direct', 'proof.3t': '3–14 days', 'proof.3p': 'from first call to live site',
       'roi.label': 'Your bookings a month', 'roi.pre': 'You keep about', 'roi.post': 'a month when those bookings come direct.',
-      'roi.note': 'Worked out with an average booking of 100€ and an 18% platform commission.', 'roi.vt': '{n} bookings a month, about {x} kept',
+      'roi.note': 'An estimate, worked out with an average booking of 100€ and an 18% platform commission.', 'roi.vt': '{n} bookings a month, about {x} kept',
       'sim.aria': 'Try a live example', 'sim.hint': 'A working demo. Tap two choices, then the green button.',
       sim: {
         hotel: { url: 'kaso-ervehe.al', img: 'img/kaso-ervehe-desk-600.webp', title: 'Book a room in Përmet', l1: 'Check-in', l2: 'Nights', o2: ['1', '2', '3'], cta: 'Book on WhatsApp', toast: "Demo: your booking request just reached the hotel's WhatsApp and Telegram, with 0% commission." },
@@ -91,22 +98,25 @@
       'offer.spots': '{n} of 10 launch spots remaining at these prices', 'faq.q7': 'Can I see my website before I pay?', 'faq.a7': 'Yes. Send me your business name and a few photos, and within 48 hours I show you a free preview of your homepage. If you want the full site, a 50% deposit starts the build and the rest is due at launch.',
       'offer.tag': 'Fixed packages', 'offer.t1': 'Websites from', 'offer.cta': 'Start a project',
       'offer.text': 'Essential Landing from 150€, Business Pro with two languages and a booking form from 300€, Custom Signature with scroll film and automated lead routing at 600€+. Every site comes with phone and desktop design, WhatsApp and a map.',
-      'case.tag': 'Featured case study', 'case.title': 'Hotel Kaso Ervehe, Përmet', 'case.lead': "My family's hotel in Përmet is my first real project, and its new site launches soon. Here is what it changes.",
-      'case.alt': 'Home page of the Hotel Kaso Ervehe website', 'case.pt': 'The problem', 'case.pp': 'Up to 18% of every stay went to booking platforms as commission.',
-      'case.st': 'The solution', 'case.items': ['A fast site of its own, in English and Albanian', 'A direct booking calendar', 'Booking alerts on Telegram', 'The route on Google Maps'],
-      'case.s1': 'guest rating on Booking.com', 'case.proof': 'Check the reviews on Booking.com', 'case.s2': 'commission on direct reservations, once it launches', 'case.s3': 'guests can book in English or Albanian', 'case.cta': 'Open the hotel site in the preview',
+      'case.tag': 'Featured case study', 'case.title': 'Hotel Kaso Ervehe, Përmet', 'case.lead': "My family's hotel in Përmet is my first real client project. Its new site launches soon.",
+      'case.alt': 'Home page of the Hotel Kaso Ervehe website', 'case.pt': 'Problem', 'case.pp': 'Up to 18% of every stay went to booking platforms as commission.',
+      'case.st': 'Solution', 'case.sp': "A fast site of the hotel's own, where guests check the rooms and send a booking request straight to the hotel, in English or Albanian.",
+      'case.bt': 'What we built', 'case.items': ['A bilingual site, in English and Albanian', 'Dates and guests on the first screen', 'A direct booking calendar', 'Booking alerts on WhatsApp and Telegram', 'The route on Google Maps'],
+      'case.rt': 'Results', 'case.rnote': 'Measured after launch.', 'case.r1': 'Bookings a month, before', 'case.r2': 'Bookings a month, after', 'case.r3': 'Share of bookings made direct',
+      'case.src': 'Source: Booking.com, as of {d}', 'case.src0': 'Source: Booking.com',
+      'case.s1': 'guest rating on Booking.com', 'case.proof': 'Check the reviews on Booking.com', 'case.s2': 'commission on direct bookings', 'case.s3': 'guests can book in English or Albanian', 'case.cta': 'Open the hotel site in the preview',
       'cmp.tag': 'Why custom', 'cmp.title': 'Built for you, or rented from a template', 'cmp.c0': 'What matters', 'cmp.c1': 'A custom site by Joel Kaso', 'cmp.c2': 'WordPress, Wix or an agency template',
-      'cmp.r1': 'Speed', 'cmp.r1a': 'Hand-built and light, with no plugins. Tested with Google PageSpeed before it goes live.', 'cmp.r1b': 'Heavy themes and plugins often take 3 to 6 seconds to open on a phone.',
-      'cmp.r2': 'Monthly fees', 'cmp.r2a': 'No monthly fee required. You own the code, and a care plan is there if you want one.', 'cmp.r2b': 'Often 30–100€ a month for plugins, hosting and maintenance.',
+      'cmp.r1': 'Speed', 'cmp.r1a': 'Hand-built and light, with no plugins. Tested with Google PageSpeed before it goes live.', 'cmp.r1b': 'Heavy themes and plugins can make pages slow to open on a phone.',
+      'cmp.r2': 'Monthly fees', 'cmp.r2a': 'No monthly fee required. You own the code, and a care plan is there if you want one.', 'cmp.r2b': 'Paid plugins, hosting and maintenance often add a monthly bill.',
       'cmp.r3': 'Security', 'cmp.r3a': 'No database and no plugins, so there is far less to attack and nothing to keep updating.', 'cmp.r3b': 'Plugins need constant updates, and an old one is a common way in.',
-      'cmp.r4': 'Enquiries', 'cmp.r4a': 'Bookings and messages reach your WhatsApp or Telegram within seconds.', 'cmp.r4b': 'A generic contact form that often ends up in spam.',
-      'work.tag': 'Demo sites', 'work.title': 'Selected work', 'work.all': 'All', 'work.stay': 'Hotels & stays', 'work.food': 'Restaurants & food', 'work.local': 'Local services', 'work.film': 'Scroll film experiences',
+      'cmp.r4': 'Enquiries', 'cmp.r4a': 'Bookings and messages reach your WhatsApp or Telegram within seconds.', 'cmp.r4b': 'A generic contact form, where messages can end up in spam.',
+      'work.tag': 'Client sites and demos', 'work.title': 'Selected work', 'work.all': 'All', 'work.stay': 'Hotels & stays', 'work.food': 'Restaurants & food', 'work.local': 'Local services', 'work.film': 'Scroll film experiences',
       'cta.work': 'Get a site like these', open: 'Open the site →', shot: ', website screenshot', film: '▶ Scroll film',
       'services.tag': 'Fixed prices', 'services.title': 'Packages & Pricing', 'services.lead': 'Every site is custom-designed for your business, with no monthly lock-in. Take direct bookings with 0% commission through instant WhatsApp requests or a built-in booking calendar, or connect the tools you already use (OpenTable, Fresha, Booksy, Airbnb or Booking.com) whenever you need them.',
-      'plan1.name': 'Essential Landing', 'plan1.for': 'One high-converting page for cafés, barbers, trades and events that need to be found and messaged.',
+      'plan1.name': 'Essential Landing', 'plan1.for': 'One clear page for cafés, barbers, trades and events that need to be found and contacted.',
       'plan2.name': 'Business Pro', 'plan2.for': 'For restaurants, salons, clinics and studios that take enquiries and bookings every day.',
-      'plan3.name': 'Custom Signature', 'plan3.for': 'For hotels and brands that want a one-of-a-kind site, with motion and leads routed for them.',
-      'plan.ask': 'Start with this', 'plan.see': 'See the example', 'plan.popular': 'Most popular', 'plan.from': 'from', 'plan.note': '50% deposit to start, 50% at launch.', 'pkg1.wa': 'Hi Joel, I\'m interested in the Essential Landing website package.', 'pkg2.wa': 'Hi Joel, I\'m interested in the Business Pro website package.', 'pkg3.wa': 'Hi Joel, I\'m interested in the Custom Signature website package.',
+      'plan3.name': 'Custom Signature', 'plan3.for': 'For hotels and brands that want a one-of-a-kind site, with motion and enquiries routed automatically.',
+      'plan.ask': 'Start with this', 'plan.see': 'See the example', 'plan.popular': 'Recommended', 'plan.from': 'from', 'plan.note': '50% deposit to start, 50% at launch.', 'pkg1.wa': 'Hi Joel, I\'m interested in the Essential Landing website package.', 'pkg2.wa': 'Hi Joel, I\'m interested in the Business Pro website package.', 'pkg3.wa': 'Hi Joel, I\'m interested in the Custom Signature website package.',
       'plan1.items': ['One page, up to 5 sections', 'One language: Albanian or English', 'WhatsApp button and Google Maps', 'Delivered in 3–4 days', '2 rounds of revisions'],
       'plan2.items': ['Up to 5 pages', 'Bilingual, with an EN/SQ switch', 'Custom enquiry or booking form, plus WhatsApp', 'Delivered in 5–10 days', '2 rounds of revisions'],
       'plan3.items': ['Fully bespoke layout', 'Interactive scroll film and hero choreography', 'Bilingual EN/SQ localisation', 'Automated lead routing: webhooks, n8n or your CRM', 'Delivered in 10–14 days', '3 rounds of revisions'],
@@ -135,61 +145,66 @@
       'faq.tag': 'FAQ', 'faq.title': 'Common questions', 'faq.lead': 'Everything you need to know before we start.',
       'faq.q1': 'Are there any monthly fees after the site goes live?', 'faq.a1': 'No monthly fees from me, unless you choose the optional care plan at 25€ a month, which you can stop any time. You pay once for the design and build, and the website is 100% yours. Your domain is registered in your own name and account, so you own it directly.',
       'faq.q2': 'How long does it take from start to finish?', 'faq.a2': 'Essential Landing takes 3–4 days, Business Pro 5–10 days and Custom Signature 10–14 days. Within 48 hours of our first call you get a free preview of your homepage on your phone, and the full site follows.',
-      'faq.q3': 'Can I change prices, photos, or menus myself later?', 'faq.a3': 'Yes. When we launch, I send you a short video showing you exactly how to update your text, prices, and photos in minutes—no technical skills needed.',
-      'faq.q4': 'How do bookings and orders reach me?', 'faq.a4': "However is easiest for you. Requests can go straight to your WhatsApp pre-filled with the customer's details, to your email, or into a booking calendar.",
+      'faq.q3': 'Can I change prices, photos, or menus myself later?', 'faq.a3': 'Yes. When we launch, I send you a short video showing you exactly how to update your text, prices and photos in minutes, with no technical skills needed.',
+      'faq.q4': 'How do bookings and orders reach me?', 'faq.a4': "Whichever way is easiest for you. Requests can go straight to your WhatsApp, already filled in with the customer's details, to your email, or into a booking calendar.",
       'faq.q5': 'How does payment work?', 'faq.a5': '50% deposit to start, 50% when the site launches. Before you pay anything you get a free homepage preview, and you check the finished site on a private link before the second payment.',
       'faq.q6': 'Who owns the domain and the website?', 'faq.a6': 'You do. The domain is registered in your name and the code is handed over to you, so you can move it or change designer whenever you like.',
       'contact.tag': 'Contact', 'contact.title': "Let's build yours", 'contact.lead': 'Tell me about your business, in English or Albanian. I reply within 24 hours.',
       'f.name': 'Name', 'f.business': 'Business (optional)', 'f.email': 'Email', 'f.msg': 'What do you need?', 'f.send': 'Send',
       'f.note': 'Your message goes to my email through FormSubmit. I use it only to reply.',
-      err: { name: 'Write your name.', email: 'Write a full email address.', rate: 'Too many messages in a short time. Wait a minute, or write to me on WhatsApp.' },
-      ok: 'Your email app is opening with the message ready. Press send there.', sent: 'Thanks, your message is sent. I reply within 24 hours.', sending: 'Sending…', subject: 'Website enquiry',
+      err: { name: 'Please write your name.', email: 'Please write a valid email address, for example name@example.com.', msg: 'Please tell me briefly what you need.', rate: 'Too many messages in a short time. Wait a minute, or write to me on WhatsApp.' },
+      ok: 'Your email app is opening with the message ready. Press send there.', sent: 'Thank you, your message has been sent. I reply within 24 hours.', sending: 'Sending…', subject: 'Website enquiry',
+      fail: 'Sorry, the message could not be sent. Your email app is opening with it ready, or you can write to me on WhatsApp.',
       'case.quote': 'Instead of losing up to 18% on every reservation to third-party platforms, guests finding us on Google can now check rooms in English or Albanian and message us directly on WhatsApp with their exact dates.', 'case.quoteBy': 'Hotel Kaso Ervehe, Përmet', 'footer.live': 'Featured case study Hotel Kaso Ervehe is a live client website. Every site tagged Demo (such as Vjosa Rafting and Ura Coffee Roasters) is a custom demo build made to show how booking and ordering work. Demo photos: Wikimedia Commons, credited on each site.',
-      'footer.note': 'Hotel Kaso Ervehe (my family’s hotel in Përmet) and Brolin Tattoo (a tattoo artist in Athens) are real clients. Every site tagged Demo (such as Vjosa Rafting and Ura Coffee Roasters) is a custom demo build with made-up names, made to show how booking and ordering work. Demo photos: Wikimedia Commons, credited on each site.', 'footer.privacy': 'Privacy policy', 'footer.top': 'Back to top ↑',
+      'footer.note': 'Hotel Kaso Ervehe (my family’s hotel in Përmet) and Brolin Tattoo (a tattoo artist in Athens) are real clients. Every site tagged Demo (such as Vjosa Rafting and Ura Coffee Roasters) is a custom demo build with made-up names, made to show how booking and ordering work. Demo photos: Wikimedia Commons, credited on each site.', 'footer.privacy': 'Privacy policy', 'footer.terms': 'Terms of service', 'footer.top': 'Back to top ↑',
       'viewer.desk': 'Desktop', 'viewer.phone': 'Phone', 'viewer.qr': 'Try it on your phone', 'viewer.qrhint': 'Point your phone camera at the code to open this site on your own phone.',
       'viewer.want': 'I want a site like this', 'viewer.open': 'Open in new tab ↗', 'wa.msg': "Hi Joel, I checked out your portfolio and I'm interested in a website.",
       'tier.starter': 'Essential Landing example · from 150€', 'tier.business': 'Business Pro example · from 300€', 'tier.premium': 'Custom Signature example · 600€+', 'tier.premiumLive': 'Custom Signature · live client site · 600€+',
       'wall.title': 'Demo sites you can try', 'wall.lead': 'Tap any screen to try that site the way your customers would.',
-      'dome.title': 'Your site, on a phone', 'dome.lead': 'Most of your customers will see your site on a phone. Tap this one to try Hotel Kaso Ervehe.',
+      'dome.title': 'Your site, on a phone', 'dome.lead': 'Many of your customers will see your site on a phone. Tap this one to try Hotel Kaso Ervehe.',
       'dome.aria': 'Open the Hotel Kaso Ervehe site in the preview'
     },
     sq: {
       skip: 'Kalo te përmbajtja', title: 'Faqe interneti për hotele, restorante dhe biznese · Joel Kaso',
-      desc: 'Krijim faqesh interneti për hotele, restorante dhe biznese lokale në Shqipëri: të shpejta, me rezervim direkt në WhatsApp pa komision dhe dy gjuhë. Nga 150€.',
+      desc: 'Faqe interneti me porosi për hotele, restorante dhe biznese lokale: rezervime direkte në WhatsApp me 0% komision, në shqip dhe anglisht. Nga 150€.',
+      'a.main': 'Kryesore', 'a.lang': 'Gjuha', 'a.menu': 'Menuja', 'a.filter': 'Filtro punët', 'a.modes': 'Madhësia e ekranit', 'a.close': 'Mbyll', 'a.frame': 'Parapamje e faqes', 'a.logo': 'Joel Kaso, kthehu në fillim',
       'nav.status': 'Pranoj projekte të reja', 'nav.work': 'Punët', 'nav.services': 'Shërbimet', 'nav.process': 'Si punoj', 'nav.faq': 'Pyetje', 'nav.contact': 'Kontakt',
-      'hero.eyebrow': 'Studio dizajni dhe ndërtimi web · Shqipëri → Angli, BE dhe SHBA', 'hero.t1': 'Website që i kthejnë vizitorët në', 'hero.t2': 'klientë direkt dhe të rregullt.',
-      'hero.lead': 'Website të shpejta, të bëra posaçërisht për hotele, restorante dhe biznese lokale, me kalendar rezervimi direkt, WhatsApp, dy gjuhë dhe pa pagesa mujore për platforma.',
+      'hero.eyebrow': 'Dizajn dhe zhvillim web · Shqipëri → Britani, BE dhe SHBA', 'hero.t1': 'Faqe interneti që i kthejnë vizitorët në', 'hero.t2': 'klientë që paguajnë direkt.',
+      'hero.lead': 'Faqe të shpejta, të ndërtuara posaçërisht për hotele, restorante dhe biznese lokale: kalendar rezervimesh direkte, WhatsApp, dy gjuhë dhe asnjë abonim i detyruar te platformat.',
       'hero.quote': 'Kërko ofertë', 'hero.work': 'Shiko punët', 'hero.scroll': 'Rrëshqit poshtë',
-      'proof.1t': 'E shpejtë në telefon', 'proof.1p': 'e shkruar me kod, pa shabllone', 'proof.2t': '0% komision', 'proof.2p': 'për rezervimet që vijnë direkt', 'proof.3t': '3–14 ditë', 'proof.3p': 'nga telefonata e parë te faqja online',
+      'proof.1t': 'E shpejtë në telefon', 'proof.1p': 'e ndërtuar me kod, pa shabllone', 'proof.2t': '0% komision', 'proof.2p': 'për rezervimet që vijnë direkt', 'proof.3t': '3–14 ditë', 'proof.3p': 'nga telefonata e parë te faqja online',
       'roi.label': 'Rezervimet e tua në muaj', 'roi.pre': 'Mban rreth', 'roi.post': 'në muaj kur këto rezervime vijnë direkt.',
-      'roi.note': 'Llogaritur me një rezervim mesatar 100€ dhe komision 18% të platformave.', 'roi.vt': '{n} rezervime në muaj, rreth {x} të mbajtura',
+      'roi.note': 'Një vlerësim, me një rezervim mesatar prej 100€ dhe komision 18% të platformave.', 'roi.vt': '{n} rezervime në muaj, rreth {x} të mbajtura',
       'sim.aria': 'Provo një shembull', 'sim.hint': 'Një demo që funksionon. Prek dy zgjedhje, pastaj butonin jeshil.',
       sim: {
-        hotel: { url: 'kaso-ervehe.al', img: 'img/kaso-ervehe-desk-600.webp', title: 'Rezervo një dhomë në Përmet', l1: 'Mbërritja', l2: 'Netë', o2: ['1', '2', '3'], cta: 'Rezervo në WhatsApp', toast: 'Demo: kërkesa për rezervim sapo arriti në WhatsApp dhe Telegram të hotelit, me 0% komision.' },
-        coffee: { url: 'ura-coffee.co.uk', img: 'img/ura-coffee-desk-600.webp', title: 'Porosit kafe të freskët', l1: 'Kokrrat', o1: ['Etiopi', 'Kolumbi', 'Përzierja e shtëpisë'], l2: 'Paketimi', o2: ['250 g', '1 kg'], cta: 'Porosit në WhatsApp', toast: 'Demo: porosia shkoi direkt në WhatsApp të furrës së kafesë, pa komision aplikacioni.' },
-        food: { url: 'lule-kitchen.co.uk', img: 'img/lule-kitchen-desk-600.webp', title: 'Rezervo një tavolinë sonte', l1: 'Persona', o1: ['2', '4', '6'], l2: 'Ora', o2: ['19:00', '20:00', '21:00'], cta: 'Rezervo në WhatsApp', toast: 'Demo: kërkesa për tavolinë arriti në WhatsApp të restorantit për pak sekonda, pa tarifa rezervimi.' }
+        hotel: { url: 'kaso-ervehe.al', img: 'img/kaso-ervehe-desk-600.webp', title: 'Rezervo një dhomë në Përmet', l1: 'Mbërritja', l2: 'Netë', o2: ['1', '2', '3'], cta: 'Rezervo në WhatsApp', toast: 'Demo: kërkesa për rezervim sapo arriti në WhatsApp-in dhe Telegram-in e hotelit, me 0% komision.' },
+        coffee: { url: 'ura-coffee.co.uk', img: 'img/ura-coffee-desk-600.webp', title: 'Porosit kafe të freskët', l1: 'Kokrrat', o1: ['Etiopi', 'Kolumbi', 'Përzierja e shtëpisë'], l2: 'Paketimi', o2: ['250 g', '1 kg'], cta: 'Porosit në WhatsApp', toast: 'Demo: porosia shkoi direkt në WhatsApp-in e pjekëses së kafesë, pa komision aplikacioni.' },
+        food: { url: 'lule-kitchen.co.uk', img: 'img/lule-kitchen-desk-600.webp', title: 'Rezervo një tavolinë sonte', l1: 'Persona', o1: ['2', '4', '6'], l2: 'Ora', o2: ['19:00', '20:00', '21:00'], cta: 'Rezervo në WhatsApp', toast: 'Demo: kërkesa për tavolinë arriti në WhatsApp-in e restorantit brenda pak sekondash, pa tarifa rezervimi.' }
       },
       days: ['Die', 'Hën', 'Mar', 'Mër', 'Enj', 'Pre', 'Sht'],
-      'preview.t': 'Ende i pasigurt? Merr një parapamje falas.', 'preview.p': 'Më dërgo emrin e biznesit dhe disa foto. Brenda 48 orësh të tregoj faqen tënde kryesore në telefon. Nuk paguan asgjë, përveç nëse do faqen e plotë.', 'preview.cta': 'Dua parapamjen falas', 'preview.wa': 'Përshëndetje Joel, dua një parapamje falas të faqes sime.\nBiznesi im: \nQyteti: ',
+      'preview.t': 'Nuk e ke vendosur ende? Merr një parapamje falas.', 'preview.p': 'Më dërgo emrin e biznesit dhe disa foto. Brenda 48 orësh ta tregoj faqen tënde kryesore në telefon. Nuk paguan asgjë, nëse nuk e do faqen e plotë.', 'preview.cta': 'Dua parapamjen falas', 'preview.wa': 'Përshëndetje Joel, dua një parapamje falas të faqes sime.\nBiznesi im: \nQyteti: ',
       'offer.spots': 'Edhe {n} nga 10 vendet e para me këto çmime', 'faq.q7': 'A mund ta shoh faqen para se të paguaj?', 'faq.a7': 'Po. Më dërgo emrin e biznesit dhe disa foto, dhe brenda 48 orësh të tregoj falas një parapamje të faqes kryesore. Nëse do faqen e plotë, një paradhënie prej 50% nis ndërtimin dhe pjesa tjetër paguhet në publikim.',
-      'offer.tag': 'Paketa me çmim fiks', 'offer.t1': 'Website duke filluar nga', 'offer.cta': 'Nis një projekt',
-      'offer.text': 'Essential Landing nga 150€, Business Pro me dy gjuhë dhe formular rezervimi nga 300€, Custom Signature me film me scroll dhe shpërndarje automatike të kërkesave me 600€+. Çdo website ka dizajn për telefon dhe kompjuter, WhatsApp dhe hartë.',
-      'case.tag': 'Projekt i veçantë', 'case.title': 'Hotel Kaso Ervehe, Përmet', 'case.lead': 'Hoteli i familjes sime në Përmet është projekti im i parë real, dhe faqja e re del online së shpejti. Ja çfarë ndryshon.',
-      'case.alt': 'Faqja kryesore e website-it të Hotel Kaso Ervehe', 'case.pt': 'Problemi', 'case.pp': 'Deri në 18% e çdo qëndrimi shkonte si komision te platformat e rezervimit.',
-      'case.st': 'Zgjidhja', 'case.items': ['Një faqe e shpejtë e vetja, në anglisht dhe shqip', 'Kalendar rezervimi direkt', 'Njoftime rezervimesh në Telegram', 'Rruga në Google Maps'],
-      'case.s1': 'vlerësim i mysafirëve në Booking.com', 'case.proof': 'Shiko vlerësimet në Booking.com', 'case.s2': 'komision për rezervimet direkte, sapo të dalë online', 'case.s3': 'mysafirët mund të rezervojnë në anglisht ose shqip', 'case.cta': 'Hap faqen e hotelit në parapamje',
+      'offer.tag': 'Paketa me çmim fiks', 'offer.t1': 'Faqe interneti nga', 'offer.cta': 'Nis një projekt',
+      'offer.text': 'Essential Landing nga 150€, Business Pro me dy gjuhë dhe formular rezervimi nga 300€, Custom Signature me film me scroll dhe shpërndarje automatike të kërkesave nga 600€. Çdo faqe vjen me dizajn për telefon dhe kompjuter, WhatsApp dhe hartë.',
+      'case.tag': 'Projekti në fokus', 'case.title': 'Hotel Kaso Ervehe, Përmet', 'case.lead': 'Hoteli i familjes sime në Përmet është projekti im i parë për një klient real. Faqja e re del online së shpejti.',
+      'case.alt': 'Faqja kryesore e Hotel Kaso Ervehe', 'case.pt': 'Problemi', 'case.pp': 'Deri në 18% e çdo qëndrimi u shkonte platformave të rezervimit si komision.',
+      'case.st': 'Zgjidhja', 'case.sp': 'Një faqe e shpejtë vetëm e hotelit, ku mysafirët shohin dhomat dhe i dërgojnë kërkesën për rezervim direkt hotelit, në shqip ose anglisht.',
+      'case.bt': 'Çfarë ndërtuam', 'case.items': ['Faqe dygjuhëshe, shqip dhe anglisht', 'Datat dhe numri i mysafirëve që në ekranin e parë', 'Kalendar për rezervime direkte', 'Njoftime rezervimesh në WhatsApp dhe Telegram', 'Rruga në Google Maps'],
+      'case.rt': 'Rezultatet', 'case.rnote': 'Maten pas publikimit.', 'case.r1': 'Rezervime në muaj, më parë', 'case.r2': 'Rezervime në muaj, më pas', 'case.r3': 'Pjesa e rezervimeve direkte',
+      'case.src': 'Burimi: Booking.com, më {d}', 'case.src0': 'Burimi: Booking.com',
+      'case.s1': 'vlerësimi i mysafirëve në Booking.com', 'case.proof': 'Shiko vlerësimet në Booking.com', 'case.s2': 'komision për rezervimet direkte', 'case.s3': 'mysafirët mund të rezervojnë në anglisht ose shqip', 'case.cta': 'Hap faqen e hotelit në parapamje',
       'cmp.tag': 'Pse me porosi', 'cmp.title': 'E ndërtuar për ty, apo e marrë me qira nga një shabllon', 'cmp.c0': 'Çfarë ka rëndësi', 'cmp.c1': 'Faqe me porosi nga Joel Kaso', 'cmp.c2': 'WordPress, Wix ose shabllon agjencie',
-      'cmp.r1': 'Shpejtësia', 'cmp.r1a': 'E ndërtuar me dorë dhe e lehtë, pa plugin. E testuar me Google PageSpeed para se të dalë online.', 'cmp.r1b': 'Temat dhe plugin-et e rënda shpesh hapen për 3 deri 6 sekonda në telefon.',
-      'cmp.r2': 'Pagesat mujore', 'cmp.r2a': 'Asnjë pagesë mujore e detyrueshme. Kodi është yti, dhe plani i kujdesit është opsional.', 'cmp.r2b': 'Shpesh 30–100€ në muaj për plugin, hosting dhe mirëmbajtje.',
-      'cmp.r3': 'Siguria', 'cmp.r3a': "Pa bazë të dhënash dhe pa plugin, ndaj ka shumë më pak për t'u sulmuar dhe asgjë për t'u përditësuar.", 'cmp.r3b': 'Plugin-et duan përditësime të vazhdueshme, dhe një i vjetër është një derë e zakonshme për sulme.',
-      'cmp.r4': 'Kërkesat', 'cmp.r4a': 'Rezervimet dhe mesazhet të vijnë në WhatsApp ose Telegram për pak sekonda.', 'cmp.r4b': 'Një formular i zakonshëm që shpesh përfundon te spam-i.',
-      'work.tag': 'Faqe demo', 'work.title': 'Punë të zgjedhura', 'work.all': 'Të gjitha', 'work.stay': 'Hotele dhe akomodime', 'work.food': 'Restorante dhe ushqim', 'work.local': 'Shërbime lokale', 'work.film': 'Filma me scroll',
+      'cmp.r1': 'Shpejtësia', 'cmp.r1a': 'E ndërtuar me dorë dhe e lehtë, pa plugin. E testuar me Google PageSpeed para se të dalë online.', 'cmp.r1b': 'Temat dhe plugin-et e rënda mund ta bëjnë faqen të ngadaltë në telefon.',
+      'cmp.r2': 'Pagesat mujore', 'cmp.r2a': 'Asnjë pagesë mujore e detyrueshme. Kodi është yti, dhe plani i kujdesit është opsional.', 'cmp.r2b': 'Plugin-et me pagesë, hostimi dhe mirëmbajtja shpesh sjellin një faturë çdo muaj.',
+      'cmp.r3': 'Siguria', 'cmp.r3a': "Pa bazë të dhënash dhe pa plugin, ndaj ka shumë më pak për t'u sulmuar dhe asgjë për t'u përditësuar.", 'cmp.r3b': 'Plugin-et duan përditësime të vazhdueshme, dhe një plugin i vjetër është rrugë e zakonshme për sulme.',
+      'cmp.r4': 'Kërkesat', 'cmp.r4a': 'Rezervimet dhe mesazhet të vijnë në WhatsApp ose Telegram brenda pak sekondash.', 'cmp.r4b': 'Një formular i zakonshëm, ku mesazhet mund të përfundojnë te spam-i.',
+      'work.tag': 'Faqe klientësh dhe demo', 'work.title': 'Punë të zgjedhura', 'work.all': 'Të gjitha', 'work.stay': 'Hotele dhe akomodime', 'work.food': 'Restorante dhe ushqim', 'work.local': 'Shërbime lokale', 'work.film': 'Filma me scroll',
       'cta.work': 'Dua një faqe si këto', open: 'Hap faqen →', shot: ', pamje e faqes', film: '▶ Film me scroll',
       'services.tag': 'Çmime fikse', 'services.title': 'Paketat & çmimet', 'services.lead': 'Çdo faqe projektohet posaçërisht për biznesin tënd, pa pagesa mujore të detyruara. Merr rezervime direkte me 0% komision, me kërkesa të menjëhershme në WhatsApp ose me kalendar rezervimi brenda faqes. Dhe kur të duhet, faqja lidhet edhe me mjetet që përdor tashmë (OpenTable, Fresha, Booksy, Airbnb ose Booking.com).',
-      'plan1.name': 'Essential Landing', 'plan1.for': 'Një faqe e vetme që kthen vizitorët në mesazhe: për kafene, berberë, mjeshtër dhe evente.',
+      'plan1.name': 'Essential Landing', 'plan1.for': 'Një faqe e vetme dhe e qartë për kafene, berberë, zejtarë dhe evente që duan të gjenden dhe të kontaktohen.',
       'plan2.name': 'Business Pro', 'plan2.for': 'Për restorante, sallone, klinika dhe studio që marrin kërkesa dhe rezervime çdo ditë.',
-      'plan3.name': 'Custom Signature', 'plan3.for': 'Për hotele dhe marka që duan një faqe unike, me lëvizje dhe kërkesa që shpërndahen vetë.',
-      'plan.ask': 'Fillo me këtë', 'plan.see': 'Shiko shembullin', 'plan.popular': 'Më e kërkuara', 'plan.from': 'nga', 'plan.note': '50% paradhënie për të nisur, 50% në publikim.', 'pkg1.wa': 'Përshëndetje Joel, më intereson paketa Essential Landing për website.', 'pkg2.wa': 'Përshëndetje Joel, më intereson paketa Business Pro për website.', 'pkg3.wa': 'Përshëndetje Joel, më intereson paketa Custom Signature për website.',
+      'plan3.name': 'Custom Signature', 'plan3.for': 'Për hotele dhe marka që duan një faqe unike, me lëvizje dhe kërkesa që shpërndahen automatikisht.',
+      'plan.ask': 'Fillo me këtë', 'plan.see': 'Shiko shembullin', 'plan.popular': 'E rekomanduar', 'plan.from': 'nga', 'plan.note': '50% paradhënie për të nisur, 50% në publikim.', 'pkg1.wa': 'Përshëndetje Joel, më intereson paketa Essential Landing.', 'pkg2.wa': 'Përshëndetje Joel, më intereson paketa Business Pro.', 'pkg3.wa': 'Përshëndetje Joel, më intereson paketa Custom Signature.',
       'plan1.items': ['Një faqe, deri në 5 seksione', 'Një gjuhë: shqip ose anglisht', 'Buton WhatsApp dhe Google Maps', 'Gati për 3–4 ditë', '2 raunde ndryshimesh'],
       'plan2.items': ['Deri në 5 faqe', 'Dygjuhëshe, me ndërrues EN/SQ', 'Formular kërkese ose rezervimi me porosi, plus WhatsApp', 'Gati për 5–10 ditë', '2 raunde ndryshimesh'],
       'plan3.items': ['Dizajn tërësisht me porosi', 'Film me scroll dhe koreografi interaktive në hyrje', 'Lokalizim dygjuhësh EN/SQ', 'Shpërndarje automatike e kërkesave: webhooks, n8n ose CRM-ja jote', 'Gati për 10–14 ditë', '3 raunde ndryshimesh'],
@@ -205,12 +220,12 @@
       'q.days': '{a}–{b} ditë',
       'q.types': { stay: 'Hotel ose bujtinë', food: 'Restorant ose bar', beauty: 'Sallon ose klinikë', trade: 'Zanat lokal', other: 'Diçka tjetër' },
       'q.needs': { booking: 'Sistem rezervimi direkt', wa: 'Porosi në WhatsApp', langs: 'Anglisht dhe shqip', menu: 'Menu ose çmime që i ndryshon vetë', google: 'Profili në Google dhe SEO lokale', gallery: 'Galeri fotosh', vouchers: 'Kupona dhuratë' },
-      'q.msg': 'Përshëndetje Joel, dua një ofertë për website. Biznesi: {type}, çfarë më duhet: {needs}.{like}\nPaketa: {price}, rreth {time}.', 'q.like': '\nNë stilin e: {name}.',
+      'q.msg': 'Përshëndetje Joel, dua një ofertë për një faqe interneti. Biznesi: {type}, çfarë më duhet: {needs}.{like}\nPaketa: {price}, rreth {time}.', 'q.like': '\nNë stilin e: {name}.',
       'process.tag': 'Si punoj', 'process.title': 'Nga telefonata te faqja online',
       's1.d': '20 minuta', 's1.t': 'Telefonatë e shkurtër ose bisedë në WhatsApp', 's1.p': 'Flasim për biznesin tënd, dhomat ose shërbimet, dhe qëllimet e tua.',
       's2.d': 'Brenda 48 orëve', 's2.t': 'Parapamje falas e faqes kryesore në telefon', 's2.p': 'Provon në telefonin tënd versionin e parë të faqes kryesore, para se të paguash asnjë qindarkë.',
-      's3.d': 'Ditët 3–14', 's3.t': 'Ndërtimi i plotë', 's3.p': 'Rezervim direkt, WhatsApp, harta dhe shqip/anglisht, të testuara në çdo ekran.',
-      's4.d': 'Dita e nisjes', 's4.t': 'Online, me video udhëzuese', 's4.p': 'Domain-i yt, profili në Google dhe një video e shkurtër si ta ndryshosh.',
+      's3.d': 'Ditët 3–14', 's3.t': 'Ndërtimi i plotë dhe përfundimi', 's3.p': 'Rezervim direkt, WhatsApp, harta dhe shqip/anglisht, të testuara në çdo ekran.',
+      's4.d': 'Dita e publikimit', 's4.t': 'Online, me video udhëzuese', 's4.p': 'Domain-i yt, profili në Google dhe një video e shkurtër se si ta ndryshosh faqen.',
       'g.title': 'Gjysma për të nisur, gjysma në publikim.', 'g.text': 'Fillimisht shikon falas një parapamje të faqes kryesore. Një paradhënie prej 50% nis ndërtimin, dhe 50% tjetër paguhet në publikim, pasi ta kesh parë faqen e mbaruar në një lidhje private në telefonin tënd.', 'g.cta': 'Rezervo një telefonatë falas',
       'about.tag': 'Rreth meje', 'about.title': 'Kush e ndërton faqen tënde',
       'about.p1': 'Jam Joel, dizajner web nga Shqipëria. Ndërtoj faqe të shpejta dhe të bukura për hotele, restorante dhe biznese lokale. Dizajnin, kodin dhe konfigurimin i bëj vetë, ndaj flet me një person të vetëm.',
@@ -218,22 +233,23 @@
       'faq.tag': 'Pyetje', 'faq.title': 'Pyetje të shpeshta', 'faq.lead': 'Gjithçka që duhet të dish para se të fillojmë.',
       'faq.q1': 'A ka pagesa mujore pasi faqja del online?', 'faq.a1': 'Nga unë nuk ka pagesa mujore, përveç nëse zgjedh planin opsional të kujdesit për 25€ në muaj, që mund ta ndalosh kur të duash. Paguan një herë për dizajnin dhe ndërtimin, dhe faqja është 100% e jotja. Domain-i regjistrohet në emrin dhe llogarinë tënde, ndaj e zotëron direkt.',
       'faq.q2': 'Sa zgjat nga fillimi deri në fund?', 'faq.a2': 'Essential Landing zgjat 3–4 ditë, Business Pro 5–10 ditë dhe Custom Signature 10–14 ditë. Brenda 48 orëve nga telefonata e parë merr falas një parapamje të faqes kryesore në telefon, dhe faqja e plotë vjen pas saj.',
-      'faq.q3': "A mund t'i ndryshoj vetë çmimet, fotot ose menunë më vonë?", 'faq.a3': "Po. Kur e nisim, të dërgoj një video të shkurtër që të tregon saktësisht si t'i ndryshosh tekstet, çmimet dhe fotot për pak minuta, pa njohuri teknike.",
+      'faq.q3': "A mund t'i ndryshoj vetë çmimet, fotot ose menunë më vonë?", 'faq.a3': "Po. Kur faqja del online, të dërgoj një video të shkurtër që të tregon saktësisht si t'i ndryshosh tekstet, çmimet dhe fotot për pak minuta, pa njohuri teknike.",
       'faq.q4': 'Si më vijnë rezervimet dhe porositë?', 'faq.a4': 'Si të të vijë më lehtë. Kërkesat mund të shkojnë direkt në WhatsApp-in tënd me të dhënat e klientit të plotësuara, në email, ose në një kalendar rezervimesh.',
       'faq.q5': 'Si bëhet pagesa?', 'faq.a5': 'Paradhënie 50% për të nisur dhe 50% kur faqja del online. Para se të paguash diçka merr falas një parapamje të faqes kryesore, dhe faqen e mbaruar e shikon në një lidhje private para pagesës së dytë.',
       'faq.q6': 'Kujt i përket domain-i dhe faqja?', 'faq.a6': 'Ty. Domain-i regjistrohet në emrin tënd dhe kodi të dorëzohet ty, ndaj mund ta lëvizësh ose të ndryshosh dizajner kur të duash.',
       'contact.tag': 'Kontakt', 'contact.title': 'Le ta ndërtojmë tëndin', 'contact.lead': 'Më trego për biznesin tënd, shqip ose anglisht. Përgjigjem brenda 24 orëve.',
       'f.name': 'Emri', 'f.business': 'Biznesi (jo i detyrueshëm)', 'f.email': 'Email', 'f.msg': 'Çfarë të duhet?', 'f.send': 'Dërgo',
       'f.note': "Mesazhi shkon në emailin tim përmes FormSubmit. E përdor vetëm për t'u përgjigjur.",
-      err: { name: 'Shkruaj emrin.', email: 'Shkruaj një email të plotë.', rate: 'Shumë mesazhe në pak kohë. Prit një minutë, ose më shkruaj në WhatsApp.' },
-      ok: 'Po hapet aplikacioni i emailit me mesazhin gati. Shtyp Dërgo atje.', sent: 'Faleminderit, mesazhi u dërgua. Përgjigjem brenda 24 orëve.', sending: 'Po dërgohet…', subject: 'Kërkesë për website',
-      'case.quote': 'Në vend që të humbasim deri në 18% komision për çdo rezervim në platforma ndërmjetëse, turistët që na gjejnë në Google tani shohin dhomat në shqip ose anglisht dhe na dërgojnë kërkesën direkt në WhatsApp me datat e sakta.', 'case.quoteBy': 'Hotel Kaso Ervehe, Përmet', 'footer.live': 'Projekti i veçantë, Hotel Kaso Ervehe, është faqe reale dhe online e një klienti. Çdo faqe me etiketën Demo (si Vjosa Rafting dhe Ura Coffee Roasters) është ndërtim demo, të bëra për të treguar si funksionojnë rezervimet dhe porositë. Fotot e demove: Wikimedia Commons, të përmendura në secilën faqe.',
-      'footer.note': 'Hotel Kaso Ervehe (hoteli i familjes sime në Përmet) dhe Brolin Tattoo (artist tatuazhesh në Athinë) janë klientë realë. Çdo faqe me etiketën Demo (si Vjosa Rafting dhe Ura Coffee Roasters) është ndërtim demo me emra të shpikur, të bëra për të treguar si funksionojnë rezervimet dhe porositë. Fotot e demove: Wikimedia Commons, të përmendura në secilën faqe.', 'footer.privacy': 'Politika e privatësisë', 'footer.top': 'Kthehu lart ↑',
+      err: { name: 'Të lutem shkruaj emrin.', email: 'Të lutem shkruaj një email të saktë, për shembull emri@shembull.com.', msg: 'Të lutem më trego shkurt çfarë të duhet.', rate: 'Shumë mesazhe në pak kohë. Prit një minutë, ose më shkruaj në WhatsApp.' },
+      ok: 'Po hapet aplikacioni i emailit me mesazhin gati. Shtyp Dërgo atje.', sent: 'Faleminderit, mesazhi u dërgua. Përgjigjem brenda 24 orëve.', sending: 'Po dërgohet…', subject: 'Kërkesë për faqe interneti',
+      fail: 'Na vjen keq, mesazhi nuk u dërgua. Po hapet aplikacioni i emailit me mesazhin gati, ose më shkruaj në WhatsApp.',
+      'case.quote': 'Në vend që të humbasim deri në 18% komision për çdo rezervim në platforma ndërmjetëse, turistët që na gjejnë në Google tani shohin dhomat në shqip ose anglisht dhe na dërgojnë kërkesën direkt në WhatsApp me datat e sakta.', 'case.quoteBy': 'Hotel Kaso Ervehe, Përmet', 'footer.live': 'Projekti në fokus, Hotel Kaso Ervehe, është faqe reale dhe online e një klienti. Çdo faqe me etiketën Demo (si Vjosa Rafting dhe Ura Coffee Roasters) është një demo e ndërtuar për të treguar si funksionojnë rezervimet dhe porositë. Fotot e demove: Wikimedia Commons, me burimin në secilën faqe.',
+      'footer.note': 'Hotel Kaso Ervehe (hoteli i familjes sime në Përmet) dhe Brolin Tattoo (artist tatuazhesh në Athinë) janë klientë realë. Çdo faqe me etiketën Demo (si Vjosa Rafting dhe Ura Coffee Roasters) është një demo me emra të shpikur, e ndërtuar për të treguar si funksionojnë rezervimet dhe porositë. Fotot e demove: Wikimedia Commons, me burimin në secilën faqe.', 'footer.privacy': 'Politika e privatësisë', 'footer.terms': 'Kushtet e shërbimit', 'footer.top': 'Kthehu lart ↑',
       'viewer.desk': 'Kompjuter', 'viewer.phone': 'Telefon', 'viewer.qr': 'Provoje në telefon', 'viewer.qrhint': 'Drejtoje kamerën e telefonit te kodi për ta hapur këtë faqe në telefonin tënd.',
-      'viewer.want': 'Dua një faqe si kjo', 'viewer.open': 'Hap në skedë të re ↗', 'wa.msg': 'Përshëndetje Joel, pashë portofolin tënd dhe më intereson një website.',
+      'viewer.want': 'Dua një faqe si kjo', 'viewer.open': 'Hap në skedë të re ↗', 'wa.msg': 'Përshëndetje Joel, pashë portofolin tënd dhe më intereson një faqe interneti.',
       'tier.starter': 'Shembull i paketës Essential Landing · nga 150€', 'tier.business': 'Shembull i paketës Business Pro · nga 300€', 'tier.premium': 'Shembull i paketës Custom Signature · 600€+', 'tier.premiumLive': 'Custom Signature · faqe klienti live · 600€+',
       'wall.title': 'Faqe demo që mund t’i provosh', 'wall.lead': 'Prek çdo ekran dhe provoje faqen si klientët e tu.',
-      'dome.title': 'Faqja jote, në telefon', 'dome.lead': 'Shumica e klientëve do ta shohin faqen tënde në telefon. Prek këtë për të provuar Hotel Kaso Ervehe.',
+      'dome.title': 'Faqja jote, në telefon', 'dome.lead': 'Shumë nga klientët e tu do ta shohin faqen në telefon. Prek këtë për të provuar Hotel Kaso Ervehe.',
       'dome.aria': 'Hap faqen e Hotel Kaso Ervehe në parapamje'
     }
   }
@@ -334,6 +350,17 @@
     })
   }
 
+  // Case study: the three result numbers and the date of the Booking.com rating (switches at the top).
+  function renderResults() {
+    var ph = { before: '[TODO: bookings before]', after: '[TODO: bookings after]', share: '[TODO: direct booking share]' }, any = false
+    ;[['before', '#case-r1'], ['after', '#case-r2'], ['share', '#case-r3']].forEach(function (k) {
+      var v = KASO_RESULTS[k[0]], el = $(k[1]); if (v) any = true
+      el.textContent = v || ph[k[0]]; el.closest('.results__slot').classList.toggle('is-todo', !v)
+    })
+    $('#case-results').hidden = !any && !RESULTS_PLACEHOLDER
+    $('#case-src').textContent = KASO_RATING_DATE ? t('case.src').replace('{d}', KASO_RATING_DATE) : t('case.src0')
+  }
+
   function applyLang() {
     var tt = T[lang], url = BASE + (lang === 'sq' ? '?lang=sq' : '')
     document.documentElement.lang = lang
@@ -343,9 +370,11 @@
     setAttr('link[rel="canonical"]', 'href', url); setAttr('meta[property="og:url"]', 'content', url)
     $$('[data-wa]').forEach(function (a) { a.href = 'https://wa.me/355685727406?text=' + encodeURIComponent(tt[a.getAttribute('data-wa') || 'wa.msg']) })
     $$('[data-privacy]').forEach(function (a) { a.setAttribute('href', 'privacy.html' + (lang === 'sq' ? '#sq' : '')) })
+    $$('[data-terms]').forEach(function (a) { a.setAttribute('href', 'terms.html' + (lang === 'sq' ? '#sq' : '')) })
     $$('[data-i18n]').forEach(function (el) { var v = tt[el.getAttribute('data-i18n')]; if (typeof v === 'string') el.textContent = v })
     $$('[data-i18n-alt]').forEach(function (el) { el.alt = tt[el.getAttribute('data-i18n-alt')] })
     $$('[data-i18n-aria]').forEach(function (el) { el.setAttribute('aria-label', tt[el.getAttribute('data-i18n-aria')]) })
+    $$('[data-i18n-title]').forEach(function (el) { el.title = tt[el.getAttribute('data-i18n-title')] })
     $$('[data-list]').forEach(function (ul) {
       ul.innerHTML = ''
       tt[ul.getAttribute('data-list')].forEach(function (x) { var li = document.createElement('li'); li.textContent = x; ul.appendChild(li) })
@@ -356,6 +385,7 @@
     spots.hidden = typeof SPOTS_LEFT !== 'number'
     if (!spots.hidden) spots.textContent = t('offer.spots').replace('{n}', SPOTS_LEFT)
     $('#case-quote').hidden = !KASO_QUOTE
+    renderResults()
     if (KASO_LIVE) $('#footer-note').textContent = t('footer.live')
     $$('[data-tag]').forEach(function (el) { var k = el.getAttribute('data-tag'); el.textContent = TAGS[k][lang]; el.className = 'badge badge--' + k })
     renderWork(); renderSim(); renderRoi(); renderReviews(); buildOpts(); renderQuote()
@@ -470,24 +500,35 @@
   })
 
   // Contact: sent to my inbox through FormSubmit (no server of my own). If that fails, the visitor's email app opens with the message ready, so no message is lost.
+  // [TODO: FormSubmit activation] FormSubmit needs a one-time activation: the first message sent from the live site makes FormSubmit
+  // email an "Activate form" link to EMAIL. Until that link is clicked, messages are not delivered (this form then shows the error
+  // message and opens the visitor's email app instead). After activating, FormSubmit also gives a random alias string; replacing
+  // EMAIL in the line below with that alias keeps the address out of the page's code.
   var ENDPOINT = 'https://formsubmit.co/ajax/' + EMAIL
   var form = $('#contact-form'), status = $('#contact-status')
   var clean = function (s, max) { return String(s).replace(/[<>\u0000-\u0008\u000b-\u001f]/g, ' ').trim().slice(0, max) }
-  var VALID = { name: function (v) { return !!clean(v, 80) }, email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean(v, 120)) } }
+  var VALID = {
+    name: function (v) { return !!clean(v, 80) },
+    email: function (v) { return /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)*\.[a-z]{2,}$/i.test(clean(v, 120)) },
+    msg: function (v) { return clean(v, 1000).length >= 2 }
+  }
   function fieldErr(f, msg) {
     var el = form.elements[f], box = $('#e-' + f)
     if (msg) { el.setAttribute('aria-invalid', 'true'); box.textContent = msg } else { el.removeAttribute('aria-invalid'); box.textContent = '' }
   }
   // Errors clear as soon as the field is fixed.
-  ;['name', 'email'].forEach(function (f) { form.elements[f].addEventListener('input', function () { if (form.elements[f].hasAttribute('aria-invalid') && VALID[f](form.elements[f].value)) fieldErr(f, '') }) })
+  ;['name', 'email', 'msg'].forEach(function (f) { form.elements[f].addEventListener('input', function () { if (form.elements[f].hasAttribute('aria-invalid') && VALID[f](form.elements[f].value)) fieldErr(f, '') }) })
   form.addEventListener('submit', function (e) {
     e.preventDefault()
-    fieldErr('name', ''); fieldErr('email', ''); status.className = 'form-status'; status.textContent = ''
-    var name = clean(form.elements.name.value, 80), email = clean(form.elements.email.value, 120)
-    if (!VALID.name(name)) { fieldErr('name', t('err').name); return form.elements.name.focus() }
-    if (!VALID.email(email)) { fieldErr('email', t('err').email); return form.elements.email.focus() }
-    if (form.elements.website.value) return
-    var business = clean(form.elements.business.value, 100), msg = clean(form.elements.msg.value, 1000)
+    status.className = 'form-status'; status.textContent = ''
+    // Required fields and email format: every problem is marked at once, and focus goes to the first one.
+    var name = clean(form.elements.name.value, 80), email = clean(form.elements.email.value, 120), msg = clean(form.elements.msg.value, 1000), first = null
+    ;[['name', name], ['email', email], ['msg', msg]].forEach(function (f) {
+      var ok = VALID[f[0]](f[1]); fieldErr(f[0], ok ? '' : t('err')[f[0]]); if (!ok && !first) first = f[0]
+    })
+    if (first) return form.elements[first].focus()
+    if (form.elements._honey.value) return // honeypot filled in: a bot, so drop it silently
+    var business = clean(form.elements.business.value, 100)
     // Rate limit: at most 3 messages in 10 minutes and 30 seconds between two, counted in this browser.
     // shortcut: a bot that ignores JavaScript is not stopped here, only by FormSubmit's own filter; move to a server function if spam arrives.
     var now = Date.now(), sent = []
@@ -496,13 +537,13 @@
     try { localStorage.setItem('jk-sent', JSON.stringify(sent.concat(now))) } catch (e) {}
     var btn = form.querySelector('button[type="submit"]'), subject = t('subject') + ': ' + name
     var viaMail = function () {
-      status.className = 'form-status is-ok'; status.textContent = t('ok')
+      status.className = 'form-status is-error'; status.textContent = t('fail')
       window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(name + (business ? ' · ' + business : '') + '\n' + email + '\n\n' + msg)
     }
     btn.disabled = true; btn.textContent = t('sending')
     fetch(ENDPOINT, {
       method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({ name: name, business: business, email: email, message: msg, _subject: subject, _captcha: 'false', _template: 'table' })
+      body: JSON.stringify({ name: name, business: business, email: email, message: msg, _subject: subject, _captcha: 'false', _template: 'table', _honey: '' })
     }).then(function (r) { return r.json() })
       .then(function (j) {
         if (String(j.success) !== 'true') throw new Error('not sent')
