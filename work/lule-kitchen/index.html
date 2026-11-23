@@ -1,217 +1,146 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="kit-framed">
 <head>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src 'self' https://www.google.com https://www.youtube-nocookie.com https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https: mailto:">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src https://formsubmit.co; form-action 'self'; object-src 'none'; base-uri 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Lule · Balkan Kitchen, London (demo)</title>
-  <meta name="description" content="Demo website by Joel Kaso: a Balkan kitchen in north London with a wood-fire film, online menu, table and WhatsApp booking, in English and Albanian." />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Lule · Balkan Kitchen, London" />
-  <meta property="og:description" content="Wood-fired byrek, charcoal grill and slow-baked tavë. Book a table in a minute." />
-  <meta property="og:image" content="https://joelkaso8-cyber.github.io/portfolio/work/lule-kitchen/media/poster.jpg" />
-  <meta property="og:url" content="https://joelkaso8-cyber.github.io/portfolio/work/lule-kitchen/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="robots" content="noindex" />
-  <meta name="theme-color" content="#1f1915" />
-  <link href="gfonts/gf-b12b547c.css" rel="stylesheet" />
-  <link rel="preload" as="image" href="media/poster.jpg" />
-  <link rel="stylesheet" href="film.css" />
-  <link rel="stylesheet" href="style.css?v=20261120" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Lule Balkan Kitchen","description":"Demo restaurant website by Joel Kaso.","servesCuisine":["Albanian","Balkan"],"address":{"@type":"PostalAddress","streetAddress":"Green Lanes","addressLocality":"London","postalCode":"N4","addressCountry":"GB"},"telephone":"+355 68 57 27 406","priceRange":"££","acceptsReservations":true}</script>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f1915'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='17' text-anchor='middle' fill='%23d79a6b'%3EL%3C/text%3E%3C/svg%3E" />
+<title>Lule Balkan Kitchen · restaurant (demo by Joel Kaso)</title>
+<meta name="description" content="Demo site by Joel Kaso for a sample Balkan restaurant: menu tabs from an editable file, table reservations, a takeaway order on WhatsApp and opening hours. EN and SQ.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2a1b14">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lule Balkan Kitchen · demo by Joel Kaso">
+<meta property="og:description" content="Sample restaurant: menu tabs, table reservations and takeaway orders on WhatsApp.">
+<meta property="og:image" content="https://joelkaso8-cyber.github.io/portfolio/img/lule-kitchen-desk.webp">
+<meta property="og:url" content="https://joelkaso8-cyber.github.io/portfolio/work/lule-kitchen/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23a64b2a'/%3E%3Ctext x='16' y='23' font-family='Georgia' font-size='19' text-anchor='middle' fill='%23f5ede0'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../demo-kit/kit.css?v=20261123">
+<link rel="stylesheet" href="style.css?v=20261123">
+<script type="module" src="main.js?v=20261123"></script>
 </head>
 <body>
-  <a class="demo-ribbon" href="../../index.html#work" data-i18n="ribbon">Demo by Joel Kaso ↗</a>
+<div class="kit-stage">
+  <aside class="kit-info" aria-label="About this demo">
+    <a class="kit-info__back" href="../../#work" data-i18n="kit.backlong">← Back to the portfolio</a>
+    <p class="kit-info__tag" data-i18n="kit.label">Demo site</p>
+    <p class="kit-info__name">Lule Balkan Kitchen</p>
+    <p data-i18n="info.text">A Balkan restaurant. Guests read the menu, reserve a table and order takeaway on WhatsApp.</p>
+    <ul>
+      <li data-i18n="info.f1">Menu tabs built from one editable file</li>
+      <li data-i18n="info.f2">Table reservation form</li>
+      <li data-i18n="info.f3">Takeaway order with a live total, sent on WhatsApp</li>
+      <li data-i18n="info.f4">Opening hours, today highlighted</li>
+    </ul>
+    <p class="kit-info__note" data-i18n="kit.note">The business, prices, photos and contact details are sample data.</p>
+  </aside>
 
-  <header class="nav" id="top-bar">
-    <a class="brand" href="#top">Lule<span>Balkan Kitchen</span></a>
-    <nav class="nav__links" aria-label="Main">
-      <a href="#menu" data-i18n="nav.menu">Menu</a>
-      <a href="#story" data-i18n="nav.story">Our story</a>
-      <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
-      <a href="#visit" data-i18n="nav.visit">Visit</a>
-    </nav>
-    <div class="nav__end">
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-lang="en" aria-pressed="true">EN</button>
-        <button type="button" data-lang="sq" aria-pressed="false">SQ</button>
-      </div>
-      <a class="btn btn--small" href="#book" data-i18n="nav.book">Book a table</a>
-      <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span><span></span></button>
+  <div class="kit-phone">
+    <div class="kit-screen" id="screen">
+      <aside class="kit-banner" aria-label="Demo notice"><a class="kit-skip" href="#main" data-i18n="kit.skip">Skip to content</a><span class="kit-banner__tag" data-i18n="kit.banner">Demo · sample business and data</span><a class="demo-ribbon" href="../../#work" data-i18n="kit.back">Joel Kaso ↗</a></aside>
+
+      <header class="top">
+        <a class="brand" href="#main">Lule <span>Balkan Kitchen</span></a>
+        <nav class="top__nav" aria-label="Main">
+          <a href="#menu" data-i18n="nav.menu">Menu</a>
+          <a href="#reserve" data-i18n="nav.reserve">Reserve</a>
+          <a href="#takeaway" data-i18n="nav.takeaway">Takeaway</a>
+        </nav>
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="sq" aria-pressed="false">SQ</button>
+        </div>
+      </header>
+
+      <main id="main" tabindex="-1">
+        <section class="hero" aria-labelledby="hero-title">
+          <p class="hero__eyebrow" data-i18n="hero.eyebrow">Balkan home cooking</p>
+          <h1 id="hero-title"><span class="hero__name">Lule</span> <span class="hero__kind" data-i18n="hero.kind">Balkan Kitchen</span></h1>
+          <p class="hero__tag" data-i18n="hero.tag">Byrek from the oven, qofte from the grill, and a table that waits for you.</p>
+          <div class="hero__actions">
+            <a class="btn btn--terra" href="#menu" data-i18n="hero.menu">View menu</a>
+            <a class="btn btn--line" href="#reserve" data-i18n="hero.reserve">Reserve a table</a>
+          </div>
+          <figure class="hero__arch">
+            <img src="img/hero.svg" width="640" height="760" alt="Placeholder illustration: a table of Balkan dishes from above" data-i18n-alt="hero.alt" fetchpriority="high">
+            <figcaption class="todo" data-i18n="todo.photo">[TODO: replace with real photo]</figcaption>
+          </figure>
+        </section>
+
+        <section class="sec" id="menu" aria-labelledby="menu-title">
+          <div class="sec__head" data-reveal>
+            <h2 id="menu-title" data-i18n="menu.title">The menu</h2>
+            <p><span data-i18n="menu.intro">Sample menu. Prices are demo data.</span> <span class="todo" data-i18n="todo.dishes">[TODO: real dish photos]</span></p>
+          </div>
+          <div class="tabs" role="tablist" aria-label="Menu categories" data-i18n-aria="menu.tabs" id="menu-tabs"></div>
+          <div id="menu-panels"></div>
+          <noscript><p>Turn on JavaScript to see the menu.</p></noscript>
+        </section>
+
+        <section class="sec sec--terra" id="reserve" aria-labelledby="reserve-title">
+          <div class="sec__head" data-reveal>
+            <h2 id="reserve-title" data-i18n="res.title">Reserve a table</h2>
+            <p data-i18n="res.intro">Send the request and the restaurant confirms by phone.</p>
+          </div>
+          <form class="res" id="res-form" novalidate data-reveal>
+            <div class="row2">
+              <div class="f"><label for="r-date" data-i18n="res.date">Date</label><input type="date" id="r-date" name="date" required data-err="kit.err.date" aria-describedby="e-r-date"><p class="kit-err" id="e-r-date" aria-live="polite"></p></div>
+              <div class="f"><label for="r-time" data-i18n="res.time">Time</label><select id="r-time" name="time" required aria-describedby="e-r-time"></select><p class="kit-err" id="e-r-time" aria-live="polite"></p></div>
+            </div>
+            <div class="f"><label for="r-guests" data-i18n="res.guests">Guests</label><select id="r-guests" name="guests"></select></div>
+            <div class="f"><label for="r-name" data-i18n="res.name">Name</label><input type="text" id="r-name" name="name" autocomplete="name" maxlength="80" required aria-describedby="e-r-name"><p class="kit-err" id="e-r-name" aria-live="polite"></p></div>
+            <div class="f"><label for="r-phone" data-i18n="res.phone">Phone</label><input type="tel" id="r-phone" name="phone" autocomplete="tel" maxlength="20" required data-kind="contact" aria-describedby="e-r-phone"><p class="kit-err" id="e-r-phone" aria-live="polite"></p></div>
+            <div class="kit-trap" aria-hidden="true"><label for="r-honey">Leave empty</label><input type="text" id="r-honey" name="_honey" tabindex="-1" autocomplete="off"></div>
+            <button class="btn btn--cream" type="submit" data-i18n="res.send">Request the table</button>
+            <p class="form-status" role="status" aria-live="polite" tabindex="-1"></p>
+          </form>
+        </section>
+
+        <section class="sec" id="takeaway" aria-labelledby="take-title">
+          <div class="sec__head" data-reveal>
+            <h2 id="take-title" data-i18n="take.title">Takeaway &amp; delivery</h2>
+            <p data-i18n="take.intro">Choose your dishes and send the order on WhatsApp. Sample prices.</p>
+          </div>
+          <ul class="order" id="order"></ul>
+          <div class="order__foot">
+            <div class="order__mode" role="radiogroup" aria-label="Pick-up or delivery" data-i18n-aria="take.mode">
+              <label><input type="radio" name="mode" value="pickup" checked> <span data-i18n="take.pickup">Pick-up</span></label>
+              <label><input type="radio" name="mode" value="delivery"> <span data-i18n="take.delivery">Delivery</span></label>
+            </div>
+            <p class="order__total"><span data-i18n="take.total">Total</span> <output id="order-total">0€</output></p>
+            <a class="btn btn--terra btn--wide" id="order-send" href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-describedby="order-hint">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+              <span data-i18n="take.send">Order via WhatsApp</span>
+            </a>
+            <p class="hint" id="order-hint" aria-live="polite" data-i18n="take.empty">Add at least one dish to order.</p>
+          </div>
+        </section>
+
+        <section class="sec sec--cream" id="hours" aria-labelledby="hours-title">
+          <div class="sec__head" data-reveal>
+            <h2 id="hours-title" data-i18n="hours.title">Opening hours</h2>
+            <p><span data-i18n="hours.intro">Sample hours.</span> <span class="todo" data-i18n="todo.hours">[TODO: real opening hours]</span></p>
+          </div>
+          <table class="hours" id="hours-table" data-reveal>
+            <caption class="sr" data-i18n="hours.title">Opening hours</caption>
+            <tbody></tbody>
+          </table>
+        </section>
+      </main>
+
+      <footer class="foot">
+        <p class="foot__brand">Lule <span>Balkan Kitchen</span></p>
+        <dl class="foot__list">
+          <div><dt data-i18n="foot.address">Address</dt><dd><span class="todo" data-i18n="todo.address">[TODO: address]</span></dd></div>
+          <div><dt data-i18n="foot.phone">Phone &amp; WhatsApp</dt><dd>+355 XX XXX XXX <small data-i18n="foot.sample">(sample number)</small></dd></div>
+        </dl>
+        <p class="foot__legal" data-i18n="foot.legal">Lule Balkan Kitchen is a sample restaurant made for a demo. The menu, prices and contact details are not real.</p>
+      </footer>
+
+      <section data-kit-cta></section>
     </div>
-  </header>
-  <div class="mobile-menu" id="mobile-menu" hidden>
-    <a href="#menu" data-i18n="nav.menu">Menu</a>
-    <a href="#story" data-i18n="nav.story">Our story</a>
-    <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
-    <a href="#visit" data-i18n="nav.visit">Visit</a>
-    <a class="btn" href="#book" data-i18n="nav.book">Book a table</a>
   </div>
-
-  <main>
-    <section class="film" id="top" data-src="media/hero.mp4" data-poster="media/poster.jpg" aria-label="Wood-fire kitchen film">
-      <div class="film__stage">
-        <video muted playsinline preload="none" aria-hidden="true"></video>
-        <div class="film__band" data-a="0" data-b="0.24">
-          <p class="eyebrow" data-i18n="hero.eyebrow">Green Lanes · North London</p>
-          <h1>Lule<br /><em data-i18n="film.h1b">Balkan Kitchen</em></h1>
-        </div>
-        <div class="film__band" data-a="0.26" data-b="0.5"><p class="big" data-i18n="film.2">Fire <em>first.</em></p><p class="small" data-i18n="film.2s">The clay oven is lit at seven every morning, before the first tray of byrek goes in.</p></div>
-        <div class="film__band" data-a="0.52" data-b="0.76"><p class="big" data-i18n="film.3">Then the <em>grill.</em></p><p class="small" data-i18n="film.3s">Qofte, lamb and peppers over real wood charcoal, the way it is done back home.</p></div>
-        <div class="film__band" data-a="0.78" data-b="1"><p class="big" data-i18n="film.4">Then your <em>table.</em></p><p class="small" data-i18n="hero.lead">Wood-fired byrek, charcoal grill and slow-baked tavë from the Balkans, made fresh every morning.</p><div class="btns"><a class="btn" href="#book" data-i18n="hero.book">Book a table</a><a class="btn btn--ghost" href="#menu" data-i18n="hero.menu">See the menu</a></div></div>
-        <p class="film__cue" data-i18n="scroll">Scroll</p>
-        <div class="film__bar"><i></i></div>
-      </div>
-    </section>
-
-    <p class="status status--bar" id="open-status" aria-live="polite"></p>
-    <section class="strip reveal" aria-label="Highlights">
-      <div><strong>4.8</strong><span data-i18n="strip.rating">Google rating (sample)</span></div>
-      <div><strong>40+</strong><span data-i18n="strip.dishes">dishes, made in house</span></div>
-      <div><strong>12:00–23:00</strong><span data-i18n="strip.hours">open every day</span></div>
-    </section>
-
-    <section class="section" id="menu">
-      <div class="head reveal">
-        <h2 data-i18n="menu.title">The menu</h2>
-        <p data-i18n="menu.lead">Prices include VAT. Tell us about any allergies when you book.</p>
-      </div>
-      <div class="tabs reveal" role="tablist" aria-label="Menu sections">
-        <button role="tab" aria-selected="true" data-tab="meze" data-i18n="menu.meze">Meze</button>
-        <button role="tab" aria-selected="false" data-tab="grill" data-i18n="menu.grill">Grill</button>
-        <button role="tab" aria-selected="false" data-tab="oven" data-i18n="menu.oven">From the oven</button>
-        <button role="tab" aria-selected="false" data-tab="sweet" data-i18n="menu.sweet">Sweets</button>
-      </div>
-      <div class="menu-grid">
-        <div class="menu-list" id="menu-list" role="tabpanel" aria-live="polite"></div>
-        <figure class="menu-photo reveal">
-          <img id="menu-photo" src="img/meze-800.webp" alt="A table of Balkan meze with peppers, cheese and dips" loading="lazy" />
-        </figure>
-      </div>
-    </section>
-
-    <div class="belt reveal" id="lule-belt" aria-busy="true"></div>
-
-    <section class="section story" id="story">
-      <figure class="story__photo reveal"><img src="img/room-1600.webp" srcset="img/room-800.webp 800w, img/room-1600.webp 1600w" sizes="(min-width: 900px) 50vw, 100vw" alt="The dining room with wooden tables and a chandelier" loading="lazy" /></figure>
-      <div class="story__text reveal">
-        <p class="eyebrow" data-i18n="story.eyebrow">Since 2016</p>
-        <h2 data-i18n="story.title">A family kitchen that moved to London</h2>
-        <p data-i18n="story.p1">Lule started as Sunday lunch for friends: one long table, one tray of byrek, too many people. Now it is twelve tables on Green Lanes, and the byrek still comes out of the oven every hour.</p>
-        <p data-i18n="story.p2">Everything is cooked from scratch: the filo is rolled by hand, the yoghurt is strained here, and the grill runs on charcoal.</p>
-      </div>
-    </section>
-
-    <section class="section" id="gallery">
-      <div class="head reveal"><h2 data-i18n="gallery.title">From our kitchen</h2><p data-i18n="gallery.lead">Tap a photo to see it bigger.</p></div>
-      <div class="gallery">
-        <button class="g reveal" data-full="img/grill-1600.webp"><img src="img/grill-800.webp" alt="Mixed grill with chicken skewers, qofte and chips" loading="lazy" /></button>
-        <button class="g g--tall reveal" data-full="img/byrek-1600.webp"><img src="img/byrek-800.webp" alt="Layered byrek on a plate" loading="lazy" /></button>
-        <button class="g reveal" data-full="img/salad-1600.webp"><img src="img/salad-800.webp" alt="A bowl of village salad with tomato and onion" loading="lazy" /></button>
-        <button class="g reveal" data-full="img/baklava-1600.webp"><img src="img/baklava-800.webp" alt="Baklava with pistachio" loading="lazy" /></button>
-        <button class="g g--wide reveal" data-full="img/pie-1600.webp"><img src="img/pie-800.webp" alt="A slice of baked pie with salad" loading="lazy" /></button>
-      </div>
-    </section>
-
-    <section class="section reviews" aria-labelledby="reviews-title">
-      <div class="head reveal"><h2 id="reviews-title" data-i18n="reviews.title">What guests say</h2><p data-i18n="reviews.lead">Sample reviews for this demo.</p></div>
-      <div class="quotes reveal">
-        <blockquote><p>“The byrek tastes exactly like my grandmother's in Tirana. We come every Sunday now.”</p><cite>Ardit, Wood Green</cite></blockquote>
-        <blockquote><p>“Best mixed grill on Green Lanes, and the staff remember your name.”</p><cite>Sarah, Finsbury Park</cite></blockquote>
-        <blockquote><p>“Booked online in a minute, table ready, baklava on the house for the birthday.”</p><cite>Marco, Islington</cite></blockquote>
-      </div>
-    </section>
-
-    <section class="section book" id="book">
-      <div class="book__intro reveal">
-        <h2 data-i18n="book.title">Book a table</h2>
-        <p data-i18n="book.lead">We confirm every booking by text within the hour. For groups over 10, call us.</p>
-        <ul class="facts">
-          <li><span data-i18n="book.call">Call</span> <a href="tel:+355685727406">+355 68 57 27 406</a></li>
-          <li><span>WhatsApp</span> <a href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20saw%20your%20Lule%20Balkan%20Kitchen%20demo%20and%20I%27d%20like%20a%20website%20like%20this." target="_blank" rel="noopener noreferrer">+355 68 57 27 406</a></li>
-        </ul>
-      </div>
-      <form class="card reveal" id="book-form" novalidate>
-        <div class="row">
-          <label><span data-i18n="book.date">Date</span><input type="date" name="date" required /></label>
-          <label><span data-i18n="book.time">Time</span>
-            <select name="time" required></select>
-          </label>
-        </div>
-        <fieldset>
-          <legend data-i18n="book.guests">Guests</legend>
-          <div class="chips" id="guest-chips"></div>
-        </fieldset>
-        <div class="row">
-          <label><span data-i18n="book.name">Name</span><input name="name" autocomplete="name" required maxlength="80" /></label>
-          <label><span data-i18n="book.phone">Mobile</span><input name="phone" type="tel" autocomplete="tel" required maxlength="25" placeholder="07…" /></label>
-        </div>
-        <div class="preorder" id="preorder" hidden>
-          <p class="preorder__title"><span data-i18n="pre.title">Dishes for your table</span><small data-i18n="pre.note">We start cooking them when you arrive.</small></p>
-          <ul id="preorder-list"></ul>
-          <p class="preorder__total"><span data-i18n="pre.total">Pre-order total</span><b id="preorder-total">£0.00</b></p>
-        </div>
-        <label><span data-i18n="book.notes">Notes (allergies, birthday…)</span><textarea name="notes" rows="2" maxlength="300"></textarea></label>
-        <div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
-        <div class="btns"><button class="btn" type="submit" id="book-send" data-i18n="book.send">Request the table</button><button class="btn btn--wa" type="button" id="wa-book" data-i18n="book.wa">Book via WhatsApp</button></div>
-        <p class="form-status" role="status" id="book-status"></p>
-      </form>
-    </section>
-
-    <section class="section" id="faq">
-      <div class="head reveal"><h2 data-i18n="faq.title">Good to know</h2></div>
-      <div class="faq reveal" id="faq-list"></div>
-    </section>
-
-    <section class="section visit" id="visit">
-      <div class="visit__text reveal">
-        <h2 data-i18n="visit.title">Find us</h2>
-        <p>Green Lanes, London N4 · <span data-i18n="visit.tube">5 min from Manor House station</span></p>
-        <p class="muted" data-i18n="visit.park">Street parking after 6:30pm; Finsbury Park car park is 5 minutes away.</p>
-        <table class="hours" aria-label="Opening hours">
-          <tbody id="hours"></tbody>
-        </table>
-        <div class="btns"><a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Green+Lanes+London+N4" target="_blank" rel="noopener noreferrer" data-i18n="visit.maps">Directions in Google Maps</a><a class="btn btn--ghost" href="tel:+355685727406">+355 68 57 27 406</a></div>
-      </div>
-      <div class="map reveal" id="map">
-        <button type="button" class="map__load" id="map-load"><b data-i18n="map.show">Show the map</b><span data-i18n="map.note">Loads Google Maps, which may set cookies.</span></button>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p class="brand">Lule<span>Balkan Kitchen</span></p>
-    <p data-i18n="footer.demo">A demo website with a made-up restaurant name, designed and built by Joel Kaso.</p>
-    <p class="footer__links">
-      <button type="button" class="linklike" data-open="privacy" data-i18n="legal.privacy">Privacy policy</button>
-      <button type="button" class="linklike" data-open="terms" data-i18n="legal.terms">Terms</button>
-      <button type="button" class="linklike" id="cookie-reopen" data-i18n="legal.cookies">Cookie settings</button>
-    </p>
-    <p class="credits" id="credits"></p>
-  <p class="kit-legal" style="margin:1.25rem 0 0;font-size:.8rem;text-align:center;width:100%"><a href="privacy.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacy policy</a></p>
-</footer>
-
-  <nav class="actionbar" aria-label="Quick actions">
-    <a href="https://wa.me/355685727406?text=Hi%20Joel%2C%20I%20saw%20your%20Lule%20Balkan%20Kitchen%20demo%20and%20I%27d%20like%20a%20website%20like%20this." target="_blank" rel="noopener noreferrer" data-i18n="bar.wa">WhatsApp</a>
-    <a href="tel:+355685727406" data-i18n="bar.call">Call</a>
-    <a href="#book" class="is-main" data-i18n="nav.book">Book a table</a>
-  </nav>
-
-  <div class="cookie" id="cookie" role="region" aria-label="Cookies" hidden>
-    <p><span data-i18n="cookie.text">This site uses no tracking. The map is from Google and can set cookies, so it loads only if you allow it.</span> <button type="button" class="linklike" data-open="privacy" data-i18n="legal.more">Read more</button></p>
-    <div class="btns"><button class="btn btn--small" type="button" id="cookie-yes" data-i18n="cookie.yes">Accept</button><button class="btn btn--small btn--ghost" type="button" id="cookie-no" data-i18n="cookie.no">Decline</button></div>
-  </div>
-
-  <dialog class="modal" id="modal" aria-labelledby="modal-title">
-    <div class="modal__head"><h2 id="modal-title"></h2><button type="button" class="x" id="modal-close" aria-label="Close">×</button></div>
-    <div class="modal__body" id="modal-body"></div>
-  </dialog>
-
-  <dialog class="lightbox" id="lightbox"><img alt="" /><form method="dialog"><button aria-label="Close">×</button></form></dialog>
-  <script src="scrub.js"></script>
-  <script src="main.js?v=20261120"></script>
-<script src="form-guard.js" defer></script>
+</div>
 </body>
 </html>

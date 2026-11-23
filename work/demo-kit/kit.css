@@ -1,0 +1,93 @@
+/* Demo kit: the frame Joel's three demos share (Vjosa Rafting, Lule Balkan Kitchen, Ura Coffee Roasters).
+   - the thin "Demo" banner at the top of each demo
+   - the phone mockup on desktop (CSS only); phones and tablets get the demo full screen
+   - the "Want a site like this?" block with the preview-request form at the bottom
+   Colours are the portfolio's own (obsidian + gold), so the frame reads as Joel's and not as the sample business.
+   The demo inside the phone lays itself out with container queries on .kit-screen, not media queries. */
+:root {
+  --kit-bg: #0b0c0e; --kit-surface: #15161a; --kit-ink: #f4f4f5; --kit-muted: #a7afbb;
+  --kit-gold: #e5b869; --kit-line: rgba(244, 244, 245, .14); --kit-err: #ffb4a8; --kit-ok: #b8e0b0;
+  --kit-font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+.kit-screen { container-type: inline-size; container-name: screen; position: relative; }
+.sr { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.kit-info { display: none; }
+
+/* Skip link and the banner */
+.kit-skip { position: absolute; left: 8px; top: -60px; z-index: 50; padding: .6rem 1rem; background: var(--kit-gold); color: var(--kit-bg); font: 600 .875rem/1 var(--kit-font); border-radius: 6px; text-decoration: none; }
+.kit-skip:focus { top: 8px; }
+.kit-banner { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin: 0; padding: .45rem 1rem; background: var(--kit-bg); color: var(--kit-ink); font: 500 .75rem/1.35 var(--kit-font); letter-spacing: .01em; }
+.kit-banner__tag { display: inline-flex; align-items: center; gap: .45rem; }
+.kit-banner__tag::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--kit-gold); flex: none; }
+.kit-banner a { color: var(--kit-gold); text-decoration: none; white-space: nowrap; padding: .35rem 0; }
+.kit-banner a:hover { text-decoration: underline; }
+.kit-banner a:focus-visible, .kit-cta a:focus-visible, .kit-cta button:focus-visible, .kit-cta input:focus-visible, .kit-info a:focus-visible { outline: 2px solid var(--kit-gold); outline-offset: 3px; }
+
+/* "Want a site like this?" */
+.kit-cta { background: var(--kit-bg); color: var(--kit-ink); font-family: var(--kit-font); padding: 3rem 1.25rem 3.25rem; border-top: 1px solid var(--kit-line); }
+.kit-cta__in { max-width: 34rem; margin: 0 auto; }
+.kit-cta__by { margin: 0 0 .75rem; color: var(--kit-gold); font-size: .8125rem; font-weight: 600; letter-spacing: .04em; }
+.kit-cta h2 { margin: 0 0 .6rem; font: 700 1.6rem/1.15 var(--kit-font); letter-spacing: -.01em; text-wrap: balance; color: var(--kit-ink); }
+.kit-cta p { margin: 0; color: var(--kit-muted); font-size: 1rem; line-height: 1.55; }
+.kit-cta__btns { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.4rem; }
+.kit-btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 48px; padding: .75rem 1.2rem; border-radius: 10px; border: 1px solid var(--kit-gold); font: 600 .9375rem/1.2 var(--kit-font); text-decoration: none; cursor: pointer; transition: transform .15s, background-color .25s, color .25s; }
+.kit-btn:active { transform: scale(.98); }
+.kit-btn--gold { background: var(--kit-gold); color: var(--kit-bg); }
+.kit-btn--gold:hover { background: #f0cb88; }
+.kit-btn--line { background: transparent; color: var(--kit-ink); }
+.kit-btn--line:hover { background: rgba(229, 184, 105, .12); }
+.kit-btn[disabled] { opacity: .6; cursor: wait; }
+.kit-btn svg { width: 18px; height: 18px; flex: none; }
+.kit-form { margin-top: 1.5rem; padding: 1.25rem; border: 1px solid var(--kit-line); border-radius: 12px; background: var(--kit-surface); display: grid; gap: 1rem; }
+.kit-form[hidden] { display: none; }
+.kit-field { display: grid; gap: .35rem; }
+.kit-field label { font-size: .875rem; font-weight: 600; color: var(--kit-ink); }
+.kit-field input[type=text] { width: 100%; min-height: 46px; padding: .6rem .8rem; border-radius: 8px; border: 1px solid rgba(244, 244, 245, .28); background: var(--kit-bg); color: var(--kit-ink); font: 400 1rem/1.3 var(--kit-font); }
+.kit-field input::placeholder { color: #8b929c; }
+.kit-field input[aria-invalid=true] { border-color: var(--kit-err); }
+.kit-check { display: grid; grid-template-columns: auto 1fr; gap: .6rem; align-items: start; font-size: .875rem; line-height: 1.45; color: var(--kit-muted); }
+.kit-check input { width: 20px; height: 20px; margin: .1rem 0 0; accent-color: var(--kit-gold); }
+.kit-check a { color: var(--kit-gold); }
+.kit-err { min-height: 0; margin: 0; color: var(--kit-err); font-size: .8125rem; }
+.kit-err:empty { display: none; }
+.kit-status { margin: 0; font-size: .9375rem; line-height: 1.45; }
+.kit-status:empty { display: none; }
+.kit-status.is-ok { color: var(--kit-ok); }
+.kit-status.is-err { color: var(--kit-err); }
+.kit-trap { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+.kit-made { margin: 2rem 0 0 !important; font-size: .8125rem !important; color: var(--kit-muted); }
+.kit-made a { color: var(--kit-ink); }
+
+/* Desktop: the demo sits in a phone on a dark stage, with a short note beside it. */
+@media (min-width: 900px) and (min-height: 560px) {
+  html.kit-framed, html.kit-framed body { height: 100%; overflow: hidden; }
+  html.kit-framed body { margin: 0; background: radial-gradient(120% 80% at 70% 20%, #191a1f 0%, var(--kit-bg) 60%); color: var(--kit-ink); }
+  .kit-framed .kit-stage { height: 100%; display: flex; align-items: center; justify-content: center; gap: clamp(2.5rem, 6vw, 6rem); padding: 24px; box-sizing: border-box; }
+  .kit-framed .kit-info { display: block; width: min(330px, 30vw); font-family: var(--kit-font); }
+  .kit-info__back { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; color: var(--kit-muted); text-decoration: none; font-size: .875rem; }
+  .kit-info__back:hover { color: var(--kit-ink); }
+  .kit-info .kit-info__tag { display: inline-block; margin: 1.5rem 0 .75rem; padding: .3rem .6rem; border: 1px solid rgba(229, 184, 105, .5); border-radius: 6px; color: var(--kit-gold); font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+  .kit-info .kit-info__name { margin: 0 0 .6rem !important; font: 700 2.1rem/1.08 var(--kit-font); letter-spacing: -.02em; color: var(--kit-ink); }
+  .kit-info p { margin: 0 0 1.25rem; color: var(--kit-muted); line-height: 1.55; font-size: .9375rem; }
+  .kit-info ul { margin: 0 0 1.5rem; padding: 0; list-style: none; display: grid; gap: .55rem; }
+  .kit-info li { position: relative; padding-left: 1.2rem; color: var(--kit-ink); font-size: .9375rem; line-height: 1.4; }
+  .kit-info li::before { content: ''; position: absolute; left: 0; top: .5em; width: 6px; height: 6px; border-radius: 50%; background: var(--kit-gold); }
+  .kit-info__note { font-size: .8125rem !important; }
+  /* The phone is the rounded clipper (its border is the bezel); the scrolling screen inside has no radius of its own,
+     which keeps software-rendered browsers from leaving paint at the corners. */
+  .kit-framed .kit-phone { position: relative; flex: none; width: 414px; height: min(868px, calc(100% - 8px)); border: 12px solid #1c1d21; border-radius: 58px; overflow: hidden; background: #1c1d21; box-shadow: 0 0 0 1.5px #34353c, 0 0 0 7px #121316, 0 40px 90px -30px rgba(0, 0, 0, .75); isolation: isolate; }
+  .kit-framed .kit-screen { width: 390px; height: 100%; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
+  .kit-framed .kit-screen::-webkit-scrollbar { display: none; }
+  .kit-framed .kit-banner { padding-top: .7rem; }
+  /* Inside Joel's portfolio viewer the viewer already has its own close button and title. */
+  .kit-embedded .kit-info__back { display: none; }
+}
+/* Scroll reveal (kit.js adds .kit-reveal only when motion is allowed) */
+.kit-reveal [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .6s cubic-bezier(.22, 1, .36, 1), transform .6s cubic-bezier(.22, 1, .36, 1); }
+.kit-reveal [data-reveal].is-in { opacity: 1; transform: none; }
+/* Sample-data and [TODO] markers inside the demos */
+.todo { display: inline-block; font: 600 .6875rem/1.3 ui-monospace, 'Cascadia Mono', Consolas, monospace; letter-spacing: .01em; padding: .25rem .45rem; border-radius: 4px; background: rgba(11, 12, 14, .82); color: #f4f4f5; }
+@media (prefers-reduced-motion: reduce) {
+  .kit-btn { transition: none; }
+  html, .kit-screen { scroll-behavior: auto !important; }
+}

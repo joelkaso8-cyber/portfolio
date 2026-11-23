@@ -8,6 +8,7 @@ Read this first for any fix here. Targeted edits only, no redesign unless Joel a
 - **Fonts:** Figtree only since 2026-11-23 (headings 700, body 400), self-hosted in `gfonts/`. Tokens (colour, type, spacing, radius) sit at the top of `style.css`.
 - **Page order:** Hero, Selected work (Kaso featured), Packages & Pricing (+ savings calculator, free preview, care plan), Process, About, FAQ, Contact (form with the quick quote built in).
 - **Demos:** each `work/<name>/` is standalone (own `style.css`, often `film.css` scroll film). Demos are `noindex` on purpose (SEO 63 is expected).
+- **Demo kit (2026-11-23):** Vjosa Rafting, Lule Balkan Kitchen and Ura Coffee Roasters share `work/demo-kit/` (`kit.css` + `kit.js`): the "Demo · sample business and data" banner, the CSS phone mockup on desktop (≥900 px; full screen below), the "Want a site like this?" block with the preview-request form (FormSubmit to Joel, honeypot, rate limit) and EN/SQ (`jk-lang`, shared with the portfolio). Inside the phone, layout uses container queries on `.kit-screen`, not media queries. All their data is sample data; every placeholder is marked `[TODO]`. Lule's menu lives in `work/lule-kitchen/menu.js`.
 - **Cache tags:** after changing CSS/JS, bump the `?v=` tag in the HTML that links it.
 - **Prices:** written as 390€, 590€, 1.190€.
 - **Check:** phone 360px + desktop 1440px, 0 console errors, no horizontal overflow.

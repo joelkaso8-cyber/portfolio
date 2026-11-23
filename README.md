@@ -22,6 +22,8 @@ Plain HTML, CSS and JavaScript. No build step: edit a file, check it locally, pu
 | `img/` | Screenshots on the cards: `<id>-desk.webp`, `<id>-desk-600.webp`, `<id>-phone.webp`, `<id>-phone-260.webp` |
 | `media/` | The hero film and its still pictures |
 | `work/<id>/` | Each demo or client site |
+| `work/demo-kit/` | Shared frame for the Vjosa, Lule and Ura demos: demo banner, phone mockup on desktop, "Want a site like this?" block and preview form, EN/SQ |
+| `work/lule-kitchen/menu.js` | Lule's menu (dishes, sample prices, photos): edit this file to change the menu |
 
 ## Change a text
 
